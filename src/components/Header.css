@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('../assets/PressStart2P.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.header {
+  box-sizing: border-box;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3.5rem);
+  border: 3px solid #1e293b;
+  background: #ffb399;
+  color: #08060d;
+  text-align: left;
+}
+
+.header h1 {
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 1.25rem;
+  padding: clamp(0.3rem, 1vw, 0.5rem);
+  border: 3px solid #1e293b;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #fffaf0, 5px 5px 0 #fffaf0, 8px 8px 0 #1e293b, 11px 11px 0 #d98268;
+  color: #1e293b;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.75rem, 3.2vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.header h1 span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.header-titel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  margin: 0;
+  color: #1e293b;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.5rem, 1.5vw, 0.9rem);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header-titel-ord {
+  padding: clamp(0.3rem, 1vw, 0.5rem);
+  border: 2px solid #1e293b;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #fffaf0, 3px 3px 0 #fffaf0, 6px 6px 0 #1e293b, 9px 9px 0 #d98268;
+  line-height: 1.2;
+}

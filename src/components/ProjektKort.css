@@ -1,0 +1,57 @@
+.projekt-kort {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;                      
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 2px solid #08060d;
+}
+
+.projekt-bild {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;                     
+}
+
+.projekt-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.projekt-info h3 {
+  margin: 0 0 8px;
+  color: #261f3a;
+  font-size: 20px;
+}
+
+.projekt-info .hero-knapp {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.projekt-knapp {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #1e293b;
+  color: #fcf6fa;
+  font-weight: 600;
+  text-decoration: none;        
+}
+
+.projekt-knapp:hover {
+  background-color: #320120;
+}
+
+.projekt-knapp:focus-visible {
+  outline: 3px solid #7e2b60;
+  outline-offset: 4px;
+}

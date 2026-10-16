@@ -1,0 +1,105 @@
+footer.footer {
+  position: relative;
+  padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem);
+  border-top: 3px solid #08060d;
+  background-color: #1e293b;
+}
+
+.footer-innehall {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: repeat(5, auto);
+  align-items: center;
+  column-gap: 1rem;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.footer-lankar {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  grid-template-rows: subgrid;
+  align-items: flex-start;
+  justify-items: start;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.5rem, 1vw, 0.7rem);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.footer-kontakt {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  grid-template-rows: subgrid;
+  justify-items: end;
+}
+
+.footer-lankar a,
+.footer-kontakt a,
+.footer-copyright {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  width: auto;
+  padding: 0.2rem 0.35rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fffaf0;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.5rem, 1vw, 0.7rem);
+  font-weight: 400;
+  text-decoration: underline;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.footer-copyright {
+  grid-row: 5;
+  margin: 0;
+  text-align: right;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .footer-innehall {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 0.5rem;
+  }
+
+  .footer-lankar {
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-rows: none;
+  }
+
+  .footer-kontakt {
+    grid-column: 1;
+    grid-row: 2;
+    grid-template-rows: none;
+    justify-items: start;
+  }
+
+  .footer-copyright {
+    grid-row: auto;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+.footer-lankar a:hover,
+.footer-lankar a:focus-visible,
+.footer-kontakt a:hover,
+.footer-kontakt a:focus-visible {
+  border-color: #08060d;
+  color: #ffb399;
+  outline: none;
+}

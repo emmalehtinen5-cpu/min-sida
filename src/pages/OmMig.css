@@ -1,0 +1,267 @@
+.om-mig-innehall {
+  flex: 1;
+  padding: clamp(2rem, 6vw, 5rem);
+  border: 3px solid #1e293b;
+  background: #fff;
+  display: grid;
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  align-items: start;
+  column-gap: 2rem;
+  row-gap: 0;
+}
+
+.om-mig-bildkolumn {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+}
+
+.om-mig-bildkolumn::after {
+  position: absolute;
+  top: 180px;
+  width: 4px;
+  right: 1px;
+  bottom: 0;
+  border-radius: 0 0 3px 3px;
+  background: #1e293b;
+  content: "";
+}
+
+.om-mig-bild {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 3px solid #1e293b;
+  border-radius: 3px;
+}
+
+.om-mig-sektion h2 {
+  position: relative;
+  width: fit-content;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  color: #1e293b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 3.8vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.om-mig-sektion {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.om-mig-sektion h2::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3.5rem;
+  height: 4px;
+  background: #d98268;
+  content: "";
+}
+
+.om-mig-avdelare {
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 4px;
+  margin-top: 1.5rem;
+  margin-left: 235.5px;
+  margin-right: -30px;
+  border-radius: 4px;
+  background: #1e293b;
+}
+
+.om-mig-avdelare-sväng {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 2px);
+  width: 8px;
+  height: 192px;
+  overflow: visible;
+}
+
+.om-mig-avdelare-sväng path {
+  fill: none;
+  stroke: #1e293b;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.om-mig-avdelare-fortsättning {
+  position: absolute;
+  top: 187px;
+  left: calc(100% + 4px);
+  width: calc(clamp(2rem, 6vw, 5rem) - 33px);
+  height: 4px;
+  border-radius: 0 4px 4px 0;
+  background: #1e293b;
+}
+
+.om-mig-avdelare-kopia {
+  position: absolute;
+  top: calc(100% + 1.5cm);
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #1e293b;
+}
+
+.om-mig-avdelare-kopia-vänster {
+  position: absolute;
+  top: -94px;
+  left: 0;
+  width: 2px;
+  height: 96px;
+  border-radius: 2px 2px 0 0;
+  background: #1e293b;
+}
+
+.om-mig-avdelare-kopia .om-mig-avdelare-sväng {
+  left: calc(100% - 1px);
+}
+
+.om-mig-avdelare-kopia .om-mig-avdelare-sväng path {
+  stroke-width: 2px;
+}
+
+.om-mig-avdelare-kopia .om-mig-avdelare-fortsättning {
+  top: 188px;
+  left: calc(100% + 3px);
+  width: calc(clamp(2rem, 6vw, 5rem) - 32px);
+  height: 2px;
+  border-radius: 0 2px 2px 0;
+}
+
+.om-mig-kompetenser {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: 1.25rem;
+  padding-left: calc(2rem + 6cm + 13px);
+}
+
+.om-mig-kompetenser .merit-grupp strong {
+  display: inline-block;
+  padding: 0.15rem 0.3rem;
+  border-radius: 3px;
+  background: #1e293b;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration-color: #fff;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.om-mig-kompetenser .merit-adobe .merit-programlista {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.om-mig-kompetenser .merit-grupper {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.35rem, 1vw, 0.75rem);
+  min-width: 0;
+}
+
+.om-mig-kompetenser .merit-grupp {
+  min-width: 0;
+}
+
+.om-mig-kompetenser .merit-grupp .merit-programlista {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  gap: 0.3rem;
+  margin-top: 0;
+}
+
+.om-mig-kompetenser .merit-grupp p {
+  margin-bottom: 0.6rem;
+}
+
+.om-mig-kompetenser .merit-programlista li {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.1rem 0.2rem;
+  font-size: clamp(0.45rem, 0.8vw, 0.65rem);
+  overflow-wrap: anywhere;
+}
+
+.om-mig-kompetenser .merit-sprak .merit-programlista li,
+.om-mig-kompetenser .merit-ovrigt .merit-programlista li {
+  padding: 0.1rem 0.2rem;
+  border: 1px solid #1e293b;
+  background: transparent;
+  box-shadow: 2px 2px 0 #1e293b;
+}
+
+.om-mig-kompetenser .merit-sprak .merit-programlista {
+  gap: 0.45rem;
+}
+
+.om-mig-kompetenser .merit-office .merit-programlista {
+  gap: 0.45rem;
+}
+
+.om-mig-kompetenser .merit-adobe .merit-programlista,
+.om-mig-kompetenser .merit-digitalisering .merit-programlista {
+  gap: 0.45rem;
+}
+
+@media (max-width: 900px) {
+  .om-mig-innehall {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+  }
+
+  .om-mig-bildkolumn {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .om-mig-bildkolumn::after {
+    display: none;
+  }
+
+  .om-mig-bild {
+    width: min(100%, 240px);
+  }
+
+  .om-mig-sektion {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .om-mig-avdelare {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .om-mig-avdelare-sväng,
+  .om-mig-avdelare-fortsättning,
+  .om-mig-avdelare-kopia,
+  .om-mig-avdelare-kopia-vänster {
+    display: none;
+  }
+
+  .om-mig-kompetenser {
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+}
