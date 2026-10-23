@@ -2,7 +2,7 @@ import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
 import Hero1 from "../assets/Hero1.jpg";
 import Hero2 from "../assets/Hero2.jpg";
-import Hero3 from "../assets/Hero3.jpg";
+import Hero3 from "../assets/Hero3.webp";
 
    const projekt = [
   {

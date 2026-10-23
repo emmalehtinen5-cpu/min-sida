@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Valkommen from "../components/Valkommen";
-import emmaBild from "../assets/emma.JPG";
+import emmaBild from "../assets/emma.webp";
 import "./OmMig.css";
 
 function OmMig() {
