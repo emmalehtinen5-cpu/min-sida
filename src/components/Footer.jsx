@@ -8,20 +8,29 @@ function Footer() {
     <footer className="footer" id="kontakt">
       <div className="footer-innehall">
         <nav className="footer-lankar" aria-label="Sidnavigering">
-          <Link to="/">Hem</Link>
-          <a href="/#kontakt">Länkar</a>
+         <Link to="/">Hem</Link>
+         <Link to="/kontakt">Kontakt</Link>
           <Link to="/om-mig">Om mig</Link>
-          <Link to="/">Portfolio</Link>
-          <a href="/#projekt">Projekt</a>
-        </nav>
-        <div className="footer-kontakt">
+         
+          <a href="/portfoliosida.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+           >
+            Portfolio</a>
+
+          < Link to="/projekt">Projekt</Link>
+          </nav>
+
+          <div className="footer-kontakt">
           <a href="mailto:emmalehtinen5@gmail.com">
             Mail: emmalehtinen5@gmail.com
           </a>
           <a href="https://www.linkedin.com/in/emma-lehtinen-956443ab/?isSelfProfile=true">
             www.linkedin.com/in/emma-lehtinen-956443ab
           </a>
-          <p className="footer-copyright">©{år} Emma Lehtinen 👾</p>
+
+          <p className="footer-copyright">
+            ©{år} Emma Lehtinen 👾</p>
         </div>
       </div>
       

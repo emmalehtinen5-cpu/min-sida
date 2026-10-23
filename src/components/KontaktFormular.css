@@ -1,0 +1,56 @@
+.kontakt-formular {
+  max-width: 650px;
+  padding: 2rem;
+  border: 3px solid #1e293b;
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+.kontakt-formular h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 4px solid #d98268;
+  width: fit-content;
+}
+
+.kontakt-intro {
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.kontakt-falt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.kontakt-falt label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.kontakt-falt input,
+.kontakt-falt textarea {
+  padding: 12px 14px;
+  border: 1px solid #1e293b;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.kontakt-falt input:focus,
+.kontakt-falt textarea:focus {
+  outline: 2px solid #d98268;
+  outline-offset: 2px;
+}
+
+.kontakt-formular .hero-knapp {
+  cursor: pointer;
+}

@@ -46,13 +46,59 @@
   outline: none;
 }
 
-@media (max-width: 480px) {
+.lankar a.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Hamburgerknappen är dold på dator */
+.meny-knapp {
+  display: none;
+}
+
+/* Mobilmeny */
+@media (max-width: 700px) {
   .navbar {
-    align-items: flex-start;
-    flex-direction: column;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .meny-knapp {
+    display: block;
+    margin-left: auto;
+    padding: 6px 12px;
+    border: 2px solid #fffaf0;
+    border-radius: 4px;
+    background-color: #1e293b;
+    color: #fffaf0;
+    font-size: 24px;
+    cursor: pointer;
   }
 
   .lankar {
-    justify-content: flex-start;
+    display: none;
+  }
+
+  .lankar.oppen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 16px;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+
+    width: max-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+
+    background-color: #1e293b;
+    border: 2px solid #fffaf0;
   }
 }

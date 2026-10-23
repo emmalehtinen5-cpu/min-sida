@@ -1,0 +1,34 @@
+.ej-hittad {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 60px 8%;
+  background-color: #ffffff;
+  color: #1e293b;
+
+  border: 3px solid #1e293b;
+  box-sizing: border-box;
+}
+
+.ej-hittad h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 56px);
+  margin: 0 0 20px;
+  padding-bottom: 15px;
+  border-bottom: 4px solid #d98268;
+}
+
+.ej-hittad p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.ej-hittad .hero-knapp {
+  display: inline-block;
+  width: fit-content;
+}

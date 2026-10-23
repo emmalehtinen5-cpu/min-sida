@@ -1,0 +1,51 @@
+.kontakt1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
+  gap: 48px;
+  height: 500px;
+
+}
+
+.kontakt  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
+  border-bottom: 3px solid #08060d;
+  background: #1e293b;
+  color: #fffaf0;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.kontakt-form {
+  display: flex;
+  flex-direction: column; /* fälten under varandra */
+  gap: 8px;
+  max-width: 335px;
+  
+}
+.kontakt-bekraftelse {
+  margin-top: 15px;
+  padding: 15px 13px;
+  background-color: #ffffff;
+  border-left: 3.5px solid green;
+  color: green;
+  font-size: 16px;
+  font-weight: bold;
+  align-self: start;
+
+}
+@media (max-width: 800px) {
+  .kontakt {
+    grid-template-columns: 1fr; /* bara en kolumn */
+  }
+}
+/* Rött felmeddelande */
+.kontakt-fel {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}

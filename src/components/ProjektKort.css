@@ -55,3 +55,22 @@
   outline: 3px solid #7e2b60;
   outline-offset: 4px;
 }
+.projekt-teknik {
+  display: inline-block;
+  color: #1e293b;
+  font-size: 12px;
+  padding: 1px 1px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: fit-content;
+  align-self: flex-start;
+  background-color: #e2e8f0;
+}
+
+.projekt-kort {
+  transition: transform 0.3s ease;
+}
+
+.projekt-kort:hover {
+  transform: translateY(-4px);
+}

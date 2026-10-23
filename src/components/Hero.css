@@ -121,7 +121,8 @@
   display: inline-block;
   justify-self: start;
   margin-top: 0;
-  padding: 0.75rem 1.5rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 12px;
   border: 2px solid #1e293b;
   border-radius: 3px;
   background-color: #1e293b;
@@ -169,4 +170,45 @@
   .hero-knapp {
     transition: none;
   }
+  
+}
+.hero-innehall .merit-kolumner {
+  width: 100%;
+  font-size: 25px;
+  max-width: none;
+  display: block;
+}
+
+.hero-innehall .merit-grupp {
+  width: 100%;
+  max-width: none;
+  font-size: 25px;
+  box-sizing: border-box;
+  font-weight: 700;
+
+}
+
+.hero-innehall .merit-kolumner .merit-grupp .merit-programlista li {
+  font-size: 20px;
+   font-family: Georgia, 'Times New Roman', serif;
+     font-weight: 555px;
+     box-shadow: #1e293b;
+     text-transform: none;
+     line-height: 1.5;
+     text-align: justify;
+     max-width: 35ch;
+}
+.hero-innehall .merit-kolumner > p {
+  margin-top: 0px;
+  margin-bottom: -20px;
+  font-size: 16px;
+  font-weight: 900;
+
+}
+.hero-innehall .merit-kolumner > p {
+  margin-top: 100px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 900;
+
 }

@@ -101,7 +101,7 @@
   box-sizing: border-box;
   width: 100%;
   max-width: none;
-  padding: clamp(0.875rem, 2.5vw, 1.25rem);
+  padding: 0;
   border: 3px solid #1e293b;
   background: #fff;
 }
@@ -140,7 +140,7 @@
 }
 
 .merit-grupp p {
-  margin: 0 0 0.85rem;
+  margin: 0;
   color: #1e293b;
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(0.85rem, 1vw, 0.95rem);
@@ -214,7 +214,7 @@
 .merit-grupp .merit-programlista {
   display: grid;
   gap: 0.25rem;
-  margin: -0.55rem 0 0.85rem;
+  margin: 0;
   padding: 0;
   list-style: none;
   flex-direction: column;
@@ -241,7 +241,7 @@
 .merit-digitalisering .merit-programlista li,
 .merit-office .merit-programlista li,
 .merit-adobe .merit-programlista li {
-  padding: 0.2rem 0.45rem;
+  padding: 0.1rem 0.2rem;
   border: 1px solid #1e293b;
   background: transparent;
   box-shadow: 2px 2px 0 #1e293b;

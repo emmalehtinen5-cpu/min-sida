@@ -1,13 +1,23 @@
 function Valkommen({ showIntro = true, showSkills = true }) {
   return (
+    <>
+     {showIntro && (
     <div className="merit-kolumner" id="om-mig">
-      {showIntro && (
-        <p className="merit-intro">
-          Min erfarenhet omfattar internationell kundservice, boknings- och
-          passagerarhantering, kassaarbete och administration, koordinering,
-          logistik och presservice vid evenemang. Jag arbetar självständigt,
-          strukturerat och lösningsorienterat.
-        </p>
+  <article className="merit-grupp merit-introduktion">
+    <ul className="merit-programlista">
+      <li>Med en bred erfarenhet av internationell kundservice, administration, koordinering och evenemangsverksamhet kombinerar jag struktur, 
+      kommunikation och problemlösning med ett öga för detaljer. 
+      Jag trivs i sammanhang där människor, idéer och organisation möts och där jag får bidra med både analytiskt tänkande och kreativitet.</li>
+  
+          </ul>
+          </article>
+          
+          <p>Nyfiken på vem jag är 
+          </p>
+          <p>och vad jag kan bidra med?
+            ↩
+            </p>
+          </div> 
       )}
       {showSkills && (
         <div className="merit-grupper">
@@ -22,8 +32,8 @@ function Valkommen({ showIntro = true, showSkills = true }) {
             <article className="merit-grupp merit-digitalisering">
               <p><strong>Digital</strong></p>
               <ul className="merit-programlista">
-                <li>3D Studio Max</li>
-                <li>3D-rendering</li>
+                <li>3DMax</li>
+                <li>3D-render</li>
                 <li>ArcGIS</li>
                 <li>AutoCAD</li>
                 <li>SketchUp</li>
@@ -55,7 +65,7 @@ function Valkommen({ showIntro = true, showSkills = true }) {
             </article>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
