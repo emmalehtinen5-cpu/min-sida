@@ -1,105 +1,798 @@
-footer.footer {
-  position: relative;
-  padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem);
-  border-top: 3px solid #08060d;
-  background-color: #1e293b;
+
+/* =========================================
+   FOOTER.CSS – EMMA LEHTINEN
+   GEOMETRISK SKANDINAVISK DESIGN
+   LJUST OCH MÖRKT LÄGE
+========================================= */
+
+/* =========================================
+   1. GRUNDINSTÄLLNINGAR
+========================================= */
+
+.footer,
+.footer *,
+.footer *::before,
+.footer *::after {
+  box-sizing: border-box;
 }
 
-.footer-innehall {
+/* =========================================
+   2. FOOTER – LJUST LÄGE
+========================================= */
+
+.footer {
+  --footer-bg: #f5f3ed;
+  --footer-text: #171717;
+  --footer-green: #a8b5a2;
+  --footer-light-green: #d5ded7;
+  --footer-line: #c5cec2;
+  --footer-dark-green: #647764;
+  --footer-accent-text: #171717;
+
+  width: calc(100% - 48px);
+  max-width: 1700px;
+
+  margin: 28px auto 24px;
+  padding: 0;
+
+  color: var(--footer-text);
+  background: var(--footer-bg);
+
+  border: 2px solid var(--footer-text);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   3. HUVUDLAYOUT – TRE KOLUMNER
+========================================= */
+
+.footer .footer-innehall {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: repeat(5, auto);
-  align-items: center;
-  column-gap: 1rem;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.8fr)
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
   width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  line-height: 1.5;
+  min-width: 0;
+
+  padding: 36px 30px 32px;
 }
 
-.footer-lankar {
+/* =========================================
+   4. VÄNSTER KOLUMN – PROFIL
+========================================= */
+
+.footer .footer-presentation {
   display: grid;
-  grid-column: 1;
-  grid-row: 1 / span 5;
-  grid-template-rows: subgrid;
-  align-items: flex-start;
-  justify-items: start;
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(0.5rem, 1vw, 0.7rem);
-  font-weight: 400;
-  text-transform: uppercase;
-}
 
-.footer-kontakt {
-  display: grid;
-  grid-column: 2;
-  grid-row: 1 / span 5;
-  grid-template-rows: subgrid;
-  justify-items: end;
-}
+  grid-template-columns:
+    minmax(90px, 0.7fr)
+    minmax(0, 1.3fr);
 
-.footer-lankar a,
-.footer-kontakt a,
-.footer-copyright {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  margin: 0;
-  width: auto;
-  padding: 0.2rem 0.35rem;
-  border: 1px solid transparent;
-  border-radius: 0;
-  box-shadow: none;
-  color: #fffaf0;
-  text-align: center;
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(0.5rem, 1vw, 0.7rem);
-  font-weight: 400;
-  text-decoration: underline;
-  text-transform: uppercase;
-  overflow-wrap: anywhere;
+  gap: 24px;
+
+  min-width: 0;
+  padding-right: 30px;
 }
 
-.footer-copyright {
-  grid-row: 5;
-  margin: 0;
-  text-align: right;
+/* =========================================
+   5. ABSTRAKT GEOMETRISK BILDYTA
+========================================= */
+
+.footer .footer-profilbild {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 260px;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 48%,
+      rgba(168, 181, 162, 0.85) 49% 53%,
+      transparent 54%
+    ),
+    linear-gradient(
+      180deg,
+      #c7cebf 0%,
+      #e7e5dc 48%,
+      #d5ded7 100%
+    );
+
+  border: 1px solid #d6d6d0;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* TVÅ TUNNA VERTIKALA LINJER */
+
+.footer .footer-profilbild::before {
+  content: "";
+
+  position: absolute;
+  z-index: 1;
+
+  top: 12%;
+  right: 15%;
+  bottom: 12%;
+  left: 15%;
+
+  border-left: 1px solid #92988d;
+  border-right: 1px solid #92988d;
+
+  pointer-events: none;
+}
+
+/* VINKELFORM NEDTILL HÖGER */
+
+.footer .footer-profilbild-form {
+  position: absolute;
+  z-index: 2;
+
+  right: 12%;
+  bottom: 12%;
+
+  width: 44%;
+  height: 52%;
+
+  border-right: 3px solid var(--footer-dark-green);
+  border-bottom: 3px solid var(--footer-dark-green);
+
+  pointer-events: none;
+}
+
+/* =========================================
+   6. PROFILTEXT
+========================================= */
+
+.footer .footer-profiltext {
+  min-width: 0;
+}
+
+/* =========================================
+   7. NAMN
+========================================= */
+
+.footer .footer-namn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+
+  margin: 0 0 16px;
+  padding: 0 0 13px;
+
+  border-bottom: 3px solid var(--footer-text);
+
+  color: var(--footer-text);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(23px, 2vw, 35px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+
   text-decoration: none;
 }
 
-@media (max-width: 600px) {
-  .footer-innehall {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 0.5rem;
+.footer .footer-namn > span:first-child {
+  min-width: 0;
+}
+
+/* PIL VID NAMNET */
+
+.footer .footer-namn-pil {
+  flex-shrink: 0;
+
+  color: var(--footer-dark-green);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* =========================================
+   8. YRKESTITEL
+========================================= */
+
+.footer .footer-titel {
+  margin: 0;
+  padding: 0;
+
+  color: var(--footer-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   9. GRÖN ACCENTLINJE
+========================================= */
+
+.footer .footer-dekorlinje {
+  width: 62px;
+  height: 3px;
+
+  margin: 24px 0;
+
+  background: var(--footer-green);
+}
+
+/* =========================================
+   10. PLATS OCH PLATSMARKÖR
+========================================= */
+
+.footer .footer-plats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--footer-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer .footer-platsikon {
+  display: block;
+  flex: 0 0 28px;
+
+  width: 28px;
+  height: 28px;
+
+  color: var(--footer-dark-green);
+}
+
+/* =========================================
+   11. MITTEN – UTFORSKA
+========================================= */
+
+.footer .footer-navigation {
+  min-width: 0;
+  padding: 0 28px;
+
+  border-left: 2px solid var(--footer-line);
+}
+
+/* =========================================
+   12. HÖGER – KONTAKT
+========================================= */
+
+.footer .footer-kontakt {
+  min-width: 0;
+  padding: 0 0 0 28px;
+
+  border-left: 2px solid var(--footer-line);
+}
+
+/* =========================================
+   13. RUBRIKBOXAR
+========================================= */
+
+.footer .footer-rubrik {
+  margin: 4px 0 24px;
+  padding: 0;
+
+  border: none;
+
+  color: var(--footer-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.footer .footer-rubrik span {
+  display: inline-block;
+
+  padding: 12px 16px;
+
+  background: var(--footer-green);
+  border: 1px solid var(--footer-text);
+
+  color: var(--footer-accent-text);
+}
+
+/* =========================================
+   14. NAVIGATIONSLÄNKAR
+========================================= */
+
+.footer .footer-lankar {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.footer .footer-lankar a,
+.footer .footer-kontaktlankar a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 13px 8px;
+
+  border-bottom: 1px solid var(--footer-line);
+
+  color: var(--footer-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    padding 0.2s ease,
+    color 0.2s ease;
+}
+
+.footer .footer-lankar a {
+  justify-content: space-between;
+}
+
+/* =========================================
+   15. PILAR
+========================================= */
+
+.footer .footer-pil {
+  flex-shrink: 0;
+  margin-left: auto;
+
+  color: var(--footer-dark-green);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* =========================================
+   16. KONTAKTINTRODUKTION
+========================================= */
+
+.footer .footer-kontakt-intro {
+  max-width: 360px;
+
+  margin: 0 0 28px;
+  padding: 0;
+
+  color: var(--footer-text);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* =========================================
+   17. KONTAKTLÄNKAR
+========================================= */
+
+.footer .footer-kontaktlankar {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.footer .footer-kontaktlankar a {
+  flex-wrap: nowrap;
+}
+
+/* MEJLIKON */
+
+.footer .footer-kontaktikon {
+  display: block;
+  flex: 0 0 26px;
+
+  width: 26px;
+  height: 26px;
+
+  color: var(--footer-text);
+}
+
+/* LINKEDIN-IKON */
+
+.footer .footer-linkedinikon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 26px;
+
+  width: 26px;
+  height: 26px;
+
+  border: 2px solid var(--footer-text);
+  border-radius: 2px;
+
+  color: var(--footer-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* =========================================
+   18. HOVER PÅ LÄNKAR
+========================================= */
+
+.footer .footer-lankar a:hover,
+.footer .footer-kontaktlankar a:hover {
+  padding-left: 14px;
+  background: var(--footer-light-green);
+}
+
+/* =========================================
+   19. NEDERDEL – SALVIAGRÖN
+========================================= */
+
+.footer .footer-nederdel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  min-height: 66px;
+
+  margin: 0;
+  padding: 16px 30px;
+
+  background: var(--footer-green);
+  border-top: 3px solid var(--footer-text);
+}
+
+.footer .footer-nederdel p {
+  margin: 0;
+
+  color: var(--footer-accent-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+}
+
+.footer .footer-nederdel-symbol {
+  color: var(--footer-accent-text);
+  font-size: 22px;
+}
+
+/* =========================================
+   20. MÖRKT LÄGE – FÄRGVARIABLER
+========================================= */
+
+body.morkt-lage .footer {
+  --footer-bg: #1d2521;
+  --footer-text: #f5f3ed;
+  --footer-green: #a8b5a2;
+  --footer-light-green: #4a5a50;
+  --footer-line: #617067;
+  --footer-dark-green: #a8b5a2;
+  --footer-accent-text: #171717;
+
+  background: var(--footer-bg);
+  color: var(--footer-text);
+
+  border-color: var(--footer-text);
+}
+
+/* =========================================
+   21. MÖRKT LÄGE – TEXT
+========================================= */
+
+body.morkt-lage .footer .footer-namn,
+body.morkt-lage .footer .footer-titel,
+body.morkt-lage .footer .footer-plats,
+body.morkt-lage .footer .footer-rubrik,
+body.morkt-lage .footer .footer-kontakt-intro,
+body.morkt-lage .footer .footer-lankar a,
+body.morkt-lage .footer .footer-kontaktlankar a {
+  color: #f5f3ed;
+}
+
+/* =========================================
+   22. MÖRKT LÄGE – RUBRIKBOXAR
+========================================= */
+
+body.morkt-lage .footer .footer-rubrik span {
+  background: #a8b5a2;
+  color: #171717;
+
+  border-color: #f5f3ed;
+}
+
+/* =========================================
+   23. MÖRKT LÄGE – GEOMETRISK BILD
+========================================= */
+
+body.morkt-lage .footer .footer-profilbild {
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 48%,
+      rgba(168, 181, 162, 0.55) 49% 53%,
+      transparent 54%
+    ),
+    linear-gradient(
+      180deg,
+      #4a5a50 0%,
+      #303c33 48%,
+      #263129 100%
+    );
+
+  border-color: #617067;
+}
+
+/* VERTIKALA LINJER */
+
+body.morkt-lage .footer .footer-profilbild::before {
+  border-left-color: #a8b5a2;
+  border-right-color: #a8b5a2;
+}
+
+/* GEOMETRISK VINKELFORM */
+
+body.morkt-lage .footer .footer-profilbild-form {
+  border-right-color: #a8b5a2;
+  border-bottom-color: #a8b5a2;
+}
+
+/* =========================================
+   24. MÖRKT LÄGE – IKONER OCH PILAR
+========================================= */
+
+body.morkt-lage .footer .footer-pil,
+body.morkt-lage .footer .footer-namn-pil,
+body.morkt-lage .footer .footer-platsikon {
+  color: #a8b5a2;
+}
+
+body.morkt-lage .footer .footer-kontaktikon {
+  color: #f5f3ed;
+}
+
+body.morkt-lage .footer .footer-linkedinikon {
+  color: #f5f3ed;
+  border-color: #f5f3ed;
+}
+
+/* =========================================
+   25. MÖRKT LÄGE – AVDELARE
+========================================= */
+
+body.morkt-lage .footer .footer-navigation,
+body.morkt-lage .footer .footer-kontakt {
+  border-color: #617067;
+}
+
+body.morkt-lage .footer .footer-presentation {
+  border-bottom-color: #617067;
+}
+
+body.morkt-lage .footer .footer-namn {
+  border-bottom-color: #f5f3ed;
+}
+
+body.morkt-lage .footer .footer-lankar a,
+body.morkt-lage .footer .footer-kontaktlankar a {
+  border-bottom-color: #617067;
+}
+
+/* =========================================
+   26. MÖRKT LÄGE – LÄNKAR OCH HOVER
+========================================= */
+
+body.morkt-lage .footer .footer-lankar a:hover,
+body.morkt-lage .footer .footer-kontaktlankar a:hover {
+  background: #4a5a50;
+  color: #f5f3ed;
+}
+
+/* =========================================
+   27. MÖRKT LÄGE – ACCENTLINJE
+========================================= */
+
+body.morkt-lage .footer .footer-dekorlinje {
+  background: #a8b5a2;
+}
+
+/* =========================================
+   28. MÖRKT LÄGE – NEDERDEL
+========================================= */
+
+body.morkt-lage .footer .footer-nederdel {
+  background: #4a5a50;
+  border-top-color: #f5f3ed;
+}
+
+body.morkt-lage .footer .footer-nederdel p,
+body.morkt-lage .footer .footer-nederdel-symbol {
+  color: #f5f3ed;
+}
+
+/* =========================================
+   29. FOKUS OCH TILLGÄNGLIGHET
+========================================= */
+
+.footer a:focus-visible {
+  outline: 2px solid var(--footer-text);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   30. SURFPLATTA
+========================================= */
+
+@media (max-width: 1050px) {
+  .footer {
+    width: calc(100% - 32px);
   }
 
-  .footer-lankar {
-    grid-column: 1;
-    grid-row: 1;
-    grid-template-rows: none;
+  .footer .footer-innehall {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 0.8fr);
+
+    row-gap: 32px;
+    padding: 28px 24px;
   }
 
-  .footer-kontakt {
-    grid-column: 1;
-    grid-row: 2;
-    grid-template-rows: none;
-    justify-items: start;
+  .footer .footer-presentation {
+    grid-column: 1 / -1;
+
+    padding: 0 0 28px;
+
+    border-bottom: 1px solid var(--footer-line);
   }
 
-  .footer-copyright {
-    grid-row: auto;
-    justify-self: start;
-    text-align: left;
+  .footer .footer-profilbild {
+    min-height: 190px;
+  }
+
+  .footer .footer-navigation {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .footer .footer-kontakt {
+    padding-left: 24px;
+  }
+
+  .footer .footer-namn {
+    font-size: clamp(25px, 4vw, 35px);
   }
 }
 
-.footer-lankar a:hover,
-.footer-lankar a:focus-visible,
-.footer-kontakt a:hover,
-.footer-kontakt a:focus-visible {
-  border-color: #08060d;
-  color: #ffb399;
-  outline: none;
+/* =========================================
+   31. MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+  .footer {
+    width: calc(100% - 20px);
+    margin: 20px auto;
+  }
+
+  .footer .footer-innehall {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+
+    padding: 22px 18px;
+  }
+
+  .footer .footer-presentation {
+    grid-column: auto;
+
+    grid-template-columns:
+      minmax(75px, 0.65fr)
+      minmax(0, 1.35fr);
+
+    gap: 16px;
+    padding-bottom: 24px;
+  }
+
+  .footer .footer-profilbild {
+    min-height: 180px;
+  }
+
+  .footer .footer-namn {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .footer .footer-titel {
+    font-size: 9px;
+    letter-spacing: 0.07em;
+  }
+
+  .footer .footer-dekorlinje {
+    margin: 18px 0;
+  }
+
+  .footer .footer-navigation,
+  .footer .footer-kontakt {
+    padding: 24px 0 0;
+
+    border-top: 2px solid var(--footer-line);
+    border-left: none;
+  }
+
+  .footer .footer-rubrik {
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+
+  .footer .footer-kontakt-intro {
+    font-size: 15px;
+  }
+
+  .footer .footer-nederdel {
+    min-height: 54px;
+    padding: 13px 18px;
+  }
+}
+
+/* =========================================
+   32. MYCKET SMÅ SKÄRMAR
+========================================= */
+
+@media (max-width: 360px) {
+  .footer .footer-presentation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer .footer-profilbild {
+    min-height: 150px;
+  }
+}
+
+/* =========================================
+   33. MINSKADE ANIMATIONER
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer,
+  .footer a,
+  .footer .footer-profilbild {
+    transition: none;
+  }
 }

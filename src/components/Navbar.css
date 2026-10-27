@@ -1,104 +1,674 @@
+
+/* =========================================
+   NAVBAR.CSS – EMMA LEHTINEN
+   NORDISK DESIGN
+   LJUST OCH MÖRKT LÄGE
+========================================= */
+
+/* =========================================
+   1. GRUNDINSTÄLLNINGAR
+========================================= */
+
+.navbar,
+.navbar *,
+.navbar *::before,
+.navbar *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   2. NAVBAR – LJUST LÄGE
+========================================= */
+
 .navbar {
+  --nav-bg: #f5f3ed;
+  --nav-text: #171717;
+  --nav-green: #a8b5a2;
+  --nav-light-green: #d5ded7;
+  --nav-line: #c5cec2;
+  --nav-active-text: #171717;
+
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: var(--nav-bg);
+  color: var(--nav-text);
+
+  border-bottom: 2px solid var(--nav-text);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   3. NAVBARENS INNEHÅLL
+========================================= */
+
+.navbar .navbar-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
-  border-bottom: 3px solid #08060d;
-  background: #1e293b;
-  color: #fffaf0;
-  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 105px;
+
+  margin: 0;
+  padding: 10px 29px;
+
+  gap: 20px;
 }
 
-.logo {
-  color: #fffaf0;
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(0.5rem, 1vw, 0.7rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-  text-decoration: underline;
-}
+/* =========================================
+   4. VÄNSTER – HELSINGBORG OCH BILD
+========================================= */
 
-.lankar {
+.navbar .navbar-vanster {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(0.5rem, 1vw, 0.7rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  align-items: center;
+
+  flex: 1 1 auto;
+  min-width: 0;
+
+  gap: 20px;
+}
+
+/* =========================================
+   5. HELSINGBORG – LOGOTYP
+========================================= */
+
+.navbar .logo {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  padding: 10px 0 17px;
+
+  color: var(--nav-text);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+
+  text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.lankar a {
-  padding: 0.35rem 0.5rem;
-  border: 1px solid transparent;
-  color: #fffaf0;
-  text-decoration: underline;
+/* GRÖN LINJE UNDER HELSINGBORG */
+
+.navbar .logo::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+
+  width: 58px;
+  height: 3px;
+
+  background: var(--nav-green);
 }
 
-.lankar a:hover,
-.lankar a:focus-visible {
-  border-color: #08060d;
-  color: #ffb399;
+/* =========================================
+   6. HELSINGBORGSBILD
+========================================= */
+
+.navbar .navbar-stadslank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 1 1 380px;
+  min-width: 0;
+  max-width: 420px;
+
+  height: 78px;
+  padding-left: 18px;
+
+  border-left: 1px solid var(--nav-text);
+
+  background: transparent;
+  text-decoration: none;
+
+  overflow: visible;
+}
+
+/* BILDEN */
+
+.navbar .navbar-stadsbild {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  border: none;
   outline: none;
+
+  transform: none;
+  filter: none;
+  opacity: 1;
 }
 
-.lankar a.active {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
+/* =========================================
+   7. MENYLÄNKAR
+========================================= */
+
+.navbar .lankar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  flex-shrink: 0;
+
+  gap: 0;
+
+  margin: 0 0 0 auto;
+  padding: 0;
 }
 
-/* Hamburgerknappen är dold på dator */
-.meny-knapp {
+.navbar .lankar a {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  margin: 0;
+  padding: 12px 18px;
+
+  background: transparent;
+  color: var(--nav-text);
+
+  border: 1px solid transparent;
+  border-radius: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* =========================================
+   8. LODRÄTA AVDELARE
+========================================= */
+
+.navbar .lankar a + a::before {
+  content: "";
+
+  position: absolute;
+  left: -1px;
+  top: 13px;
+  bottom: 13px;
+
+  width: 1px;
+
+  background: var(--nav-line);
+}
+
+/* =========================================
+   9. HOVER PÅ MENYLÄNKAR
+========================================= */
+
+.navbar .lankar a:hover {
+  background: var(--nav-light-green);
+  color: var(--nav-text);
+}
+
+/* =========================================
+   10. AKTIV MENYLÄNK
+========================================= */
+
+.navbar .lankar a.active,
+.navbar .lankar a.active:hover {
+  background: var(--nav-green);
+  color: var(--nav-active-text);
+
+  border: 1px solid var(--nav-text);
+}
+
+/* INGEN AVDELARE GENOM AKTIV BOX */
+
+.navbar .lankar a.active::before,
+.navbar .lankar a.active + a::before {
   display: none;
 }
 
-/* Mobilmeny */
-@media (max-width: 700px) {
-  .navbar {
-    position: relative;
-    flex-direction: row;
-    align-items: center;
+/* =========================================
+   11. GRÖN REMSA UNDER NAVBAR
+========================================= */
+
+.navbar .navbar-accent {
+  display: block;
+
+  width: 100%;
+  height: 7px;
+
+  background: var(--nav-green);
+
+  border-top: 1px solid var(--nav-text);
+}
+
+/* =========================================
+   12. RAM – STYRS AV APP.CSS
+========================================= */
+
+.startsida-ram > .navbar {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid var(--nav-text);
+}
+
+/* =========================================
+   13. MOBILMENYKNAPP
+========================================= */
+
+.navbar .meny-knapp {
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+  padding: 0;
+
+  background: var(--nav-green);
+  color: var(--nav-active-text);
+
+  border: 1px solid var(--nav-text);
+  border-radius: 0;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   14. MÖRKT LÄGE – FÄRGVARIABLER
+========================================= */
+
+body.morkt-lage .navbar {
+  --nav-bg: #1d2521;
+  --nav-text: #f5f3ed;
+  --nav-green: #a8b5a2;
+  --nav-light-green: #4a5a50;
+  --nav-line: #617067;
+  --nav-active-text: #171717;
+
+  background: var(--nav-bg);
+  color: var(--nav-text);
+
+  border-bottom-color: var(--nav-text);
+}
+
+/* =========================================
+   15. MÖRKT LÄGE – HELSINGBORG
+========================================= */
+
+body.morkt-lage .navbar .logo {
+  color: #f5f3ed;
+}
+
+body.morkt-lage .navbar .logo::after {
+  background: #a8b5a2;
+}
+
+/* LINJE VID STADSBILDEN */
+
+body.morkt-lage .navbar .navbar-stadslank {
+  border-left-color: #f5f3ed;
+}
+
+/* =========================================
+   16. MÖRKT LÄGE – STADSBILD
+========================================= */
+
+/* LJUS VERSION AV BILDEN */
+
+body.morkt-lage .navbar .navbar-stadsbild {
+  filter: grayscale(1) brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* =========================================
+   17. MÖRKT LÄGE – MENYLÄNKAR
+========================================= */
+
+body.morkt-lage .navbar .lankar a {
+  color: #f5f3ed;
+  background: transparent;
+}
+
+/* HOVER */
+
+body.morkt-lage .navbar .lankar a:hover {
+  background: #4a5a50;
+  color: #f5f3ed;
+}
+
+/* AKTIV MENYLÄNK */
+
+body.morkt-lage .navbar .lankar a.active,
+body.morkt-lage .navbar .lankar a.active:hover {
+  background: #a8b5a2;
+  color: #171717;
+
+  border-color: #f5f3ed;
+}
+
+/* AVDELARE */
+
+body.morkt-lage .navbar .lankar a + a::before {
+  background: #617067;
+}
+
+/* =========================================
+   18. MÖRKT LÄGE – GRÖN REMSA
+========================================= */
+
+body.morkt-lage .navbar .navbar-accent {
+  background: #a8b5a2;
+  border-top-color: #f5f3ed;
+}
+
+/* =========================================
+   19. MÖRKT LÄGE – RAM
+========================================= */
+
+body.morkt-lage .startsida-ram > .navbar {
+  border-bottom-color: #f5f3ed;
+}
+
+/* =========================================
+   20. MÖRKT LÄGE – MOBILMENYKNAPP
+========================================= */
+
+body.morkt-lage .navbar .meny-knapp {
+  background: #a8b5a2;
+  color: #171717;
+
+  border-color: #f5f3ed;
+}
+
+/* =========================================
+   21. MINDRE DATORSKÄRMAR
+========================================= */
+
+@media (max-width: 1250px) {
+  .navbar .navbar-inner {
+    gap: 14px;
   }
 
-  .meny-knapp {
-    display: block;
+  .navbar .navbar-vanster {
+    gap: 14px;
+  }
+
+  .navbar .navbar-stadslank {
+    flex-basis: 200px;
+    max-width: 240px;
+
+    padding-left: 14px;
+  }
+
+  .navbar .lankar a {
+    padding: 12px 12px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   22. SURFPLATTA OCH MOBILMENY
+========================================= */
+
+@media (max-width: 1050px) {
+  .navbar .navbar-inner {
+    min-height: 88px;
+    padding: 10px 24px;
+  }
+
+  .navbar .navbar-stadslank {
+    flex: 0 1 180px;
+    max-width: 180px;
+    height: 60px;
+  }
+
+  /* VISA MENYKNAPP */
+
+  .navbar .meny-knapp {
+    display: inline-flex;
     margin-left: auto;
-    padding: 6px 12px;
-    border: 2px solid #fffaf0;
-    border-radius: 4px;
-    background-color: #1e293b;
-    color: #fffaf0;
-    font-size: 24px;
-    cursor: pointer;
   }
 
-  .lankar {
+  /* DOLD MENY */
+
+  .navbar .lankar {
     display: none;
-  }
-
-  .lankar.oppen {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 16px;
 
     position: absolute;
     top: 100%;
+    left: 0;
     right: 0;
-    z-index: 10;
 
-    width: max-content;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
+    flex-direction: column;
+    align-items: stretch;
 
-    background-color: #1e293b;
-    border: 2px solid #fffaf0;
+    gap: 0;
+    margin: 0;
+    padding: 12px 24px 20px;
+
+    background: var(--nav-bg);
+
+    border-bottom: 2px solid var(--nav-text);
+
+    z-index: 200;
+  }
+
+  /* ÖPPEN MENY */
+
+  .navbar .lankar.oppen {
+    display: flex;
+  }
+
+  /* MENYLÄNKAR I MOBIL */
+
+  .navbar .lankar a {
+    justify-content: flex-start;
+
+    width: 100%;
+    min-height: 50px;
+
+    padding: 14px 12px;
+
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--nav-line);
+  }
+
+  /* INGA LODRÄTA AVDELARE */
+
+  .navbar .lankar a::before {
+    display: none;
+  }
+
+  /* AKTIV MENYLÄNK */
+
+  .navbar .lankar a.active {
+    background: var(--nav-green);
+    color: var(--nav-active-text);
+
+    border: 1px solid var(--nav-text);
+  }
+
+  /* MÖRKT LÄGE – MOBILMENY */
+
+  body.morkt-lage .navbar .lankar {
+    background: #1d2521;
+    border-bottom-color: #f5f3ed;
+  }
+
+  body.morkt-lage .navbar .lankar a {
+    border-bottom-color: #617067;
+  }
+
+  body.morkt-lage .navbar .lankar a.active {
+    background: #a8b5a2;
+    color: #171717;
+
+    border-color: #f5f3ed;
   }
 }
+
+/* =========================================
+   23. MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+  .navbar .navbar-inner {
+    min-height: 76px;
+    padding: 8px 16px;
+    gap: 10px;
+  }
+
+  .navbar .navbar-vanster {
+    gap: 10px;
+  }
+
+  .navbar .logo {
+    font-size: 11px;
+    letter-spacing: 0.07em;
+  }
+
+  .navbar .logo::after {
+    width: 38px;
+    height: 2px;
+  }
+
+  .navbar .navbar-stadslank {
+    flex: 0 1 105px;
+    max-width: 105px;
+    height: 50px;
+
+    padding-left: 10px;
+  }
+
+  .navbar .meny-knapp {
+    width: 38px;
+    height: 38px;
+
+    font-size: 20px;
+  }
+
+  .navbar .lankar {
+    padding: 12px 16px 20px;
+  }
+}
+
+/* =========================================
+   24. MYCKET SMÅ SKÄRMAR
+========================================= */
+
+@media (max-width: 390px) {
+  .navbar .logo {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .navbar .navbar-stadslank {
+    flex-basis: 75px;
+    max-width: 75px;
+    height: 44px;
+  }
+}
+
+/* =========================================
+   25. STÖRRE HELSINGBORGSBILD – DESKTOP
+========================================= */
+
+@media (min-width: 1051px) {
+  .navbar .navbar-stadslank {
+    width: 350px;
+    height: 78px;
+
+    flex: 0 1 350px;
+
+    min-width: 0;
+    max-width: 350px;
+
+    padding-left: 18px;
+
+    overflow: hidden;
+  }
+
+  .navbar .navbar-stadsbild {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: none;
+
+    border: none;
+    outline: none;
+  }
+}
+
+/* =========================================
+   26. TILLGÄNGLIGHET
+========================================= */
+
+.navbar a:focus-visible,
+.navbar .meny-knapp:focus-visible {
+  outline: 2px solid var(--nav-text);
+  outline-offset: 4px;
+}
+
+/* FOKUS I MÖRKT LÄGE */
+
+body.morkt-lage .navbar a:focus-visible,
+body.morkt-lage .navbar .meny-knapp:focus-visible {
+  outline-color: #f5f3ed;
+}
+
+/* MINSKADE ANIMATIONER */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar .lankar a {
+    transition: none;
+  }
+}
+

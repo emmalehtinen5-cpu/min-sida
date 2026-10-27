@@ -7,9 +7,9 @@
 
   padding: 60px 8%;
   background-color: #ffffff;
-  color: #1e293b;
+  color: #000000;
 
-  border: 3px solid #1e293b;
+  border: 3px solid #000000;
   box-sizing: border-box;
 }
 
@@ -18,7 +18,7 @@
   font-size: clamp(32px, 5vw, 56px);
   margin: 0 0 20px;
   padding-bottom: 15px;
-  border-bottom: 4px solid #d98268;
+  border-bottom: 4px solid #A8B5A2;
 }
 
 .ej-hittad p {

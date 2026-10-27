@@ -1,15 +1,57 @@
-import './Header.css';
+
+/* =========================================
+   HEADER – MODERN & STRUKTURERAD
+========================================= */
+
+import "./Header.css";
+
+import bildspelBild from "../assets/bildsspel.png";
+
 function Header({ namn, titel }) {
   return (
     <header className="header">
-      <h1>
-        <span>{namn}</span>
-      </h1>
-      <p className="header-titel">
-        {titel.split(/\s+/).map((ord) => (
-          <span className="header-titel-ord" key={ord}>{ord}</span>
-        ))}
-      </p>
+
+      <div className="header-innehall">
+
+        {/* VÄNSTER – NAMN OCH PRESENTATION */}
+        <div className="header-vanster">
+
+          <h1>{namn}</h1>
+
+          <p className="header-underrubrik">
+            {titel}
+          </p>
+
+          <div className="header-intro">
+
+            <span
+              className="header-linje"
+              aria-hidden="true"
+            />
+
+            <p>
+              Arkitektur, kommunikation och
+              visualisering med fokus på rumslig
+              förståelse och kreativ gestaltning.
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* HÖGER – ARKITEKTURILLUSTRATION */}
+        <div className="header-hoger">
+
+          <img
+            src={bildspelBild}
+            alt="Arkitektur och visualisering"
+            className="header-huvudbild"
+          />
+
+        </div>
+
+      </div>
+
     </header>
   );
 }

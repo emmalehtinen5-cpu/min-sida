@@ -1,76 +1,188 @@
-.projekt-kort {
+
+/* =========================================
+   PROJEKTKORT – ENLIGT REFERENSBILDEN
+========================================= */
+
+.projekt-lista .projekt-kort {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;                      
-  text-align: left;
-  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
-  flex-direction: column;
-  box-sizing: border-box;
-  border: 2px solid #08060d;
+
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  background: #F5F3ED;
+  border: 1px solid #C9C9C3;
+  border-radius: 0;
+  box-shadow: none;
+
+  overflow: hidden;
 }
 
-.projekt-bild {
-  display: block;
+/* =========================================
+   BILDER
+========================================= */
+
+.projekt-bildram {
   width: 100%;
-  height: 160px;
-  object-fit: cover;                     
+  aspect-ratio: 1.8 / 1;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  background: #D5DED7;
 }
+
+.projekt-bildram .projekt-bild {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+
+  object-fit: cover;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* =========================================
+   INNEHÅLL
+========================================= */
 
 .projekt-info {
   display: flex;
-  flex: 1;
   flex-direction: column;
-  padding: 20px;
+  align-items: flex-start;
+
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 1rem 1.1rem 1.1rem;
 }
 
-.projekt-info h3 {
-  margin: 0 0 8px;
-  color: #261f3a;
-  font-size: 20px;
+/* PROJEKTTITEL */
+
+.projekt-lista .projekt-kort .projekt-kort-rubrik {
+  margin: 0 0 0.45rem;
+  padding: 0;
+
+  color: #171717;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
-.projekt-info .hero-knapp {
-  align-self: flex-start;
-  margin-top: auto;
+/* BESKRIVNING */
+
+.projekt-lista .projekt-kort .projekt-kort-text {
+  margin: 0 0 0.9rem;
+  padding: 0;
+
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-.projekt-knapp {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #1e293b;
-  color: #fcf6fa;
-  font-weight: 600;
-  text-decoration: none;        
-}
+/* =========================================
+   METODER – UNDERSTRUKNA
+========================================= */
 
-.projekt-knapp:hover {
-  background-color: #320120;
-}
-
-.projekt-knapp:focus-visible {
-  outline: 3px solid #7e2b60;
-  outline-offset: 4px;
-}
 .projekt-teknik {
-  display: inline-block;
-  color: #1e293b;
-  font-size: 12px;
-  padding: 1px 1px;
-  border-radius: 5px;
-  font-weight: bold;
-  width: fit-content;
-  align-self: flex-start;
-  background-color: #e2e8f0;
+  display: block;
+
+  margin: 0 0 1rem;
+  padding: 0;
+
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-transform: uppercase;
 }
 
-.projekt-kort {
-  transition: transform 0.3s ease;
+/* =========================================
+   LITEN PILKNAPP
+========================================= */
+
+.projekt-lista .projekt-kort .projekt-lank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0;
+
+  width: 54px;
+  min-height: 32px;
+
+  margin: auto 0 0;
+  padding: 0.35rem 0.5rem;
+
+  background: #A8B5A2;
+  color: #171717;
+
+  border: 1px solid #77877D;
+  border-radius: 0;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0;
+  text-decoration: none;
+
+  transition: background-color 0.2s ease;
 }
 
-.projekt-kort:hover {
-  transform: translateY(-4px);
+.projekt-lista .projekt-kort .projekt-lank span {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.projekt-lista .projekt-kort .projekt-lank:hover {
+  background: #D5DED7;
+  transform: none;
+}
+
+.projekt-lista .projekt-kort .projekt-lank:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MOBIL
+========================================= */
+
+@media (max-width: 650px) {
+  .projekt-info {
+    padding: 1.1rem;
+  }
+
+  .projekt-lista .projekt-kort .projekt-kort-rubrik {
+    font-size: 1.4rem;
+  }
+
+  .projekt-lista .projekt-kort .projekt-kort-text {
+    font-size: 0.95rem;
+  }
 }

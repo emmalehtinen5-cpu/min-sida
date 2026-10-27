@@ -1,51 +1,677 @@
+
+/* =========================================
+   KONTAKT.CSS – EMMA LEHTINEN
+   LJUST OCH MÖRKT LÄGE
+========================================= */
+
+/* =========================================
+   1. HUVUDLAYOUT
+========================================= */
+
 .kontakt1 {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
-  gap: 48px;
-  height: 500px;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+
+  width: 100%;
+  max-width: 1600px;
+  min-width: 0;
+  min-height: 680px;
+
+  margin: 0 auto;
+  padding: clamp(3rem, 5vw, 5rem) 6%;
+
+  background: #f5f3ed;
+  color: #171717;
+
+  box-sizing: border-box;
 }
 
-.kontakt  {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  align-items: center;
-  gap: 48px;
-  padding: 1rem clamp(1.25rem, 4vw, 2.5rem);
-  border-bottom: 3px solid #08060d;
-  background: #1e293b;
-  color: #fffaf0;
+/* =========================================
+   2. VÄNSTER KOLUMN
+========================================= */
+
+.kontakt-vanster {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+}
+
+/* =========================================
+   3. RUBRIK OCH INTRODUKTION
+========================================= */
+
+.kontakt-info {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.kontakt-etikett {
+  display: block;
+
+  margin-bottom: 1rem;
+
+  color: #56675d;
+
   font-family: Arial, Helvetica, sans-serif;
-  
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* HUVUDRUBRIK */
+
+.kontakt-info h2 {
+  position: relative;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+
+  color: #171717;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+/* SALVIAGRÖN LINJE */
+
+.kontakt-info h2::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 65px;
+  height: 1px;
+
+  background: #a8b5a2;
+}
+
+/* INTRODUKTIONSTEXTER */
+
+.kontakt-text,
+.kontakt-underrubrik {
+  max-width: 540px;
+
+  margin: 0 0 1rem;
+  padding: 0;
+
+  color: #444444;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.kontakt-underrubrik {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   4. KONTAKTFORMULÄR
+========================================= */
+
+.kontakt-formular {
+  width: 100%;
+  min-width: 0;
 }
 
 .kontakt-form {
   display: flex;
-  flex-direction: column; /* fälten under varandra */
-  gap: 8px;
-  max-width: 335px;
-  
-}
-.kontakt-bekraftelse {
-  margin-top: 15px;
-  padding: 15px 13px;
-  background-color: #ffffff;
-  border-left: 3.5px solid green;
-  color: green;
-  font-size: 16px;
-  font-weight: bold;
-  align-self: start;
+  flex-direction: column;
 
+  gap: 1.2rem;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-@media (max-width: 800px) {
-  .kontakt {
-    grid-template-columns: 1fr; /* bara en kolumn */
+
+/* FORMULÄRFÄLT */
+
+.kontakt-falt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  width: 100%;
+}
+
+/* ETIKETTER */
+
+.kontakt-falt label {
+  color: #171717;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* INPUT OCH TEXTAREA */
+
+.kontakt1 .kontakt-form input,
+.kontakt1 .kontakt-form textarea {
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 16px 20px;
+
+  background: #f5f3ed;
+  color: #171717;
+
+  border: 1px solid #d5d9d2;
+  border-radius: 0;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* TEXTAREA */
+
+.kontakt1 .kontakt-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* PLATSHÅLLARTEXT */
+
+.kontakt1 .kontakt-form input::placeholder,
+.kontakt1 .kontakt-form textarea::placeholder {
+  color: #92958f;
+  opacity: 1;
+}
+
+/* FOKUS */
+
+.kontakt1 .kontakt-form input:focus,
+.kontakt1 .kontakt-form textarea:focus {
+  background: #f5f3ed;
+
+  border-color: #a8b5a2;
+  outline: 1px solid #a8b5a2;
+  outline-offset: 1px;
+
+  box-shadow: none;
+}
+
+/* =========================================
+   5. FELMEDDELANDEN
+========================================= */
+
+.kontakt-fel {
+  margin: 0;
+
+  color: #a12b2b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================================
+   6. SKICKA / FORTSÄTT-KNAPP
+========================================= */
+
+.hero-knapprad {
+  display: flex;
+  justify-content: flex-start;
+
+  margin-top: 0.5rem;
+}
+
+.kontakt-knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 0.95rem 1.5rem;
+
+  background: #a8b5a2;
+  color: #171717;
+
+  border: 1px solid #a8b5a2;
+  border-radius: 0;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.kontakt-knapp:hover {
+  background: #d5ded7;
+  transform: translateY(-2px);
+}
+
+.kontakt-knapp:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   7. BEKRÄFTELSE
+========================================= */
+
+.kontakt-bekraftelse {
+  width: 100%;
+  padding: 1.5rem;
+
+  background: #d5ded7;
+  border-left: 3px solid #56675d;
+}
+
+.kontakt-bekraftelse h3 {
+  margin: 0 0 0.75rem;
+
+  color: #171717;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.kontakt-bekraftelse p {
+  margin: 0 0 1.5rem;
+
+  color: #171717;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   8. HÖGER KOLUMN – ARKITEKTURBILD
+========================================= */
+
+.kontakt-bildkolumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.kontakt-bildram {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  max-width: 650px;
+
+  padding: 2rem 1.5rem 2rem 0;
+}
+
+/* =========================================
+   9. DEKORATIVA GRÖNA FORMER
+========================================= */
+
+.kontakt-form-bakre,
+.kontakt-form-framre {
+  position: absolute;
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+/* BAKRE FORM */
+
+.kontakt-form-bakre {
+  top: 0;
+  right: 0;
+
+  width: 78%;
+  height: 80%;
+
+  background: #d5ded7;
+}
+
+/* FRÄMRE FORM */
+
+.kontakt-form-framre {
+  left: 8%;
+  bottom: 0;
+
+  width: 55%;
+  height: 40%;
+
+  background: #a8b5a2;
+  opacity: 0.8;
+}
+
+/* =========================================
+   10. ARKITEKTURBILD
+========================================= */
+
+.kontakt-bild {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: clamp(340px, 35vw, 500px);
+
+  object-fit: cover;
+  object-position: center;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* TEXT UNDER BILDEN */
+
+.kontakt-bildtext {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 1rem 0 0;
+
+  color: #56675d;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* =========================================
+   11. MÖRKT LÄGE – HUVUDLAYOUT
+========================================= */
+
+body.morkt-lage .kontakt1 {
+  background: #1d2521;
+  color: #f5f3ed;
+}
+
+/* =========================================
+   12. MÖRKT LÄGE – RUBRIKER OCH TEXT
+========================================= */
+
+body.morkt-lage .kontakt1 .kontakt-etikett {
+  color: #a8b5a2;
+}
+
+body.morkt-lage .kontakt1 .kontakt-info h2 {
+  color: #f5f3ed;
+}
+
+body.morkt-lage .kontakt1 .kontakt-info h2::after {
+  background: #a8b5a2;
+}
+
+body.morkt-lage .kontakt1 .kontakt-text,
+body.morkt-lage .kontakt1 .kontakt-underrubrik {
+  color: #d5ded7;
+}
+
+/* =========================================
+   13. MÖRKT LÄGE – FORMULÄR
+========================================= */
+
+/* ETIKETTER */
+
+body.morkt-lage .kontakt1 .kontakt-falt label {
+  color: #f5f3ed;
+}
+
+/* INPUT OCH TEXTAREA */
+
+body.morkt-lage .kontakt1 .kontakt-form input,
+body.morkt-lage .kontakt1 .kontakt-form textarea {
+  background: #263129;
+  color: #f5f3ed;
+
+  border: 1px solid #617067;
+  box-shadow: none;
+}
+
+/* PLATSHÅLLARTEXT */
+
+body.morkt-lage .kontakt1 .kontakt-form input::placeholder,
+body.morkt-lage .kontakt1 .kontakt-form textarea::placeholder {
+  color: #b8c4b9;
+  opacity: 1;
+}
+
+/* FOKUS */
+
+body.morkt-lage .kontakt1 .kontakt-form input:focus,
+body.morkt-lage .kontakt1 .kontakt-form textarea:focus {
+  background: #303c33;
+  color: #f5f3ed;
+
+  border-color: #a8b5a2;
+  outline: 1px solid #a8b5a2;
+  outline-offset: 1px;
+
+  box-shadow: none;
+}
+
+/* =========================================
+   14. MÖRKT LÄGE – FELMEDDELANDEN
+========================================= */
+
+body.morkt-lage .kontakt1 .kontakt-fel {
+  color: #ffaaaa;
+}
+
+/* =========================================
+   15. MÖRKT LÄGE – KNAPP
+========================================= */
+
+body.morkt-lage .kontakt1 .kontakt-knapp {
+  background: #a8b5a2;
+  color: #171717;
+
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .kontakt1 .kontakt-knapp:hover {
+  background: #d5ded7;
+  color: #171717;
+}
+
+body.morkt-lage .kontakt1 .kontakt-knapp:focus-visible {
+  outline-color: #f5f3ed;
+}
+
+/* =========================================
+   16. MÖRKT LÄGE – BEKRÄFTELSE
+========================================= */
+
+body.morkt-lage .kontakt1 .kontakt-bekraftelse {
+  background: #303c33;
+  color: #f5f3ed;
+
+  border-left-color: #a8b5a2;
+}
+
+body.morkt-lage .kontakt1 .kontakt-bekraftelse h3,
+body.morkt-lage .kontakt1 .kontakt-bekraftelse p {
+  color: #f5f3ed;
+}
+
+/* =========================================
+   17. MÖRKT LÄGE – ARKITEKTURBILD
+========================================= */
+
+/* BAKRE DEKORATIVA FORM */
+
+body.morkt-lage .kontakt1 .kontakt-form-bakre {
+  background: #4a5a50;
+}
+
+/* FRÄMRE DEKORATIVA FORM */
+
+body.morkt-lage .kontakt1 .kontakt-form-framre {
+  background: #a8b5a2;
+  opacity: 0.55;
+}
+
+/* BEHÅLL BILDENS ORIGINALFÄRGER */
+
+body.morkt-lage .kontakt1 .kontakt-bild {
+  filter: none;
+}
+
+/* TEXT UNDER BILDEN */
+
+body.morkt-lage .kontakt1 .kontakt-bildtext {
+  color: #d5ded7;
+}
+
+/* =========================================
+   18. MJUKA TEMAÖVERGÅNGAR
+========================================= */
+
+.kontakt1,
+.kontakt1 .kontakt-info h2,
+.kontakt1 .kontakt-text,
+.kontakt1 .kontakt-underrubrik,
+.kontakt1 .kontakt-form-bakre,
+.kontakt1 .kontakt-form-framre,
+.kontakt1 .kontakt-bekraftelse {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   19. SURFPLATTA
+========================================= */
+
+@media (max-width: 900px) {
+  .kontakt1 {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    padding: 3.5rem 6%;
+  }
+
+  .kontakt-vanster {
+    max-width: 700px;
+  }
+
+  .kontakt-bildkolumn {
+    align-items: center;
+  }
+
+  .kontakt-bildram {
+    max-width: 700px;
+  }
+
+  .kontakt-bildtext {
+    max-width: 700px;
   }
 }
-/* Rött felmeddelande */
-.kontakt-fel {
-  color: red;
-  font-weight: bold;
-  font-size: 16px;
+
+/* =========================================
+   20. MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+  .kontakt1 {
+    gap: 2rem;
+    padding: 3rem 5%;
+  }
+
+  .kontakt-info h2 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+  }
+
+  .kontakt-text,
+  .kontakt-underrubrik {
+    font-size: 1rem;
+  }
+
+  .kontakt-form {
+    gap: 1rem;
+  }
+
+  .kontakt1 .kontakt-form textarea {
+    min-height: 120px;
+  }
+
+  .kontakt-bildram {
+    padding: 1.5rem 1rem 1.5rem 0;
+  }
+
+  .kontakt-bild {
+    height: 300px;
+  }
+
+  .kontakt-bildtext {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================
+   21. TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .kontakt1,
+  .kontakt1 .kontakt-info h2,
+  .kontakt1 .kontakt-text,
+  .kontakt1 .kontakt-underrubrik,
+  .kontakt1 .kontakt-knapp,
+  .kontakt1 .kontakt-form input,
+  .kontakt1 .kontakt-form textarea,
+  .kontakt1 .kontakt-form-bakre,
+  .kontakt1 .kontakt-form-framre,
+  .kontakt1 .kontakt-bekraftelse {
+    transition: none;
+  }
 }

@@ -1,31 +1,54 @@
 
+/* =========================================
+   RÄKNARE – EMMA LEHTINEN
+========================================= */
+
 import { useState } from "react";
+import "./Raknare.css";
 
 function Raknare() {
   const [antal, setAntal] = useState(0);
 
- function minska() {
-    if (antal > 0) {
-      setAntal(antal - 1);
-    }
+  /* MINSKA – ALDRIG UNDER NOLL */
+  function minska() {
+    setAntal((tidigare) => Math.max(0, tidigare - 1));
   }
 
   return (
-    <div>
-      <button onClick={minska}>−</button>
+    <div className="raknare">
+
+      <button
+        type="button"
+        onClick={minska}
+        aria-label="Minska antal"
+      >
+        −
+      </button>
 
       <span
-        style={{
-          color: antal > 0 ? "navy" : "red",
-          margin: "0 15px",
-        }}
+        className={`raknare-antal ${
+          antal > 0 ? "positivt" : "noll"
+        }`}
+        aria-live="polite"
       >
         {antal}
       </span>
 
-      <button onClick={() => setAntal(antal + 1)}>+</button>
+      <button
+        type="button"
+        onClick={() => setAntal((tidigare) => tidigare + 1)}
+        aria-label="Öka antal"
+      >
+        +
+      </button>
 
-      <button onClick={() => setAntal(0)}>Nollställ</button>
+      <button
+        type="button"
+        onClick={() => setAntal(0)}
+      >
+        Nollställ
+      </button>
+
     </div>
   );
 }

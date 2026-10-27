@@ -1,7 +1,16 @@
+
+/* =========================================
+   PROJEKTSIDA – MODERN & STRUKTURERAD
+========================================= */
+
 import Projekt from "../components/Projekt";
 
 function ProjektSida() {
-  return <Projekt />;
+  return (
+    <div className="projekt-sida">
+      <Projekt />
+    </div>
+  );
 }
 
 export default ProjektSida;

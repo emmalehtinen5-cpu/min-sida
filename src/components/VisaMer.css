@@ -1,0 +1,68 @@
+
+/* =========================================
+   VISA MER – LJUST OCH MÖRKT LÄGE
+========================================= */
+
+/* LJUST LÄGE */
+
+.visa-mer {
+  width: 100%;
+  padding: 24px 29px;
+
+  background: #f5f3ed;
+  color: #171717;
+}
+
+.visa-mer-knapp {
+  padding: 10px 18px;
+
+  background: #171717;
+  color: #ffffff;
+
+  border: 1px solid #171717;
+  border-radius: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.visa-mer-knapp:hover {
+  background: #a8b5a2;
+  color: #171717;
+}
+
+.visa-mer-text {
+  margin: 18px 0 0;
+  color: #171717;
+}
+
+.visa-mer-text[hidden] {
+  display: none;
+}
+
+/* =====================================
+   MÖRKT LÄGE
+===================================== */
+
+body.morkt-lage .visa-mer {
+  background: #1d2521;
+  color: #f5f3ed;
+}
+
+body.morkt-lage .visa-mer-knapp {
+  background: #a8b5a2;
+  color: #171717;
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .visa-mer-knapp:hover {
+  background: #d5ded7;
+  color: #171717;
+}
+
+body.morkt-lage .visa-mer-text {
+  color: #f5f3ed;
+}

@@ -1,326 +1,745 @@
+
+/* =========================================
+   EMMA LEHTINEN – OM MIG
+   ENHETLIG OCH RESPONSIV DESIGN
+========================================= */
+
+/* =========================================
+   1. GRUNDLAYOUT
+========================================= */
+
 .om-mig-innehall {
-  position: relative;
-  display: grid;
-  flex: 1;
-  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
-  align-items: start;
-  column-gap: 2rem;
-  row-gap: 0;
-  padding: clamp(2rem, 6vw, 5rem);
-  border: 3px solid #1e293b;
-  background: #fff;
+  --om-bakgrund: #f5f3ed;
+  --om-text: #171717;
+  --om-diskret: #555555;
+  --om-salvia: #a8b5a2;
+  --om-ljus-salvia: #d5ded7;
+  --om-linje: #c9cdc6;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1600px;
+  min-width: 0;
+  min-height: 650px;
+
+  margin: 0 auto;
+  padding: clamp(3rem, 5vw, 5rem) 5% 3rem;
+
+  background: var(--om-bakgrund);
+  color: var(--om-text);
+
+  box-sizing: border-box;
 }
+
+.om-mig-innehall *,
+.om-mig-innehall *::before,
+.om-mig-innehall *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   2. ÖVRE DEL – TRE KOLUMNER
+========================================= */
+
+.om-mig-toppen {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.2fr)
+    minmax(0, 0.95fr);
+
+  align-items: center;
+
+  gap: clamp(2rem, 3.5vw, 4rem);
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   3. VÄNSTER – PORTRÄTT
+========================================= */
 
 .om-mig-bildkolumn {
   position: relative;
-  grid-column: 1;
-  grid-row: 1 / span 2;
-  align-self: stretch;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 42px 0 45px 28px;
 }
 
-.om-mig-bildkolumn::after {
-  position: absolute;
-  top: 180px;
-  width: 4px;
-  right: 1px;
-  bottom: 0;
-  border-radius: 0 0 3px 3px;
-  background: #1e293b;
-  content: "";
+/* PORTRÄTTRAM */
+
+.om-mig-portrattram {
+  position: relative;
+
+  width: 100%;
+  max-width: 285px;
+
+  isolation: isolate;
 }
+
+/* SALVIAGRÖN BOX BAKOM PORTRÄTTET */
+
+.om-mig-portrattram::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  top: -28px;
+  left: -28px;
+
+  width: 72%;
+  height: 78%;
+
+  background: var(--om-ljus-salvia);
+}
+
+/* TUNN VERTIKAL DEKORLINJE */
+
+.om-mig-portrattram::after {
+  content: "";
+
+  position: absolute;
+  z-index: 2;
+
+  top: -8px;
+  bottom: -24px;
+  left: -15px;
+
+  width: 1px;
+
+  background: var(--om-salvia);
+}
+
+/* PORTRÄTTBILD */
 
 .om-mig-bild {
+  position: relative;
+  z-index: 1;
+
   display: block;
+
   width: 100%;
-  height: auto;
-  margin: 0;
-  border: 3px solid #1e293b;
-  border-radius: 3px;
+  height: 365px;
+
+  object-fit: cover;
+  object-position: center top;
+
+  filter: grayscale(45%) contrast(90%);
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.om-mig-sektion h2 {
-  position: relative;
-  width: fit-content;
-  margin: 0 0 1.5rem;
-  padding-bottom: 0.75rem;
-  color: #1e293b;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.75rem, 3.8vw, 2.75rem);
-  line-height: 1.15;
+/* HORISONTELL DEKORLINJE */
+
+.om-mig-bildkolumn::after {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  bottom: 22px;
+
+  width: 145px;
+  height: 1px;
+
+  background: var(--om-salvia);
 }
+
+/* =========================================
+   4. MITTEN – PRESENTATION
+========================================= */
 
 .om-mig-sektion {
-  grid-column: 2;
-  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
   min-width: 0;
 }
 
-.om-mig-sektion h2::after {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 3.5rem;
-  height: 4px;
-  background: #d98268;
-  content: "";
+/* =========================================
+   5. RUBRIK – OM MIG
+   SAMMA TYPOGRAFI SOM EMMA LEHTINEN
+   MEN MINDRE OCH MED STORA VERSALER
+========================================= */
+
+.om-mig-sektion .om-mig-rubrik {
+  display: block;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+
+  text-transform: uppercase;
+
+  color: var(--om-text);
 }
 
-.om-mig-avdelare {
+/* LINJE UNDER RUBRIKEN */
+
+.om-mig-rubriklinje {
+  width: 48px;
+  height: 2px;
+
+  margin: 30px 0 24px;
+
+  background: var(--om-text);
+}
+
+/* =========================================
+   6. INTRODUKTIONSTEXT
+========================================= */
+
+.om-mig-intro {
+  width: 100%;
+  max-width: 540px;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  font-weight: 400;
+
+  line-height: 1.75;
+
+  color: var(--om-text);
+}
+
+/* =========================================
+   7. LÄS MER / VISA MINDRE
+========================================= */
+
+.om-mig-lasmer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.2rem;
+
+  margin-top: 2rem;
+  padding: 0.9rem 1.4rem;
+
+  background: var(--om-salvia);
+  color: #171717;
+
+  border: 1px solid var(--om-salvia);
+  border-radius: 0;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.om-mig-lasmer:hover {
+  background: var(--om-ljus-salvia);
+  transform: translateY(-2px);
+}
+
+.om-mig-lasmer:focus-visible {
+  outline: 2px solid var(--om-text);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   8. EXTRA PRESENTATIONSTEXT
+========================================= */
+
+.om-mig-extra-text {
+  width: 100%;
+  max-width: 540px;
+
+  margin-top: 1.8rem;
+}
+
+.om-mig-extra-text[hidden] {
+  display: none;
+}
+
+.om-mig-extra-text p {
+  margin: 0 0 1.2rem;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 400;
+
+  line-height: 1.75;
+
+  color: var(--om-text);
+}
+
+.om-mig-extra-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   HÖGER – BLOMSTERKIOSKEN
+========================================= */
+
+.om-mig-illustration {
   position: relative;
-  grid-column: 1 / -1;
-  grid-row: 2;
-  height: 4px;
-  margin-top: 1.5rem;
-  margin-left: 235.5px;
-  margin-right: -30px;
-  border-radius: 4px;
-  background: #1e293b;
-}
 
-.om-mig-avdelare-sväng {
-  position: absolute;
-  top: 0;
-  left: calc(100% - 2px);
-  width: 8px;
-  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  isolation: isolate;
   overflow: visible;
 }
+/* STÖRRE BLOMSTERKIOSK */
 
-.om-mig-avdelare-sväng path {
-  fill: none;
-  stroke: #1e293b;
-  stroke-width: 4px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.om-mig-avdelare-fortsättning {
-  position: absolute;
-  top: 187px;
-  left: calc(100% + 4px);
-  width: calc(clamp(2rem, 6vw, 5rem) - 33px);
-  height: 4px;
-  border-radius: 0 4px 4px 0;
-  background: #1e293b;
-}
-
-.om-mig-avdelare-kopia {
+.om-mig-illustration img {
   position: relative;
-  grid-column: 1/ -1;
-  grid-row: 2;
-  height: 2px;
-  margin-top: 0.9rem;
-  margin-left: 20px;
-  margin-right: -30px;
-  border-radius: 4px;
-  background: #1e293b;
-}
+  z-index: 1;
 
-.om-mig-avdelare-kopia-vänster {
+  display: block;
+
+  width: 135%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: translateY(155px);
+}
+/* SALVIAGRÖN BOX BAKOM BILDEN */
+
+.om-mig-illustration::before {
+  content: "";
+
   position: absolute;
-  top: -295px;
-  left: 0px;
-  width: 2px;
-  height: 295px;
-  border-radius: 2px 2px 0 0;
-  background: #1e293b;
+  z-index: -1;
+  /* PLACERING */
+  top: 0cm;
+  bottom: -2cm;
+  left: -1cm;
+  right: -1cm;
+
+  width: auto;
+  height: auto;
+
+  background: #d5ded7;
+  opacity: 0.3;
+  /* FLYTTA ENDAST BOXEN NEDÅT */
+  transform: translateY(80px);
 }
 
-.om-mig-avdelare-kopia .om-mig-avdelare-sväng {
-  left: calc(100% - 1px);
+
+/* =========================================
+   10. AVDELARE
+========================================= */
+
+.om-mig-avdelare {
+  width: 100%;
+  height: 1px;
+
+  margin: clamp(3rem, 5vw, 5rem) 0 2.5rem;
+
+  background: var(--om-linje);
 }
 
-.om-mig-avdelare-kopia .om-mig-avdelare-sväng path {
-  stroke-width: 2px;
-}
-
-.om-mig-avdelare-kopia .om-mig-avdelare-fortsättning {
-  top: 188px;
-  left: calc(100% + 1px);
-  width: calc(clamp(2rem, 6vw, 5rem) - 55px);
-  height: 2px;
-  border-radius: 0 2px 2px 0;
-}
+/* =========================================
+   11. KOMPETENSER – RESPONSIV BILD
+========================================= */
 
 .om-mig-kompetenser {
-  grid-column: 1 / -1;
-  grid-row: 3;
-  margin-top: 1.25rem;
-  padding-left: calc(2rem + 6cm + 13px);
-}
-
-.om-mig-kompetenser .merit-grupp strong {
-  display: inline-block;
-  padding: 0.15rem 0.3rem;
-  border-radius: 3px;
-  background: #1e293b;
-  color: #fff;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(0.75rem, 1.2vw, 1rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration-color: #fff;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-}
-
-.om-mig-kompetenser .merit-adobe .merit-programlista {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.om-mig-kompetenser .merit-grupper {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(0.35rem, 1vw, 0.75rem);
+  width: 100%;
   min-width: 0;
+
+  margin: 0 auto;
+  padding: 30px 0;
 }
 
-.om-mig-kompetenser .merit-grupp {
-  min-width: 0;
+/* DATOR – HELA KOMPETENSBILDEN */
+
+.om-mig-kompetensbild {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border: none;
+  box-shadow: none;
+
+  transition:
+    filter 0.4s ease,
+    opacity 0.4s ease;
 }
 
-.om-mig-kompetenser .merit-grupp .merit-programlista {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: start;
-  gap: 0.3rem;
-  margin-top: 0;
+/* MOBILVERSION DOLD PÅ DATOR */
+
+.om-mig-kompetensmobil {
+  display: none;
 }
 
-.om-mig-kompetenser .merit-grupp p {
-  margin-bottom: 0.6rem;
+/* =========================================
+   12. MÖRKT / LJUST LÄGE – KNAPP
+========================================= */
+
+.om-mig-installningar {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 2.5rem;
 }
 
-.om-mig-kompetenser .merit-programlista li {
-  width: fit-content;
-  max-width: 100%;
-  padding: 0.1rem 0.2rem;
-  font-size: clamp(0.45rem, 0.8vw, 0.65rem);
-  overflow-wrap: anywhere;
-}
+.om-mig-temaknapp {
+  display: inline-flex;
+  align-items: center;
 
-.om-mig-kompetenser .merit-sprak .merit-programlista li,
-.om-mig-kompetenser .merit-ovrigt .merit-programlista li {
-  padding: 0.1rem 0.2rem;
-  border: 1px solid #1e293b;
+  gap: 0.75rem;
+
+  padding: 0.6rem 0;
+
   background: transparent;
-  box-shadow: 2px 2px 0 #1e293b;
+  color: var(--om-text);
+
+  border: none;
+  border-bottom: 1px solid var(--om-text);
+  border-radius: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
 }
 
-.om-mig-kompetenser .merit-sprak .merit-programlista {
-  gap: 0.45rem;
+.om-mig-temaknapp:hover {
+  opacity: 0.7;
 }
 
-.om-mig-kompetenser .merit-office .merit-programlista {
-  gap: 0.45rem;
+.om-mig-temaknapp:focus-visible {
+  outline: 2px solid var(--om-text);
+  outline-offset: 4px;
 }
 
-.om-mig-kompetenser .merit-adobe .merit-programlista,
-.om-mig-kompetenser .merit-digitalisering .merit-programlista {
-  gap: 0.45rem;
+/* =========================================
+   13. MÖRKT LÄGE
+========================================= */
+
+.om-mig-innehall.morkt-lage {
+  --om-bakgrund: #1d2521;
+  --om-text: #f5f3ed;
+  --om-diskret: #d0d6d0;
+  --om-salvia: #a8b5a2;
+  --om-ljus-salvia: #4a5a50;
+  --om-linje: #617067;
 }
 
-@media (max-width: 900px) {
+/* KNAPP */
+
+.om-mig-innehall.morkt-lage .om-mig-lasmer {
+  color: #171717;
+}
+
+/* BLOMSTERKIOSKEN */
+
+.om-mig-innehall.morkt-lage .om-mig-illustration img {
+  mix-blend-mode: normal;
+}
+
+/* KOMPETENSBILD – MJUKARE KONTRAST */
+
+.om-mig-innehall.morkt-lage .om-mig-kompetensbild,
+.om-mig-innehall.morkt-lage .om-mig-kompetensutsnitt {
+  filter:
+    brightness(0.65)
+    contrast(0.85)
+    saturate(0.70);
+
+  opacity: 0.80;
+}
+
+/* =========================================
+   14. MINDRE DATORSKÄRMAR
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-toppen {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1.15fr);
+
+    gap: 2.5rem;
+  }
+
+  .om-mig-illustration {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  .om-mig-illustration img {
+    max-width: 280px;
+  }
+}
+
+/* =========================================
+   15. SURFPLATTA
+========================================= */
+
+@media (max-width: 850px) {
   .om-mig-innehall {
-    grid-template-columns: 1fr;
-    row-gap: 1.25rem;
+    padding: 3.5rem 6% 3rem;
   }
 
-  .om-mig-bildkolumn {
-    grid-column: 1;
-    grid-row: 1;
-  }
+  .om-mig-toppen {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
 
-  .om-mig-bildkolumn::after {
-    display: none;
+    gap: 2rem;
   }
 
   .om-mig-bild {
-    width: min(100%, 240px);
+    height: 350px;
   }
 
-  .om-mig-sektion {
-    grid-column: 1;
-    grid-row: 2;
+  .om-mig-illustration {
+    grid-column: 1 / -1;
+    justify-content: center;
   }
 
-  .om-mig-avdelare {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
+  .om-mig-illustration img {
+    max-width: 340px;
   }
+}
 
-  .om-mig-avdelare-sväng,
-  .om-mig-avdelare-fortsättning,
-  .om-mig-avdelare-kopia,
-  .om-mig-avdelare-kopia-vänster {
+/* =========================================
+   16. MOBIL – KOMPETENSBILD
+========================================= */
+
+@media (max-width: 700px) {
+  .om-mig-kompetensbild {
     display: none;
   }
 
-  .om-mig-kompetenser {
-    grid-column: 1;
-    grid-row: 4;
-    margin-top: 0;
-    padding-left: 0;
+  .om-mig-kompetensmobil {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
   }
 
-  .om-mig-extra-text {
-  margin-top: 25px;
+  .om-mig-kompetenskort {
+    width: 100%;
+    overflow: hidden;
+
+    background: var(--om-bakgrund);
+  }
+
+  .om-mig-kompetensutsnitt {
+    width: 100%;
+    aspect-ratio: 1 / 1.45;
+
+    background-repeat: no-repeat;
+    background-size: 500% 100%;
+
+    transition:
+      filter 0.4s ease,
+      opacity 0.4s ease;
+  }
+
+  .om-mig-bildkolumn {
+    padding: 35px 0 35px 28px;
+  }
+
+  .om-mig-portrattram {
+    max-width: 245px;
+    margin: 0 auto;
+  }
+
+  .om-mig-bild {
+    height: 310px;
+  }
+
+  .om-mig-bildkolumn::after {
+    left: calc(50% - 135px);
+  }
 }
 
-}
-/* Placera mörkt/ljust-knappen utan att ändra layouten */
-.om-mig-bildkolumn > .hero-knapp {
-  position: absolute;
-  top: calc(100% + 4cm);
-  left: 0;
-  margin: 0;
-  z-index: 2;
+/* =========================================
+   17. MOBIL – SIDLAYOUT
+========================================= */
 
-  width: fit-content;
-  padding: 6px 10px;
-  font-size: 12px;
-}
+@media (max-width: 600px) {
+  .om-mig-innehall {
+    padding: 3rem 5% 2.5rem;
+  }
 
-/* Mörkt läge */
-.om-mig-innehall.morkt-lage {
-  background-color: #1e293b;
-  color: #ffffff;
-}
+  .om-mig-toppen {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 
-/* Vit rubrik i mörkt läge */
-.om-mig-innehall.morkt-lage .om-mig-sektion h2 {
-  color: #ffffff;
-}
+  .om-mig-bildkolumn {
+    max-width: 400px;
+  }
 
-/* Vit kantlinje på knappar i mörkt läge */
-.om-mig-innehall.morkt-lage .hero-knapp {
-  border: 1px solid #ffffff;
-}
+  .om-mig-intro {
+    font-size: 1.05rem;
+  }
 
-/* Vita dekorativa linjer i mörkt läge */
-.morkt-lage .om-mig-bildkolumn::after,
-.morkt-lage .om-mig-avdelare,
-.morkt-lage .om-mig-avdelare-fortsättning,
-.morkt-lage .om-mig-avdelare-kopia,
-.morkt-lage .om-mig-avdelare-kopia-vänster {
-  background-color: #ffffff;
-}
+  .om-mig-illustration {
+    grid-column: 1;
+  }
 
-/* Vita böjda linjer i mörkt läge */
-.morkt-lage .om-mig-avdelare-sväng path {
-  stroke: #ffffff;
-}
-/* Vit ram runt fotot i mörkt läge */
-.om-mig-innehall.morkt-lage .om-mig-bild {
-  border-color: #ffffff;
+  .om-mig-illustration img {
+    max-width: 300px;
+  }
+
+  .om-mig-avdelare {
+    margin: 3rem 0 2rem;
+  }
+
+  .om-mig-installningar {
+    justify-content: flex-start;
+  }
 }
 
-/* Vita kantlinjer runt kompetensboxarna */
-.om-mig-innehall.morkt-lage .om-mig-kompetenser .merit-programlista li {
-  border: 1px solid #ffffff;
-  box-shadow: 2px 2px 0 #ffffff;
+/* =========================================
+   18. TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .om-mig-lasmer,
+  .om-mig-kompetensbild,
+  .om-mig-kompetensutsnitt {
+    transition: none;
+  }
+}
+
+/* =========================================
+   OM MIG – GLOBALT MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .om-mig-innehall {
+  --om-bakgrund: #1d2521;
+  --om-text: #f5f3ed;
+  --om-diskret: #d0d6d0;
+  --om-salvia: #a8b5a2;
+  --om-ljus-salvia: #4a5a50;
+  --om-linje: #617067;
+
+  background: var(--om-bakgrund);
+  color: var(--om-text);
+}
+
+/* RUBRIKER OCH TEXTER */
+
+body.morkt-lage .om-mig-innehall .om-mig-rubrik,
+body.morkt-lage .om-mig-innehall .om-mig-intro,
+body.morkt-lage .om-mig-innehall .om-mig-extra-text p {
+  color: #f5f3ed;
+}
+
+/* DEKORATIVA LINJER */
+
+body.morkt-lage .om-mig-innehall .om-mig-rubriklinje {
+  background: #f5f3ed;
+}
+
+body.morkt-lage .om-mig-innehall .om-mig-avdelare {
+  background: #617067;
+}
+
+/* LÄS MER-KNAPP */
+
+body.morkt-lage .om-mig-innehall .om-mig-lasmer {
+  background: #a8b5a2;
+  color: #171717;
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .om-mig-innehall .om-mig-lasmer:hover {
+  background: #d5ded7;
+}
+
+/* BLOMSTERKIOSKEN */
+
+body.morkt-lage .om-mig-innehall .om-mig-illustration img {
+  mix-blend-mode: normal;
+}
+
+/* DEKORATIV BOX BAKOM BLOMSTERKIOSKEN */
+
+body.morkt-lage .om-mig-innehall .om-mig-illustration::before {
+  background: #4a5a50;
+  opacity: 0.3;
+}
+
+/* KOMPETENSBILDER */
+
+body.morkt-lage .om-mig-innehall .om-mig-kompetensbild,
+body.morkt-lage .om-mig-innehall .om-mig-kompetensutsnitt {
+  filter:
+    brightness(0.65)
+    contrast(0.85)
+    saturate(0.70);
+
+  opacity: 0.80;
+}
+
+/* TEMAKNAPP */
+
+body.morkt-lage .om-mig-innehall .om-mig-temaknapp {
+  color: #f5f3ed;
+  border-bottom-color: #f5f3ed;
+}
+
+/* MJUK ÖVERGÅNG */
+
+.om-mig-innehall {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .om-mig-innehall {
+    transition: none;
+  }
 }

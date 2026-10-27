@@ -1,46 +1,102 @@
+
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import './Navbar.css';
+import { Link, NavLink } from "react-router-dom";
+
+import hbgBild from "../assets/hbg.jpg";
+import "./Navbar.css";
 
 function Navbar() {
   const [oppen, setOppen] = useState(false);
+
+  const stangMeny = () => setOppen(false);
+
   return (
-      <nav className="navbar">
-      <span className="logo">HELSINGBORG</span>
-      <button
-  type="button"
-  className="meny-knapp"
-  onClick={() => setOppen(!oppen)}
-  aria-expanded={oppen}
-  aria-controls="huvudmeny"
-  aria-label="Meny"
->
-  {oppen ? "✕" : "☰"}
-</button>
+    <nav className="navbar" aria-label="Huvudnavigation">
 
-      <div id="huvudmeny"
-    className={oppen ? "lankar oppen" : "lankar"}
-      >
-        <NavLink to="/kontakt"onClick={() => setOppen(false)}>
-        Kontakt
-      </NavLink>
-        <NavLink to="/om-mig"onClick={() => setOppen(false)}>
-        Om mig
-      </NavLink>
+      <div className="navbar-inner">
 
-       <a href="/portfoliosida.pdf"
-          target="_blank" 
-          rel="noopener noreferrer"
-          onClick={() => setOppen(false)}
-            >
+        {/* VÄNSTER – HELSINGBORG OCH BILD */}
+        <div className="navbar-vanster">
 
-          Portfolio
-          </a>  
+          <Link
+            to="/"
+            className="logo"
+            onClick={stangMeny}
+          >
+            HELSINGBORG
+          </Link>
 
-        <NavLink to="/projekt" onClick={() => setOppen(false)}>
-        Projekt</NavLink>
+          <Link
+            to="/"
+            className="navbar-stadslank"
+            onClick={stangMeny}
+            aria-label="Till startsidan"
+          >
+            <img
+              src={hbgBild}
+              alt="Helsingborgs stadssiluett"
+              className="navbar-stadsbild"
+
+            />
+          </Link>
+
         </div>
-      </nav>
+
+        {/* MOBILMENY */}
+        <button
+          type="button"
+          className="meny-knapp"
+          onClick={() => setOppen(!oppen)}
+          aria-expanded={oppen}
+          aria-controls="huvudmeny"
+          aria-label={oppen ? "Stäng meny" : "Öppna meny"}
+        >
+          <span aria-hidden="true">
+            {oppen ? "✕" : "☰"}
+          </span>
+        </button>
+
+        {/* HÖGER – NAVIGERING */}
+        <div
+          id="huvudmeny"
+          className={oppen ? "lankar oppen" : "lankar"}
+        >
+          <NavLink
+            to="/kontakt"
+            onClick={stangMeny}
+          >
+            Kontakt
+          </NavLink>
+
+          <NavLink
+            to="/om-mig"
+            onClick={stangMeny}
+          >
+            Om mig
+          </NavLink>
+
+          <a
+            href="/portfoliosida.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={stangMeny}
+          >
+            Portfolio
+          </a>
+
+          <NavLink
+            to="/projekt"
+            onClick={stangMeny}
+          >
+            Projekt
+          </NavLink>
+        </div>
+
+      </div>
+
+      <div className="navbar-accent" aria-hidden="true" />
+
+    </nav>
   );
 }
 

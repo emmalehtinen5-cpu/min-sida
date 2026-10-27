@@ -1,0 +1,72 @@
+
+/* =========================================
+   RÄKNARE – LJUST OCH MÖRKT LÄGE
+========================================= */
+
+.raknare {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding: 20px 29px;
+  background: #f5f3ed;
+  color: #171717;
+}
+
+.raknare button {
+  padding: 8px 14px;
+
+  background: #d5ded7;
+  color: #171717;
+
+  border: 1px solid #a8b5a2;
+  border-radius: 0;
+
+  cursor: pointer;
+}
+
+.raknare button:hover {
+  background: #a8b5a2;
+}
+
+.raknare-antal {
+  margin: 0 15px;
+  font-weight: 600;
+}
+
+.raknare-antal.positivt {
+  color: navy;
+}
+
+.raknare-antal.noll {
+  color: red;
+}
+
+/* =====================================
+   MÖRKT LÄGE
+===================================== */
+
+body.morkt-lage .raknare {
+  background: #1d2521;
+  color: #f5f3ed;
+}
+
+body.morkt-lage .raknare button {
+  background: #4a5a50;
+  color: #f5f3ed;
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .raknare button:hover {
+  background: #a8b5a2;
+  color: #171717;
+}
+
+body.morkt-lage .raknare-antal.positivt {
+  color: #a8c7f0;
+}
+
+body.morkt-lage .raknare-antal.noll {
+  color: #ff9999;
+}

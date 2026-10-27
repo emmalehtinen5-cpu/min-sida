@@ -1,27 +1,93 @@
-import "./App.css";
+
+/* =========================================
+   APP.JSX – EMMA LEHTINEN
+   NORDISK PORTFOLIO
+========================================= */
+
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
+/* GEMENSAMMA KOMPONENTER */
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Route, Routes } from "react-router-dom";
+
+/* SIDOR */
 import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./pages/Kontakt";
-import ProjektSida from "./pages/ProjektSida";
-import EjHittad from "./pages/EjHittad";
+
+/* STIL */
+import "./App.css";
 
 function App() {
+
+  /* =====================================
+     GEMENSAMT MÖRKT LÄGE
+  ===================================== */
+
+  const [morkt, setMorkt] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("morkt-lage", morkt);
+
+    return () => {
+      document.body.classList.remove("morkt-lage");
+    };
+  }, [morkt]);
+
   return (
     <div className="app">
-  <Navbar />
-  <Routes>
-    <Route path="/" element={<Hem />} />
-    <Route path="/om-mig" element={<OmMig />} />
-    <Route path="/kontakt" element={<Kontakt />} />
-    <Route path="/projekt" element={<ProjektSida />} />
-    <Route path="*" element={<EjHittad />} />
-  </Routes>
-  <Footer />
-</div>
 
+      {/* GEMENSAM RAM – ALLA SIDOR */}
+      <div className="startsida-ram">
+
+        {/* NAVBAR */}
+        <Navbar />
+
+        {/* SIDORNAS INNEHÅLL */}
+        <main className="app-innehall">
+
+          <Routes>
+
+            {/* STARTSIDAN */}
+            <Route
+              path="/"
+              element={<Hem />}
+            />
+
+            {/* OM MIG */}
+            <Route
+              path="/om-mig"
+              element={
+                <OmMig
+                  morkt={morkt}
+                  setMorkt={setMorkt}
+                />
+              }
+            />
+
+            {/* KONTAKT */}
+            <Route
+              path="/kontakt"
+              element={<Kontakt />}
+            />
+
+            {/* PROJEKT */}
+            <Route
+              path="/projekt"
+              element={<Hem />}
+            />
+
+          </Routes>
+
+        </main>
+
+      </div>
+
+      {/* FOOTER – ALLA SIDOR */}
+      <Footer />
+
+    </div>
   );
 }
 

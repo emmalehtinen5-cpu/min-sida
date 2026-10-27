@@ -1,28 +1,582 @@
-.projekt {
-  padding: 64px 32px;
-  background-color: #ede9f6;
+
+/* =========================================
+   PROJEKT.CSS – EMMA LEHTINEN
+   SYNKAD MED HERO-SEKTIONEN
+========================================= */
+
+/* =========================================
+   1. GRUNDINSTÄLLNINGAR
+========================================= */
+
+.projekt,
+.projekt *,
+.projekt *::before,
+.projekt *::after {
+  box-sizing: border-box;
 }
 
-.projekt h2 {
-  font-size: 32px;
-  margin: 0 0 32px;
+/* =========================================
+   2. HELA PROJEKTSEKTIONEN
+========================================= */
+
+.projekt {
+  width: 100%;
+  max-width: 1600px;
+  min-width: 0;
+
+  margin: 0 auto;
+
+  /* Mindre utrymme på vänster och höger sida */
+  padding: 55px 25px 70px;
+
+  background-color: #f5f3ed;
+  color: #000000;
+
+  /* Tunn avdelare längst ned */
+  border-bottom: 1px solid #a8b5a2;
 }
+
+/* =========================================
+   3. RUBRIKOMRÅDE
+========================================= */
+
+.projekt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 100%;
+  gap: 35px;
+
+  margin: 0 0 36px;
+  padding: 0;
+}
+
+.projekt-header-text {
+  flex: 1;
+  min-width: 0;
+  max-width: 650px;
+}
+
+/* UTVALDA ARBETEN / PORTFOLIO */
+
+.projekt-etikett {
+  display: block;
+
+  margin: 0 0 18px;
+  padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+
+  text-transform: uppercase;
+  color: #000000;
+}
+
+/* =========================================
+   4. MINA PROJEKT – VERSALER
+========================================= */
+
+.projekt-header h2 {
+  position: relative;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0 0 22px;
+  padding: 0 0 20px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 3.2vw, 48px);
+  font-weight: 400;
+
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+
+  color: #000000;
+}
+
+/* Tunn salviagrön linje under rubriken */
+
+.projekt-header h2::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 48px;
+  height: 1px;
+
+  background-color: #a8b5a2;
+}
+
+/* =========================================
+   5. INTRODUKTIONSTEXT
+========================================= */
+
+.projekt-beskrivning {
+  width: 100%;
+  max-width: 590px;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0;
+
+  color: #000000;
+}
+
+/* =========================================
+   6. SE ALLA PROJEKT
+========================================= */
+
+.projekt-alla-lank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  flex-shrink: 0;
+  gap: 25px;
+
+  margin: 0 0 2px;
+  padding: 8px 0 10px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #000000;
+  background: transparent;
+
+  border-bottom: 1px solid #a8b5a2;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.projekt-alla-lank span {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.projekt-alla-lank:hover {
+  color: #647764;
+  border-bottom-color: #647764;
+}
+
+.projekt-alla-lank:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   7. PROJEKTGRID – TRE KORT
+========================================= */
 
 .projekt-lista {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;   
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 28px;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
 }
 
+/* =========================================
+   8. RAMAR RUNT PROJEKTKORTEN
+========================================= */
 
-@media (max-width: 800px) {
+.projekt .projekt-lista > * {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 100%;
+  height: auto;
+
+  margin: 0;
+
+  background-color: #f5f3ed;
+
+  /* Samma tunna linje som i Hero */
+  border: 1px solid #a8b5a2;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  transition: border-color 0.2s ease;
+}
+
+/* Diskret grön ram vid hover */
+
+.projekt .projekt-lista > *:hover {
+  border-color: #899e89;
+}
+
+/* =========================================
+   9. PROJEKTBILDER
+========================================= */
+
+.projekt-lista img {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+  object-position: center;
+
+  margin: 0;
+  padding: 0;
+
+  border-radius: 0;
+}
+
+/* =========================================
+   10. TEXT I PROJEKTKORTEN
+========================================= */
+
+/* All vanlig text svart */
+
+.projekt .projekt-lista h3,
+.projekt .projekt-lista p,
+.projekt .projekt-lista span {
+  color: #000000;
+}
+
+/* Projekttitlar */
+
+.projekt .projekt-lista h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 600;
+
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* Projektbeskrivningar – visa hela texten */
+
+.projekt .projekt-lista p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+
+  color: #000000;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  max-height: none;
+  overflow: visible;
+  text-overflow: clip;
+  webkit-line-clamp: unset;
+}
+
+/* Kategorier och teknik */
+
+.projekt .projekt-lista .projekt-kategori,
+.projekt .projekt-lista .projekt-teknik {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+
+  text-transform: uppercase;
+  color: #000000;
+}
+
+/* Behåll projektkortens länkar */
+
+.projekt .projekt-lista a {
+  text-decoration: none;
+}
+
+/* =========================================
+   11. MINDRE DATORSKÄRMAR
+========================================= */
+
+@media (max-width: 1100px) {
+  .projekt {
+    padding: 45px 25px 60px;
+  }
+
+  .projekt-header {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .projekt-header h2 {
+    font-size: clamp(34px, 3.2vw, 42px);
+  }
+
   .projekt-lista {
-    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .projekt-lista img {
+    height: 195px;
+  }
+
+  .projekt-lista h3 {
+    font-size: 21px;
   }
 }
 
+/* =========================================
+   12. SURFPLATTA
+========================================= */
+
+@media (max-width: 850px) {
+  .projekt {
+    padding: 45px 20px 60px;
+  }
+
+  .projekt-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .projekt-header-text {
+    max-width: 100%;
+  }
+
+  .projekt-header h2 {
+    font-size: 38px;
+  }
+
+  .projekt-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+/* =========================================
+   13. MOBIL
+========================================= */
+
 @media (max-width: 600px) {
   .projekt {
-    padding: 40px 20px;
+    padding: 35px 16px 50px;
+  }
+
+  .projekt-etikett {
+    margin-bottom: 15px;
+    font-size: 10px;
+  }
+
+  .projekt-header {
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .projekt-header h2 {
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+
+    font-size: clamp(30px, 7vw, 36px);
+  }
+
+  .projekt-beskrivning {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .projekt-alla-lank {
+    font-size: 12px;
+  }
+
+  .projekt-lista {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .projekt-lista img {
+    height: 230px;
+  }
+
+  .projekt-lista h3 {
+    font-size: 22px;
+  }
+
+  .projekt-lista p {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   14. TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .projekt-alla-lank,
+  .projekt .projekt-lista > * {
+    transition: none;
+  }
+}
+
+/* SVART AVDELARE OVANFÖR MINA PROJEKT */
+
+#projekt {
+  border-top: 2px solid #171717;
+}
+
+/* =========================================
+   PROJEKT – MÖRKT LÄGE
+   EMMA LEHTINEN
+========================================= */
+
+/* =====================================
+   HELA PROJEKTSEKTIONEN
+===================================== */
+
+body.morkt-lage .projekt {
+  background-color: #1d2521;
+  color: #f5f3ed;
+
+  border-bottom-color: #617067;
+}
+
+/* =====================================
+   AVDELARE OVANFÖR MINA PROJEKT
+===================================== */
+
+body.morkt-lage #projekt {
+  border-top-color: #a8b5a2;
+}
+
+/* =====================================
+   RUBRIKER OCH INTRODUKTION
+===================================== */
+
+body.morkt-lage .projekt .projekt-etikett,
+body.morkt-lage .projekt .projekt-header h2,
+body.morkt-lage .projekt .projekt-beskrivning {
+  color: #f5f3ed;
+}
+
+/* GRÖN LINJE UNDER MINA PROJEKT */
+
+body.morkt-lage .projekt .projekt-header h2::after {
+  background-color: #a8b5a2;
+}
+
+/* =====================================
+   SE ALLA PROJEKT – LÄNK
+===================================== */
+
+body.morkt-lage .projekt .projekt-alla-lank {
+  color: #f5f3ed;
+  border-bottom-color: #a8b5a2;
+}
+
+body.morkt-lage .projekt .projekt-alla-lank:hover {
+  color: #a8b5a2;
+  border-bottom-color: #d5ded7;
+}
+
+body.morkt-lage .projekt .projekt-alla-lank:focus-visible {
+  outline-color: #f5f3ed;
+}
+
+/* =====================================
+   PROJEKTKORT – BAKGRUND OCH RAM
+===================================== */
+
+body.morkt-lage .projekt .projekt-lista > * {
+  background-color: #263129;
+  color: #f5f3ed;
+
+  border-color: #617067;
+}
+
+/* GRÖN RAM VID HOVER */
+
+body.morkt-lage .projekt .projekt-lista > *:hover {
+  border-color: #a8b5a2;
+}
+
+/* =====================================
+   PROJEKTKORT – RUBRIKER OCH TEXT
+===================================== */
+
+body.morkt-lage .projekt .projekt-lista h3,
+body.morkt-lage .projekt .projekt-lista p,
+body.morkt-lage .projekt .projekt-lista span,
+body.morkt-lage .projekt .projekt-lista a {
+  color: #f5f3ed;
+}
+
+/* KATEGORIER OCH TEKNIK */
+
+body.morkt-lage .projekt .projekt-lista .projekt-kategori,
+body.morkt-lage .projekt .projekt-lista .projekt-teknik {
+  color: #d5ded7;
+}
+
+/* =====================================
+   PROJEKTBILDER
+===================================== */
+
+/* Behåll bildernas ursprungliga färger */
+
+body.morkt-lage .projekt .projekt-lista img {
+  filter: none;
+}
+
+/* =====================================
+   MJUK ÖVERGÅNG
+===================================== */
+
+.projekt,
+.projekt .projekt-lista > *,
+.projekt .projekt-header h2,
+.projekt .projekt-beskrivning {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =====================================
+   TILLGÄNGLIGHET
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .projekt,
+  .projekt .projekt-lista > *,
+  .projekt .projekt-header h2,
+  .projekt .projekt-beskrivning {
+    transition: none;
   }
 }

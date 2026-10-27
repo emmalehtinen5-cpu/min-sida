@@ -1,36 +1,90 @@
-function Valkommen({ showIntro = true, showSkills = true }) {
+
+/* =========================================
+   VÄLKOMMEN – EMMA LEHTINEN
+   INTRODUKTION OCH KOMPETENSER
+========================================= */
+
+function Valkommen({
+  showIntro = true,
+  showSkills = true,
+}) {
   return (
     <>
-     {showIntro && (
-    <div className="merit-kolumner" id="om-mig">
-  <article className="merit-grupp merit-introduktion">
-    <ul className="merit-programlista">
-      <li>Med en bred erfarenhet av internationell kundservice, administration, koordinering och evenemangsverksamhet kombinerar jag struktur, 
-      kommunikation och problemlösning med ett öga för detaljer. 
-      Jag trivs i sammanhang där människor, idéer och organisation möts och där jag får bidra med både analytiskt tänkande och kreativitet.</li>
-  
-          </ul>
+      {/* =====================================
+          INTRODUKTION – STARTSIDAN
+      ===================================== */}
+
+      {showIntro && (
+        <div
+          className="startsida-intro"
+          id="om-mig"
+        >
+          <article className="merit-grupp merit-introduktion">
+            <ul className="merit-programlista">
+              <li>
+                Jag kombinerar analytiskt tänkande med
+                kreativitet, struktur och ett starkt intresse
+                för arkitektur, design och stadsutveckling.
+                Med erfarenhet av internationell kundservice,
+                administration och koordinering har jag
+                utvecklat en god kommunikativ förmåga och
+                ett lösningsorienterat arbetssätt. Jag drivs
+                av att utforska nya perspektiv, utveckla
+                idéer och skapa tydliga, genomarbetade
+                lösningar där människor, form och funktion
+                möts.
+              </li>
+            </ul>
           </article>
-          
-          <p>Nyfiken på vem jag är 
-          </p>
-          <p>och vad jag kan bidra med?
-            ↩
-            </p>
-          </div> 
+
+          <blockquote className="hero-text">
+            Nyfiken på mina erfarenheter, idéer och vad jag
+            kan bidra med?
+          </blockquote>
+        </div>
       )}
+
+      {/* =====================================
+          KOMPETENSER
+      ===================================== */}
+
       {showSkills && (
         <div className="merit-grupper">
-            <article className="merit-grupp merit-adobe">
-              <p><strong>Adobe</strong></p>
+
+          {/* ADOBE */}
+
+          <article className="merit-grupp merit-adobe">
+            <h3 className="kompetens-rubrik">
+              <span>Adobe</span>
+            </h3>
+
+            <div className="kompetens-innehall">
+              <div
+                className="kompetens-bild kompetens-bild-adobe"
+                aria-hidden="true"
+              />
+
               <ul className="merit-programlista">
                 <li>Illustrator</li>
                 <li>InDesign</li>
                 <li>Photoshop</li>
               </ul>
-            </article>
-            <article className="merit-grupp merit-digitalisering">
-              <p><strong>Digital</strong></p>
+            </div>
+          </article>
+
+          {/* DIGITAL */}
+
+          <article className="merit-grupp merit-digitalisering">
+            <h3 className="kompetens-rubrik">
+              <span>Digital</span>
+            </h3>
+
+            <div className="kompetens-innehall">
+              <div
+                className="kompetens-bild kompetens-bild-digital"
+                aria-hidden="true"
+              />
+
               <ul className="merit-programlista">
                 <li>3DMax</li>
                 <li>3D-render</li>
@@ -38,17 +92,43 @@ function Valkommen({ showIntro = true, showSkills = true }) {
                 <li>AutoCAD</li>
                 <li>SketchUp</li>
               </ul>
-            </article>
-            <article className="merit-grupp merit-office">
-              <p><strong>Office</strong></p>
+            </div>
+          </article>
+
+          {/* OFFICE */}
+
+          <article className="merit-grupp merit-office">
+            <h3 className="kompetens-rubrik">
+              <span>Office</span>
+            </h3>
+
+            <div className="kompetens-innehall">
+              <div
+                className="kompetens-bild kompetens-bild-office"
+                aria-hidden="true"
+              />
+
               <ul className="merit-programlista">
                 <li>Excel</li>
                 <li>PowerPoint</li>
                 <li>Word</li>
               </ul>
-            </article>
-            <article className="merit-grupp merit-sprak">
-              <p><strong>Språk</strong></p>
+            </div>
+          </article>
+
+          {/* SPRÅK */}
+
+          <article className="merit-grupp merit-sprak">
+            <h3 className="kompetens-rubrik">
+              <span>Språk</span>
+            </h3>
+
+            <div className="kompetens-innehall">
+              <div
+                className="kompetens-bild kompetens-bild-sprak"
+                aria-hidden="true"
+              />
+
               <ul className="merit-programlista">
                 <li>Danska</li>
                 <li>Engelska</li>
@@ -56,13 +136,28 @@ function Valkommen({ showIntro = true, showSkills = true }) {
                 <li>Spanska</li>
                 <li>Svenska</li>
               </ul>
-            </article>
-            <article className="merit-grupp merit-ovrigt">
-              <p><strong>Övrigt</strong></p>
+            </div>
+          </article>
+
+          {/* ÖVRIGT */}
+
+          <article className="merit-grupp merit-ovrigt">
+            <h3 className="kompetens-rubrik">
+              <span>Övrigt</span>
+            </h3>
+
+            <div className="kompetens-innehall">
+              <div
+                className="kompetens-bild kompetens-bild-ovrigt"
+                aria-hidden="true"
+              />
+
               <ul className="merit-programlista">
                 <li>B-körkort</li>
               </ul>
-            </article>
+            </div>
+          </article>
+
         </div>
       )}
     </>

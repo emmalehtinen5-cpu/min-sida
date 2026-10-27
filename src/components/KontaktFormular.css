@@ -1,9 +1,9 @@
 .kontakt-formular {
   max-width: 650px;
   padding: 2rem;
-  border: 3px solid #1e293b;
+  border: 3px solid #000000;
   background-color: #ffffff;
-  color: #1e293b;
+  color: #000000;
 }
 
 .kontakt-formular h2 {
@@ -11,7 +11,7 @@
   font-size: 2rem;
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 4px solid #d98268;
+  border-bottom: 4px solid #A8B5A2;
   width: fit-content;
 }
 
@@ -36,7 +36,7 @@
 .kontakt-falt input,
 .kontakt-falt textarea {
   padding: 12px 14px;
-  border: 1px solid #1e293b;
+  border: 1px solid #000000;
   border-radius: 3px;
   background: transparent;
   color: inherit;
@@ -47,7 +47,7 @@
 
 .kontakt-falt input:focus,
 .kontakt-falt textarea:focus {
-  outline: 2px solid #d98268;
+  outline: 2px solid #A8B5A2;
   outline-offset: 2px;
 }
 
