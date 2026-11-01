@@ -31,8 +31,7 @@ function Hero() {
             className="hero-rubrik"
             id="hero-rubrik"
           >
-            <span>EMMA</span>
-            <span>LEHTINEN</span>
+            <span>EMMA LEHTINEN</span>
           </h1>
 
           <div
@@ -46,7 +45,7 @@ function Hero() {
 
           <Link
             className="hero-knapp"
-            to="/projekt"
+            to="/#projekt"
           >
             <span>SE MINA PROJEKT</span>
             <span aria-hidden="true">→</span>

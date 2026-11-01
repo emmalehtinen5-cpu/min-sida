@@ -1,7 +1,8 @@
 
 /* =========================================
    HERO.CSS – EMMA LEHTINEN
-   UPPDATERAD DESIGN
+   NORDISK PORTFOLIO
+   PROPORTIONERLIG SKALNING
 ========================================= */
 
 .hero,
@@ -17,9 +18,11 @@
 
 .hero {
   position: relative;
+
   width: 100%;
   margin: 0;
   padding: 0;
+
   overflow: hidden;
 
   background: #f5f3ed;
@@ -28,10 +31,12 @@
 
 .hero::after {
   content: "";
+
   position: absolute;
   bottom: 0;
   left: 4%;
   right: 4%;
+
   height: 2px;
   background: #171717;
 }
@@ -41,22 +46,23 @@
 }
 
 /* =========================================
-   TVÅ KOLUMNER
+   TVÅ KOLUMNER – FAST DESKTOPLAYOUT
 ========================================= */
 
 .hero .hero-container {
   display: grid;
+
   grid-template-columns:
     minmax(0, 0.95fr)
     minmax(0, 1.05fr);
 
   align-items: start;
-  column-gap: clamp(25px, 3vw, 50px);
+  column-gap: 43px;
 
   width: 100%;
   max-width: none;
-  margin: 0 auto;
 
+  margin: 0 auto;
   padding: 24px 29px 55px;
 }
 
@@ -78,19 +84,27 @@
 
   margin: 0;
   padding: 0;
+
+  transform: translateY(50px);
 }
 
-/* ÖVRE DEKORATIV LINJE */
+/* =========================================
+   ÖVRE DEKORATIV LINJE
+========================================= */
 
 .hero .hero-ovre-linje {
   width: 48px;
   height: 2px;
+
   margin-bottom: 22px;
+
   background: #171717;
+
+  transform: translateY(-20px);
 }
 
 /* =========================================
-   UNDERRUBRIK – FETSTIL
+   UNDERRUBRIK
 ========================================= */
 
 .hero .hero-underrubrik {
@@ -108,7 +122,7 @@
 }
 
 /* =========================================
-   HUVUDRUBRIK – ETT STEG MINDRE
+   HUVUDRUBRIK – EMMA LEHTINEN
 ========================================= */
 
 .hero .hero-rubrik {
@@ -116,12 +130,13 @@
   flex-direction: column;
 
   width: 100%;
+
   margin: 0;
   padding: 0;
 
   font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(38px, 3.6vw, 58px);
+  font-size: 52px;
   font-weight: 400;
 
   letter-spacing: -0.055em;
@@ -134,23 +149,29 @@
   display: block;
 }
 
-/* LINJE UNDER NAMNET */
+/* =========================================
+   LINJE UNDER NAMNET
+========================================= */
 
 .hero .hero-linje {
   width: 48px;
   height: 2px;
 
   margin: 30px 0 24px;
+
   background: #171717;
 }
 
 /* =========================================
-   PRESENTATIONSTEXT
+   PRESENTATIONSTEXT – GRUNDLAYOUT
 ========================================= */
 
 .hero .hero-introtext {
   width: 100%;
-  max-width: 475px;
+  max-width: 500px;
+
+  margin: 0;
+  padding: 0;
 
   color: #171717;
   text-align: left;
@@ -162,7 +183,8 @@
   align-items: flex-start;
 
   width: 100%;
-  max-width: 475px;
+  max-width: 500px;
+
   gap: 0;
 
   margin: 0;
@@ -171,6 +193,7 @@
 
 .hero .hero-introtext .merit-introduktion {
   display: block;
+
   width: 100%;
 
   margin: 0;
@@ -183,14 +206,18 @@
 
 .hero .hero-introtext .merit-programlista {
   display: block;
+
   width: 100%;
 
   margin: 0;
   padding: 0;
+
   list-style: none;
 }
 
-/* INTRODUKTION – MINDRE TEXT */
+/* =========================================
+   PRESENTATIONSTEXT
+========================================= */
 
 .hero .hero-introtext .merit-programlista li,
 .hero .hero-introtext .merit-introduktion p,
@@ -202,11 +229,16 @@
   font-size: 15px;
   font-weight: 400;
 
-  line-height: 1.75;
+  line-height: 1.7;
   letter-spacing: 0;
 
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+
   color: #171717;
+
+  overflow-wrap: normal;
+  hyphens: auto;
 
   background: transparent;
   border: none;
@@ -219,24 +251,25 @@
 
 .hero .hero-introtext .hero-text {
   display: block;
+
   width: 100%;
 
-  margin: 32px 0 0;
+  margin: 165px 0 0;
   padding: 0;
 
   font-family: Arial, Helvetica, sans-serif;
+
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
 
   line-height: 1.6;
   letter-spacing: 0.035em;
+
   text-transform: uppercase;
-
   text-align: left;
-  color: #171717;
 
-  transform: translateY(2cm);
+  color: #171717;
 }
 
 /* =========================================
@@ -245,6 +278,7 @@
 
 .hero .hero-knapp {
   display: inline-flex;
+
   align-items: center;
   justify-content: space-between;
 
@@ -255,20 +289,20 @@
   padding: 14px 19px;
 
   font-family: Arial, Helvetica, sans-serif;
+
   font-size: 13px;
   font-weight: 600;
+
   letter-spacing: 0.12em;
 
   text-decoration: none;
   text-transform: uppercase;
 
-  color: #fff;
-  background: #000;
+   color: #171717;
+  background: #a8b5a2;
 
-  border: 1px solid #000;
+  border: 1px solid #171717;
   border-radius: 0;
-
-  transform: translateY(2cm);
 
   transition:
     background-color 0.2s ease,
@@ -281,8 +315,8 @@
 }
 
 .hero .hero-knapp:hover {
-  background: #a8b5a2;
-  color: #000;
+    background: #d5ded7;
+  color: #171717;
 }
 
 .hero .hero-knapp:focus-visible {
@@ -328,11 +362,14 @@
 
 .hero .hero-form {
   position: absolute;
+
   display: block;
 
   pointer-events: none;
   border-radius: 0;
 }
+
+/* BAKRE FORM */
 
 .hero .hero-form-bakre {
   z-index: 1;
@@ -346,6 +383,8 @@
   background: rgba(168, 181, 162, 0.48);
 }
 
+/* FRÄMRE FORM */
+
 .hero .hero-form-framre {
   z-index: 2;
 
@@ -357,6 +396,8 @@
 
   background: rgba(213, 222, 215, 0.68);
 }
+
+/* NEDRE FORM */
 
 .hero .hero-form-nedre {
   z-index: 1;
@@ -385,6 +426,7 @@
 
   width: 100%;
   height: calc(100% + 40px);
+
   max-width: none;
 
   object-fit: cover;
@@ -422,12 +464,15 @@
   margin: 0;
 
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 15px;
   font-style: italic;
   font-weight: 400;
+
   line-height: 1.4;
 
   text-align: right;
+
   color: #171717;
 }
 
@@ -444,251 +489,18 @@
   height: 2px;
 
   margin-top: 18px;
+
   background: #171717;
 }
 
 /* =========================================
-   MINDRE DATORSKÄRMAR
+   MÖRKT LÄGE
 ========================================= */
-
-@media (max-width: 1100px) {
-  .hero .hero-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 20px 29px 45px;
-  }
-
-  .hero .hero-rubrik {
-    font-size: clamp(38px, 4vw, 52px);
-  }
-
-  .hero .hero-bildram {
-    height: 580px;
-  }
-}
-
-/* =========================================
-   SURFPLATTA
-========================================= */
-
-@media (max-width: 850px) {
-  .hero .hero-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-
-    padding: 25px 20px 45px;
-  }
-
-  .hero .hero-innehall {
-    max-width: 650px;
-  }
-
-  .hero .hero-rubrik {
-    font-size: clamp(40px, 6.5vw, 58px);
-  }
-
-  .hero .hero-bildram {
-    height: 520px;
-  }
-
-  .hero .hero-introtext .hero-text,
-  .hero .hero-knapp {
-    transform: none;
-  }
-}
-
-/* =========================================
-   MOBIL
-========================================= */
-
-@media (max-width: 600px) {
-  .hero .hero-container {
-    gap: 30px;
-    padding: 20px 16px 40px;
-  }
-
-  .hero .hero-underrubrik {
-    margin-bottom: 24px;
-    font-size: 10px;
-  }
-
-  .hero .hero-rubrik {
-    font-size: clamp(35px, 8vw, 48px);
-  }
-
-  .hero .hero-linje {
-    margin: 25px 0 22px;
-  }
-
-  .hero .hero-introtext .merit-programlista li,
-  .hero .hero-introtext .merit-introduktion p,
-  .hero .hero-introtext .startsida-intro p:not(.hero-text) {
-    font-size: 15px;
-  }
-
-  .hero .hero-introtext .hero-text {
-    margin-top: 28px;
-    font-size: 12px;
-  }
-
-  .hero .hero-knapp {
-    font-size: 12px;
-  }
-
-  .hero .hero-bildram {
-    height: 390px;
-  }
-
-  .hero .hero-bild {
-    top: -10px;
-    height: calc(100% + 20px);
-  }
-
-  .hero .hero-citatomrade {
-    margin-top: 13px;
-  }
-
-  .hero .hero-citat {
-    max-width: 100%;
-    font-size: 14px;
-  }
-
-  .hero .hero-citat-linje {
-    width: 60px;
-  }
-}
-
-/* =========================================
-   MYCKET SMÅ SKÄRMAR
-========================================= */
-
-@media (max-width: 380px) {
-  .hero .hero-rubrik {
-    font-size: 34px;
-  }
-
-  .hero .hero-bildram {
-    height: 330px;
-  }
-}
-
-/* =========================================
-   TILLGÄNGLIGHET
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero .hero-knapp {
-    transition: none;
-  }
-}
-
-
-/* =========================================
-   PRESENTATIONSTEXT – EXAKT JUSTERING
-========================================= */
-
-.startsida-ram .hero .hero-introtext
-.startsida-intro .merit-introduktion
-.merit-programlista li {
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-
-  line-height: 1.75;
-  letter-spacing: 0;
-
-  text-align: left;
-  color: #171717;
-
-  margin: 0;
-  padding: 0;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-/* =========================================
-   HERO – PRESENTATIONSTEXT
-   JÄMNARE RADFLÖDE OCH TYPOGRAFI
-========================================= */
-
-.hero .hero-introtext {
-  width: 100%;
-  max-width: 500px;
-  margin: 0;
-  padding: 0;
-
-  text-align: left;
-  color: #171717;
-}
-
-.hero .hero-introtext .startsida-intro {
-  width: 100%;
-  max-width: 500px;
-  margin: 0;
-  padding: 0;
-  gap: 0;
-}
-
-.hero .hero-introtext .merit-introduktion {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.hero .hero-introtext .merit-programlista {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.hero .hero-introtext .merit-programlista li {
-  margin: 0;
-  padding: 0;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.7;
-  letter-spacing: 0;
-
-  text-align: left;
-  color: #171717;
-
-  overflow-wrap: normal;
-  hyphens: none;
-}
-
-@media (max-width: 600px) {
-  .hero .hero-introtext,
-  .hero .hero-introtext .startsida-intro {
-    max-width: 100%;
-  }
-
-  .hero .hero-introtext .merit-programlista li {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-}
-
-
-/* =========================================
-   HERO – MÖRKT LÄGE
-   EMMA LEHTINEN
-========================================= */
-
-/* BAKGRUND OCH GRUNDTEXT */
 
 body.morkt-lage .hero {
   background: #1d2521;
   color: #f5f3ed;
 }
-
-/* HUVUDRUBRIK OCH UNDERRUBRIK */
 
 body.morkt-lage .hero .hero-rubrik,
 body.morkt-lage .hero .hero-rubrik span,
@@ -696,24 +508,16 @@ body.morkt-lage .hero .hero-underrubrik {
   color: #f5f3ed;
 }
 
-/* PRESENTATIONSTEXT */
-
 body.morkt-lage .hero .hero-introtext,
 body.morkt-lage .hero .hero-introtext .merit-programlista li,
 body.morkt-lage .hero .hero-introtext .merit-introduktion p,
-body.morkt-lage .hero .hero-introtext .startsida-intro p,
-body.morkt-lage .startsida-ram .hero .hero-introtext
-.startsida-intro .merit-introduktion .merit-programlista li {
+body.morkt-lage .hero .hero-introtext .startsida-intro p {
   color: #f5f3ed;
 }
-
-/* SEPARAT INTROTEXT / FRÅGA */
 
 body.morkt-lage .hero .hero-introtext .hero-text {
   color: #f5f3ed;
 }
-
-/* DEKORATIVA LINJER */
 
 body.morkt-lage .hero .hero-ovre-linje,
 body.morkt-lage .hero .hero-linje,
@@ -722,17 +526,14 @@ body.morkt-lage .hero::after {
   background: #a8b5a2;
 }
 
-/* CITAT UNDER BILDEN */
-
 body.morkt-lage .hero .hero-citat {
   color: #f5f3ed;
 }
 
-/* KNAPP – SE MINA PROJEKT */
-
 body.morkt-lage .hero .hero-knapp {
   background: #a8b5a2;
   color: #171717;
+
   border-color: #a8b5a2;
 }
 
@@ -745,7 +546,9 @@ body.morkt-lage .hero .hero-knapp:focus-visible {
   outline-color: #f5f3ed;
 }
 
-/* DEKORATIVA GRÖNA FORMER */
+/* =========================================
+   DEKORATIVA FORMER – MÖRKT LÄGE
+========================================= */
 
 body.morkt-lage .hero .hero-form-bakre {
   background: rgba(168, 181, 162, 0.35);
@@ -759,7 +562,9 @@ body.morkt-lage .hero .hero-form-nedre {
   background: rgba(168, 181, 162, 0.20);
 }
 
-/* MJUK ÖVERGÅNG MELLAN LJUST OCH MÖRKT */
+/* =========================================
+   ÖVERGÅNGAR
+========================================= */
 
 .hero,
 .hero .hero-rubrik,
@@ -771,7 +576,12 @@ body.morkt-lage .hero .hero-form-nedre {
     color 0.3s ease;
 }
 
+/* =========================================
+   TILLGÄNGLIGHET
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
+  .hero .hero-knapp,
   .hero,
   .hero .hero-rubrik,
   .hero .hero-underrubrik,

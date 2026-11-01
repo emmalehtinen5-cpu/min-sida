@@ -1,18 +1,31 @@
 
+/* =========================================
+   KONTAKT.JSX – EMMA LEHTINEN
+   NORDISK PORTFOLIO
+   LJUST OCH MÖRKT LÄGE
+========================================= */
+
 import { useState } from "react";
 
 import arkitekturBild from "../assets/bildsspel.png";
 
 import "./Kontakt.css";
 
-function Kontakt() {
+function Kontakt({ morkt, setMorkt }) {
+
+  /* =====================================
+     FORMULÄRETS TILLSTÅND
+  ===================================== */
+
   const [namn, setNamn] = useState("");
   const [epost, setEpost] = useState("");
   const [meddelande, setMeddelande] = useState("");
   const [skickat, setSkickat] = useState(false);
   const [fel, setFel] = useState("");
 
-  /* FORMULÄRVALIDERING */
+  /* =====================================
+     FORMULÄRVALIDERING
+  ===================================== */
 
   const hanteraKlick = (e) => {
     e.preventDefault();
@@ -22,7 +35,9 @@ function Kontakt() {
       !epost.trim() ||
       !meddelande.trim()
     ) {
-      setFel("Du måste fylla i alla fält innan du fortsätter.");
+      setFel(
+        "Du måste fylla i alla fält innan du fortsätter."
+      );
       return;
     }
 
@@ -35,7 +50,7 @@ function Kontakt() {
 
     setFel("");
 
-    // Formuläret är ännu inte anslutet
+    // Formuläret är ännu inte kopplat
     // till någon mejltjänst.
     setSkickat(true);
   };
@@ -46,7 +61,9 @@ function Kontakt() {
       aria-labelledby="kontakt-rubrik"
     >
 
-      {/* VÄNSTER – RUBRIK OCH FORMULÄR */}
+      {/* =====================================
+          VÄNSTER – RUBRIK OCH FORMULÄR
+      ===================================== */}
 
       <div className="kontakt-vanster">
 
@@ -62,22 +79,25 @@ function Kontakt() {
 
           <p className="kontakt-text">
             Har du en fråga, en idé eller vill diskutera
-            ett möjligt samarbete? Hör gärna av dig.
+            ett möjligt samarbete? 
+          </p>
+         <p className="kontakt-text">Hör gärna av dig.
           </p>
 
           <p className="kontakt-underrubrik">
-            Jag välkomnar möjligheter inom arkitektur,
-            stadsutveckling, visualisering och
-            kreativ kommunikation.
+            Jag är öppen för nya idéer, möjligheter och samarbeten.
           </p>
 
         </div>
 
-        {/* KONTAKTFORMULÄR */}
+        {/* =====================================
+            KONTAKTFORMULÄR
+        ===================================== */}
 
         <div className="kontakt-formular">
 
           {!skickat ? (
+
             <form
               className="kontakt-form"
               onSubmit={hanteraKlick}
@@ -87,6 +107,7 @@ function Kontakt() {
               {/* NAMN */}
 
               <div className="kontakt-falt">
+
                 <label htmlFor="namn">
                   Namn
                 </label>
@@ -101,11 +122,13 @@ function Kontakt() {
                   onChange={(e) => setNamn(e.target.value)}
                   required
                 />
+
               </div>
 
               {/* E-POST */}
 
               <div className="kontakt-falt">
+
                 <label htmlFor="epost">
                   E-post
                 </label>
@@ -120,11 +143,13 @@ function Kontakt() {
                   onChange={(e) => setEpost(e.target.value)}
                   required
                 />
+
               </div>
 
               {/* MEDDELANDE */}
 
               <div className="kontakt-falt">
+
                 <label htmlFor="meddelande">
                   Meddelande
                 </label>
@@ -138,41 +163,56 @@ function Kontakt() {
                   onChange={(e) => setMeddelande(e.target.value)}
                   required
                 />
+
               </div>
 
               {/* FELMEDDELANDE */}
 
               {fel && (
+
                 <p
                   className="kontakt-fel"
                   role="alert"
                 >
                   {fel}
                 </p>
+
               )}
 
-              {/* KNAPP */}
+              {/* FORTSÄTT-KNAPP */}
 
               <div className="hero-knapprad">
+
                 <button
                   type="submit"
                   className="kontakt-knapp"
                 >
                   FORTSÄTT
-                  <span aria-hidden="true">↗</span>
+
+                  <span aria-hidden="true">
+                    ↗
+                  </span>
+
                 </button>
+
               </div>
 
             </form>
+
           ) : (
 
-            /* BEKRÄFTELSE */
+            /* =====================================
+               BEKRÄFTELSE
+            ===================================== */
 
             <div
               className="kontakt-bekraftelse"
               role="status"
             >
-              <h3>Tack, {namn}!</h3>
+
+              <h3>
+                Tack, {namn}!
+              </h3>
 
               <p>
                 Dina uppgifter är ifyllda och
@@ -191,13 +231,18 @@ function Kontakt() {
               >
                 TILLBAKA TILL FORMULÄRET
               </button>
+
             </div>
+
           )}
 
         </div>
+
       </div>
 
-      {/* HÖGER – ARKITEKTURBILD */}
+      {/* =====================================
+          HÖGER – ARKITEKTURBILD
+      ===================================== */}
 
       <div className="kontakt-bildkolumn">
 
@@ -219,6 +264,30 @@ function Kontakt() {
           />
 
         </div>
+
+      </div>
+
+      {/* =====================================
+          MÖRKT / LJUST LÄGE
+          LÄNGST NER PÅ KONTAKTSIDAN
+      ===================================== */}
+
+      <div className="om-mig-installningar">
+
+        <button
+          type="button"
+          className="om-mig-temaknapp"
+          onClick={() => setMorkt(!morkt)}
+          aria-pressed={morkt}
+        >
+
+          {morkt ? "LJUST LÄGE" : "MÖRKT LÄGE"}
+
+          <span aria-hidden="true">
+            {morkt ? "☀" : "☾"}
+          </span>
+
+        </button>
 
       </div>
 

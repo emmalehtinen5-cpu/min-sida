@@ -8,8 +8,8 @@ import { Link, useLocation } from "react-router-dom";
 import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
 
-import Hero1 from "../assets/Hero1.jpg";
-import Hero2 from "../assets/Hero2.jpg";
+import Portobild from "../assets/portobild.jpg";
+import Rosen from "../assets/rosen.png";
 import Hero3 from "../assets/Hero3.webp";
 
 /* PROJEKTINFORMATION */
@@ -21,7 +21,7 @@ const projekt = [
     text:
       "En visuellt utformad portfolio som presenterar projekt inom arkitektur, stadsutveckling och rumslig gestaltning.",
     teknik: "Analys, Visualisering, Gestaltning",
-    bild: Hero1,
+    bild: Portobild,
     lank: "/projekt/portfoliosida.pdf",
   },
   {
@@ -30,7 +30,7 @@ const projekt = [
     text:
       "Analys av Rosengårds urbana miljö med fokus på platsens kvaliteter, möjligheter och utbud för unga vuxna.",
     teknik: "Workshop, Intervjuer, Platsanalys",
-    bild: Hero2,
+    bild: Rosen,
     lank: "/projekt/projekt2.pdf",
   },
   {

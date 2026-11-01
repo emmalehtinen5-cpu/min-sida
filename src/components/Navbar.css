@@ -56,12 +56,13 @@
   justify-content: space-between;
 
   width: 100%;
-  min-height: 105px;
+  height: 110px;
+  min-height: 0;
 
   margin: 0;
-  padding: 10px 29px;
+  padding: 4px 29px;
 
-  gap: 20px;
+  gap: 1px;
 }
 
 /* =========================================
@@ -95,9 +96,9 @@
   color: var(--nav-text);
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
   line-height: 1.4;
 
   text-decoration: none;
@@ -125,36 +126,53 @@
 ========================================= */
 
 .navbar .navbar-stadslank {
+  position: relative;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  flex: 1 1 380px;
+  flex: 1 1 600px;
   min-width: 0;
-  max-width: 420px;
+  max-width: 700px;
 
-  height: 78px;
-  padding-left: 18px;
-
-  border-left: 1px solid var(--nav-text);
+  height: 100px;
+  padding-left: 20px;
 
   background: transparent;
   text-decoration: none;
 
-  overflow: visible;
+  overflow: hidden;
 }
 
-/* BILDEN */
+/* LODRÄT LINJE VID BILDEN */
 
-.navbar .navbar-stadsbild {
+.navbar .navbar-stadslank::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 1px;
+  height: 75px;
+
+  background: var(--nav-text);
+}
+
+/* SJÄLVA BILDEN */
+
+.navbar .navbar-siluett {
   display: block;
 
   width: 100%;
   max-width: 100%;
   height: 100%;
+  max-height: 100%;
 
   object-fit: contain;
-  object-position: center;
+  object-position: left center;
 
   border: none;
   outline: none;
@@ -176,7 +194,6 @@
   flex-shrink: 0;
 
   gap: 0;
-
   margin: 0 0 0 auto;
   padding: 0;
 }
@@ -200,9 +217,9 @@
   border-radius: 0;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
   line-height: 1.4;
 
   text-decoration: none;
@@ -224,16 +241,17 @@
 
   position: absolute;
   left: -1px;
-  top: 13px;
-  bottom: 13px;
+  top: 50%;
+  transform: translateY(-50%);
 
   width: 1px;
+  height: 55px;
 
-  background: var(--nav-line);
+  background: var(--nav-text);
 }
 
 /* =========================================
-   9. HOVER PÅ MENYLÄNKAR
+   9. HOVER
 ========================================= */
 
 .navbar .lankar a:hover {
@@ -247,7 +265,7 @@
 
 .navbar .lankar a.active,
 .navbar .lankar a.active:hover {
-  background: var(--nav-green);
+  background: var(--nav-light-green);
   color: var(--nav-active-text);
 
   border: 1px solid var(--nav-text);
@@ -261,7 +279,7 @@
 }
 
 /* =========================================
-   11. GRÖN REMSA UNDER NAVBAR
+   11. GRÖN ACCENTREMSA
 ========================================= */
 
 .navbar .navbar-accent {
@@ -271,12 +289,11 @@
   height: 7px;
 
   background: var(--nav-green);
-
   border-top: 1px solid var(--nav-text);
 }
 
 /* =========================================
-   12. RAM – STYRS AV APP.CSS
+   12. RAM – APP.CSS
 ========================================= */
 
 .startsida-ram > .navbar {
@@ -307,18 +324,17 @@
   padding: 0;
 
   background: var(--nav-green);
-  color: var(--nav-active-text);
+  color: #171717;
 
   border: 1px solid var(--nav-text);
   border-radius: 0;
 
   font-size: 22px;
-
   cursor: pointer;
 }
 
 /* =========================================
-   14. MÖRKT LÄGE – FÄRGVARIABLER
+   14. MÖRKT LÄGE
 ========================================= */
 
 body.morkt-lage .navbar {
@@ -327,17 +343,13 @@ body.morkt-lage .navbar {
   --nav-green: #a8b5a2;
   --nav-light-green: #4a5a50;
   --nav-line: #617067;
-  --nav-active-text: #171717;
+  --nav-active-text: #f5f3ed;
 
   background: var(--nav-bg);
   color: var(--nav-text);
 
   border-bottom-color: var(--nav-text);
 }
-
-/* =========================================
-   15. MÖRKT LÄGE – HELSINGBORG
-========================================= */
 
 body.morkt-lage .navbar .logo {
   color: #f5f3ed;
@@ -347,88 +359,52 @@ body.morkt-lage .navbar .logo::after {
   background: #a8b5a2;
 }
 
-/* LINJE VID STADSBILDEN */
-
-body.morkt-lage .navbar .navbar-stadslank {
-  border-left-color: #f5f3ed;
+body.morkt-lage .navbar .navbar-siluett {
+  filter: none;
+  opacity: 1;
 }
-
-/* =========================================
-   16. MÖRKT LÄGE – STADSBILD
-========================================= */
-
-/* LJUS VERSION AV BILDEN */
-
-body.morkt-lage .navbar .navbar-stadsbild {
-  filter: grayscale(1) brightness(0) invert(1);
-  opacity: 0.85;
-}
-
-/* =========================================
-   17. MÖRKT LÄGE – MENYLÄNKAR
-========================================= */
 
 body.morkt-lage .navbar .lankar a {
   color: #f5f3ed;
   background: transparent;
 }
 
-/* HOVER */
-
 body.morkt-lage .navbar .lankar a:hover {
   background: #4a5a50;
   color: #f5f3ed;
 }
 
-/* AKTIV MENYLÄNK */
-
-body.morkt-lage .navbar .lankar a.active,
-body.morkt-lage .navbar .lankar a.active:hover {
-  background: #a8b5a2;
-  color: #171717;
-
+body.morkt-lage .navbar .lankar a.active {
+  background: #4a5a50;
+  color: #f5f3ed;
   border-color: #f5f3ed;
 }
 
-/* AVDELARE */
-
 body.morkt-lage .navbar .lankar a + a::before {
-  background: #617067;
+  background: #f5f3ed;
 }
-
-/* =========================================
-   18. MÖRKT LÄGE – GRÖN REMSA
-========================================= */
 
 body.morkt-lage .navbar .navbar-accent {
   background: #a8b5a2;
   border-top-color: #f5f3ed;
 }
 
-/* =========================================
-   19. MÖRKT LÄGE – RAM
-========================================= */
-
 body.morkt-lage .startsida-ram > .navbar {
   border-bottom-color: #f5f3ed;
 }
 
-/* =========================================
-   20. MÖRKT LÄGE – MOBILMENYKNAPP
-========================================= */
-
 body.morkt-lage .navbar .meny-knapp {
   background: #a8b5a2;
   color: #171717;
-
   border-color: #f5f3ed;
 }
 
 /* =========================================
-   21. MINDRE DATORSKÄRMAR
+   15. MINDRE DATORSKÄRMAR
 ========================================= */
 
 @media (max-width: 1250px) {
+
   .navbar .navbar-inner {
     gap: 14px;
   }
@@ -440,22 +416,23 @@ body.morkt-lage .navbar .meny-knapp {
   .navbar .navbar-stadslank {
     flex-basis: 200px;
     max-width: 240px;
-
     padding-left: 14px;
   }
 
   .navbar .lankar a {
-    padding: 12px 12px;
-    font-size: 11px;
+    padding: 12px;
+    font-size: 13px;
   }
 }
 
 /* =========================================
-   22. SURFPLATTA OCH MOBILMENY
+   16. SURFPLATTA / MOBILMENY
 ========================================= */
 
 @media (max-width: 1050px) {
+
   .navbar .navbar-inner {
+    height: 88px;
     min-height: 88px;
     padding: 10px 24px;
   }
@@ -466,14 +443,10 @@ body.morkt-lage .navbar .meny-knapp {
     height: 60px;
   }
 
-  /* VISA MENYKNAPP */
-
   .navbar .meny-knapp {
     display: inline-flex;
     margin-left: auto;
   }
-
-  /* DOLD MENY */
 
   .navbar .lankar {
     display: none;
@@ -491,48 +464,35 @@ body.morkt-lage .navbar .meny-knapp {
     padding: 12px 24px 20px;
 
     background: var(--nav-bg);
-
     border-bottom: 2px solid var(--nav-text);
 
     z-index: 200;
   }
 
-  /* ÖPPEN MENY */
-
   .navbar .lankar.oppen {
     display: flex;
   }
-
-  /* MENYLÄNKAR I MOBIL */
 
   .navbar .lankar a {
     justify-content: flex-start;
 
     width: 100%;
     min-height: 50px;
-
     padding: 14px 12px;
 
     border: 1px solid transparent;
     border-bottom: 1px solid var(--nav-line);
   }
 
-  /* INGA LODRÄTA AVDELARE */
-
   .navbar .lankar a::before {
     display: none;
   }
 
-  /* AKTIV MENYLÄNK */
-
   .navbar .lankar a.active {
     background: var(--nav-green);
-    color: var(--nav-active-text);
-
+    color: #171717;
     border: 1px solid var(--nav-text);
   }
-
-  /* MÖRKT LÄGE – MOBILMENY */
 
   body.morkt-lage .navbar .lankar {
     background: #1d2521;
@@ -546,17 +506,18 @@ body.morkt-lage .navbar .meny-knapp {
   body.morkt-lage .navbar .lankar a.active {
     background: #a8b5a2;
     color: #171717;
-
     border-color: #f5f3ed;
   }
 }
 
 /* =========================================
-   23. MOBIL
+   17. MOBIL
 ========================================= */
 
 @media (max-width: 600px) {
+
   .navbar .navbar-inner {
+    height: 76px;
     min-height: 76px;
     padding: 8px 16px;
     gap: 10px;
@@ -567,8 +528,7 @@ body.morkt-lage .navbar .meny-knapp {
   }
 
   .navbar .logo {
-    font-size: 11px;
-    letter-spacing: 0.07em;
+    font-size: 13px;
   }
 
   .navbar .logo::after {
@@ -580,14 +540,12 @@ body.morkt-lage .navbar .meny-knapp {
     flex: 0 1 105px;
     max-width: 105px;
     height: 50px;
-
     padding-left: 10px;
   }
 
   .navbar .meny-knapp {
     width: 38px;
     height: 38px;
-
     font-size: 20px;
   }
 
@@ -597,14 +555,10 @@ body.morkt-lage .navbar .meny-knapp {
 }
 
 /* =========================================
-   24. MYCKET SMÅ SKÄRMAR
+   18. MYCKET SMÅ SKÄRMAR
 ========================================= */
 
 @media (max-width: 390px) {
-  .navbar .logo {
-    font-size: 10px;
-    letter-spacing: 0.04em;
-  }
 
   .navbar .navbar-stadslank {
     flex-basis: 75px;
@@ -614,40 +568,175 @@ body.morkt-lage .navbar .meny-knapp {
 }
 
 /* =========================================
-   25. STÖRRE HELSINGBORGSBILD – DESKTOP
+   19. BOLLPLANK – 50 % LÄGRE NAVBAR
+   ENDAST PÅ BOLLPLANK-SIDAN
 ========================================= */
 
-@media (min-width: 1051px) {
-  .navbar .navbar-stadslank {
-    width: 350px;
-    height: 78px;
+body:has(.bollplank-sida) .navbar {
+  width: 100%;
+}
 
-    flex: 0 1 350px;
+/* HUVUDHÖJD: 110 PX → 55 PX */
 
-    min-width: 0;
-    max-width: 350px;
+body:has(.bollplank-sida) .navbar .navbar-inner {
+  height: 55px;
+  min-height: 55px;
 
-    padding-left: 18px;
+  padding: 3px 20px;
+  gap: 10px;
+}
 
-    overflow: hidden;
+/* VÄNSTERDEL */
+
+body:has(.bollplank-sida) .navbar .navbar-vanster {
+  gap: 12px;
+  min-width: 0;
+}
+
+/* LOGOTYP */
+
+body:has(.bollplank-sida) .navbar .logo {
+  font-size: 11px;
+  padding: 6px 0 10px;
+}
+
+body:has(.bollplank-sida) .navbar .logo::after {
+  width: 42px;
+  height: 2px;
+  bottom: 2px;
+}
+
+/* HELSINGBORGSBILDENS BEHÅLLARE */
+
+body:has(.bollplank-sida) .navbar .navbar-stadslank {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 0 1 320px;
+  width: auto;
+  max-width: 320px;
+  min-width: 0;
+
+  height: 48px;
+  padding-left: 12px;
+
+  overflow: hidden;
+}
+
+/* LODRÄT LINJE */
+
+body:has(.bollplank-sida) .navbar .navbar-stadslank::before {
+  height: 35px;
+}
+
+/* HELSINGBORGSBILD */
+
+body:has(.bollplank-sida) .navbar .navbar-siluett {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  height: 45px;
+  max-height: 45px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  transform: none;
+}
+
+/* MENYLÄNKAR */
+
+body:has(.bollplank-sida) .navbar .lankar a {
+  min-height: 35px;
+  padding: 7px 12px;
+  font-size: 11px;
+}
+
+/* AVDELARE */
+
+body:has(.bollplank-sida) .navbar .lankar a + a::before {
+  height: 32px;
+}
+
+/* GRÖN ACCENTLINJE */
+
+body:has(.bollplank-sida) .navbar .navbar-accent {
+  height: 4px;
+}
+
+/* =========================================
+   20. BOLLPLANK – SURFPLATTA
+========================================= */
+
+@media (max-width: 1050px) {
+
+  body:has(.bollplank-sida) .navbar .navbar-inner {
+    height: 55px;
+    min-height: 55px;
   }
 
-  .navbar .navbar-stadsbild {
-    width: 100%;
-    height: 100%;
+  body:has(.bollplank-sida) .navbar .navbar-stadslank {
+    flex: 0 1 150px;
+    max-width: 150px;
+    height: 45px;
+  }
 
-    object-fit: cover;
-    object-position: center;
+  body:has(.bollplank-sida) .navbar .navbar-siluett {
+    height: 42px;
+  }
 
-    transform: none;
+  body:has(.bollplank-sida) .navbar .meny-knapp {
+    width: 38px;
+    height: 38px;
+  }
 
-    border: none;
-    outline: none;
+  body:has(.bollplank-sida) .navbar .lankar a {
+    min-height: 44px;
+    padding: 12px;
   }
 }
 
 /* =========================================
-   26. TILLGÄNGLIGHET
+   21. BOLLPLANK – MOBIL
+========================================= */
+
+@media (max-width: 600px) {
+
+  body:has(.bollplank-sida) .navbar .navbar-inner {
+    height: 55px;
+    min-height: 55px;
+    padding: 4px 12px;
+  }
+
+  body:has(.bollplank-sida) .navbar .navbar-vanster {
+    gap: 8px;
+  }
+
+  body:has(.bollplank-sida) .navbar .logo {
+    font-size: 10px;
+  }
+
+  body:has(.bollplank-sida) .navbar .navbar-stadslank {
+    flex: 0 1 100px;
+    max-width: 100px;
+    height: 40px;
+    padding-left: 8px;
+  }
+
+  body:has(.bollplank-sida) .navbar .navbar-siluett {
+    height: 38px;
+  }
+
+  body:has(.bollplank-sida) .navbar .meny-knapp {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* =========================================
+   22. TILLGÄNGLIGHET
 ========================================= */
 
 .navbar a:focus-visible,
@@ -656,19 +745,9 @@ body.morkt-lage .navbar .meny-knapp {
   outline-offset: 4px;
 }
 
-/* FOKUS I MÖRKT LÄGE */
-
-body.morkt-lage .navbar a:focus-visible,
-body.morkt-lage .navbar .meny-knapp:focus-visible {
-  outline-color: #f5f3ed;
-}
-
-/* MINSKADE ANIMATIONER */
-
 @media (prefers-reduced-motion: reduce) {
   .navbar,
   .navbar .lankar a {
     transition: none;
   }
-}
-
+    }

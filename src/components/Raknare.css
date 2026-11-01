@@ -1,21 +1,60 @@
 
 /* =========================================
-   RÄKNARE – LJUST OCH MÖRKT LÄGE
+   RAKNARE.CSS – EMMA LEHTINEN
+   NORDISK PORTFOLIO
+   PROPORTIONERLIG SKALNING
+========================================= */
+
+/* =========================================
+   GRUNDINSTÄLLNINGAR
+========================================= */
+
+.raknare,
+.raknare *,
+.raknare *::before,
+.raknare *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   RÄKNARE – GRUNDLAYOUT
 ========================================= */
 
 .raknare {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  flex-wrap: nowrap;
   gap: 10px;
 
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
   padding: 20px 29px;
+
   background: #f5f3ed;
   color: #171717;
 }
 
+/* =========================================
+   KNAPPAR
+========================================= */
+
 .raknare button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
   padding: 8px 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 
   background: #d5ded7;
   color: #171717;
@@ -24,28 +63,54 @@
   border-radius: 0;
 
   cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
+
+/* =========================================
+   KNAPP – HOVER
+========================================= */
 
 .raknare button:hover {
   background: #a8b5a2;
 }
 
+.raknare button:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   ANTAL
+========================================= */
+
 .raknare-antal {
+  flex-shrink: 0;
+
   margin: 0 15px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   font-weight: 600;
 }
+
+/* POSITIVT ANTAL */
 
 .raknare-antal.positivt {
   color: navy;
 }
 
+/* NOLL */
+
 .raknare-antal.noll {
   color: red;
 }
 
-/* =====================================
+/* =========================================
    MÖRKT LÄGE
-===================================== */
+========================================= */
 
 body.morkt-lage .raknare {
   background: #1d2521;
@@ -55,6 +120,7 @@ body.morkt-lage .raknare {
 body.morkt-lage .raknare button {
   background: #4a5a50;
   color: #f5f3ed;
+
   border-color: #a8b5a2;
 }
 
@@ -63,10 +129,24 @@ body.morkt-lage .raknare button:hover {
   color: #171717;
 }
 
+body.morkt-lage .raknare button:focus-visible {
+  outline-color: #f5f3ed;
+}
+
 body.morkt-lage .raknare-antal.positivt {
   color: #a8c7f0;
 }
 
 body.morkt-lage .raknare-antal.noll {
   color: #ff9999;
+}
+
+/* =========================================
+   TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .raknare button {
+    transition: none;
+  }
 }

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import hbgBild from "../assets/hbg.jpg";
+import Helsingborg from "../assets/minhbgbild.png";
 import "./Navbar.css";
 
 function Navbar() {
@@ -15,7 +15,10 @@ function Navbar() {
 
       <div className="navbar-inner">
 
-        {/* VÄNSTER – HELSINGBORG OCH BILD */}
+        {/* =====================================
+            VÄNSTER – HELSINGBORG OCH BILD
+        ===================================== */}
+
         <div className="navbar-vanster">
 
           <Link
@@ -33,16 +36,18 @@ function Navbar() {
             aria-label="Till startsidan"
           >
             <img
-              src={hbgBild}
+              className="navbar-siluett"
+              src={Helsingborg}
               alt="Helsingborgs stadssiluett"
-              className="navbar-stadsbild"
-
             />
           </Link>
 
         </div>
 
-        {/* MOBILMENY */}
+        {/* =====================================
+            MOBILMENY
+        ===================================== */}
+
         <button
           type="button"
           className="meny-knapp"
@@ -56,17 +61,26 @@ function Navbar() {
           </span>
         </button>
 
-        {/* HÖGER – NAVIGERING */}
+        {/* =====================================
+            HÖGER – NAVIGERING
+        ===================================== */}
+
         <div
           id="huvudmeny"
           className={oppen ? "lankar oppen" : "lankar"}
         >
+
+          {/* HEM */}
+
           <NavLink
-            to="/kontakt"
+            to="/"
+            end
             onClick={stangMeny}
           >
-            Kontakt
+            Hem
           </NavLink>
+
+          {/* OM MIG */}
 
           <NavLink
             to="/om-mig"
@@ -74,6 +88,17 @@ function Navbar() {
           >
             Om mig
           </NavLink>
+
+          {/* PROJEKT – DIREKT TILL MINA PROJEKT */}
+
+          <Link
+            to="/#projekt"
+            onClick={stangMeny}
+          >
+            Projekt
+          </Link>
+
+          {/* PORTFOLIO */}
 
           <a
             href="/portfoliosida.pdf"
@@ -84,17 +109,36 @@ function Navbar() {
             Portfolio
           </a>
 
+          {/* BOLLPLANK */}
+
           <NavLink
-            to="/projekt"
+            to="/mitt-bollplank"
             onClick={stangMeny}
           >
-            Projekt
+            Bollplank
           </NavLink>
+
+          {/* KONTAKT */}
+
+          <NavLink
+            to="/kontakt"
+            onClick={stangMeny}
+          >
+            Kontakt
+          </NavLink>
+
         </div>
 
       </div>
 
-      <div className="navbar-accent" aria-hidden="true" />
+      {/* =====================================
+          DEKORATIV ACCENTLINJE
+      ===================================== */}
+
+      <div
+        className="navbar-accent"
+        aria-hidden="true"
+      />
 
     </nav>
   );

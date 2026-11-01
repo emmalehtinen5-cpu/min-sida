@@ -359,7 +359,7 @@
   height: auto;
 
   background: #d5ded7;
-  opacity: 0.3;
+  opacity: 0.45;
   /* FLYTTA ENDAST BOXEN NEDÅT */
   transform: translateY(80px);
 }
@@ -741,5 +741,86 @@ body.morkt-lage .om-mig-innehall .om-mig-temaknapp {
 @media (prefers-reduced-motion: reduce) {
   .om-mig-innehall {
     transition: none;
+  }
+}
+/* =========================================
+   19. BEHÅLL DESKTOPLAYOUT VID SKALNING
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-toppen {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1.2fr)
+      minmax(0, 0.95fr);
+
+    gap: clamp(2rem, 3.5vw, 4rem);
+  }
+}
+/* =========================================
+   20. BLOMSTERKIOSK – BEHÅLL ORIGINALSTORLEK
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-illustration img {
+    width: 135%;
+    max-width: none;
+    height: auto;
+    transform: translateY(155px);
+  }
+}
+/* =========================================
+   20. BLOMSTERKIOSK – BEHÅLL DESKTOPDESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-illustration {
+    grid-column: auto;
+    justify-content: center;
+  }
+
+  .om-mig-illustration img {
+    width: 135%;
+    max-width: none;
+    transform: translateY(135px);
+  }
+}
+/* =========================================
+   21. PORTRÄTT – BEHÅLL DESKTOPSTORLEK
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-bild {
+    height: 365px;
+  }
+}
+/* =========================================
+   21. PORTRÄTT – BEHÅLL DESKTOPDESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+  .om-mig-bild {
+    height: 365px;
+  }
+
+  .om-mig-portrattram {
+    max-width: 285px;
+  }
+
+  .om-mig-bildkolumn {
+    padding: 42px 0 45px 28px;
+  }
+}
+/* =========================================
+   22. KOMPETENSBILD – BEHÅLL DESKTOPFORMAT
+========================================= */
+
+@media (max-width: 700px) {
+  .om-mig-kompetensbild {
+    display: block;
+  }
+
+  .om-mig-kompetensmobil {
+    display: none;
   }
 }
