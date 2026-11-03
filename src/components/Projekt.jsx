@@ -7,6 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
+import { antalProjekt } from "../utils/text";
 
 import Portobild from "../assets/portobild.jpg";
 import Rosen from "../assets/rosen.png";
@@ -66,6 +67,9 @@ function Projekt() {
           <h2 id="projekt-rubrik">
             Mina projekt
           </h2>
+          <p className="projekt-antal">
+          {antalProjekt(projekt.length, projekt.length)}
+          </p>
 
           <p className="projekt-beskrivning">
             Ett urval av projekt inom arkitektur,

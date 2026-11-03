@@ -8,6 +8,9 @@ import Hero from "../components/Hero";
 import Projekt from "../components/Projekt";
 import Raknare from "../components/Raknare";
 import Väder from "../components/Vader";
+import GitHubRepon from "../components/GitHubRepon";
+import { NAMN } from "../data/installningar";
+import { fornamn } from "../utils/text";
 
 
 /* =========================================
@@ -56,7 +59,7 @@ function Hem({
     return (
       <div className="hem-innehall">
 
-        <Hero />
+        <Hero  namn={fornamn(NAMN)} />
 
         {temaKnapp}
 
@@ -92,7 +95,7 @@ function Hem({
     <div className="hem-innehall">
 
       {/* HERO */}
-      <Hero />
+      <Hero  namn={fornamn(NAMN)} />
 
       {/* PROJEKT */}
       <Projekt />
@@ -102,6 +105,9 @@ function Hem({
 
       {/* VÄDER – ANPASSAS TILL MÖRKT LÄGE */}
       <Väder morkt={morkt} />
+
+      {/* GITHUB-PROJEKT */}
+      <GitHubRepon />
 
       {/* KNAPP FÖR MÖRKT / LJUST LÄGE */}
       {temaKnapp}

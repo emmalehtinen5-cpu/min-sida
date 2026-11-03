@@ -4,7 +4,7 @@ import Valkommen from "./Valkommen";
 import arkitekturBild from "../assets/bildsspel.png";
 import "./Hero.css";
 
-function Hero() {
+function Hero ({ namn }) {
   return (
     <section
       className="hero"
@@ -31,7 +31,7 @@ function Hero() {
             className="hero-rubrik"
             id="hero-rubrik"
           >
-            <span>EMMA LEHTINEN</span>
+            <span>{namn?.toUpperCase()} LEHTINEN</span>
           </h1>
 
           <div

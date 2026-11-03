@@ -94,11 +94,8 @@ function dagEllerNattIkon(kod, arDag) {
 ========================================= */
 
 async function hamtaStad(stad) {
-  const url =
-    "https://api.open-meteo.com/v1/forecast" +
-    `?latitude=${stad.lat}` +
-    `&longitude=${stad.lon}` +
-    "&current=temperature_2m,wind_speed_10m,weather_code,is_day";
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${stad.lat}&longitude=${stad.lon}&current=temperature_2m,wind_speed_10m,weather_code,is_day`;
+
 
   const svar = await fetch(url);
 

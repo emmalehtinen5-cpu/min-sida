@@ -38,3 +38,39 @@ export const arExtremTemperatur = (temp) => {
 export const arNormalTemperatur = (temp) => {
   return !arExtremTemperatur(temp);
 };
+
+
+export const snyggtDatum = (datum) =>
+  new Date(datum).toLocaleDateString("sv-SE", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+
+export const kortText = (text, max) => {
+  if (text.length <= max) {
+    return text;
+  }
+
+  return `${text.slice(0, max)}...`;
+};
+
+
+export const antalProjekt = (antal, totalt) =>
+  `Visar ${antal} av ${totalt} projekt`;
+
+export const fornamn = (namn) =>
+  namn.split(" ")[0];
+
+// Exempel med ditt namn:
+// fornamn("Emma Lehtinen") ger "Emma"
+
+export const initialer = (namn) =>
+  namn
+    .split(" ")
+    .map((del) => del[0])
+    .join("")
+    .toUpperCase();
+
+// Exempel:
+// initialer("Emma Lehtinen") ger "EL"

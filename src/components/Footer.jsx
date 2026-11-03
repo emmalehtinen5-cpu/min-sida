@@ -1,3 +1,5 @@
+
+import { NAMN, EPOST } from "../data/installningar";
 import { copyright } from "../utils/text";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
@@ -20,7 +22,7 @@ function Footer() {
             {/* MEJL */}
 
             <a
-              href="mailto:emmalehtinen5@gmail.com"
+              href={`mailto:${EPOST}`}
               aria-label="Skicka mejl till Emma Lehtinen"
               title="Skicka mejl"
             >
@@ -81,7 +83,7 @@ function Footer() {
           {/* COPYRIGHT */}
 
           <span className="footer-copyright">
-          {copyright("EMMA LEHTINEN")}
+          {copyright(NAMN.toUpperCase())}
           </span>
 
         </div>
