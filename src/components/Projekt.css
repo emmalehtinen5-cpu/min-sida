@@ -301,7 +301,6 @@
   max-height: none;
   overflow: visible;
   text-overflow: clip;
-  -webkit-line-clamp: unset;
 }
 
 /* KATEGORIER OCH TEKNIK */
