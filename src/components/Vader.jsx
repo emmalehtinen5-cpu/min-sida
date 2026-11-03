@@ -7,47 +7,16 @@
 import { useState, useEffect, useRef } from "react";
 import "./Vader.css";
 
+import {
+  grader,
+  temperaturText,
+  arExtremTemperatur,
+} from "../utils/text";
+
+import { stader } from "../data/stader";
 
 /* =========================================
-   1. STÄDER SOM VISAS FRÅN BÖRJAN
-========================================= */
-
-const stader = [
-  {
-    namn: "Helsingborg",
-    lat: 56.05,
-    lon: 12.69,
-    flagga: "🇸🇪",
-  },
-  {
-    namn: "Moskva",
-    lat: 55.75,
-    lon: 37.62,
-    flagga: "🇷🇺",
-  },
-  {
-    namn: "Helsingfors",
-    lat: 60.17,
-    lon: 24.94,
-    flagga: "🇫🇮",
-  },
-  {
-    namn: "Madrid",
-    lat: 40.42,
-    lon: -3.70,
-    flagga: "🇪🇸",
-  },
-  {
-    namn: "Rom",
-    lat: 41.90,
-    lon: 12.50,
-    flagga: "🇮🇹",
-  },
-];
-
-
-/* =========================================
-   2. OMVANDLA LANDSKOD TILL FLAGGA
+   1. OMVANDLA LANDSKOD TILL FLAGGA
 ========================================= */
 
 function landsFlagga(landskod) {
@@ -66,9 +35,8 @@ function landsFlagga(landskod) {
     .join("");
 }
 
-
 /* =========================================
-   3. VÄDERIKONER – DAGTID
+   2. VÄDERIKONER – DAGTID
 ========================================= */
 
 function vaderIkon(kod) {
@@ -109,9 +77,8 @@ function vaderIkon(kod) {
   return "🌡️";
 }
 
-
 /* =========================================
-   4. VÄDERIKONER – DAG OCH NATT
+   3. VÄDERIKONER – DAG OCH NATT
 ========================================= */
 
 function dagEllerNattIkon(kod, arDag) {
@@ -122,9 +89,8 @@ function dagEllerNattIkon(kod, arDag) {
   return "🌙";
 }
 
-
 /* =========================================
-   5. HÄMTA VÄDER FÖR EN STAD
+   4. HÄMTA VÄDER FÖR EN STAD
 ========================================= */
 
 async function hamtaStad(stad) {
@@ -162,9 +128,8 @@ async function hamtaStad(stad) {
   };
 }
 
-
 /* =========================================
-   6. VÄDERKOMPONENT
+   5. VÄDERKOMPONENT
 ========================================= */
 
 function Vader() {
@@ -182,9 +147,8 @@ function Vader() {
     vaderRef.current = vader;
   }, [vader]);
 
-
   /* =====================================
-     7. HÄMTA STARTSTÄDER
+     6. HÄMTA STARTSTÄDER
   ===================================== */
 
   useEffect(() => {
@@ -237,9 +201,8 @@ function Vader() {
     };
   }, []);
 
-
   /* =====================================
-     8. UPPDATERA VÄDRET VAR TIONDE MINUT
+     7. UPPDATERA VÄDRET VAR TIONDE MINUT
   ===================================== */
 
   useEffect(() => {
@@ -295,9 +258,8 @@ function Vader() {
     };
   }, []);
 
-
   /* =====================================
-     9. SÖK EFTER NY STAD
+     8. SÖK EFTER NY STAD
   ===================================== */
 
   async function sokStad(e) {
@@ -386,9 +348,8 @@ function Vader() {
     }
   }
 
-
   /* =====================================
-     10. TA BORT EN STAD
+     9. TA BORT EN STAD
   ===================================== */
 
   function taBortStad(id) {
@@ -399,16 +360,15 @@ function Vader() {
     );
   }
 
-
   /* =====================================
-     11. VISA VÄDERSEKTIONEN
+     10. VISA VÄDERSEKTIONEN
   ===================================== */
 
   return (
     <section className="vader">
 
       {/* RUBRIK */}
-      <h1>Vädret just nu:</h1>
+      <h2>Vädret just nu:</h2>
 
       {/* SÖKFÄLT */}
       <form
@@ -491,22 +451,66 @@ function Vader() {
             {/* VÄDERIKON OCH TEMPERATUR */}
             <div className="vader-kort-info">
 
-              <div className="vader-ikon">
-                {dagEllerNattIkon(
-                  stad.kod,
-                  stad.arDag
-                )}
+              <div className="vader-temperatur-rad">
+
+                <span className="vader-ikon">
+                  {dagEllerNattIkon(
+                    stad.kod,
+                    stad.arDag
+                  )}
+                </span>
+
+                <div className="vader-temperatur-text">
+
+                  <p className="temperatur">
+                    {grader(
+                      stad.temperatur.toFixed(1)
+                    )}
+                  </p>
+
+                  <p className="temperatur-beskrivning">
+                    {temperaturText(
+                      stad.temperatur
+                    )}
+                  </p>
+
+                </div>
+
               </div>
 
-              <p className="temperatur">
-                {stad.temperatur.toFixed(1)} °C
+              {/* =================================
+                  BOX 1 – SKÖNT VÄDER
+                  VISAS PÅ ALLA STÄDER
+              ================================= */}
+
+              <p className="vader-meddelande">
+                ☀️ Skönt väder!
               </p>
+
+              {/* =================================
+                  BOX 2 – TEMPERATURSTATUS
+              ================================= */}
+
+              {arExtremTemperatur(
+                stad.temperatur
+              ) ? (
+                <p className="vader-varning">
+                  ⚠️ Extrem temperatur!
+                </p>
+              ) : (
+                <p className="vader-normal">
+                  <span className="svart-bock">
+                    ✓
+                  </span>
+                  {" "}Normal temperatur
+                </p>
+              )}
 
             </div>
 
             {/* VINDHASTIGHET */}
             <p className="vader-vind">
-              Vind: {stad.vind} km/h
+              VIND: {stad.vind} km/h
             </p>
 
           </div>

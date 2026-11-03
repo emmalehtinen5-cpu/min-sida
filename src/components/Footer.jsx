@@ -1,9 +1,8 @@
-
+import { copyright } from "../utils/text";
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
-  const år = new Date().getFullYear();
 
   return (
     <footer className="footer" id="kontakt">
@@ -82,7 +81,7 @@ function Footer() {
           {/* COPYRIGHT */}
 
           <span className="footer-copyright">
-            © {år} EMMA LEHTINEN
+          {copyright("EMMA LEHTINEN")}
           </span>
 
         </div>

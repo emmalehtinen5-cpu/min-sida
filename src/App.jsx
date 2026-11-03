@@ -5,6 +5,20 @@
 ========================================= */
 
 import { useState, useEffect } from "react";
+
+import {
+  sidNamn,
+  huvudfarg,
+  sidBeskrivning,
+} from "./data/installningar";
+
+import {
+  storaBokstaver,
+  kombineraText,
+  skapaHalsning,
+  hamtaTemaText,
+} from "./utils/text";
+
 import {
   Routes,
   Route,
@@ -73,6 +87,10 @@ function ScrollTillSektion({ skala }) {
   return null;
 }
 
+/* =========================================
+   ÖVNING – JAVASCRIPT
+========================================= */
+
 console.log("1");
 
 setTimeout(() => {
@@ -81,8 +99,18 @@ setTimeout(() => {
 
 console.log("3");
 
+/* =========================================
+   HUVUDKOMPONENT – APP
+========================================= */
 
 function App() {
+  /* =====================================
+     SIDANS TITEL
+  ===================================== */
+
+  useEffect(() => {
+    document.title = sidNamn;
+  }, [sidNamn]);
 
   /* =====================================
      GEMENSAMT MÖRKT / LJUST LÄGE
@@ -127,6 +155,10 @@ function App() {
     };
   }, [morkt]);
 
+  /* =====================================
+     SIDANS INNEHÅLL
+  ===================================== */
+
   return (
     <div
       className="app"
@@ -145,7 +177,12 @@ function App() {
             GEMENSAM RAM
         ===================================== */}
 
-        <div className="startsida-ram">
+        <div className="startsida-ram"
+        title={`${skapaHalsning("Emma")} –
+           ${kombineraText(
+            storaBokstaver(sidNamn),
+            sidBeskrivning )} – Huvudfärg:
+             ${huvudfarg} – ${hamtaTemaText(morkt)}`}>
 
           {/* NAVBAR */}
 
@@ -154,7 +191,6 @@ function App() {
           {/* SIDORNAS INNEHÅLL */}
 
           <main className="app-innehall">
-
             <Routes>
 
               {/* HEM */}
@@ -218,7 +254,6 @@ function App() {
               />
 
             </Routes>
-
           </main>
 
         </div>

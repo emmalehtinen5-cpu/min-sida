@@ -1,40 +1,53 @@
 
 /* =========================================
    VADER.CSS – EMMA LEHTINEN
-   NORDISK PORTFOLIO
+   FINSK RETRO 90-TAL / MODERN 2026
+   RENSAD VERSION – BEFINTLIG DESIGN
 ========================================= */
 
-
 /* =========================================
-   1. VÄDERSEKTION
+   1. GRUNDFÄRGER
 ========================================= */
 
 .vader {
-  padding: 3rem 2rem;
-  text-align: left;
+  --vader-marin: #000000;
+  --vader-beige: #f5f3ed;
+
+  --helsingborg: #bac8bd;
+  --moskva: #d9856d;
+  --helsingfors: #aabbd0;
+  --madrid: #e6bd70;
+  --rom: #a9c6ac;
+
+  width: 100%;
+  min-width: 0;
+  padding: 2rem var(--sidmarginal, 29px);
+  overflow-x: auto;
+
+  background: var(--bakgrund, #f5f3ed);
+  color: #000000;
+
+  font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
-
 /* =========================================
-   2. RUBRIK – VÄDRET JUST NU
+   2. RUBRIK
 ========================================= */
 
-.vader h1 {
-  color: #000000;
-  margin: 0 0 0.7rem;
-  text-align: left;
-  text-transform: uppercase;
+.vader h2 {
+  margin: 15px 0 0.3rem;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-style: normal;
-  letter-spacing: 1px;
+  color: #000000 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  opacity: 0.85 !important;
 
-  opacity: 0.7;
+  letter-spacing: 0.04em;
+  text-transform: none !important;
 }
-
 
 /* =========================================
    3. SÖKFÄLT
@@ -42,53 +55,45 @@
 
 .vader-sok {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 .vader-sok input {
   width: 220px;
   min-width: 0;
+  padding: 10px 12px;
 
-  box-sizing: border-box;
-  padding: 0.8rem 1rem;
-
-  border: 2px solid #000000;
-  background-color: #f8f5ef;
+  background: var(--vader-beige);
   color: #000000;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  border: 2px solid var(--vader-marin);
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  box-sizing: border-box;
 }
-
-.vader-sok input::placeholder {
-  color: #777777;
-  opacity: 1;
-}
-
-
-/* =========================================
-   4. SÖKKNAPP
-========================================= */
 
 .vader-sok button {
-  padding: 0.8rem 1.5rem;
+  padding: 10px 18px;
 
-  border: 2px solid #000000;
-  background-color: #000000;
+  background: var(--vader-marin);
   color: #ffffff;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  border: 2px solid var(--vader-marin);
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
 
   cursor: pointer;
 }
 
 .vader-sok button:hover {
-  background-color: #A3B18A;
+  background: #a8b5a2;
   color: #000000;
 }
 
@@ -99,58 +104,80 @@
 
 
 /* =========================================
-   5. VÄDERKORT – GRID
+   4. VÄDERKORT – CONTAINER
 ========================================= */
 
 .vader-kort-container {
   display: grid;
+  grid-template-columns: repeat(5, 260px);
 
-  /* Fast bredd */
-  grid-template-columns: repeat(auto-fit, 230px);
-
-  /* Placering till vänster */
-  justify-content: start;
-
-  /* Mellanrum */
-  column-gap: 16px;
-  row-gap: 20px;
-
-  width: 100%;
-  max-width: 1400px;
+  gap: 14px;
+  width: max-content;
+  max-width: none;
 
   margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
 
 /* =========================================
-   6. VÄDERKORT – LJUST LÄGE
+   5. KORTENS GRUNDDESIGN
 ========================================= */
 
 .vader-kort {
+  --kort-accent: var(--helsingborg);
+
   position: relative;
 
-  /* Fast storlek */
-  width: 230px;
-  height: 105px;
+  display: flex;
+  flex-direction: column;
 
-  box-sizing: border-box;
-  flex-shrink: 0;
+  min-width: 0;
+  min-height: 0 !important;
+  height: auto !important;
 
-  padding: 8px 10px;
+  padding: 0;
+  overflow: hidden;
 
-  border: 3px solid #000000;
-  background-color: #f8f5ef;
-  box-shadow: 5px 5px 0 #000000;
+  background: var(--vader-beige);
+  color: var(--vader-marin);
 
-  color: #000000;
+  border: 3px solid var(--vader-marin);
+  border-radius: 20px;
+
+  box-shadow: 7px 8px 0 var(--vader-marin);
+
+  font-family: inherit;
   text-align: center;
-
-  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* =========================================
+   6. STÄDERNAS FÄRGER
+========================================= */
+
+.vader-kort:nth-child(1) {
+  --kort-accent: var(--helsingborg);
+}
+
+.vader-kort:nth-child(2) {
+  --kort-accent: var(--moskva);
+}
+
+.vader-kort:nth-child(3) {
+  --kort-accent: var(--helsingfors);
+}
+
+.vader-kort:nth-child(4) {
+  --kort-accent: var(--madrid);
+}
+
+.vader-kort:nth-child(5) {
+  --kort-accent: var(--rom);
+}
 
 /* =========================================
-   7. FLAGGA OCH STADSNAMN
+   7. STADSNAMN OCH FLAGGA
 ========================================= */
 
 .vader-kort-rubrik {
@@ -158,263 +185,370 @@
   align-items: center;
   justify-content: flex-start;
 
-  gap: 12px;
-  padding-right: 22px;
+  gap: 10px;
 
-  height: 25px;
+  height: 60px !important;
+  min-height: 60px !important;
+
+  margin: 0;
+  padding: 8px 42px 8px 14px !important;
+
+  background: var(--kort-accent);
+  border-bottom: 2px solid var(--vader-marin);
+
+  box-sizing: border-box;
+}
+
+.vader-kort .vader-flagga {
+  flex-shrink: 0;
+
+  font-size: 2rem !important;
+  line-height: 1 !important;
+}
+
+.vader-kort .vader-kort-rubrik h3 {
   min-width: 0;
-}
+  margin: 0 !important;
 
-.vader-kort-rubrik .vader-flagga {
-  position: static;
-  flex-shrink: 0;
-
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.vader-kort-rubrik h3 {
-  margin: 0;
   color: #000000;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.05rem;
-  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem) !important;
+  font-weight: 800 !important;
+  font-style: italic;
 
-  white-space: nowrap;
-  line-height: 1.2;
-  opacity: 1;
-}
+  letter-spacing: -0.04em;
+  line-height: 1 !important;
 
-
-/* =========================================
-   8. VÄDERIKON OCH TEMPERATUR
-========================================= */
-
-.vader-kort-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 22px;
-  margin: 9px 0 0;
-}
-
-.vader-ikon {
-  font-size: 2rem;
-  line-height: 1;
-
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.vader-kort .temperatur {
-  color: #000000;
-
-  font-size: 1.55rem;
-  font-weight: 800;
-  line-height: 1.2;
-
-  margin: 0;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
-
 /* =========================================
-   9. VINDHASTIGHET
-========================================= */
-
-.vader-kort .vader-vind {
-  color: #000000;
-
-  font-size: 0.8rem;
-  line-height: 1.2;
-
-  margin: 5px 0 0 40px;
-
-  text-align: center;
-  white-space: nowrap;
-}
-
-
-/* =========================================
-   10. TA BORT-KNAPP
+   8. TA BORT STAD
 ========================================= */
 
 .ta-bort-knapp {
   position: absolute;
-  top: 7px;
-  right: 7px;
-
-  width: 20px;
-  height: 20px;
-  padding: 0;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 2px solid #000000;
-  background-color: #f8f5ef;
-  color: #000000;
+  width: 22px;
+  height: 22px;
+  padding: 0;
 
-  font-size: 0.85rem;
-  line-height: 1;
+  background: var(--vader-beige);
+  color: var(--vader-marin);
+
+  border: 2px solid var(--vader-marin);
+  border-radius: 3px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
   cursor: pointer;
 }
 
 .ta-bort-knapp:hover {
-  background-color: #A3B18A;
+  background: var(--vader-marin);
+  color: white;
 }
 
+/* =========================================
+   9. VÄDERINFORMATION
+========================================= */
+
+.vader-kort-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+
+  margin: 0 !important;
+  padding: 5px 10px 6px !important;
+
+  box-sizing: border-box;
+}
 
 /* =========================================
-   11. FELMEDDELANDEN
+   10. VÄDERIKON OCH TEMPERATUR
+========================================= */
+
+.vader-temperatur-rad {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  min-height: 60px !important;
+
+  gap: 12px !important;
+  margin: 0 !important;
+}
+
+/* VÄDERIKON OCH SVART AVDELNINGSLINJE */
+
+.vader .vader-kort .vader-temperatur-rad .vader-ikon {
+  position: static !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 70px !important;
+  height: 45px;
+  min-height: 45px !important;
+
+  min-width: 0;
+
+  margin: 0 !important;
+  padding: 0 8px 0 0 !important;
+
+  border-right: 1px solid #000000 !important;
+
+  font-size: 3rem !important;
+  line-height: 1 !important;
+
+  -webkit-text-stroke: 1px #000000;
+  filter:
+  drop-shadow(1px 0 0 #000000)
+  drop-shadow(-1px 0 0 #000000)
+  drop-shadow(0 1px 0 #000000)
+  drop-shadow(0 -1px 0 #000000);
+}
+
+/* TEMPERATURTEXT */
+
+.vader-temperatur-text {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* GRADER */
+
+.vader-kort .vader-temperatur-text .temperatur {
+  margin: 0 !important;
+
+  color: var(--vader-marin);
+
+  font-family: inherit;
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  font-style: italic !important;
+
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+/* KALLT / BEHAGLIGT */
+
+.vader-kort .vader-temperatur-text .temperatur-beskrivning {
+  margin: 2px 0 0 !important;
+
+  color: var(--vader-marin);
+
+  font-family: inherit;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+
+  line-height: 1.2;
+}
+
+/* =========================================
+   11. INFORMATIONSBOXAR
+========================================= */
+
+.vader .vader-kort .vader-meddelande,
+.vader .vader-kort .vader-normal,
+.vader .vader-kort .vader-varning {
+  display: block;
+
+  width: calc(100% - 24px);
+  max-width: none;
+
+  margin: 3px auto 0 !important;
+  padding: 6px 8px !important;
+
+  background: #f2e9df;
+  color: #000000;
+
+  border: 1px solid #99939a;
+  border-radius: 12px;
+
+  font-family: inherit;
+  font-size: 0.95rem !important;
+  font-weight: 700;
+  font-style: italic;
+
+  line-height: 1.3;
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   12. VIND – FÄRGAT BOTTENFÄLT
+========================================= */
+
+.vader .vader-kort .vader-vind {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  width: 100%;
+  height: 48px !important;
+  min-height: 48px !important;
+
+  margin: 2px 0 0 !important; 
+  padding: 4px 10px !important;
+
+  background: var(--kort-accent);
+  color: #ffffff;
+
+  border-top: 2px solid var(--vader-marin);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem !important;
+  font-weight: 800;
+  font-style: italic;
+
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  box-sizing: border-box;
+}
+
+/* VINDIKON */
+
+.vader-kort .vader-vind::before {
+  content: "";
+
+  display: block;
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  background-color: #ffffff;
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.8 19.6A2 2 0 1 0 14 16H2'/%3E%3Cpath d='M17.5 8A2.5 2.5 0 1 1 20 11H2'/%3E%3Cpath d='M9.8 4.4A2 2 0 1 1 11 8H2'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.8 19.6A2 2 0 1 0 14 16H2'/%3E%3Cpath d='M17.5 8A2.5 2.5 0 1 1 20 11H2'/%3E%3Cpath d='M9.8 4.4A2 2 0 1 1 11 8H2'/%3E%3C/svg%3E");
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* =========================================
+   13. FELMEDDELANDEN
 ========================================= */
 
 .vader-fel {
-  color: #b91c1c;
   margin-bottom: 1rem;
+  color: #a83232;
+  font-size: 0.9rem;
 }
 
-
 /* =========================================
-   12. MÖRKT LÄGE – RUBRIK
+   14. MÖRKT LÄGE
 ========================================= */
 
-body.morkt-lage .vader h1 {
-  color: #ffffff;
-  opacity: 0.85;
+body.morkt-lage .vader {
+  background: var(--bakgrund);
 }
-
-
-/* =========================================
-   13. MÖRKT LÄGE – VÄDERKORT
-========================================= */
 
 body.morkt-lage .vader-kort {
-  background-color: #26332d;
-  color: #ffffff;
-
-  border-color: #A3B18A;
-  box-shadow: 5px 5px 0 #101713;
+  background: var(--vit, #26332d);
+  border-color: var(--vader-marin);
 }
+
+body.morkt-lage .vader-kort-rubrik h3,
+body.morkt-lage .vader-kort .temperatur,
+body.morkt-lage .vader-kort .temperatur-beskrivning {
+  color: var(--vader-marin);
+}
+
+body.morkt-lage .vader-kort .vader-meddelande,
+body.morkt-lage .vader-kort .vader-normal,
+body.morkt-lage .vader-kort .vader-varning {
+  color: var(--text, #ffffff);
+}
+
+
 
 
 /* =========================================
-   14. MÖRKT LÄGE – STADSNAMN
+   15. RESPONSIV DESIGN
+   BEHÅLL VÄDERKORTENS FORM
 ========================================= */
 
-body.morkt-lage .vader-kort-rubrik h3 {
-  color: #ffffff;
-  opacity: 1;
-}
-
-
-/* =========================================
-   15. MÖRKT LÄGE – TEMPERATUR
-========================================= */
-
-body.morkt-lage .vader-kort .temperatur {
-  color: #ffffff;
-  opacity: 1;
-}
-
-
-/* =========================================
-   16. MÖRKT LÄGE – VIND
-========================================= */
-
-body.morkt-lage .vader-kort .vader-vind {
-  color: #ffffff;
-  opacity: 1;
-}
-
-
-/* =========================================
-   17. MÖRKT LÄGE – SÖKFÄLT
-========================================= */
-
-body.morkt-lage .vader-sok input {
-  background-color: #26332d;
-  color: #ffffff;
-  border-color: #A3B18A;
-}
-
-body.morkt-lage .vader-sok input::placeholder {
-  color: #d5dcd5;
-  opacity: 1;
-}
-
-
-/* =========================================
-   18. MÖRKT LÄGE – SÖKKNAPP
-========================================= */
-
-body.morkt-lage .vader-sok button {
-  background-color: #26332d;
-  color: #ffffff;
-  border-color: #A3B18A;
-}
-
-body.morkt-lage .vader-sok button:hover {
-  background-color: #A3B18A;
-  color: #000000;
-}
-
-
-/* =========================================
-   19. MÖRKT LÄGE – TA BORT-KNAPP
-========================================= */
-
-body.morkt-lage .ta-bort-knapp {
-  background-color: #26332d;
-  color: #ffffff;
-  border-color: #A3B18A;
-}
-
-body.morkt-lage .ta-bort-knapp:hover {
-  background-color: #A3B18A;
-  color: #000000;
-}
-
-
-/* =========================================
-   20. MOBILANPASSNING
-========================================= */
-
-/*
-  Korten behåller sin fasta storlek.
-  När skärmen blir smalare flyttas
-  de automatiskt till nästa rad.
-*/
-
-/* Surfplatta */
-@media (max-width: 1000px) {
-  .vader {
-    padding: 2rem 1.5rem;
-  }
-}
-
-/* Mobil */
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .vader {
     padding: 2rem 1rem;
   }
+}
 
-  .vader-sok input {
-    width: 100%;
+
+
+/* =========================================
+   16. RESPONSIV RUBRIKSTORLEK
+========================================= */
+
+@media (max-width: 1400px) {
+  .vader-kort .vader-kort-rubrik h3 {
+    font-size: 1.1rem !important;
   }
 
-  .vader-sok button {
-    flex-shrink: 0;
+  .vader-kort .vader-flagga {
+    font-size: 2rem !important;
+  }
+
+  .vader-kort .vader-kort-rubrik {
+    gap: 10px;
+    padding-left: 14px;
   }
 }
 
-/* Mycket små skärmar */
-@media (max-width: 280px) {
-  .vader-kort-container {
-    overflow-x: auto;
-    padding-bottom: 8px;
+
+/* =========================================
+   17. TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .vader-kort,
+  .vader-sok button {
+    transition: none;
   }
 }
