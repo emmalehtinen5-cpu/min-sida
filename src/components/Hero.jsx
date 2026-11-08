@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Valkommen from "./Valkommen";
 import arkitekturBild from "../assets/bildsspel.png";
 import "./Hero.css";
+import { halsning } from "../utils/text";
 
 function Hero ({ namn }) {
   return (
@@ -22,7 +23,9 @@ function Hero ({ namn }) {
             className="hero-ovre-linje"
             aria-hidden="true"
           />
-
+              <p className="hero-halsning">
+                {halsning()}
+                </p>
           <p className="hero-underrubrik">
             arkitektur. kommunikation. visualisering.
           </p>

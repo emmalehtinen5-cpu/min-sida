@@ -49,6 +49,29 @@ const projekt = [
 ];
 
 /* =========================================
+   SAMLA ALLA TEKNIKER MED FOR...OF
+========================================= */
+
+const allaTekniker = [];
+
+for (const p of projekt) {
+  const tekniker = p.teknik.split(",");
+
+  for (const teknik of tekniker) {
+    const namn = teknik.trim();
+
+    if (!allaTekniker.includes(namn)) {
+      allaTekniker.push(namn);
+    }
+  }
+}
+
+// Sortera teknikerna alfabetiskt
+allaTekniker.sort((a, b) =>
+  a.localeCompare(b, "sv")
+);
+
+/* =========================================
    PROJEKTKOMPONENT
 ========================================= */
 
@@ -58,11 +81,31 @@ function Projekt() {
   // State för sortering
   const [sortering, setSortering] = useState("standard");
 
+  // State för teknikfilter
+  const [valdTeknik, setValdTeknik] = useState("alla");
+
   // Visa länken till alla projekt på andra sidor
   const visaAllaProjekt = pathname !== "/projekt";
 
-  // Kopiera projektlistan innan sortering
-  const sorteradeProjekt = [...projekt];
+  /* =====================================
+     FILTRERA PROJEKT EFTER TEKNIK
+  ===================================== */
+
+  const sorteradeProjekt = projekt.filter((p) => {
+    if (valdTeknik === "alla") {
+      return true;
+    }
+
+    const tekniker = p.teknik
+      .split(",")
+      .map((teknik) => teknik.trim());
+
+    return tekniker.includes(valdTeknik);
+  });
+
+  /* =====================================
+     SORTERA PROJEKT
+  ===================================== */
 
   // Sortera alfabetiskt efter titel
   if (sortering === "titel") {
@@ -87,12 +130,14 @@ function Projekt() {
       id="projekt"
       aria-labelledby="projekt-rubrik"
     >
+
       {/* =====================================
           RUBRIK OCH INTRODUKTION
       ===================================== */}
 
       <div className="projekt-header">
         <div className="projekt-header-text">
+
           <span className="projekt-etikett">
             UTVALDA ARBETEN / PORTFOLIO
           </span>
@@ -111,6 +156,7 @@ function Projekt() {
             där idéer och analyser utvecklas
             till visuella och rumsliga lösningar.
           </p>
+
         </div>
 
         {/* VISAS ENDAST PÅ STARTSIDAN */}
@@ -124,6 +170,7 @@ function Projekt() {
             <span aria-hidden="true">→</span>
           </Link>
         )}
+
       </div>
 
       {/* =====================================
@@ -131,6 +178,7 @@ function Projekt() {
       ===================================== */}
 
       <div className="projekt-sortering">
+
         <label htmlFor="sortera-projekt">
           Sortera projekt:
         </label>
@@ -140,6 +188,7 @@ function Projekt() {
           value={sortering}
           onChange={(e) => setSortering(e.target.value)}
         >
+
           <option value="standard">
             Standardordning
           </option>
@@ -151,25 +200,68 @@ function Projekt() {
           <option value="tekniker">
             Flest tekniker först
           </option>
+
         </select>
+
       </div>
 
       {/* =====================================
-          PROJEKTKORT
+          FILTRERA PROJEKT EFTER TEKNIK
       ===================================== */}
 
-      <div className="projekt-lista">
-        {sorteradeProjekt.map((p) => (
-          <ProjektKort
-            key={p.id}
-            id={p.id}
-            titel={p.titel}
-            text={p.text}
-            teknik={p.teknik}
-            bild={p.bild}
-            lank={p.lank}
-          />
-        ))}
+      <div className="projekt-sortering">
+
+        <label htmlFor="filtrera-teknik">
+          Filtrera efter teknik:
+        </label>
+
+        <select
+          id="filtrera-teknik"
+          value={valdTeknik}
+          onChange={(e) => setValdTeknik(e.target.value)}
+        >
+
+          <option value="alla">
+            Alla tekniker
+          </option>
+
+          {allaTekniker.map((teknik) => (
+            <option
+              key={teknik}
+              value={teknik}
+            >
+              {teknik}
+            </option>
+          ))}
+
+        </select>
+
+      </div>
+
+{/* =====================================
+    PROJEKTKORT
+===================================== */}
+
+{/* Räknaren ligger UTANFÖR projekt-grid */}
+
+<p className="projekt-filter-antal">
+  {sorteradeProjekt.length} av {projekt.length} projekt visas
+</p>
+
+<div className="projekt-lista">
+
+  {sorteradeProjekt.map((p) => (
+    <ProjektKort
+      key={p.id}
+      id={p.id}
+      titel={p.titel}
+      text={p.text}
+      teknik={p.teknik}
+      bild={p.bild}
+      lank={p.lank}
+    />
+       ))}
+
       </div>
     </section>
   );

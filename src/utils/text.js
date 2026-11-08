@@ -74,3 +74,15 @@ export const initialer = (namn) =>
 
 // Exempel:
 // initialer("Emma Lehtinen") ger "EL"
+
+export function halsning() {
+  const timme = new Date().getHours();
+
+  if (timme < 10) {
+    return "God morgon";
+  } else if (timme < 18) {
+    return "God dag";
+  } else {
+    return "God kväll";
+  }
+}

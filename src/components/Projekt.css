@@ -441,3 +441,81 @@ body.morkt-lage .projekt .projekt-lista img {
     transition: none;
   }
 }
+
+
+/* =====================================
+   ANTAL FILTRERADE PROJEKT
+===================================== */
+
+.projekt-filter-antal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* =====================================
+   SORTERING OCH TEKNIKFILTER
+===================================== */
+
+.projekt-sortering {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-bottom: 16px;
+}
+
+.projekt-sortering label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: inherit;
+}
+
+.projekt-sortering select {
+  min-width: 210px;
+  max-width: 100%;
+  padding: 10px 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+
+  color: #1e293b;
+  background-color: #f7f6f1;
+  border: 1px solid #a5b5a3;
+  border-radius: 0;
+
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.projekt-sortering select:hover {
+  border-color: #536b5c;
+}
+
+.projekt-sortering select:focus-visible {
+  outline: 2px solid #536b5c;
+  outline-offset: 3px;
+}
+
+/* Anpassning för mindre skärmar */
+
+@media (max-width: 600px) {
+  .projekt-sortering {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .projekt-sortering select {
+    width: 100%;
+  }
+}

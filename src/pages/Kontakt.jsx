@@ -50,6 +50,12 @@ function Kontakt({ morkt, setMorkt }) {
 
     setFel("");
 
+if (meddelande.trim().length < 10) {
+  setFel("Meddelandet måste innehålla minst 10 tecken.");
+  return;
+}
+
+
     // Formuläret är ännu inte kopplat
     // till någon mejltjänst.
     setSkickat(true);
@@ -155,15 +161,19 @@ function Kontakt({ morkt, setMorkt }) {
                 </label>
 
                 <textarea
-                  id="meddelande"
+                   id="meddelande"
                   name="meddelande"
                   rows={5}
                   placeholder="Skriv ditt meddelande här..."
                   value={meddelande}
                   onChange={(e) => setMeddelande(e.target.value)}
+                  maxLength={500}
                   required
-                />
+                        />
 
+              <p className="kontakt-teckenraknare">
+             {meddelande.length} / 500 tecken
+                </p>
               </div>
 
               {/* FELMEDDELANDE */}
