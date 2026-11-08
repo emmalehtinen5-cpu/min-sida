@@ -3,7 +3,7 @@
    OM MIG – EMMA LEHTINEN
    NORDISK PORTFOLIO
 ========================================= */
-
+import Statistik from "../components/Statistik";
 import { useState } from "react";
 
 import emmaBild from "../assets/emma.webp";
@@ -300,7 +300,11 @@ function OmMig({ morkt, setMorkt }) {
           ))}
         </div>
       </section>
+  {/* =====================================
+          STATISTIK – TEKNIKER OCH METODER
+      ===================================== */}
 
+      <Statistik />
       {/* =====================================
           MÖRKT / LJUST LÄGE
       ===================================== */}

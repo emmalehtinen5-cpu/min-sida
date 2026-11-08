@@ -3,9 +3,11 @@
    PROJEKTKORT – MODERN & STRUKTURERAD
 ========================================= */
 
+import { Link } from "react-router-dom";
 import "./ProjektKort.css";
 
 function ProjektKort({
+  id,
   titel,
   text,
   bild,
@@ -42,7 +44,18 @@ function ProjektKort({
           {teknik}
         </span>
 
-        {/* PROJEKTKNAPP */}
+        {/* LÄNK TILL PROJEKTDETALJ */}
+
+        <Link
+          className="projekt-detalj-lank"
+          to={`/projekt/${id}`}
+          aria-label={`Läs mer om ${titel}`}
+        >
+          LÄS MER
+          <span aria-hidden="true"> →</span>
+        </Link>
+
+        {/* BEFINTLIG PDF-KNAPP */}
 
         <a
           className="projekt-lank"

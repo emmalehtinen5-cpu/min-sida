@@ -1194,3 +1194,94 @@ body.morkt-lage .hem-innehall .om-mig-temaknapp {
     transition: none;
   }
 }
+
+/* =========================================
+   35. PROJEKTDETALJ – LAYOUT OCH DESIGN
+========================================= */
+
+.projekt-detalj {
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+  padding: 65px var(--sidmarginal) 80px;
+
+  background: var(--bakgrund);
+  color: var(--text);
+}
+
+/* PROJEKTRUBRIK */
+
+.projekt-detalj h1 {
+  margin: 0 0 25px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+/* PROJEKTBESKRIVNING */
+
+.projekt-detalj p {
+  max-width: 760px;
+  margin: 0 0 40px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* RUBRIK FÖR TEKNIKER */
+
+.projekt-detalj h2 {
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid var(--diskret-linje);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* TEKNIKLISTA */
+
+.projekt-detalj ul {
+  margin: 0 0 45px;
+  padding-left: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* TILLBAKALÄNK */
+
+.projekt-detalj a {
+  display: inline-block;
+
+  padding: 12px 0;
+
+  border-bottom: 2px solid var(--salvia);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.projekt-detalj a:hover {
+  border-bottom-color: var(--text);
+}
+
+.projekt-detalj a:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}

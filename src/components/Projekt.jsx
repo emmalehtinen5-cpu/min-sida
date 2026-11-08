@@ -3,6 +3,7 @@
    PROJEKT – MODERN & STRUKTURERAD
 ========================================= */
 
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import "./Projekt.css";
@@ -13,7 +14,9 @@ import Portobild from "../assets/portobild.jpg";
 import Rosen from "../assets/rosen.png";
 import Hero3 from "../assets/Hero3.webp";
 
-/* PROJEKTINFORMATION */
+/* =========================================
+   PROJEKTINFORMATION
+========================================= */
 
 const projekt = [
   {
@@ -45,10 +48,38 @@ const projekt = [
   },
 ];
 
+/* =========================================
+   PROJEKTKOMPONENT
+========================================= */
+
 function Projekt() {
   const { pathname } = useLocation();
 
+  // State för sortering
+  const [sortering, setSortering] = useState("standard");
+
+  // Visa länken till alla projekt på andra sidor
   const visaAllaProjekt = pathname !== "/projekt";
+
+  // Kopiera projektlistan innan sortering
+  const sorteradeProjekt = [...projekt];
+
+  // Sortera alfabetiskt efter titel
+  if (sortering === "titel") {
+    sorteradeProjekt.sort((a, b) =>
+      a.titel.localeCompare(b.titel, "sv")
+    );
+  }
+
+  // Sortera efter flest tekniker
+  if (sortering === "tekniker") {
+    sorteradeProjekt.sort((a, b) => {
+      const antalA = a.teknik.split(",").length;
+      const antalB = b.teknik.split(",").length;
+
+      return antalB - antalA;
+    });
+  }
 
   return (
     <section
@@ -56,7 +87,9 @@ function Projekt() {
       id="projekt"
       aria-labelledby="projekt-rubrik"
     >
-      {/* RUBRIK OCH INTRODUKTION */}
+      {/* =====================================
+          RUBRIK OCH INTRODUKTION
+      ===================================== */}
 
       <div className="projekt-header">
         <div className="projekt-header-text">
@@ -67,8 +100,9 @@ function Projekt() {
           <h2 id="projekt-rubrik">
             Mina projekt
           </h2>
+
           <p className="projekt-antal">
-          {antalProjekt(projekt.length, projekt.length)}
+            {antalProjekt(projekt.length, projekt.length)}
           </p>
 
           <p className="projekt-beskrivning">
@@ -92,12 +126,43 @@ function Projekt() {
         )}
       </div>
 
-      {/* PROJEKTKORT */}
+      {/* =====================================
+          SORTERING AV PROJEKT
+      ===================================== */}
+
+      <div className="projekt-sortering">
+        <label htmlFor="sortera-projekt">
+          Sortera projekt:
+        </label>
+
+        <select
+          id="sortera-projekt"
+          value={sortering}
+          onChange={(e) => setSortering(e.target.value)}
+        >
+          <option value="standard">
+            Standardordning
+          </option>
+
+          <option value="titel">
+            Titel A–Ö
+          </option>
+
+          <option value="tekniker">
+            Flest tekniker först
+          </option>
+        </select>
+      </div>
+
+      {/* =====================================
+          PROJEKTKORT
+      ===================================== */}
 
       <div className="projekt-lista">
-        {projekt.map((p) => (
+        {sorteradeProjekt.map((p) => (
           <ProjektKort
             key={p.id}
+            id={p.id}
             titel={p.titel}
             text={p.text}
             teknik={p.teknik}

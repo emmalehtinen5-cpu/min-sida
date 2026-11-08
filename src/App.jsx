@@ -30,6 +30,7 @@ import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./pages/Kontakt";
 import MittBollplank from "./pages/MittBollplank";
+import ProjektDetalj from "./pages/ProjektDetalj";
 
 /* =========================================
    STIL
@@ -253,7 +254,12 @@ function App() {
                   />
                 }
               />
+              {/* PROJEKTDETALJ */}
 
+              <Route
+              path="/projekt/:id"
+              element={<ProjektDetalj />}
+                />
               {/* MITT BOLLPLANK */}
 
               <Route
