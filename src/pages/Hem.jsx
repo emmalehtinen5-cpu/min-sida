@@ -7,11 +7,9 @@
 import Hero from "../components/Hero";
 import Projekt from "../components/Projekt";
 import Raknare from "../components/Raknare";
-import Väder from "../components/Vader";
 import GitHubRepon from "../components/GitHubRepon";
 import { NAMN } from "../data/installningar";
 import { fornamn } from "../utils/text";
-
 
 /* =========================================
    1. HEMKOMPONENT
@@ -102,9 +100,6 @@ function Hem({
 
       {/* RÄKNARE */}
       <Raknare />
-
-      {/* VÄDER – ANPASSAS TILL MÖRKT LÄGE */}
-      <Väder morkt={morkt} />
 
       {/* GITHUB-PROJEKT */}
       <GitHubRepon />

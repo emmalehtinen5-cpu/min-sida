@@ -5,19 +5,8 @@
 ========================================= */
 
 import { useState, useEffect } from "react";
-
-import {
-  sidNamn,
-  huvudfarg,
-  sidBeskrivning,
-} from "./data/installningar";
-
-import {
-  storaBokstaver,
-  kombineraText,
-  skapaHalsning,
-  hamtaTemaText,
-} from "./utils/text";
+import Studio92 from "./pages/Studio92";
+import { sidNamn } from "./data/installningar";
 
 import {
   Routes,
@@ -31,6 +20,7 @@ import {
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SidUnderrubrik from "./components/SidUnderrubrik";
 
 /* =========================================
    SIDOR
@@ -104,13 +94,29 @@ console.log("3");
 ========================================= */
 
 function App() {
+  const { pathname } = useLocation();
+
+    /* =====================================
+     GEMENSAMT SPRÅKVAL
+     SVENSKA / ENGELSKA / FINSKA
+  ===================================== */
+
+  const [sprak, setSprak] = useState(() => {
+    return localStorage.getItem("valtSprak") || "sv";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("valtSprak", sprak);
+    document.documentElement.lang = sprak;
+  }, [sprak]);
+
   /* =====================================
      SIDANS TITEL
   ===================================== */
 
   useEffect(() => {
     document.title = sidNamn;
-  }, [sidNamn]);
+  }, []);
 
   /* =====================================
      GEMENSAMT MÖRKT / LJUST LÄGE
@@ -149,9 +155,7 @@ function App() {
     );
 
     return () => {
-      document.body.classList.remove(
-        "morkt-lage"
-      );
+      document.body.classList.remove("morkt-lage");
     };
   }, [morkt]);
 
@@ -177,20 +181,29 @@ function App() {
             GEMENSAM RAM
         ===================================== */}
 
-        <div className="startsida-ram"
-        title={`${skapaHalsning("Emma")} –
-           ${kombineraText(
-            storaBokstaver(sidNamn),
-            sidBeskrivning )} – Huvudfärg:
-             ${huvudfarg} – ${hamtaTemaText(morkt)}`}>
+        <div className="startsida-ram">
+      
+          {/* =====================================
+              NAVBAR
+          ===================================== */}
 
-          {/* NAVBAR */}
+          <Navbar sprak={sprak} />
 
-          <Navbar />
+          {/* =====================================
+              GEMENSAM UNDERRUBRIK
+          ===================================== */}
 
-          {/* SIDORNAS INNEHÅLL */}
+          {pathname !== "/" &&
+            pathname !== "/projekt" && (
+              <SidUnderrubrik />
+            )}
+
+          {/* =====================================
+              SIDORNAS INNEHÅLL
+          ===================================== */}
 
           <main className="app-innehall">
+
             <Routes>
 
               {/* HEM */}
@@ -252,15 +265,28 @@ function App() {
                   />
                 }
               />
+                <Route path="/studio92"
+                 element={
+                 <Studio92 
+                  morkt={morkt}
+                    setMorkt={setMorkt}
+                 
+                 />
+                }
+
+                  />
 
             </Routes>
+
           </main>
 
         </div>
 
-        {/* FOOTER */}
+        {/* =====================================
+            FOOTER
+        ===================================== */}
 
-        <Footer />
+        <Footer  sprak={sprak} setSprak={setSprak} />
 
       </div>
     </div>

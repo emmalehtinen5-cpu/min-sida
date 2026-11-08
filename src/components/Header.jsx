@@ -16,18 +16,16 @@ function Header({ namn, titel }) {
         {/* VÄNSTER – NAMN OCH PRESENTATION */}
         <div className="header-vanster">
 
-          <h1>{namn}</h1>
-
           <p className="header-underrubrik">
             {titel}
           </p>
-
-          <div className="header-intro">
-
-            <span
+          <h1>{namn}</h1>
+          <span
               className="header-linje"
               aria-hidden="true"
             />
+
+          <div className="header-intro">
 
             <p>
               Arkitektur, kommunikation och

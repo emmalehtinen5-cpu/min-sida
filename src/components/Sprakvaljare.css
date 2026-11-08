@@ -1,0 +1,122 @@
+
+/* SPRÅKVÄLJARE */
+
+.sprakvaljare {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: fit-content;
+  height: auto;
+  min-height: 0;
+  padding: 9px;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* JORDGLOB OCH FLAGGOR */
+
+.sprakvaljare-symboler {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 35px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* KLICKBAR JORDGLOB */
+
+.sprakvaljare-glob {
+  position: absolute;
+  left: 35%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
+}
+
+/* TRE KLICKBARA FLAGGOR */
+
+.sprakvaljare-flaggor {
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sprakvaljare-flagga {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 19px;
+  height: 12px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-size: 47px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* HOVER PÅ FLAGGORNA */
+
+.sprakvaljare-flagga:hover {
+  transform: scale(1.15);
+}
+
+/* TANGENTBORDSFOKUS */
+
+.sprakvaljare-flagga:focus-visible,
+.sprakvaljare-glob:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 2px;
+}
+.sprakvaljare-flagga:last-child {
+  position: relative;
+  top: 34px;
+  left: 2.5px
+}
+.sprakvaljare-flagga:nth-child(2) {
+  position: relative;
+  top: 17px;
+  left: 10px;
+}
+
+.sprakvaljare-flagga:first-child {
+  position: relative;
+  left: 15px;
+}
+
+/* =========================================
+   JORDGLOB – VITA LINJER I MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .sprakvaljare-glob svg circle,
+body.morkt-lage .sprakvaljare-glob svg ellipse,
+body.morkt-lage .sprakvaljare-glob svg path {
+  stroke: #ffffff;
+}

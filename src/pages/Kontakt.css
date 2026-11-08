@@ -84,6 +84,9 @@
   letter-spacing: 0.14em;
   line-height: 1.5;
   text-transform: uppercase;
+
+  position: relative;
+  transform: translate(-56px, -55px);
 }
 
 /* KONTAKTA MIG */
@@ -112,15 +115,19 @@
 
 .kontakt-info h2::after {
   content: "";
+  display: block;
 
   position: absolute;
   bottom: 0;
   left: 0;
 
-  width: 65px;
-  height: 1px;
+  width: 77px;
+  height: 1.5px;
 
   background: #a8b5a2;
+  width: 100px;
+  height: 2.5px;
+  margin: 10px 0 12px;
 }
 
 /* INTRODUKTIONSTEXTER */
@@ -637,7 +644,7 @@ body.morkt-lage .kontakt1 .kontakt-bildtext {
   color: #171717;
 
   border: none;
-  border-bottom: 1px solid #171717;
+  border-bottom: none;
   border-radius: 0;
 
   font-family: Arial, Helvetica, sans-serif;

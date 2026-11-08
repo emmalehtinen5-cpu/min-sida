@@ -1,0 +1,1042 @@
+
+/* =========================================
+   STUDIO92 – EMMA LEHTINEN
+   NORDISK RETRODESIGN
+========================================= */
+
+
+/* =========================================
+   1. HUVUDSEKTION
+========================================= */
+
+.studio92 {
+  padding: 40px 50px;
+}
+
+
+/* =========================================
+   2. RUBRIK – STUDIO92
+========================================= */
+
+.studio92 h1 {
+  font-size: 48px;
+  margin: 0 0 30px;
+  transform: translateX(-20px);
+}
+/* =========================================
+   STUDIO92 – SALVIAGRÖNT STRECK UNDER RUBRIKEN
+========================================= */
+
+.studio92 h1::after {
+  content: "";
+  display: block;
+
+  width: 77px;
+  height: 3.5px;
+
+  margin-top: 1px;
+
+  background-color: #a8b5a2;
+}
+.studio92 h1 sup {
+  font-size: 24px;
+  vertical-align: super;
+}
+
+
+/* =========================================
+   3. TVÅ KOLUMNER
+========================================= */
+
+.studio92-layout {
+  display: grid;
+  grid-template-columns: 360px 400px minmax(400px, 1fr);
+  gap: 0px;
+  align-items: start;
+}
+
+
+/* =========================================
+   4. VÄNSTER – ARKITEKTURBILD
+========================================= */
+
+.studio92-bild {
+  width: 100%;
+}
+
+.studio92-bild img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateX(-21px);
+}
+
+
+/* =========================================
+   5. HÖGER – VÄRLDSKLOCKOR SENARE
+========================================= */
+
+.studio92-hoger {
+  min-width: 0;
+}
+
+
+/* =========================================
+   03 – VÄDRET JUST NU
+========================================= */
+
+.studio92-vader {
+  width: 100%;
+  min-width: 0;
+  margin-top: 45px;
+  padding: 30px 0 25px;
+
+  grid-column: 1 / -1;
+
+  border-top: 1px solid #a8b5a2;
+  border-bottom: 1px solid #a8b5a2;
+}
+
+/* NUMMER 03 OCH RUBRIK */
+
+.studio92-vader .studio92-sektionsrubrik {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+.studio92-vader .studio92-nummer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+
+  background: #d6dfd5;
+  color: #405f4c;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+.studio92-vader .studio92-sektionsrubrik h2 {
+  margin: 0;
+  color: inherit;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+/* ÅTERSTÄLL VÄDRETS GAMLA FÖRFLYTTNING */
+
+.studio92-vader .vader {
+  position: static;
+  top: auto;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  overflow-x: auto;
+}
+
+/* DÖLJ DEN GAMLA VÄDERRUBRIKEN */
+
+.studio92-vader .vader h2 {
+  display: none;
+}
+
+/* SEX VÄDERKORT PÅ SAMMA RAD */
+
+.studio92-vader .vader-kort-container {
+  display: grid;
+  grid-template-columns: repeat(6, 205px);
+
+  width: max-content;
+  gap: 16px;
+
+  padding: 0 9px 12px 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   STUDIO92 – MINDRE VÄDERKORT
+========================================= */
+
+.studio92-hoger .vader {
+  zoom: 100%;
+}
+
+/* PLACERA ATT GÖRA-LISTAN LÄNGRE NER */
+
+.studio92-hoger {
+  position: relative;
+  padding-top: 0;
+  min-width: 0;
+  left: 70px;
+  top: 205px;
+}
+
+
+/* =========================================
+   STUDIO92 / IDÉRUM
+========================================= */
+
+.studio92-etikett {
+  display: block;
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+
+  color: #56675d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  transform: translate(-19px, -9px);
+    margin-bottom: 10px;
+}
+
+/* MÖRKT LÄGE */
+
+body.morkt-lage .studio92-etikett {
+  color: #a8b5a2;
+}
+
+/* =========================================
+   7. STUDIO92 – MÖRKT / LJUST LÄGE
+========================================= */
+
+.studio92 .om-mig-installningar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.studio92 .om-mig-temaknapp {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* =========================================
+   STUDIO92 – MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .studio92 {
+  background-color: #171c19;
+  color: #f2f0e9;
+}
+
+body.morkt-lage .studio92 h1 {
+  color: #f2f0e9;
+}
+
+body.morkt-lage .studio92 .om-mig-temaknapp {
+  color: #f2f0e9;
+  border-color: #a8b5a2;
+}
+
+/* =========================================
+   STUDIO92 – VÄDERSÖKNING PÅ SAMMA RAD
+========================================= */
+
+.studio92-vader .vader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.studio92-vader .vader-sok {
+  margin-bottom: 0;
+}
+
+.studio92-vader .vader-sok input {
+  width: 360px;
+  border: 1px solid #777777;
+  border-radius: 2px;
+}
+
+.studio92-vader .vader-sok button {
+  background: #a8b5a2;
+  color: #000000 !important;
+  border: 1px solid #a8b5a2;
+  border-radius: 2px;
+
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  text-transform: uppercase;
+
+}
+
+/* STUDIO92 – STADSVÄLJARE OCH SÖKFÄLT */
+
+.studio92-vader .vader-dold-etikett {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.studio92-vader .vader {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  column-gap: 18px;
+  align-items: center;
+}
+
+.studio92-vader .vader-stadsmeny {
+  margin: 0;
+}
+
+.studio92-vader .vader-stadsmeny select {
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  background: #f5f3ed;
+  color: #000;
+  font-size: 16px;
+}
+
+.studio92-vader .vader-sok {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+}
+
+.studio92-vader .vader-sok input {
+  width: 260px;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.studio92-vader .vader-sok button {
+  width: 110px;
+  height: 46px;
+  padding: 0;
+  background: #a8b5a2;
+  color: #000 !important;
+  border: 1px solid #a8b5a2;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.studio92-vader .vader-kort-container,
+.studio92-vader .vader-fel {
+  grid-column: 1 / -1;
+}
+
+.studio92-vader .vader-kort-container {
+  margin-top: 16px;
+}
+
+
+/* =========================================
+   VÄRLDSKLOCKOR – SMAL REMSA
+========================================= */
+
+.github-varldstid {
+  box-sizing: border-box;
+
+  width: 100%;
+  margin: 0;
+  padding: 4px 20px 4px 43px;
+
+  border: none;
+  background: transparent;
+  color: #000000;
+
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================================
+   SEX STÄDER – SAMLAS TILL VÄNSTER
+========================================= */
+
+.github-varldstid-bilder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 20px;
+  width: max-content;
+}
+
+/* =========================================
+   VARJE STAD
+========================================= */
+
+.github-stad {
+  display: flex;
+  flex: 0 0 auto;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 4px;
+  min-width: 0;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+}
+
+/* =========================================
+   SMÅ RAKA REKTANGULÄRA BILDER
+========================================= */
+
+.github-stad-bildram {
+  flex: 0 0 90px;
+  width: 15px;
+  height: 130px;
+
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+/* =========================================
+   ALLA SEX BILDER – SAGE VINTAGE
+   SALVIAGRÖN + VARM BEIGE
+========================================= */
+
+.github-stad-bild {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  clip-path: none;
+
+  transform: scale(1.6);
+  transform-origin: center;
+
+  /* =========================================
+      VÄRLDSKLOCKOR – – MUTED PETROL BLUE
+       DJUP BLÅTURKOS MED GRÅGRÖN UNDERTON
+    ========================================= */
+  filter:
+    grayscale(100%)
+    sepia(35%)
+    hue-rotate(95deg)
+    saturate(85%)
+    brightness(98%)
+    contrast(105%);
+}
+
+/* =========================================
+   HELSINGBORG – BEHÅLL PLACERING
+========================================= */
+
+.github-stad:nth-child(1) .github-stad-bild {
+  transform: translate(5px, 25px) scale(1.75);
+  transform-origin: center;
+}
+
+/* =========================================
+   MOSKVA – BEHÅLL PLACERING
+========================================= */
+
+/* MOSKVA – justera motivet */
+.github-stad:nth-child(3) .github-stad-bild {
+  transform: translate(15px, 12px) scale(1.75);
+}
+
+/* =========================================
+   WASHINGTON – BEHÅLL PLACERING
+========================================= */
+/* WASHINGTON – justera motivet */
+.github-stad:nth-child(2) .github-stad-bild {
+  transform: translate(0px, 12px) scale(1.75);
+}
+
+/* =========================================
+   PEKING – BEHÅLL PLACERING
+========================================= */
+
+.github-stad:nth-child(4) .github-stad-bild {
+  transform: translateX(32px) scale(1.6);
+}
+
+/* =========================================
+   SANTIAGO – BEHÅLL PLACERING
+========================================= */
+
+.github-stad:nth-child(5) .github-stad-bild {
+  transform: translateX(-11px) scale(1.6);
+}
+
+/* =========================================
+   SYDNEY – BEHÅLL PLACERING
+========================================= */
+
+.github-stad:nth-child(6) .github-stad-bild {
+  transform: scale(1.6);
+}
+
+/* =========================================
+   STADSNAMN OCH DIGITAL KLOCKA
+========================================= */
+
+.github-stad-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 2px;
+  min-width: 0;
+}
+
+/* STADSNAMN */
+
+.github-stad-namn {
+  margin: 0;
+  color: inherit;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: -0.4px;
+  line-height: 1.1;
+  white-space: nowrap;
+
+  transform: translateY(-43px);
+}
+
+/* KLOCKA */
+
+.github-stad-tid {
+  margin: -15px 5px 5px;
+  color: inherit;
+
+  font-family: Arial, Helvetica, sans-serif, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 500;
+
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+
+  transform: translate(-5px, -25px);
+}
+/* =========================================
+   VÄRLDSKLOCKOR – 50 % MINDRE
+   OCH FLYTTAS UPPÅT
+========================================= */
+
+.github-varldstid {
+  position: relative;
+  top: -132px;
+}
+
+.github-varldstid-bilder {
+  transform: translateX(499px) scale(0.66);
+  transform-origin: top left;
+}
+
+/* Flytta endast världsklockornas bilder åt vänster */
+.studio92-klockor .github-stad-bildram {
+  position: relative;
+  left: -31px;
+}
+/* Flytta endast stadsnamn och tider för de fem första städerna */
+.studio92-klockor .github-stad:not(:last-child) .github-stad-info {
+  position: relative;
+  left: -15px;
+}
+
+/* PEKING – flytta bildmotivet åt vänster */
+.studio92-klockor .github-stad:nth-child(4) .github-stad-bild {
+  transform: translateX(-17px) scale(1.6);
+}
+/* SANTIAGO – flytta bildmotivet åt vänster */
+.studio92-klockor .github-stad:nth-child(5) .github-stad-bild {
+  transform: translateX(-21px) scale(1.6);
+}
+/* =========================================
+   STUDIO92 – DEKORATIVA LINJER
+========================================= */
+
+/* Linjerna runt WORLD TIME */
+.studio92-klockor {
+  position: relative;
+}
+
+.studio92-klockor::before,
+.studio92-klockor::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100px;
+  width: 1px;
+  background-color: #a8b5a2;
+}
+
+/* Vänster lodrät linje */
+.studio92-klockor::before {
+  left: 380px;
+  top: -130px
+}
+
+/* Höger lodrät linje */
+.studio92-klockor::after {
+  left: 500px;
+  top: -130px
+}
+
+/* Vågrät linje under överdelen */
+.studio92-layout {
+  position: relative;
+  padding-top: 25px;
+  margin-top: -150px;
+}
+/* Förläng endast den vågräta linjen */
+.studio92-layout {
+  position: relative;
+}
+
+.studio92-layout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.5cm;
+  right: -1cm;
+  height: 1px;
+  width: calc(100% + 1cm);
+  background-color: #a8b5a2;
+}
+
+/* =========================================
+   STUDIO92 – WORLD TIME
+========================================= */
+
+.studio92-world-time {
+  position: absolute;
+  top: -105px;
+  left: 400px;
+  
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 1.5;
+
+  color: inherit;
+  white-space: nowrap;
+}
+
+/* HELSINGBORG – flytta namn och tid åt vänster */
+.studio92-klockor .github-stad:nth-child(1) .github-stad-info {
+  left: -23px;
+}
+
+/* WASHINGTON – flytta namn och tid åt vänster */
+.studio92-klockor .github-stad:nth-child(2) .github-stad-info {
+  left: -23px;
+}
+
+/* MOSKVA – namn och tid åt vänster */
+.studio92-klockor .github-stad:nth-child(3) .github-stad-info {
+  position: relative;
+  left: -19px;
+}
+
+/* SANTIAGO – namn och tid åt vänster */
+.studio92-klockor .github-stad:nth-child(5) .github-stad-info {
+  position: relative;
+  left: -23px;
+}
+
+/* SYDNEY – namn och tid åt vänster */
+.studio92-klockor .github-stad:nth-child(6) .github-stad-info {
+  position: relative;
+  left: -15px;
+}
+
+
+/* =========================================
+   STUDIO92 – 01 PROJEKT / YTRUMME
+========================================= */
+
+.studio92-projekt {
+  min-width: 0;
+}
+
+/* NUMMER 01 + RUBRIK */
+
+.studio92-projekt .studio92-sektionsrubrik {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+/* SALVIAGRÖN FYRKANT */
+
+.studio92-projekt .studio92-nummer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+
+  background-color: #d6dfd5;
+  color: #405f4c;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+/* PROJEKT / YTRUMME. */
+
+.studio92-projekt .studio92-sektionsrubrik h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* STRECKAD PROJEKTRUTA */
+
+.studio92-projekt-plats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  border: 1px dashed #a8b5a2;
+  text-align: center;
+}
+
+/* PLUS INUTI CIRKEL */
+
+.studio92-projekt-plats > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+/* TEXT I PROJEKTRUTAN */
+
+.studio92-projekt-plats p {
+  margin: 14px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 2;
+}
+
+/* =========================================
+   STUDIO92 – PROJEKT ENLIGT REFERENS
+========================================= */
+
+/* Begränsa projektsektionens bredd */
+.studio92-projekt {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+}
+
+/* Rubrik och nummer */
+.studio92-projekt .studio92-sektionsrubrik {
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.studio92-projekt .studio92-nummer {
+  width: 55px;
+  height: 55px;
+  font-size: 30px;
+}
+
+.studio92-projekt .studio92-sektionsrubrik h2 {
+  font-size: 32px;
+  white-space: nowrap;
+}
+
+/* Kortare linje efter rubriken */
+.studio92-projekt .studio92-sektionsrubrik::after {
+  flex: 1;
+  min-width: 35px;
+  transform: translateY(10px);
+}
+
+/* Den streckade rutan */
+.studio92-projekt-plats {
+  position: relative;
+  width: 244%;
+  min-height: 200px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px dashed #000000;
+  border-radius: 5px;
+}
+
+/* Plus och text */
+.studio92-projekt-plats > span {
+  width: 44px;
+  height: 44px;
+  font-size: 32px;
+}
+
+.studio92-projekt-plats p {
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  line-height: 2;
+}
+
+
+/* BEIGE FORM – ENLIGT REFERENSBILDEN */
+
+.studio92-projekt-plats::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 35px;
+
+  width: 75px;
+  height: 48px;
+
+  background-color: #e7cdb5;
+
+  background-image:
+    radial-gradient(circle, #967e6a 0.6px, transparent 1px),
+    radial-gradient(circle, #967e6a 0.5px, transparent 1px);
+
+  background-size: 13px 15px, 19px 17px;
+  background-position: 0 0, 7px 8px;
+
+  border-radius: 100% 0 0 0;
+}
+
+/* SALVIAGRÖN FORM – ENLIGT REFERENSBILDEN */
+
+.studio92-projekt-plats::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 48px;
+  height: 66px;
+
+  background-color: #9fac98;
+
+  border-radius: 100% 0 0 0;
+   /* Små diskreta prickar på den gröna formen */
+  background-image: radial-gradient(
+    circle,
+    rgba(65, 85, 70, 0.35) 0.6px,
+    transparent 1px
+  );
+  background-size: 12px 13px;
+
+  border-radius: 100% 0 0 0;
+}
+/* Flytta hela sektion 01 åt vänster */
+.studio92-projekt {
+   transform: translateX(px) scale(0.75);
+  transform-origin: top left;
+}
+
+/* SEKTION 02 – 5% MINDRE, UTOM ANSIKTSBILDEN */
+
+.todo-rubrik,
+.todo-lista > input,
+.todo-lista > button,
+.todo-uppgifter {
+  zoom: 0.99;
+}
+
+/* Placera sektion 02 under sektion 01 */
+
+.studio92-projekt {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.studio92-hoger {
+  grid-column: 2;
+  grid-row: 2;
+
+  position: relative;
+  left: 1px;
+  top: 0;
+
+  margin-top: -170px;
+}
+
+/* SVART LINJE MELLAN SEKTION 01 OCH 02 */
+
+.studio92-hoger {
+  border-top: 1px solid #a8b5a2;;
+  padding-top: 25px;
+  width: 975px;
+}
+
+
+/* =========================================
+   STUDIO92 – 02 OCH 03 BREDVID VARANDRA
+========================================= */
+
+.studio92-tva-sektioner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 35px;
+  align-items: start;
+  width: 100%;
+}
+
+.studio92-tva-sektioner .todo-lista,
+.studio92-tva-sektioner .dagens-tanke {
+  min-width: 0;
+}
+
+/* Anpassa skrivfältet till sin kolumn */
+
+.studio92-tva-sektioner .tanke-innehall {
+  max-width: 100%;
+}
+
+/* Mindre skärmar */
+
+@media (max-width: 900px) {
+  .studio92-tva-sektioner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+/* =========================================
+   ANSIKTSBILD OVANPÅ ARKITEKTURFOTOT
+========================================= */
+
+.studio92-bild {
+  position: relative;
+}
+
+.studio92-bild .studio92-ansikte {
+  position: absolute;
+  bottom: 110px;
+  left: -50px;
+
+  width: 180px;
+  height: auto;
+
+  transform: none;
+  z-index: 2;
+}
+
+/* =========================================
+   AVDELARE MELLAN 02/03 OCH 04
+========================================= */
+
+.studio92-avdelare {
+  width: 1335px;
+  height: 1px;
+  background-color: #a8b5a2;
+
+  margin: 30px 0 25px 0px;
+}
+
+.studio92-tva-sektioner {
+  position: relative;
+}
+
+.studio92-tva-sektioner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 44%;
+  width: 1px;
+  background-color: #a8b5a2;
+}
+
+/* SEKTION 02 – SAMMA RUBRIKSTORLEK SOM 01 OCH 03 */
+
+.studio92-tva-sektioner .todo-rubrik h2 {
+  font-size: 32px !important;
+}
+
+/* =========================================
+   STUDIO92 – PROJEKT I MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .studio92-projekt-plats {
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .studio92-projekt-plats > span {
+  border-color: #f2f0e9;
+  color: #f2f0e9;
+}
+
+body.morkt-lage .studio92-projekt-plats p {
+  color: #f2f0e9;
+}
+
+/* DAGENS TANKE – LJUSARE TEXT I MÖRKT LÄGE */
+
+body.morkt-lage .studio92 .dagens-tanke {
+  color: #f2cfe9;
+}
+/* VÄDER – TA BORT EXTRA BAKGRUND I MÖRKT LÄGE */
+
+body.morkt-lage .studio92-vader .vader {
+  background: transparent !important;
+}

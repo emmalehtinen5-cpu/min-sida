@@ -26,6 +26,9 @@ function Hero ({ namn }) {
           <p className="hero-underrubrik">
             arkitektur. kommunikation. visualisering.
           </p>
+            <span className="hero-etikett">
+            HEM / INTRODUKTION
+            </span>
 
           <h1
             className="hero-rubrik"
@@ -44,11 +47,13 @@ function Hero ({ namn }) {
           </div>
 
           <Link
-            className="hero-knapp"
+            className="kontakt-knapp"
             to="/#projekt"
           >
-            <span>SE MINA PROJEKT</span>
-            <span aria-hidden="true">→</span>
+            SE MINA PROJEKT
+            <span aria-hidden="true">
+               ↓
+            </span>
           </Link>
 
         </div>

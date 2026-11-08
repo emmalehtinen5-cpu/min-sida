@@ -51,7 +51,7 @@
     minmax(0, 1.2fr)
     minmax(0, 0.95fr);
 
-  align-items: center;
+  align-items: start;
 
   gap: clamp(2rem, 3.5vw, 4rem);
 
@@ -171,6 +171,7 @@
   min-width: 0;
 }
 
+
 /* =========================================
    5. RUBRIK – OM MIG
    SAMMA TYPOGRAFI SOM EMMA LEHTINEN
@@ -186,7 +187,7 @@
   padding: 0;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
+  font-size: 37px;
   font-weight: 400;
 
   letter-spacing: -0.055em;
@@ -195,17 +196,18 @@
   text-transform: uppercase;
 
   color: var(--om-text);
+    transform: translateY(20px);
 }
 
 /* LINJE UNDER RUBRIKEN */
 
 .om-mig-rubriklinje {
-  width: 48px;
-  height: 2px;
+  width: 100px;
+  height: 2.5px;
 
-  margin: 30px 0 24px;
+  margin: 26px 0 24px;
 
-  background: var(--om-text);
+  background:  #a8b5a2;
 }
 
 /* =========================================
@@ -317,8 +319,16 @@
   align-items: center;
   justify-content: center;
 
-  width: 100%;
-  min-width: 0;
+  /* Fast storlek på PNG-bildens behållare */
+  width: 272.3px;
+  min-width: 272.3px;
+  max-width: 272.3px;
+
+  height: 330.9px;
+  min-height: 330.9px;
+  max-height: 330.9px;
+
+  flex-shrink: 0;
 
   isolation: isolate;
   overflow: visible;
@@ -331,40 +341,27 @@
 
   display: block;
 
-  width: 135%;
+  width: 501px;
+  height: auto;
+
   max-width: none;
   max-height: none;
-  height: auto;
 
   flex-shrink: 0;
 
   object-fit: contain;
   mix-blend-mode: multiply;
-  transform: translateY(155px);
+
+  transform: translateY(169px);
 }
+
 /* SALVIAGRÖN BOX BAKOM BILDEN */
 
+/* INGEN BAKGRUNDSRUTA BAKOM ANSIKTSILLUSTRATIONEN */
+
 .om-mig-illustration::before {
-  content: "";
-
-  position: absolute;
-  z-index: -1;
-  /* PLACERING */
-  top: 0cm;
-  bottom: -2cm;
-  left: -1cm;
-  right: -1cm;
-
-  width: auto;
-  height: auto;
-
-  background: #d5ded7;
-  opacity: 0.45;
-  /* FLYTTA ENDAST BOXEN NEDÅT */
-  transform: translateY(80px);
+  display: none;
 }
-
-
 /* =========================================
    10. AVDELARE
 ========================================= */
@@ -379,39 +376,199 @@
 }
 
 /* =========================================
-   11. KOMPETENSER – RESPONSIV BILD
+   11. KOMPETENSER – REFERENSDESIGN
 ========================================= */
 
 .om-mig-kompetenser {
   width: 100%;
   min-width: 0;
-
   margin: 0 auto;
   padding: 30px 0;
+    flex-shrink: 0;
 }
 
-/* DATOR – HELA KOMPETENSBILDEN */
+/* HUVUDRUBRIK */
 
-.om-mig-kompetensbild {
-  display: block;
+.kompetenser-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 
   width: 100%;
-  height: auto;
+  box-sizing: border-box;
 
-  border: none;
-  box-shadow: none;
+  padding: 0 0 18px 26px;
+  margin-bottom: 26px;
+  position: relative;
 
-  transition:
-    filter 0.4s ease,
-    opacity 0.4s ease;
+  border-left: none;
+  border-bottom: 1px solid var(--om-text);
+}
+/* TRE STIGANDE SALVIAGRÖNA LINJER */
+
+.kompetenser-header::before {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 32px;
+  height: 37.5px;
+
+  background: linear-gradient(
+    to right,
+    #a8b5a2 0 8px,
+    transparent 8px 12px,
+    #81947e 12px 20px,
+    transparent 20px 24px,
+    #56675d 24px 32px
+  );
+
+  clip-path: polygon(
+    0 64%,
+    25% 64%,
+    25% 32%,
+    62.5% 32%,
+    62.5% 05,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
 }
 
-/* MOBILVERSION DOLD PÅ DATOR */
+.kompetenser-header h2 {
+  margin: 0;
 
-.om-mig-kompetensmobil {
-  display: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 41px;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  line-height: 1;
+
+  color: var(--om-text);
+  transform: translate(5px, 24px);
 }
 
+.kompetenser-header > span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--om-text);
+
+  transform: translateY(10px);
+}
+
+/* FEM KOLUMNER */
+
+.kompetenser-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.kompetenser-kolumn {
+  min-width: 0;
+  padding-right: 12px;
+  border-right: 1px solid #56675d;
+}
+
+.kompetenser-kolumn:last-child {
+  border-right: none;
+}
+
+/* FÄRGADE RUBRIKFÄLT */
+
+.kompetenser-rubrikfalt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 105px;
+  min-height: 0;
+  padding: 10px 12px;
+
+  background: #d5ded7;
+  color: #171717;
+}
+
+.kompetenser-kolumn:nth-child(even)
+.kompetenser-rubrikfalt {
+  background: #f0e3d2;
+}
+
+/* SIFFROR */
+
+.kompetenser-nummer {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 43px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: #405b48;
+}
+
+/* KATEGORIRUBRIKER */
+
+.kompetenser-rubrikfalt h3 {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+
+  color: #171717;
+}
+
+/* SVG-IKONER */
+
+.kompetenser-ikon {
+  position: absolute;
+  top: 14px;
+  right: 12px;
+
+  display: block;
+  width: 52px;
+  height: 52px;
+
+  color: #283f31;
+}
+
+.kompetenser-ikon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* KOMPETENSLISTOR */
+
+.kompetenser-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin: 20px 0 0;
+  padding: 2px 0 2px 16px;
+
+  list-style: none;
+  border-left: 4px solid #718b76;
+}
+
+.kompetenser-lista li {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.35;
+
+  color: var(--om-text);
+}
 /* =========================================
    12. MÖRKT / LJUST LÄGE – KNAPP
 ========================================= */
@@ -435,7 +592,7 @@
   color: var(--om-text);
 
   border: none;
-  border-bottom: 1px solid var(--om-text);
+  border-bottom: none;
   border-radius: 0;
 
   font-family: Arial, Helvetica, sans-serif;
@@ -482,18 +639,24 @@
   mix-blend-mode: normal;
 }
 
-/* KOMPETENSBILD – MJUKARE KONTRAST */
 
-.om-mig-innehall.morkt-lage .om-mig-kompetensbild,
-.om-mig-innehall.morkt-lage .om-mig-kompetensutsnitt {
-  filter:
-    brightness(0.65)
-    contrast(0.85)
-    saturate(0.70);
+/* KOMPETENSER – MÖRKT LÄGE */
 
-  opacity: 0.80;
+.om-mig-innehall.morkt-lage .kompetenser-rubrikfalt {
+  background: #4a5a50;
+  color: #f5f3ed;
 }
 
+.om-mig-innehall.morkt-lage
+.kompetenser-kolumn:nth-child(even)
+.kompetenser-rubrikfalt {
+  background: #3d4941;
+}
+
+.om-mig-innehall.morkt-lage .kompetenser-nummer,
+.om-mig-innehall.morkt-lage .kompetenser-ikon {
+  color: #d5ded7;
+}
 /* =========================================
    14. MINDRE DATORSKÄRMAR
 ========================================= */
@@ -548,41 +711,24 @@
   }
 }
 
+
 /* =========================================
-   16. MOBIL – KOMPETENSBILD
+   16. MOBIL OCH SURFPLATTA
+   KOMPETENSER – ARKITEKTONISK RETRO
 ========================================= */
 
+/* SURFPLATTA – TRE KOLUMNER */
+
+@media (max-width: 900px) {
+  .kompetenser-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 28px;
+  }
+}
+
+/* MOBIL – PORTRÄTT */
+
 @media (max-width: 700px) {
-  .om-mig-kompetensbild {
-    display: none;
-  }
-
-  .om-mig-kompetensmobil {
-    display: flex;
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-  .om-mig-kompetenskort {
-    width: 100%;
-    overflow: hidden;
-
-    background: var(--om-bakgrund);
-  }
-
-  .om-mig-kompetensutsnitt {
-    width: 100%;
-    aspect-ratio: 1 / 1.45;
-
-    background-repeat: no-repeat;
-    background-size: 500% 100%;
-
-    transition:
-      filter 0.4s ease,
-      opacity 0.4s ease;
-  }
-
   .om-mig-bildkolumn {
     padding: 35px 0 35px 28px;
   }
@@ -598,6 +744,36 @@
 
   .om-mig-bildkolumn::after {
     left: calc(50% - 135px);
+  }
+}
+
+/* MOBIL – TVÅ KOMPETENSKOLUMNER */
+
+@media (max-width: 600px) {
+  .kompetenser-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kompetenser-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 12px;
+  }
+
+  .kompetenser-rubrikfalt {
+    min-height: 110px;
+  }
+
+  .kompetenser-lista li {
+    font-size: 13px;
+  }
+}
+
+/* LITEN MOBIL – EN KOMPETENSKOLUMN */
+
+@media (max-width: 380px) {
+  .kompetenser-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -640,14 +816,13 @@
   }
 }
 
+
 /* =========================================
    18. TILLGÄNGLIGHET
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .om-mig-lasmer,
-  .om-mig-kompetensbild,
-  .om-mig-kompetensutsnitt {
+  .om-mig-lasmer {
     transition: none;
   }
 }
@@ -823,4 +998,57 @@ body.morkt-lage .om-mig-innehall .om-mig-temaknapp {
   .om-mig-kompetensmobil {
     display: none;
   }
+}
+
+
+
+/* =========================================
+   OM MIG / BAKGRUND – RESPONSIV PLACERING
+========================================= */
+
+.om-mig-innehall > .om-mig-etikett {
+  position: relative;
+
+  margin: -35px 0 0;
+  padding: 0;
+  translate: -41px -6px;
+
+  color: #56675d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* MÖRKT LÄGE */
+
+body.morkt-lage .om-mig-innehall > .om-mig-etikett,
+.om-mig-innehall.morkt-lage > .om-mig-etikett {
+  color: #a8b5a2;
+}
+
+/* =========================================
+   OM MIG – FIXERAD DESKTOPLAYOUT
+   INGEN RESPONSIV OMBRYTNING
+========================================= */
+
+.om-mig-innehall {
+  width: 1440px;
+  min-width: 1440px;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+.om-mig-toppen {
+  grid-template-columns: 0.85fr 1.2fr 0.95fr;
+  gap: 50px;
+}
+
+.kompetenser-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }

@@ -2,9 +2,10 @@
 import { NAMN, EPOST } from "../data/installningar";
 import { copyright } from "../utils/text";
 import { NavLink } from "react-router-dom";
+import Sprakvaljare from "./Sprakvaljare";
 import "./Footer.css";
 
-function Footer() {
+function Footer({ sprak,setSprak }) {
 
   return (
     <footer className="footer" id="kontakt">
@@ -16,6 +17,12 @@ function Footer() {
         ===================================== */}
 
         <div className="footer-vanster">
+     {/* =====================================
+          SPRÅKVÄLJARE – SV / ENG / FI
+      ===================================== */}
+
+      <Sprakvaljare setSprak={setSprak} />
+
 
           <div className="footer-social">
 
@@ -97,15 +104,27 @@ function Footer() {
           aria-label="Sidfotsnavigation"
         >
           <NavLink to="/" end>
-            Hem
+            {sprak === "en"
+            ? "Home"
+          : sprak === "fi"
+          ? "Etusivu"
+            : "Hem"}
           </NavLink>
 
           <NavLink to="/om-mig">
-            Om mig
+            {sprak === "en"
+            ? "About me"
+          : sprak === "fi"
+            ? "Minusta"
+          : "Om mig"}
           </NavLink>
 
           <NavLink to="/#projekt">
-            Projekt
+                      {sprak === "en"
+           ? "Projects"
+            : sprak === "fi"
+            ? "Projektit"
+            : "Projekt"}
           </NavLink>
 
           <a
@@ -117,11 +136,22 @@ function Footer() {
           </a>
 
           <NavLink to="/mitt-bollplank">
-            Bollplank
+                {sprak === "en"
+              ? "Sounding board"
+            : sprak === "fi"
+            ? "Sparraus"
+               : "Bollplank"}
+          </NavLink>
+            <NavLink to="/studio92">
+            STUDIO92
           </NavLink>
 
           <NavLink to="/kontakt">
-            Kontakt
+            {sprak === "en"
+            ? "Contact"
+          : sprak === "fi"
+          ? "Yhteystiedot"
+          : "Kontakt"}
           </NavLink>
         </nav>
 

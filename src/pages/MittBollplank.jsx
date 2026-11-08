@@ -137,6 +137,9 @@ function MittBollplank({ morkt, setMorkt }) {
 
           <div className="bollplank-sektionshuvud">
             <div>
+              <p className="bollplank-arkiv-underrubrik">
+          ARKITEKTUR. KOMMUNIKATION. VISUALISERING.
+        </p>
               <span className="bollplank-nummer">
                 01 / ARKIV
               </span>

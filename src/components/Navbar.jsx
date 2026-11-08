@@ -1,11 +1,10 @@
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
 import Helsingborg from "../assets/minhbgbild.png";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ sprak }) {
   const [oppen, setOppen] = useState(false);
 
   const stangMeny = () => setOppen(false);
@@ -77,7 +76,11 @@ function Navbar() {
             end
             onClick={stangMeny}
           >
-            Hem
+             {sprak === "en"
+              ? "Home"
+              : sprak === "fi"
+              ? "Etusivu"
+              : "Hem"}
           </NavLink>
 
           {/* OM MIG */}
@@ -86,7 +89,11 @@ function Navbar() {
             to="/om-mig"
             onClick={stangMeny}
           >
-            Om mig
+             {sprak === "en"
+            ? "About me"
+            : sprak === "fi"
+             ? "Minusta"
+            : "Om mig"}
           </NavLink>
 
           {/* PROJEKT – DIREKT TILL MINA PROJEKT */}
@@ -95,8 +102,12 @@ function Navbar() {
             to="/#projekt"
             onClick={stangMeny}
           >
-            Projekt
-          </Link>
+              {sprak === "en"
+              ? "Projects"
+              : sprak === "fi"
+            ? "Projektit"
+              : "Projekt"}
+                  </Link>
 
           {/* PORTFOLIO */}
 
@@ -115,16 +126,31 @@ function Navbar() {
             to="/mitt-bollplank"
             onClick={stangMeny}
           >
-            Bollplank
+          {sprak === "en"
+         ? "Sounding board"
+          : sprak === "fi"
+         ? "Sparraus"
+          : "Bollplank"}
           </NavLink>
+
+        {/* STUDIO92 */}
+        <NavLink
+        to="/studio92"
+      onClick={stangMeny}
+        >
+        STUDIO92
+        </NavLink>
 
           {/* KONTAKT */}
 
           <NavLink
             to="/kontakt"
             onClick={stangMeny}
-          >
-            Kontakt
+          >   {sprak === "en"
+            ? "Contact"
+          : sprak === "fi"
+          ? "Yhteystiedot"
+          : "Kontakt"}
           </NavLink>
 
         </div>

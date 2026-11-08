@@ -495,7 +495,7 @@ body.morkt-lage .bollplank-bildplats {
 /* SVARTA LINJER PÅ LJUSGRÖN HEADER */
 
 body.morkt-lage .bollplank-headerlinje {
-  background: #171717;
+  background: #ffffff;
 }
 
 /* KNAPPAR I GRÖNA YTOR */
@@ -718,4 +718,15 @@ body.morkt-lage .bollplank .om-mig-temaknapp {
     width: 35%;
     opacity: 0.25;
   }
+}
+
+
+.bollplank-arkiv-underrubrik {
+  margin: 0 0 10px;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }

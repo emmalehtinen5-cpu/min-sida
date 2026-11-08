@@ -13,11 +13,13 @@
   --vader-marin: #000000;
   --vader-beige: #f5f3ed;
 
-  --helsingborg: #bac8bd;
-  --moskva: #d9856d;
-  --helsingfors: #aabbd0;
-  --madrid: #e6bd70;
-  --rom: #a9c6ac;
+  --helsingborg: #A8B5A2;
+  --peking: #A8B5A2; 
+  --moskva: #A8B5A2;
+  --madrid: #A8B5A2;
+  --rom: #A8B5A2;
+  --helsingfors: #A8B5A2;
+
 
   width: 100%;
   min-width: 0;
@@ -29,6 +31,9 @@
 
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+
+  position: relative;
+  top: -19cm;
 }
 
 /* =========================================
@@ -109,9 +114,9 @@
 
 .vader-kort-container {
   display: grid;
-  grid-template-columns: repeat(5, 260px);
+  grid-template-columns: repeat(6, 205px);
 
-  gap: 14px;
+  gap: 13.5px;
   width: max-content;
   max-width: none;
 
@@ -120,7 +125,6 @@
   overflow: visible;
 }
 
-
 /* =========================================
    5. KORTENS GRUNDDESIGN
 ========================================= */
@@ -128,24 +132,27 @@
 .vader-kort {
   --kort-accent: var(--helsingborg);
 
-  position: relative;
+  position: relative;  
 
+  /* Kortets uppbyggnad */
   display: flex;
   flex-direction: column;
-
+  
   min-width: 0;
   min-height: 0 !important;
   height: auto !important;
-
+  
   padding: 0;
   overflow: hidden;
-
+  /* Bakgrund och text */
   background: var(--vader-beige);
   color: var(--vader-marin);
 
+  /* Svarta ytterkanter */
   border: 3px solid var(--vader-marin);
   border-radius: 20px;
 
+  /* Svart skugga */
   box-shadow: 7px 8px 0 var(--vader-marin);
 
   font-family: inherit;
@@ -156,25 +163,36 @@
    6. STÄDERNAS FÄRGER
 ========================================= */
 
+/* 1. HELSINGBORG */
 .vader-kort:nth-child(1) {
   --kort-accent: var(--helsingborg);
 }
 
+/* 2. PEKING */
 .vader-kort:nth-child(2) {
+  --kort-accent: var(--peking);
+}
+
+/* 3. MOSKVA */
+.vader-kort:nth-child(3) {
   --kort-accent: var(--moskva);
 }
 
-.vader-kort:nth-child(3) {
-  --kort-accent: var(--helsingfors);
-}
-
+/* 4. MADRID */
 .vader-kort:nth-child(4) {
   --kort-accent: var(--madrid);
 }
 
+/* 5. ROM */
 .vader-kort:nth-child(5) {
   --kort-accent: var(--rom);
 }
+
+/* 6. HELSINGFORS – LJUS LAVENDELBLÅ */
+.vader-kort:nth-child(6) {
+  --kort-accent: var(--helsingfors);
+}
+
 
 /* =========================================
    7. STADSNAMN OCH FLAGGA
@@ -186,11 +204,12 @@
   justify-content: flex-start;
 
   gap: 10px;
+  width: 100%;
 
-  height: 60px !important;
-  min-height: 60px !important;
+  height: 48px !important;
+  min-height: 48px !important;
 
-  margin: 0;
+  margin: 0px 0;
   padding: 8px 42px 8px 14px !important;
 
   background: var(--kort-accent);
@@ -213,15 +232,17 @@
   color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.4rem) !important;
-  font-weight: 800 !important;
+  font-size: 1rem!important;
+  font-weight: 900 !important;
   font-style: italic;
+  -webkit-text-stroke: 0.5px #000000;
 
   letter-spacing: -0.04em;
   line-height: 1 !important;
 
   text-transform: uppercase;
   white-space: nowrap;
+  opacity: 0.87;
 }
 
 /* =========================================
@@ -306,24 +327,17 @@
 
   width: 70px !important;
   height: 45px;
-  min-height: 45px !important;
+  min-height: 35px !important;
 
   min-width: 0;
 
   margin: 0 !important;
   padding: 0 8px 0 0 !important;
 
-  border-right: 1px solid #000000 !important;
+  border-right: 3.0px solid rgba(0, 0, 0, 0.88) !important;
 
   font-size: 3rem !important;
   line-height: 1 !important;
-
-  -webkit-text-stroke: 1px #000000;
-  filter:
-  drop-shadow(1px 0 0 #000000)
-  drop-shadow(-1px 0 0 #000000)
-  drop-shadow(0 1px 0 #000000)
-  drop-shadow(0 -1px 0 #000000);
 }
 
 /* TEMPERATURTEXT */
@@ -382,27 +396,27 @@
 .vader .vader-kort .vader-varning {
   display: block;
 
-  width: calc(100% - 24px);
+  /* Bredd och centrering */
+  width: max-content;
   max-width: none;
-
   margin: 3px auto 0 !important;
-  padding: 6px 8px !important;
+  padding: 6px 5px !important;
+  box-sizing: border-box;
 
+  /* Färger och form */
   background: #f2e9df;
-  color: #000000;
-
+  color: rgba(0, 0, 0, 0.78);
   border: 1px solid #99939a;
   border-radius: 12px;
 
-  font-family: inherit;
-  font-size: 0.95rem !important;
+  /* Text */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem !important;
   font-weight: 700;
-  font-style: italic;
-
+  font-style: italic !important;
   line-height: 1.3;
   text-align: center;
-
-  box-sizing: border-box;
+  white-space: nowrap;
 }
 
 /* =========================================
@@ -482,32 +496,69 @@
 }
 
 /* =========================================
-   14. MÖRKT LÄGE
+   14. MÖRKT LÄGE – LÄSBARA VÄDERKORT
 ========================================= */
 
 body.morkt-lage .vader {
   background: var(--bakgrund);
+  color: #f5f3ed;
 }
+
+/* KORTENS MITTDEL */
 
 body.morkt-lage .vader-kort {
-  background: var(--vit, #26332d);
-  border-color: var(--vader-marin);
+  background: #263129;
+  color: #f5f3ed;
+  border-color: #000000;
 }
 
-body.morkt-lage .vader-kort-rubrik h3,
-body.morkt-lage .vader-kort .temperatur,
-body.morkt-lage .vader-kort .temperatur-beskrivning {
-  color: var(--vader-marin);
+/* STADSNAMN – SVART PÅ PASTELLBAKGRUND */
+
+body.morkt-lage .vader-kort-rubrik h3 {
+  color: #000000;
 }
 
-body.morkt-lage .vader-kort .vader-meddelande,
-body.morkt-lage .vader-kort .vader-normal,
-body.morkt-lage .vader-kort .vader-varning {
-  color: var(--text, #ffffff);
+/* TEMPERATUR OCH BESKRIVNING */
+
+body.morkt-lage .vader-kort .vader-temperatur-text .temperatur,
+body.morkt-lage .vader-kort .vader-temperatur-text .temperatur-beskrivning {
+  color: #f5f3ed;
+}
+
+/* INFORMATIONSBOXAR – SVART TEXT PÅ BEIGE */
+
+body.morkt-lage .vader .vader-kort .vader-meddelande,
+body.morkt-lage .vader .vader-kort .vader-normal,
+body.morkt-lage .vader .vader-kort .vader-varning {
+  background: #ffe9e9;
+  color: #000000;
+}
+
+body.morkt-lage .vader .vader-kort .vader-vind {
+  color: #ffffff;
+}
+
+/* SÖKFÄLT */
+
+body.morkt-lage .vader-sok input {
+  background: #ffffff;
+  color: #000000;
 }
 
 
+/* SÖKRUTA – VIT KANT I MÖRKT LÄGE */
 
+body.morkt-lage .vader-sok input {
+  border-color: #ffffff;
+}
+/* VÄDERBOXAR – ENDAST MÖRKT LÄGE */
+
+body.morkt-lage .vader .vader-kort .vader-meddelande,
+body.morkt-lage .vader .vader-kort .vader-normal,
+body.morkt-lage .vader .vader-kort .vader-varning {
+  background: #f8f5ef;
+  color: #777777;
+}
 
 /* =========================================
    15. RESPONSIV DESIGN
@@ -528,7 +579,7 @@ body.morkt-lage .vader-kort .vader-varning {
 
 @media (max-width: 1400px) {
   .vader-kort .vader-kort-rubrik h3 {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
   }
 
   .vader-kort .vader-flagga {
@@ -551,4 +602,159 @@ body.morkt-lage .vader-kort .vader-varning {
   .vader-sok button {
     transition: none;
   }
+}
+/* VÄDERRUBRIK – MÖRKT LÄGE */
+
+body.morkt-lage .vader h2 {
+  color: #f5f3ed !important;
+}
+
+/* =========================================
+   SÖK-KNAPP – MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .vader-sok button {
+  background: #a8b5a2;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.morkt-lage .vader-sok button:hover {
+  background: #b9cbb5;
+  color: #ffffff;
+}
+
+/* =========================================
+   VÄDERKORT – VITA LINJER I MÖRKT LÄGE
+========================================= */
+
+/* VITA KANTLINJER OCH SKUGGOR */
+
+body.morkt-lage .vader .vader-kort {
+  border-color: #ffffff;
+  box-shadow: 7px 8px 0 #ffffff;
+}
+
+/* VIT LINJE UNDER STADSNAMNET */
+
+body.morkt-lage .vader .vader-kort-rubrik {
+  border-bottom-color: #ffffff;
+}
+
+/* VIT LINJE OVANFÖR VINDFÄLTET */
+
+body.morkt-lage .vader .vader-vind {
+  border-top-color: #ffffff;
+}
+
+/* VIT LINJE MELLAN EMOJI OCH TEMPERATUR */
+
+body.morkt-lage .vader .vader-kort
+.vader-temperatur-rad .vader-ikon {
+  border-right-color: #ffffff !important;
+}
+/* STADSNAMN OCH VIND – FETSTIL */
+
+.vader-stad {
+  font-weight: 700;
+}
+
+.vader-vind {
+  font-weight: 700;
+}/* STADSNAMN OCH VIND – FETSTIL */
+
+.vader-stad {
+  font-weight: 900;
+}
+
+.vader-vind {
+  font-weight: 700;
+}
+
+/* =========================================
+   INFORMATIONSBOXAR – KURSIV TEXT
+========================================= */
+
+.vader .vader-kort .vader-meddelande,
+.vader .vader-kort .vader-normal,
+.vader .vader-kort .vader-varning {
+  font-style: italic !important;
+  /* Text */
+font-family: Arial, Helvetica, sans-serif;
+font-size: 0.85rem !important;
+font-weight: 700;
+font-style: italic !important;
+line-height: 1.3;
+text-align: center;
+white-space: nowrap;
+opacity: 0.85;
+}
+
+/* =========================================
+   VÄDERKORT – TA BORT KURSIV STIL
+========================================= */
+
+.vader .vader-kort-rubrik h3,
+.vader .vader-kort .temperatur,
+.vader .vader-kort .temperatur-beskrivning {
+  font-style: normal !important;
+}
+
+/* =========================================
+   MÖRKT LÄGE – ENDAST TEXT OCH EMOJI
+========================================= */
+
+body.morkt-lage .vader .vader-kort .vader-meddelande,
+body.morkt-lage .vader .vader-kort .vader-normal,
+body.morkt-lage .vader .vader-kort .vader-varning {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+}
+
+/* Vit bock vid Normal temperatur */
+body.morkt-lage .vader .vader-kort .svart-bock {
+  color: #ffffff !important;
+}
+/* =========================================
+   VÄDERKORT – OPACITY PÅ ALLA FEM
+========================================= */
+
+.vader .vader-kort {
+  opacity: 0.85;
+}
+
+
+/* =========================================
+   VÄDERTEXTER – UTAN BOXAR
+========================================= */
+
+.vader .vader-kort .vader-meddelande,
+.vader .vader-kort .vader-normal,
+.vader .vader-kort .vader-varning {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  padding: 2px 0 !important;
+}
+
+/* =========================================
+   AVSTÅND MELLAN VÄDERTEXTERNA
+========================================= */
+
+.vader .vader-kort .vader-meddelande {
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.vader .vader-kort .vader-normal,
+.vader .vader-kort .vader-varning {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
 }

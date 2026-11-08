@@ -38,8 +38,9 @@ function Valkommen({
           </article>
 
           <blockquote className="hero-text">
-            Nyfiken på mina erfarenheter, idéer och vad jag
-            kan bidra med?
+             <span>NYFIKEN PÅ MINA ERFARENHETER,</span>
+            <span>IDÉER OCH VAD JAG</span>
+            <span>KAN BIDRA MED?</span>
           </blockquote>
         </div>
       )}

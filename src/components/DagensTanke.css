@@ -1,0 +1,173 @@
+
+/* =========================================
+   STUDIO92 – 04 DAGENS TANKE
+   NORDISK RETRODESIGN
+========================================= */
+
+/* HELA SEKTIONEN */
+
+.dagens-tanke {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* RUBRIK OCH NUMMER */
+
+.tanke-rubrik {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.tanke-nummer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+
+  background: #d6dfd5;
+  color: #405f4c;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+.tanke-rubrik h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+/* SKRIVFÄLT */
+
+.tanke-innehall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 650px;
+}
+
+.tanke-innehall label {
+  color: #56675d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.tanke-innehall textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 16px;
+  box-sizing: border-box;
+
+  background: #f5f3ed;
+  color: #222222;
+  border: 1px solid #888888;
+  border-radius: 2px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.tanke-innehall textarea:focus {
+  outline: 2px solid #a8b5a2;
+  outline-offset: 2px;
+}
+
+/* SPARA-KNAPP */
+
+.tanke-innehall > button {
+  height: 46px;
+  padding: 0 22px;
+
+  background: #a8b5a2;
+  color: #000000;
+  border: 1px solid #a8b5a2;
+  border-radius: 2px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tanke-innehall > button:hover {
+  background: #91a48e;
+}
+
+/* SPARADE TANKAR */
+
+.tanke-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 18px;
+  max-width: 950px;
+  margin-top: 30px;
+}
+
+.tanke-kort {
+  padding: 22px;
+  background: #f5f3ed;
+  border: 1px solid #a8b5a2;
+  border-radius: 2px;
+}
+
+.tanke-datum {
+  color: #56675d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.tanke-kort p {
+  margin: 16px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.tanke-kort button {
+  padding: 8px 12px;
+  background: transparent;
+  color: #405f4c;
+  border: 1px solid #a8b5a2;
+  border-radius: 2px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tanke-kort button:hover {
+  background: #d6dfd5;
+}
+
+/* MOBILANPASSNING */
+
+@media (max-width: 700px) {
+  .tanke-rubrik h2 {
+    font-size: 25px;
+  }
+
+  .tanke-innehall {
+    max-width: 100%;
+  }
+
+  .tanke-lista {
+    grid-template-columns: 1fr;
+  }
+}

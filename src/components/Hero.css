@@ -26,7 +26,7 @@
   overflow: hidden;
 
   background: #f5f3ed;
-  color: #171717;
+  color: #000000;
 }
 
 .hero::after {
@@ -96,11 +96,11 @@
   width: 48px;
   height: 2px;
 
-  margin-bottom: 22px;
+  margin-bottom: 15px;
 
-  background: #171717;
+  background: #000000;
 
-  transform: translateY(-20px);
+  transform: none;
 }
 
 /* =========================================
@@ -108,7 +108,9 @@
 ========================================= */
 
 .hero .hero-underrubrik {
-  margin: 0 0 34px;
+  position: relative;
+  top: -28px;
+  margin: 0 0 20px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
@@ -118,7 +120,25 @@
   line-height: 1.5;
   text-transform: uppercase;
 
-  color: #171717;
+  color: #000000;
+}
+
+/* =========================================
+   BYT PLATS PÅ UNDERRUBRIK OCH ÖVRE LINJE
+   UTAN ATT FLYTTA RESTEN AV INNEHÅLLET
+========================================= */
+
+.hero .hero-innehall {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero .hero-innehall > .hero-underrubrik {
+  order: -2;
+}
+
+.hero .hero-innehall > .hero-ovre-linje {
+  order: -1;
 }
 
 /* =========================================
@@ -142,7 +162,7 @@
   letter-spacing: -0.055em;
   line-height: 1.02;
 
-  color: #171717;
+  color: #000000;
 }
 
 .hero .hero-rubrik span {
@@ -157,9 +177,10 @@
   width: 48px;
   height: 2px;
 
-  margin: 30px 0 24px;
+  margin: 15px 0 24px;
+  margin-bottom: 15px;
 
-  background: #171717;
+  background: #000000;
 }
 
 /* =========================================
@@ -173,8 +194,15 @@
   margin: 0;
   padding: 0;
 
-  color: #171717;
+  color: #000000;
   text-align: left;
+}
+
+/* FLYTTA ENDAST PRESENTATIONSTEXTEN NEDÅT */
+
+.hero .hero-introtext .merit-introduktion {
+  position: relative;
+  top: 29px;
 }
 
 .hero .hero-introtext .startsida-intro {
@@ -235,7 +263,7 @@
   text-align: justify;
   text-align-last: left;
 
-  color: #171717;
+  color: #000000;
 
   overflow-wrap: normal;
   hyphens: auto;
@@ -269,7 +297,106 @@
   text-transform: uppercase;
   text-align: left;
 
-  color: #171717;
+  color: #000000;
+
+  /* Perspektiv för de tre textraderna */
+  perspective: 800px;
+}
+
+/* =========================================
+   HERO-TEXT – 3D-ANIMATION
+========================================= */
+
+.hero .hero-introtext .hero-text span {
+  display: block;
+
+  transform-origin: center center;
+
+  animation: heroText3D 1.5s ease-out both;
+}
+
+/* EXEMPEL 12 – FRÄMSTA TEXTRADEN */
+
+.hero .hero-introtext .hero-text span:nth-child(3) {
+  font-size: 18px;
+  color: #263d30;
+}
+
+/* =========================================
+   HERO-TEXT – FÖRDRÖJNING MELLAN RADER
+========================================= */
+
+.hero .hero-introtext .hero-text span:nth-child(1) {
+  animation-delay: 0s;
+  color: #748775;
+}
+
+.hero .hero-introtext .hero-text span:nth-child(2) {
+  animation-delay: 0.35s;
+   color: #536e59;
+}
+
+.hero .hero-introtext .hero-text span:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+
+@keyframes heroText3D {
+  0% {
+    opacity: 0;
+    transform: translateZ(-250px) rotateX(25deg);
+    text-shadow: 0 12px 18px rgba(0, 0, 0, 0.20);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateZ(-35px) rotateX(5deg);
+    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.14);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0) rotateX(0deg);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
+  }
+}
+
+/* =========================================
+   EXEMPEL 12 – DISKRET SLUTPERSPEKTIV
+   ENDAST SISTA TEXTRADEN
+========================================= */
+
+.hero .hero-introtext .hero-text span:nth-child(3) {
+  animation-name: heroText3DFramre;
+}
+
+@keyframes heroText3DFramre {
+  0% {
+    opacity: 0;
+    transform: translateZ(-250px) rotateX(25deg);
+    text-shadow: 0 12px 18px rgba(0, 0, 0, 0.20);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateZ(-35px) rotateX(5deg);
+    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.14);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(12px) rotateX(-2deg);
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+  }
+}
+
+
+/* TILLGÄNGLIGHET – MINSKAD RÖRELSE */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-introtext .hero-text span {
+    animation: none;
+  }
 }
 
 /* =========================================
@@ -298,10 +425,10 @@
   text-decoration: none;
   text-transform: uppercase;
 
-   color: #171717;
+  color: #000000;
   background: #a8b5a2;
 
-  border: 1px solid #171717;
+  border: 1px solid #000000;
   border-radius: 0;
 
   transition:
@@ -315,12 +442,63 @@
 }
 
 .hero .hero-knapp:hover {
-    background: #d5ded7;
-  color: #171717;
+  background: #d5ded7;
+  color: #000000;
 }
 
 .hero .hero-knapp:focus-visible {
   outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   SE MINA PROJEKT – SAMMA STIL SOM KONTAKT
+========================================= */
+
+.hero .kontakt-knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin-top: 26px;
+  padding: 15px 24px;
+
+  background: #a8b5a2;
+  color: #171717;
+
+  border: 1px solid #a8b5a2;
+  border-radius: 0;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero .kontakt-knapp:hover {
+  background: #d5ded7;
+  transform: translateY(-2px);
+}
+
+.hero .kontakt-knapp:focus-visible {
+  outline: 2px solid #171717;
   outline-offset: 4px;
 }
 
@@ -453,7 +631,7 @@
 
   width: 100%;
 
-  margin: 23px 0 0;
+  margin: -38px 0 0;
   padding: 0;
 }
 
@@ -473,7 +651,9 @@
 
   text-align: right;
 
-  color: #171717;
+  color: #000000;
+  white-space: nowrap;
+  transform: translateX(-40px);
 }
 
 .hero .hero-citat::before {
@@ -488,9 +668,9 @@
   width: 80px;
   height: 2px;
 
-  margin-top: 18px;
+  margin-top: 6px;
 
-  background: #171717;
+  background: #000000;
 }
 
 /* =========================================
@@ -498,7 +678,7 @@
 ========================================= */
 
 body.morkt-lage .hero {
-  background: #1d2521;
+  background: #4a5a50;
   color: #f5f3ed;
 }
 
@@ -532,14 +712,14 @@ body.morkt-lage .hero .hero-citat {
 
 body.morkt-lage .hero .hero-knapp {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 
   border-color: #a8b5a2;
 }
 
 body.morkt-lage .hero .hero-knapp:hover {
   background: #d5ded7;
-  color: #171717;
+  color: #000000;
 }
 
 body.morkt-lage .hero .hero-knapp:focus-visible {
@@ -589,4 +769,36 @@ body.morkt-lage .hero .hero-form-nedre {
   .hero .hero-citat {
     transition: none;
   }
+}
+
+/* =========================================
+   HEM / INTRODUKTION – PLACERING OCH STIL
+========================================= */
+
+.hero .hero-innehall > .hero-etikett {
+  position: relative;
+  order: -1;
+
+  align-self: flex-start;
+
+  margin: 0 0 -18px;
+  padding: 0;
+
+  color: #56675d;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  transform: translateY(-60px);
+}
+
+/* MÖRKT LÄGE */
+
+body.morkt-lage .hero .hero-etikett {
+  color: #a8b5a2;
 }

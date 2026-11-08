@@ -125,6 +125,9 @@
 
   margin: 0;
   padding: 0;
+  transform: translateY(31px);
+  position: relative;
+left: -10px;
 }
 
 .footer .footer-social a {
@@ -180,6 +183,8 @@
 
   letter-spacing: 0.04em;
   line-height: 1.4;
+  margin-left: 1220px;
+  transform: translateX(-15px);
 
   text-decoration: none;
   white-space: nowrap;
@@ -198,11 +203,14 @@
   justify-content: flex-end;
 
   flex-wrap: nowrap;
+  position: relative;
+  left: -20px;
 
   min-width: 0;
 
   margin-left: auto;
   padding: 0;
+  transform: translateY(0px);
 }
 
 /* =========================================
@@ -213,33 +221,36 @@
   position: relative;
 
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
   flex-shrink: 0;
 
-  min-height: 44px;
-  padding: 10px 13px;
+  min-height: 48px;
 
-  color: var(--footer-text);
+  margin: 0;
+  padding: 12px 18px;
+
   background: transparent;
+  color: var(--footer-text);
+
+  border: 1px solid transparent;
+  border-radius: 0;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 900;
-
   letter-spacing: 0.06em;
-  line-height: 1.2;
+  line-height: 1.4;
 
   text-decoration: none;
   text-transform: uppercase;
-
   white-space: nowrap;
 
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 /* =========================================
@@ -251,14 +262,13 @@
   content: "";
 
   position: absolute;
-
-  left: 0;
+  left: -1px;
   top: 50%;
 
   transform: translateY(-50%);
 
   width: 1px;
-  height: 26px;
+  height: 55px;
 
   background: var(--footer-text);
 }

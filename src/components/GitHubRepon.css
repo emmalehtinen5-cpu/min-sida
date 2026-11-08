@@ -1,0 +1,537 @@
+
+/* =========================================
+   GITHUB-PROJEKT – GRUNDSTIL
+========================================= */
+
+.github-repon {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52% 48%;
+
+  width: 100%;
+  min-height: 370px;
+
+  margin-top: 35px;
+  margin-bottom: 35px;
+
+  overflow: hidden;
+
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(245, 243, 237, 0.12) 0%,
+      rgba(245, 243, 237, 0.08) 35%,
+      rgba(245, 243, 237, 0) 65%
+    ),
+    url("../assets/bollplank1.png")
+      right center / cover no-repeat;
+
+  background-size: 125% auto;
+  background-position: right center;
+
+  color: #000000;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: normal;
+}
+
+/* =========================================
+   VÄNSTRA SIDAN
+========================================= */
+
+.github-innehall {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  padding: 48px 25px 30px 42px;
+}
+
+/* =========================================
+   RUBRIK – MINA GITHUB-PROJEKT
+========================================= */
+
+.github-repon .github-innehall h2 {
+  margin: 0;
+  margin-left: -20px;
+  color: inherit;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 33px;
+  font-weight: 500;
+  font-style: normal;
+
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+/* DEKORATIV LINJE OVANFÖR RUBRIKEN */
+
+.github-repon .github-innehall h2::before {
+  content: "";
+  display: block;
+
+  width: 48px;
+  height: 2px;
+
+  margin-bottom: 10px;
+  background: #000000;
+}
+
+/* DEKORATIV LINJE UNDER RUBRIKEN */
+
+.github-repon .github-linje {
+  width: 48px;
+  height: 2px;
+
+  margin: 12px 0 24px -20px;
+  background: #000000;
+}
+
+/* =========================================
+   KATEGORIKNAPPAR
+========================================= */
+
+.github-kategorier {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+
+  gap: 10px;
+
+  width: 100%;
+  max-width: 620px;
+  margin-top: 43px;
+
+  translate: 0 -10px;
+}
+
+.github-kategori {
+  display: inline-flex;
+  flex: 0 0 auto;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  min-width: 0;
+  min-height: 58px;
+  padding: 10px 12px;
+
+  color: #000000;
+
+  border: 1.5px solid #000000;
+  border-radius: 35px;
+  box-shadow: 3px 4px 0 #000000;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-weight: 800;
+  font-style: normal;
+
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* =========================================
+   KNAPPARNAS FÄRGER OCH PLACERING
+========================================= */
+
+.github-kategori.kod {
+  background: #A9B9B1;
+  translate: 0 20px;
+}
+
+.github-kategori.visualisering {
+  background: #C8AFB0;
+}
+
+.github-kategori.teknik {
+  background: #D8CCBA;
+  translate: 0 -20px;
+}
+
+/* =========================================
+   SYMBOLER I KNAPPARNA
+========================================= */
+
+.github-kategori svg {
+  width: 15px;
+  height: 15px;
+}
+
+.github-kategori .github-symbol {
+  font-size: 1.75em;
+  font-weight: 1000;
+  line-height: 1;
+  flex-shrink: 0;
+  stroke-width: 5;
+}
+
+/* =========================================
+   KLICKBAR PROJEKTLISTA
+========================================= */
+
+.github-projektlista {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin-top: 25px;
+  padding: 18px 20px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  border: 1px solid currentColor;
+  border-radius: 12px;
+}
+
+.github-projektlista a {
+  color: inherit;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  overflow-wrap: anywhere;
+}
+
+.github-projektlista a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.github-projektlista p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   DATUM – GITHUB-SEKTIONEN
+========================================= */
+
+.github-datum {
+  position: absolute;
+
+  bottom: 5px;
+  left: 23px;
+
+  margin: 0;
+  opacity: 0.86;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 555;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   HÖGRA SIDAN – ARKITEKTURFOTO
+========================================= */
+
+.github-bild {
+  position: relative;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  min-width: 0;
+  min-height: 370px;
+
+  margin-left: -100px;
+  padding: 26px;
+
+  background-color: #d6d4c9;
+  background-image: url("../assets/bollplank1.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 35%
+    );
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 35%
+    );
+}
+
+/* =========================================
+   VISA PÅ GITHUB – BEIGE KNAPP
+========================================= */
+
+.github-lank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 11px 17px;
+
+  background: #D8CCBA;
+  color: #000000;
+
+  border: 1px solid #000000;
+  border-radius: 30px;
+  box-shadow: 2px 3px 0 #000000;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: transform 0.2s ease;
+}
+
+.github-lank svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* TJOCKARE PIL – VISA PÅ GITHUB */
+
+.github-lank .github-lank-pil {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  stroke-width: 5.5;
+}
+
+.github-lank:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   TANGENTBORDSNAVIGERING
+========================================= */
+
+.github-kategori:focus-visible,
+.github-lank:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+/* =========================================
+   MÖRKT LÄGE – GITHUB-PROJEKT
+========================================= */
+
+body.morkt-lage .github-repon {
+  background: #1c1c1c;
+  color: #f5f3ed;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+body.morkt-lage .github-repon .github-innehall h2::before {
+  background: #ffffff;
+}
+
+body.morkt-lage .github-repon .github-linje {
+  background: #ffffff;
+}
+
+body.morkt-lage .github-kategori {
+  color: #000000;
+  border-color: #000000;
+  box-shadow: 3px 4px 0 #000000;
+}
+
+body.morkt-lage .github-kategori.kod {
+  background: #91ad92;
+}
+
+body.morkt-lage .github-kategori.visualisering {
+  background: #d39a8e;
+}
+
+body.morkt-lage .github-kategori.teknik {
+  background: #e0c579;
+}
+
+body.morkt-lage .github-kategori:hover {
+  box-shadow: 3px 7px 0 #000000;
+}
+
+body.morkt-lage .github-projektlista {
+  background: rgba(38, 49, 41, 0.94);
+  color: #f5f3ed;
+  border-color: #617067;
+}
+
+body.morkt-lage .github-lank {
+  background: #f2e9d8;
+  color: #000000;
+  border-color: #000000;
+}
+
+body.morkt-lage .github-varldstid {
+  background: transparent;
+  color: #f5f3ed;
+}
+
+/* =========================================
+   RESPONSIV DESIGN – MINDRE SKÄRMAR
+========================================= */
+
+@media (max-width: 1100px) {
+  .github-varldstid {
+    overflow-x: auto;
+  }
+
+  .github-varldstid-bilder {
+    gap: 20px;
+  }
+
+  .github-stad {
+    gap: 8px;
+  }
+
+  .github-stad-bildram {
+    flex-basis: 100px;
+    width: 100px;
+    height: 75px;
+  }
+
+  .github-stad-namn {
+    font-size: 11px;
+  }
+
+  .github-stad-tid {
+    font-size: 35px;
+  }
+}
+
+/* =========================================
+   MOBIL – STÄDER PÅ SAMMA RAD
+========================================= */
+
+@media (max-width: 700px) {
+  .github-varldstid {
+    overflow-x: auto;
+  }
+
+  .github-stad {
+    flex-shrink: 0;
+    gap: 16px;
+    padding: 8px 0;
+  }
+
+  .github-stad-bildram {
+    flex-basis: 110px;
+    width: 15px;
+    height: 130px;
+  }
+
+  .github-stad-namn {
+    font-size: 16px;
+  }
+
+  .github-stad-tid {
+    font-size: 38px;
+  }
+}
+
+/* =========================================
+   MJUKA ÖVERGÅNGAR
+========================================= */
+
+.github-repon,
+.github-kategori,
+.github-projektlista {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* =========================================
+   TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .github-repon,
+  .github-kategori,
+  .github-projektlista,
+  .github-lank {
+    transition: none;
+  }
+}
+/* =========================================
+   NYA GITHUB-SYMBOLER
+========================================= */
+
+.github-kategori .github-ny-ikon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  stroke-width: 2;
+}
+
+/* =========================================
+   TJOCKARE PILAR I GITHUB-KNAPPARNA
+========================================= */
+
+.github-kategori .github-pil {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  stroke-width: 5.5;
+}
+/* =========================================
+   PEKING, SANTIAGO OCH SYDNEY
+   DJUPARE PETROLBLÅ – MER KONTRAST
+========================================= */
+
+.github-stad:nth-child(4) .github-stad-bild,
+.github-stad:nth-child(5) .github-stad-bild,
+.github-stad:nth-child(6) .github-stad-bild {
+  filter:
+    grayscale(100%)
+    sepia(35%)
+    hue-rotate(95deg)
+    saturate(85%)
+    brightness(88%)
+    contrast(125%);
+}
+
