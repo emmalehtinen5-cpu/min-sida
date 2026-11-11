@@ -1,6 +1,7 @@
 
 /* =========================================
    PROJEKT – MODERN & STRUKTURERAD
+   SVENSKA / ENGELSKA / FINSKA
 ========================================= */
 
 import { useState } from "react";
@@ -8,45 +9,97 @@ import { Link, useLocation } from "react-router-dom";
 
 import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
-import { antalProjekt } from "../utils/text";
+import projektData from "../data/projekt.json";
 
 import Portobild from "../assets/portobild.jpg";
 import Rosen from "../assets/rosen.png";
 import Hero3 from "../assets/Hero3.webp";
 
 /* =========================================
+   ÖVERSÄTTNINGAR
+========================================= */
+
+const oversattningar = {
+  sv: {
+    etikett: "UTVALDA ARBETEN / PORTFOLIO",
+    rubrik: "Mina projekt",
+    beskrivning:
+      "Ett urval av projekt inom arkitektur, stadsutveckling och rumslig analys, där idéer och analyser utvecklas till visuella och rumsliga lösningar.",
+    allaProjekt: "SE ALLA PROJEKT",
+    sortera: "Sortera projekt:",
+    standard: "Standardordning",
+    titel: "Titel A–Ö",
+    tekniker: "Flest tekniker först",
+    filtrera: "Filtrera efter teknik:",
+    allaTekniker: "Alla tekniker",
+    antal: (visas, totalt) =>
+      `${visas} av ${totalt} projekt visas`,
+    totalt: (antal) =>
+      `Visar ${antal} av ${antal} projekt`,
+  },
+
+  en: {
+    etikett: "SELECTED WORK / PORTFOLIO",
+    rubrik: "My projects",
+    beskrivning:
+      "A selection of projects in architecture, urban development and spatial analysis, where ideas and research are transformed into visual and spatial solutions.",
+    allaProjekt: "VIEW ALL PROJECTS",
+    sortera: "Sort projects:",
+    standard: "Default order",
+    titel: "Title A–Z",
+    tekniker: "Most technologies first",
+    filtrera: "Filter by technology:",
+    allaTekniker: "All technologies",
+    antal: (visas, totalt) =>
+      `Showing ${visas} of ${totalt} projects`,
+    totalt: (antal) =>
+      `Showing ${antal} of ${antal} projects`,
+  },
+
+  fi: {
+    etikett: "VALITUT TYÖT / PORTFOLIO",
+    rubrik: "Projektini",
+    beskrivning:
+      "Valikoima arkkitehtuuriin, kaupunkikehitykseen ja paikkatietoanalyysiin liittyviä projekteja, joissa ideat ja analyysit kehittyvät visuaalisiksi ja tilallisiksi ratkaisuiksi.",
+    allaProjekt: "KATSO KAIKKI PROJEKTIT",
+    sortera: "Järjestä projektit:",
+    standard: "Oletusjärjestys",
+    titel: "Nimi A–Ö",
+    tekniker: "Eniten tekniikoita ensin",
+    filtrera: "Suodata tekniikan mukaan:",
+    allaTekniker: "Kaikki tekniikat",
+    antal: (visas, totalt) =>
+      `Näytetään ${visas}/${totalt} projektia`,
+    totalt: (antal) =>
+      `Näytetään ${antal}/${antal} projektia`,
+  },
+};
+
+/* =========================================
    PROJEKTINFORMATION
 ========================================= */
 
-const projekt = [
-  {
-    id: 1,
-    titel: "Min portfoliosida",
-    text:
-      "En visuellt utformad portfolio som presenterar projekt inom arkitektur, stadsutveckling och rumslig gestaltning.",
-    teknik: "Analys, Visualisering, Gestaltning",
-    bild: Portobild,
-    lank: "/projekt/portfoliosida.pdf",
-  },
-  {
-    id: 2,
-    titel: "Metodbok – Rosengård",
-    text:
-      "Analys av Rosengårds urbana miljö med fokus på platsens kvaliteter, möjligheter och utbud för unga vuxna.",
-    teknik: "Workshop, Intervjuer, Platsanalys",
-    bild: Rosen,
-    lank: "/projekt/projekt2.pdf",
-  },
-  {
-    id: 3,
-    titel: "Västra Hamnen",
-    text:
-      "Rumslig analys av Västra Hamnens urbana miljö med fokus på stadsstruktur, gestaltning och platsens kvaliteter.",
-    teknik: "Plats- och designanalys, Skisser",
-    bild: Hero3,
-    lank: "/projekt/projekt3.pdf",
-  },
-];
+const bilder = {
+  1: Portobild,
+  2: Rosen,
+  3: Hero3,
+};
+
+const lankar = {
+  1: "/projekt/portfoliosida.pdf",
+  2: "/projekt/projekt2.pdf",
+  3: "/projekt/projekt3.pdf",
+};
+
+const projekt = projektData.map((p) => ({
+  ...p,
+  bild: bilder[p.id],
+  lank: lankar[p.id],
+  teknik: p.teknik.join(", "),
+  harReact: p.teknik.some(
+    (teknik) => teknik.toLowerCase() === "react"
+  ),
+}));
 
 /* =========================================
    SAMLA ALLA TEKNIKER MED FOR...OF
@@ -54,14 +107,10 @@ const projekt = [
 
 const allaTekniker = [];
 
-for (const p of projekt) {
-  const tekniker = p.teknik.split(",");
-
-  for (const teknik of tekniker) {
-    const namn = teknik.trim();
-
-    if (!allaTekniker.includes(namn)) {
-      allaTekniker.push(namn);
+for (const p of projektData) {
+  for (const teknik of p.teknik) {
+    if (!allaTekniker.includes(teknik)) {
+      allaTekniker.push(teknik);
     }
   }
 }
@@ -72,16 +121,59 @@ allaTekniker.sort((a, b) =>
 );
 
 /* =========================================
+   ÖVERSÄTT TEKNIKNAMN I FILTRET
+========================================= */
+
+function oversattTeknik(teknik, sprak) {
+  if (sprak === "sv") {
+    return teknik;
+  }
+
+  for (const p of projektData) {
+    const index = p.teknik.indexOf(teknik);
+
+    if (index !== -1) {
+      return (
+        p.oversattningar?.[sprak]?.teknik?.[index] ||
+        teknik
+      );
+    }
+  }
+
+  return teknik;
+}
+
+/* =========================================
    PROJEKTKOMPONENT
 ========================================= */
 
-function Projekt() {
+function Projekt({ sprak = "sv" }) {
   const { pathname } = useLocation();
 
-  // State för sortering
-  const [sortering, setSortering] = useState("standard");
+  const text = oversattningar[sprak] || oversattningar.sv;
 
-  // State för teknikfilter
+  /* =====================================
+     ÖVERSÄTT PROJEKTENS INNEHÅLL
+  ===================================== */
+
+  const oversattaProjekt = projekt.map((p) => {
+    const oversattning = p.oversattningar?.[sprak];
+
+    return {
+      ...p,
+      titel: oversattning?.titel || p.titel,
+      text: oversattning?.text || p.text,
+      visadTeknik: (
+        oversattning?.teknik || p.teknik.split(", ")
+      ).join(", "),
+    };
+  });
+
+  /* =====================================
+     STATE – SORTERING OCH FILTER
+  ===================================== */
+
+  const [sortering, setSortering] = useState("standard");
   const [valdTeknik, setValdTeknik] = useState("alla");
 
   // Visa länken till alla projekt på andra sidor
@@ -91,11 +183,13 @@ function Projekt() {
      FILTRERA PROJEKT EFTER TEKNIK
   ===================================== */
 
-  const sorteradeProjekt = projekt.filter((p) => {
+  const sorteradeProjekt = oversattaProjekt.filter((p) => {
     if (valdTeknik === "alla") {
       return true;
     }
 
+    // Filtrera med ursprungliga svenska värden
+    // oavsett vilket språk som visas.
     const tekniker = p.teknik
       .split(",")
       .map((teknik) => teknik.trim());
@@ -110,7 +204,7 @@ function Projekt() {
   // Sortera alfabetiskt efter titel
   if (sortering === "titel") {
     sorteradeProjekt.sort((a, b) =>
-      a.titel.localeCompare(b.titel, "sv")
+      a.titel.localeCompare(b.titel, sprak)
     );
   }
 
@@ -123,6 +217,10 @@ function Projekt() {
       return antalB - antalA;
     });
   }
+
+  /* =====================================
+     VISA PROJEKTSEKTIONEN
+  ===================================== */
 
   return (
     <section
@@ -139,22 +237,19 @@ function Projekt() {
         <div className="projekt-header-text">
 
           <span className="projekt-etikett">
-            UTVALDA ARBETEN / PORTFOLIO
+            {text.etikett}
           </span>
 
           <h2 id="projekt-rubrik">
-            Mina projekt
+            {text.rubrik}
           </h2>
 
           <p className="projekt-antal">
-            {antalProjekt(projekt.length, projekt.length)}
+            {text.totalt(projekt.length)}
           </p>
 
           <p className="projekt-beskrivning">
-            Ett urval av projekt inom arkitektur,
-            stadsutveckling och rumslig analys,
-            där idéer och analyser utvecklas
-            till visuella och rumsliga lösningar.
+            {text.beskrivning}
           </p>
 
         </div>
@@ -166,7 +261,7 @@ function Projekt() {
             className="projekt-alla-lank"
             to="/projekt"
           >
-            SE ALLA PROJEKT
+            {text.allaProjekt}
             <span aria-hidden="true">→</span>
           </Link>
         )}
@@ -180,7 +275,7 @@ function Projekt() {
       <div className="projekt-sortering">
 
         <label htmlFor="sortera-projekt">
-          Sortera projekt:
+          {text.sortera}
         </label>
 
         <select
@@ -188,19 +283,17 @@ function Projekt() {
           value={sortering}
           onChange={(e) => setSortering(e.target.value)}
         >
-
           <option value="standard">
-            Standardordning
+            {text.standard}
           </option>
 
           <option value="titel">
-            Titel A–Ö
+            {text.titel}
           </option>
 
           <option value="tekniker">
-            Flest tekniker först
+            {text.tekniker}
           </option>
-
         </select>
 
       </div>
@@ -212,7 +305,7 @@ function Projekt() {
       <div className="projekt-sortering">
 
         <label htmlFor="filtrera-teknik">
-          Filtrera efter teknik:
+          {text.filtrera}
         </label>
 
         <select
@@ -220,9 +313,8 @@ function Projekt() {
           value={valdTeknik}
           onChange={(e) => setValdTeknik(e.target.value)}
         >
-
           <option value="alla">
-            Alla tekniker
+            {text.allaTekniker}
           </option>
 
           {allaTekniker.map((teknik) => (
@@ -230,37 +322,41 @@ function Projekt() {
               key={teknik}
               value={teknik}
             >
-              {teknik}
+              {oversattTeknik(teknik, sprak)}
             </option>
           ))}
-
         </select>
 
       </div>
 
-{/* =====================================
-    PROJEKTKORT
-===================================== */}
+      {/* =====================================
+          PROJEKTKORT
+      ===================================== */}
 
-{/* Räknaren ligger UTANFÖR projekt-grid */}
+      {/* Räknaren ligger UTANFÖR projekt-grid */}
 
-<p className="projekt-filter-antal">
-  {sorteradeProjekt.length} av {projekt.length} projekt visas
-</p>
+      <p className="projekt-filter-antal">
+        {text.antal(
+          sorteradeProjekt.length,
+          projekt.length
+        )}
+      </p>
 
-<div className="projekt-lista">
+      <div className="projekt-lista">
 
-  {sorteradeProjekt.map((p) => (
-    <ProjektKort
-      key={p.id}
-      id={p.id}
-      titel={p.titel}
-      text={p.text}
-      teknik={p.teknik}
-      bild={p.bild}
-      lank={p.lank}
-    />
-       ))}
+        {sorteradeProjekt.map((p) => (
+          <ProjektKort
+            key={p.id}
+            id={p.id}
+            titel={p.titel}
+            text={p.text}
+            teknik={p.visadTeknik}
+            bild={p.bild}
+            lank={p.lank}
+            harReact={p.harReact}
+            sprak={sprak}
+          />
+        ))}
 
       </div>
     </section>

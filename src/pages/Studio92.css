@@ -11,6 +11,9 @@
 
 .studio92 {
   padding: 40px 50px;
+   /* LÄGG TILL DETTA: Låser hela sektionens bredd i pixlar */
+  width: 1220px;       /* 1160px för layouten + 60px marginaler */
+  min-width: 1220px;   /* Förhindrar webbläsaren från att någonsin göra den mindre */
 }
 
 
@@ -49,10 +52,16 @@
 ========================================= */
 
 .studio92-layout {
-  display: grid;
-  grid-template-columns: 360px 400px minmax(400px, 1fr);
+   display: grid;
+  /* Låser kolumnerna till exakta pixelvärden (inga elastiska 1fr-enheter) */
+  grid-template-columns: 360px 400px 400px;
   gap: 0px;
   align-items: start;
+  
+  /* LÄGG TILL DETTA: Låser gridens totala bredd */
+  width: 1160px;
+  min-width: 1160px;
+  
 }
 
 
@@ -591,30 +600,36 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
 ========================================= */
 
 /* Linjerna runt WORLD TIME */
+.container {
+    width: 1200px;       /* Sätt den bredd du vill att sidan ska ha */
+    margin: 0 auto;      /* Centrerar sidan på stora skärmar */
+}
 .studio92-klockor {
   position: relative;
+  width: 1335px;
+  min-width: 1335px;
+  
 }
 
-.studio92-klockor::before,
-.studio92-klockor::after {
+
+.studio92-world-time::before,
+.studio92-world-time::after {
   content: "";
   position: absolute;
-  top: 0;
-  height: 100px;
+
+  top: -25px;
   width: 1px;
+  height: 100px;
+
   background-color: #a8b5a2;
 }
 
-/* Vänster lodrät linje */
-.studio92-klockor::before {
-  left: 380px;
-  top: -130px
+.studio92-world-time::before {
+  left: -20px;
 }
 
-/* Höger lodrät linje */
-.studio92-klockor::after {
-  left: 500px;
-  top: -130px
+.studio92-world-time::after {
+  left: 100px;
 }
 
 /* Vågrät linje under överdelen */
@@ -953,14 +968,6 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   max-width: 100%;
 }
 
-/* Mindre skärmar */
-
-@media (max-width: 900px) {
-  .studio92-tva-sektioner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
 /* =========================================
    ANSIKTSBILD OVANPÅ ARKITEKTURFOTOT
 ========================================= */
@@ -997,14 +1004,19 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   position: relative;
 }
 
+
 .studio92-tva-sektioner::before {
   content: "";
   position: absolute;
+
   top: 0;
   bottom: 0;
-  left: 44%;
+  left: 50%;
+
   width: 1px;
   background-color: #a8b5a2;
+
+  transform: translateX(-50%);
 }
 
 /* SEKTION 02 – SAMMA RUBRIKSTORLEK SOM 01 OCH 03 */
@@ -1039,4 +1051,809 @@ body.morkt-lage .studio92 .dagens-tanke {
 
 body.morkt-lage .studio92-vader .vader {
   background: transparent !important;
+}
+
+
+/* =========================================
+   STUDIO92 – IPHONE SE
+   TVÅ MINDRE VÄDERKORT PER RAD
+========================================= */
+
+@media (max-width: 600px) {
+
+  .studio92-vader .vader {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .studio92-vader .vader-kort-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+    padding: 0 6px 10px 0;
+  }
+
+  .studio92-vader .vader-kort {
+    width: 100%;
+    min-width: 0;
+    border-width: 2px;
+    border-radius: 12px;
+    box-shadow: 3px 4px 0 #171717;
+  }
+
+  .studio92-vader .vader-kort-rubrik {
+    height: 32px !important;
+    min-height: 32px !important;
+    gap: 3px;
+    padding: 4px 20px 4px 4px !important;
+  }
+
+  .studio92-vader .vader-kort .vader-flagga {
+    font-size: 14px !important;
+  }
+
+  .studio92-vader .vader-kort .vader-kort-rubrik h3 {
+    font-size: 8px !important;
+    letter-spacing: -0.03em;
+    -webkit-text-stroke: 0;
+  }
+
+  .studio92-vader .ta-bort-knapp {
+    width: 15px;
+    height: 15px;
+    top: 5px;
+    right: 3px;
+    font-size: 10px;
+    border-width: 1px;
+  }
+
+  .studio92-vader .vader-kort-info {
+    padding: 5px 2px !important;
+  }
+
+  .studio92-vader .vader-temperatur-rad {
+    min-height: 38px !important;
+    gap: 3px !important;
+  }
+
+  .studio92-vader .vader-kort
+  .vader-temperatur-rad .vader-ikon {
+    width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 0 2px 0 0 !important;
+    font-size: 22px !important;
+    border-right-width: 2px !important;
+  }
+
+  .studio92-vader .vader-kort
+  .vader-temperatur-text .temperatur {
+    font-size: 15px !important;
+  }
+
+  .studio92-vader .vader-kort
+  .vader-temperatur-text .temperatur-beskrivning {
+    font-size: 9px !important;
+  }
+
+  .studio92-vader .vader-kort .vader-meddelande,
+  .studio92-vader .vader-kort .vader-normal,
+  .studio92-vader .vader-kort .vader-varning {
+    max-width: 100%;
+    font-size: 8px !important;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .studio92-vader .vader-kort .vader-vind {
+    height: 30px !important;
+    min-height: 30px !important;
+    gap: 3px;
+    padding: 3px 2px !important;
+    font-size: 8px !important;
+    letter-spacing: 0;
+  }
+
+  .studio92-vader .vader-kort .vader-vind::before {
+    width: 13px;
+    height: 13px;
+  }
+
+  body.morkt-lage .studio92-vader .vader-kort {
+    box-shadow: 3px 4px 0 #ffffff;
+  }
+}
+
+/* =========================================
+   STUDIO92 – MOBIL
+   ARKITEKTURBILD OCH DEKORATIV LINJE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .studio92 {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  .studio92-layout {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin-top: 0;
+    padding-top: 25px;
+  }
+
+  /* DEKORATIV LINJE */
+
+  .studio92-layout::before {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  /* ARKITEKTURBILD */
+
+  .studio92-bild {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .studio92-bild > img:not(.studio92-ansikte) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  /* BEHÅLL ANSIKTSILLUSTRATIONEN */
+
+  .studio92-bild .studio92-ansikte {
+    width: 30%;
+    max-width: 180px;
+    left: 0;
+    bottom: 12%;
+  }
+
+  /* TA BORT FASTA BREDDER */
+
+  .studio92-klockor,
+  .studio92-avdelare {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* SEKTIONERNAS PLACERING */
+
+  .studio92-projekt,
+  .studio92-hoger {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .studio92-hoger {
+    left: 0;
+    top: 0;
+    margin-top: 0;
+  }
+
+  .studio92-avdelare {
+    margin: 30px 0 25px;
+  }
+}
+
+/* =========================================
+   STUDIO92 – VÄRLDSKLOCKOR MOBIL
+   IPHONE SE / MAX 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* HELA KLOCKSEKTIONEN */
+
+  .studio92-klockor {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 25px 0;
+    padding: 0;
+  }
+
+  /* WORLD TIME-RUBRIKEN */
+
+  .studio92-world-time {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+
+    display: block;
+    width: fit-content;
+
+    margin: 0 0 25px;
+    padding: 0;
+
+    font-size: 16px;
+    letter-spacing: 0.18em;
+  }
+
+  /* DEKORATIVA LINJER */
+
+  .studio92-world-time::before,
+  .studio92-world-time::after {
+    height: 45px;
+    top: -8px;
+  }
+
+  /* KLOCKORNAS HUVUDCONTAINER */
+
+  .studio92-klockor .github-varldstid {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* SEX STÄDER – TVÅ PER RAD */
+
+  .studio92-klockor .github-varldstid-bilder {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    gap: 18px 10px;
+
+    transform: none;
+  }
+
+  /* VARJE STAD */
+
+  .studio92-klockor .github-stad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  /* STADSBILDER */
+
+  .studio92-klockor .github-stad-bildram {
+    position: relative;
+    left: auto;
+
+    flex: none;
+    width: 100%;
+    height: 115px;
+
+    overflow: hidden;
+  }
+
+  /* STADSNAMN OCH KLOCKSLAG */
+
+  .studio92-klockor .github-stad-info,
+  .studio92-klockor .github-stad:not(:last-child)
+  .github-stad-info,
+  .studio92-klockor .github-stad:nth-child(1)
+  .github-stad-info,
+  .studio92-klockor .github-stad:nth-child(2)
+  .github-stad-info,
+  .studio92-klockor .github-stad:nth-child(3)
+  .github-stad-info,
+  .studio92-klockor .github-stad:nth-child(5)
+  .github-stad-info,
+  .studio92-klockor .github-stad:nth-child(6)
+  .github-stad-info {
+    position: relative;
+    left: auto;
+
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .studio92-klockor .github-stad-namn {
+    font-size: 11px;
+    letter-spacing: 0;
+    white-space: normal;
+    text-align: center;
+
+    transform: none;
+  }
+
+  .studio92-klockor .github-stad-tid {
+    margin: 0;
+
+    font-size: 22px;
+    letter-spacing: -0.5px;
+
+    transform: none;
+  }
+}
+
+/* =========================================
+   STUDIO92 – MOBILKORRIGERING
+   IPHONE SE / MAX 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* HUVUDLAYOUT – EN KOLUMN */
+
+  .studio92 .studio92-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    gap: 35px;
+    margin-top: 25px;
+  }
+
+  /* 01 – PROJEKT / YTRUMME */
+
+  .studio92 .studio92-projekt {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    grid-column: auto;
+    grid-row: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  .studio92 .studio92-projekt
+  .studio92-sektionsrubrik {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+  }
+
+  .studio92 .studio92-projekt
+  .studio92-sektionsrubrik h2 {
+    flex: 1;
+    min-width: 0;
+
+    margin: 0;
+    font-size: clamp(19px, 5vw, 28px);
+    line-height: 1.2;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* PROJEKTRUTAN */
+
+  .studio92 .studio92-projekt-plats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    min-height: 200px;
+    margin: 0;
+    padding: 20px 12px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .studio92 .studio92-projekt-plats p {
+    max-width: 100%;
+    margin: 15px 0 0;
+
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.8;
+
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  /* 02 + 03 – HELA HÖGERSEKTIONEN */
+
+  .studio92 .studio92-hoger {
+    position: relative;
+
+    display: block;
+
+    left: auto;
+    top: auto;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    grid-column: auto;
+    grid-row: auto;
+
+    margin: 0;
+    padding: 25px 0 0;
+  }
+
+  /* ATT GÖRA OCH DAGENS TANKE
+     UNDER VARANDRA */
+
+  .studio92 .studio92-tva-sektioner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    gap: 40px;
+  }
+
+  /* TA BORT LODRÄT AVDELARE */
+
+  .studio92 .studio92-tva-sektioner::before {
+    content: none;
+    display: none;
+  }
+
+  /* BÅDA KOMPONENTERNA */
+
+  .studio92 .studio92-tva-sektioner > * {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    transform: none;
+  }
+
+  /* FORMULÄRFÄLT */
+
+  .studio92 .studio92-tva-sektioner input,
+  .studio92 .studio92-tva-sektioner textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* DEKORATIV AVDELARE */
+
+  .studio92 .studio92-avdelare {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   STUDIO92 – IPAD MINI OCH IPAD PRO 13
+   601–1100 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  /* HELA SEKTIONEN */
+
+  .studio92 {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 35px 30px;
+    box-sizing: border-box;
+  }
+
+  .studio92,
+  .studio92 * {
+    box-sizing: border-box;
+  }
+
+  /* HUVUDLAYOUT */
+
+  .studio92 .studio92-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    gap: 35px;
+    margin-top: 25px;
+    padding-top: 25px;
+  }
+
+  .studio92-layout::before {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  /* ARKITEKTURBILD */
+
+  .studio92 .studio92-bild {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .studio92 .studio92-bild > img:not(.studio92-ansikte) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .studio92 .studio92-bild .studio92-ansikte {
+    left: 0;
+    bottom: 12%;
+    width: 25%;
+    max-width: 180px;
+  }
+
+  /* VÄRLDSKLOCKOR */
+
+  .studio92 .studio92-klockor {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 30px 0;
+  }
+
+  .studio92 .studio92-world-time {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    display: block;
+    width: fit-content;
+    margin: 0 0 30px;
+    font-size: 18px;
+  }
+
+  .studio92 .studio92-klockor .github-varldstid {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .studio92 .studio92-klockor .github-varldstid-bilder {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    gap: 25px 15px;
+    transform: none;
+  }
+
+  .studio92 .studio92-klockor .github-stad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .studio92 .studio92-klockor .github-stad-bildram {
+    position: relative;
+    left: auto;
+    flex: none;
+    width: 100%;
+    height: 120px;
+  }
+
+  .studio92 .studio92-klockor .github-stad-info,
+  .studio92 .studio92-klockor .github-stad:not(:last-child) .github-stad-info {
+    position: relative;
+    left: auto;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .studio92 .studio92-klockor .github-stad-namn {
+    font-size: 12px;
+    letter-spacing: 0;
+    white-space: normal;
+    text-align: center;
+    transform: none;
+  }
+
+  .studio92 .studio92-klockor .github-stad-tid {
+    margin: 0;
+    font-size: 23px;
+    letter-spacing: -0.5px;
+    transform: none;
+  }
+
+  /* 01 – PROJEKT */
+
+  .studio92 .studio92-projekt {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    transform: none;
+  }
+
+  .studio92 .studio92-projekt .studio92-sektionsrubrik h2 {
+    white-space: normal;
+    font-size: clamp(24px, 3.5vw, 32px);
+  }
+
+  .studio92 .studio92-projekt-plats {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 200px;
+  }
+
+  /* 02 + 03 – TO DO OCH DAGENS TANKE */
+
+  .studio92 .studio92-hoger {
+    position: relative;
+    grid-column: auto;
+    grid-row: auto;
+    left: auto;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding-top: 25px;
+  }
+
+  .studio92 .studio92-tva-sektioner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    gap: 25px;
+  }
+
+  .studio92 .studio92-tva-sektioner > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .studio92 .studio92-tva-sektioner input,
+  .studio92 .studio92-tva-sektioner textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* DEKORATIVA LINJER */
+
+  .studio92 .studio92-avdelare {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* VÄDER */
+
+  .studio92 .studio92-vader {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  .studio92 .studio92-vader .vader {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .studio92 .studio92-vader .vader-sok input {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   IPAD MINI – EXTRA ANPASSNING
+   601–800 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 800px) {
+
+  .studio92 .studio92-tva-sektioner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .studio92 .studio92-tva-sektioner::before {
+    content: none;
+    display: none;
+  }
+
+  .studio92 .studio92-klockor .github-varldstid-bilder {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .studio92 .studio92-projekt .studio92-sektionsrubrik h2 {
+    font-size: 26px;
+  }
+}
+/* =========================================
+   STUDIO92 – IPAD
+   TILLÅT HELA SIDANS INNEHÅLL
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  .studio92 {
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .studio92-layout {
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+
 }

@@ -19,9 +19,30 @@ function Hem({
   endastHero = false,
   utanHero = false,
   morkt,
-  setMorkt
+  setMorkt,
+  sprak = "sv",
 }) {
 
+  /* =====================================
+     SPRÅK – SVENSKA / ENGELSKA / FINSKA
+  ===================================== */
+
+  const temaTexter = {
+    sv: {
+      ljust: "LJUST LÄGE",
+      morkt: "MÖRKT LÄGE",
+    },
+    en: {
+      ljust: "LIGHT MODE",
+      morkt: "DARK MODE",
+    },
+    fi: {
+      ljust: "VAALEA TILA",
+      morkt: "TUMMA TILA",
+    },
+  };
+
+  const temaText = temaTexter[sprak] || temaTexter.sv;
 
   /* =====================================
      2. MÖRKT / LJUST LÄGE – KNAPP
@@ -37,7 +58,7 @@ function Hem({
         aria-pressed={morkt}
       >
 
-        {morkt ? "LJUST LÄGE" : "MÖRKT LÄGE"}
+        {morkt ? temaText.ljust : temaText.morkt}
 
         <span aria-hidden="true">
           {morkt ? "☀" : "☾"}
@@ -48,7 +69,6 @@ function Hem({
     </div>
   );
 
-
   /* =====================================
      3. ENDAST HERO
   ===================================== */
@@ -57,14 +77,16 @@ function Hem({
     return (
       <div className="hem-innehall">
 
-        <Hero  namn={fornamn(NAMN)} />
+        <Hero
+          namn={fornamn(NAMN)}
+          sprak={sprak}
+        />
 
         {temaKnapp}
 
       </div>
     );
   }
-
 
   /* =====================================
      4. UTAN HERO
@@ -74,16 +96,15 @@ function Hem({
     return (
       <div className="hem-innehall">
 
-        <Projekt />
+        <Projekt sprak={sprak} />
 
-        <Raknare />
+        <Raknare sprak={sprak} />
 
         {temaKnapp}
 
       </div>
     );
   }
-
 
   /* =====================================
      5. HELA STARTSIDAN
@@ -93,16 +114,19 @@ function Hem({
     <div className="hem-innehall">
 
       {/* HERO */}
-      <Hero  namn={fornamn(NAMN)} />
+      <Hero
+        namn={fornamn(NAMN)}
+        sprak={sprak}
+      />
 
       {/* PROJEKT */}
-      <Projekt />
+      <Projekt sprak={sprak} />
 
       {/* RÄKNARE */}
-      <Raknare />
+      <Raknare sprak={sprak} />
 
       {/* GITHUB-PROJEKT */}
-      <GitHubRepon />
+      <GitHubRepon sprak={sprak} />
 
       {/* KNAPP FÖR MÖRKT / LJUST LÄGE */}
       {temaKnapp}

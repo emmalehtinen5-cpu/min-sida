@@ -1,62 +1,293 @@
 
 import { useState } from "react";
 import "./MittBollplank.css";
+
 import bollplank1Bild from "../assets/bollplank1.png";
 import ide1Bild from "../assets/ide1-arkitektur-staden.png";
 import ide2Bild from "../assets/ide2-tankar-reflektioner.png";
 import ide3Bild from "../assets/ide3-bilder-inspiration.png";
 
+import { NAMN } from "../data/installningar";
+
 /* =========================================
-   1. IDÉINLÄGG
+   1. ÖVERSÄTTNINGAR
+========================================= */
+
+const oversattningar = {
+  sv: {
+    kreativtArkiv: "KREATIVT ARKIV",
+    rubrik: "MITT BOLLPLANK.",
+    intro1: "En plats för ord, bilder, idéer och samtal.",
+    intro2:
+      "Här samlar jag tankar, inspiration och perspektiv som får utvecklas över tid.",
+    nyckelord: "ORD. BILDER. IDÉER. SAMTAL.",
+    bildAlt: "Arkitektur med betongtrappor och grönska",
+
+    navigation: "Mitt Bollplanks sektioner",
+    ideFlik: "IDÉARKIV",
+    forumFlik: "DISKUSSIONSFORUM",
+
+    arkitekturEtikett:
+      "ARKITEKTUR. KOMMUNIKATION. VISUALISERING.",
+    arkivEtikett: "ARKIV",
+    arkivRubrik: "IDÉARKIV.",
+    arkivBeskrivning:
+      "Ett organiserat arkiv för ord, bilder, reflektioner och idéer.",
+    inlagg: "INLÄGG",
+    alla: "ALLA",
+    tillbaka: "TILLBAKA TILL ARKIVET",
+    lasInlagg: "LÄS INLÄGGET",
+
+    kommentarer: "DISKUSSION & KOMMENTARER.",
+    kommentarBeskrivning:
+      "Här kommer besökare att kunna kommentera och diskutera det här inlägget.",
+    skrivKommentar: "SKRIV EN KOMMENTAR – KOMMER SNART",
+
+    samtal: "SAMTAL",
+    samtalsrum: "SAMTALSRUMMET.",
+    samtalsBeskrivning:
+      "Ett öppet rum för frågor, diskussioner och nya perspektiv.",
+    valkommen: "VÄLKOMMEN TILL SAMTALSRUMMET",
+    allaIdeer: "Alla idéer börjar någonstans.",
+    forumIntro:
+      "Här vill jag skapa en plats där människor kan mötas genom tankar, frågor och idéer. Ett forum för samtal om arkitektur, design, staden och allt däremellan.",
+
+    diskussion: "DISKUSSION",
+    diskussionRubrik: "Vad gör en stad levande?",
+    diskussionText:
+      "Vilka platser, miljöer och möten gör att en stad känns levande?",
+    delta: "DELTA I DISKUSSIONEN – KOMMER SNART",
+
+    egenIde: "HAR DU EN EGEN IDÉ?",
+    egenIdeText:
+      "Här kommer du att kunna starta en egen diskussion och bjuda in andra att dela sina perspektiv.",
+    starta: "+ STARTA NY DISKUSSION – KOMMER SNART",
+
+    ljust: "LJUST LÄGE",
+    morkt: "MÖRKT LÄGE",
+
+    kategorier: [
+      "ARKITEKTUR & STADEN",
+      "TANKAR & REFLEKTIONER",
+      "BILDER & INSPIRATION",
+    ],
+
+    ideer: [
+      {
+        rubrik: "Hur formar vi framtidens stad?",
+        text: "Tankar kring arkitektur, offentliga rum och hur vi skapar hållbara och levande stadsmiljöer.",
+      },
+      {
+        rubrik: "En idé behöver inte vara färdig.",
+        text: "Ett utrymme för frågor, reflektioner och tankar som fortfarande håller på att ta form.",
+      },
+      {
+        rubrik: "Det visuella arkivet.",
+        text: "Fotografier, skisser, detaljer och visuella upptäckter som väcker nya idéer.",
+      },
+    ],
+  },
+
+  en: {
+    kreativtArkiv: "CREATIVE ARCHIVE",
+    rubrik: "MY SOUNDING BOARD.",
+    intro1: "A place for words, images, ideas and conversations.",
+    intro2:
+      "Here I collect thoughts, inspiration and perspectives that can develop over time.",
+    nyckelord: "WORDS. IMAGES. IDEAS. CONVERSATIONS.",
+    bildAlt: "Architecture with concrete steps and greenery",
+
+    navigation: "My Sounding Board sections",
+    ideFlik: "IDEA ARCHIVE",
+    forumFlik: "DISCUSSION FORUM",
+
+    arkitekturEtikett:
+      "ARCHITECTURE. COMMUNICATION. VISUALIZATION.",
+    arkivEtikett: "ARCHIVE",
+    arkivRubrik: "IDEA ARCHIVE.",
+    arkivBeskrivning:
+      "An organized archive for words, images, reflections and ideas.",
+    inlagg: "POSTS",
+    alla: "ALL",
+    tillbaka: "BACK TO ARCHIVE",
+    lasInlagg: "READ POST",
+
+    kommentarer: "DISCUSSION & COMMENTS.",
+    kommentarBeskrivning:
+      "Here visitors will be able to comment on and discuss this post.",
+    skrivKommentar: "WRITE A COMMENT – COMING SOON",
+
+    samtal: "CONVERSATION",
+    samtalsrum: "THE CONVERSATION ROOM.",
+    samtalsBeskrivning:
+      "An open space for questions, discussions and new perspectives.",
+    valkommen: "WELCOME TO THE CONVERSATION ROOM",
+    allaIdeer: "Every idea starts somewhere.",
+    forumIntro:
+      "Here I want to create a place where people can connect through thoughts, questions and ideas. A forum for conversations about architecture, design, the city and everything in between.",
+
+    diskussion: "DISCUSSION",
+    diskussionRubrik: "What makes a city vibrant?",
+    diskussionText:
+      "Which places, environments and encounters make a city feel alive?",
+    delta: "JOIN THE DISCUSSION – COMING SOON",
+
+    egenIde: "DO YOU HAVE AN IDEA OF YOUR OWN?",
+    egenIdeText:
+      "Here you will be able to start your own discussion and invite others to share their perspectives.",
+    starta: "+ START NEW DISCUSSION – COMING SOON",
+
+    ljust: "LIGHT MODE",
+    morkt: "DARK MODE",
+
+    kategorier: [
+      "ARCHITECTURE & THE CITY",
+      "THOUGHTS & REFLECTIONS",
+      "IMAGES & INSPIRATION",
+    ],
+
+    ideer: [
+      {
+        rubrik: "How do we shape the city of the future?",
+        text: "Thoughts on architecture, public spaces and how we create sustainable and vibrant urban environments.",
+      },
+      {
+        rubrik: "An idea does not have to be finished.",
+        text: "A space for questions, reflections and thoughts that are still taking shape.",
+      },
+      {
+        rubrik: "The visual archive.",
+        text: "Photographs, sketches, details and visual discoveries that spark new ideas.",
+      },
+    ],
+  },
+
+  fi: {
+    kreativtArkiv: "LUOVA ARKISTO",
+    rubrik: "OMA IDEAPAJANI.",
+    intro1: "Paikka sanoille, kuville, ideoille ja keskusteluille.",
+    intro2:
+      "Tänne kokoan ajatuksia, inspiraatiota ja näkökulmia, jotka saavat kehittyä ajan myötä.",
+    nyckelord: "SANAT. KUVAT. IDEAT. KESKUSTELUT.",
+    bildAlt: "Arkkitehtuuria, betoniportaita ja vehreyttä",
+
+    navigation: "Ideapajani osiot",
+    ideFlik: "IDEA-ARKISTO",
+    forumFlik: "KESKUSTELUFOORUMI",
+
+    arkitekturEtikett:
+      "ARKKITEHTUURI. VIESTINTÄ. VISUALISOINTI.",
+    arkivEtikett: "ARKISTO",
+    arkivRubrik: "IDEA-ARKISTO.",
+    arkivBeskrivning:
+      "Järjestetty arkisto sanoille, kuville, pohdinnoille ja ideoille.",
+    inlagg: "JULKAISUA",
+    alla: "KAIKKI",
+    tillbaka: "TAKAISIN ARKISTOON",
+    lasInlagg: "LUE JULKAISU",
+
+    kommentarer: "KESKUSTELU & KOMMENTIT.",
+    kommentarBeskrivning:
+      "Täällä vierailijat voivat tulevaisuudessa kommentoida ja keskustella tästä julkaisusta.",
+    skrivKommentar: "KIRJOITA KOMMENTTI – TULOSSA PIAN",
+
+    samtal: "KESKUSTELU",
+    samtalsrum: "KESKUSTELUTILA.",
+    samtalsBeskrivning:
+      "Avoin tila kysymyksille, keskusteluille ja uusille näkökulmille.",
+    valkommen: "TERVETULOA KESKUSTELUTILAAN",
+    allaIdeer: "Jokainen idea alkaa jostakin.",
+    forumIntro:
+      "Haluan luoda paikan, jossa ihmiset voivat kohdata ajatusten, kysymysten ja ideoiden kautta. Keskustelufoorumin arkkitehtuurista, muotoilusta, kaupungista ja kaikesta siltä väliltä.",
+
+    diskussion: "KESKUSTELU",
+    diskussionRubrik: "Mikä tekee kaupungista elävän?",
+    diskussionText:
+      "Mitkä paikat, ympäristöt ja kohtaamiset saavat kaupungin tuntumaan elävältä?",
+    delta: "OSALLISTU KESKUSTELUUN – TULOSSA PIAN",
+
+    egenIde: "ONKO SINULLA OMA IDEA?",
+    egenIdeText:
+      "Täällä voit tulevaisuudessa aloittaa oman keskustelun ja kutsua muita jakamaan näkökulmiaan.",
+    starta: "+ ALOITA UUSI KESKUSTELU – TULOSSA PIAN",
+
+    ljust: "VAALEA TILA",
+    morkt: "TUMMA TILA",
+
+    kategorier: [
+      "ARKKITEHTUURI & KAUPUNKI",
+      "AJATUKSET & POHDINNAT",
+      "KUVAT & INSPIRAATIO",
+    ],
+
+    ideer: [
+      {
+        rubrik: "Miten muovaamme tulevaisuuden kaupunkia?",
+        text: "Ajatuksia arkkitehtuurista, julkisista tiloista ja siitä, miten luomme kestäviä ja eläviä kaupunkiympäristöjä.",
+      },
+      {
+        rubrik: "Idean ei tarvitse olla valmis.",
+        text: "Tilaa kysymyksille, pohdinnoille ja ajatuksille, jotka ovat vielä muotoutumassa.",
+      },
+      {
+        rubrik: "Visuaalinen arkisto.",
+        text: "Valokuvia, luonnoksia, yksityiskohtia ja visuaalisia löytöjä, jotka herättävät uusia ideoita.",
+      },
+    ],
+  },
+};
+
+/* =========================================
+   2. IDÉINLÄGG – BILDER OCH ID
 ========================================= */
 
 const ideer = [
-  {
-    id: 1,
-    kategori: "ARKITEKTUR & STADEN",
-    datum: "IDÉ 001",
-    rubrik: "Hur formar vi framtidens stad?",
-    text: "Tankar kring arkitektur, offentliga rum och hur vi skapar hållbara och levande stadsmiljöer.",
-    bild: ide1Bild,
-  },
-  {
-    id: 2,
-    kategori: "TANKAR & REFLEKTIONER",
-    datum: "IDÉ 002",
-    rubrik: "En idé behöver inte vara färdig.",
-    text: "Ett utrymme för frågor, reflektioner och tankar som fortfarande håller på att ta form.",
-    bild: ide2Bild,
-  },
-  {
-    id: 3,
-    kategori: "BILDER & INSPIRATION",
-    datum: "IDÉ 003",
-    rubrik: "Det visuella arkivet.",
-    text: "Fotografier, skisser, detaljer och visuella upptäckter som väcker nya idéer.",
-    bild: ide3Bild,
-  },
+  { id: 1, bild: ide1Bild },
+  { id: 2, bild: ide2Bild },
+  { id: 3, bild: ide3Bild },
 ];
 
 /* =========================================
-   2. HUVUDKOMPONENT
+   3. HUVUDKOMPONENT
 ========================================= */
 
-function MittBollplank({ morkt, setMorkt }) {
+function MittBollplank({
+  morkt,
+  setMorkt,
+  sprak = "sv",
+}) {
   const [aktivFlik, setAktivFlik] = useState("ideer");
   const [valdIde, setValdIde] = useState(null);
   const [kategori, setKategori] = useState("ALLA");
 
+  const text = oversattningar[sprak] || oversattningar.sv;
+
+  /* =====================================
+     ÖVERSATTA IDÉINLÄGG
+  ===================================== */
+
+  const oversattaIdeer = ideer.map((ide, index) => ({
+    ...ide,
+    kategori: text.kategorier[index],
+    datum: `IDÉ ${String(ide.id).padStart(3, "0")}`,
+    rubrik: text.ideer[index].rubrik,
+    text: text.ideer[index].text,
+  }));
+
   const kategorier = [
-    "ALLA",
-    "ARKITEKTUR & STADEN",
-    "TANKAR & REFLEKTIONER",
-    "BILDER & INSPIRATION",
+    text.alla,
+    ...text.kategorier,
   ];
 
   const filtreradeIdeer =
     kategori === "ALLA"
-      ? ideer
-      : ideer.filter((ide) => ide.kategori === kategori);
+      ? oversattaIdeer
+      : oversattaIdeer.filter((ide) =>
+          ide.kategori === text.kategorier[
+            ["ARKITEKTUR & STADEN", "TANKAR & REFLEKTIONER", "BILDER & INSPIRATION"]
+              .indexOf(kategori)
+          ]
+        );
 
   function bytFlik(flik) {
     setAktivFlik(flik);
@@ -66,55 +297,51 @@ function MittBollplank({ morkt, setMorkt }) {
   return (
     <main className="bollplank bollplank-sida">
 
-      {/* =====================================
-          3. INTRODUKTION
-      ===================================== */}
+      {/* INTRODUKTION */}
 
       <header className="bollplank-header">
 
         <p className="bollplank-overrubrik">
-          EMMA LEHTINEN / KREATIVT ARKIV
+          {NAMN.toUpperCase()} / {text.kreativtArkiv}
         </p>
 
-        <h1>MITT BOLLPLANK.</h1>
+        <h1>{text.rubrik}</h1>
 
         <p className="bollplank-intro">
-          En plats för ord, bilder, idéer och samtal.
+          {text.intro1}
         </p>
+
         <p className="bollplank-intro">
-          Här samlar jag tankar, inspiration och
-          perspektiv som får utvecklas över tid.
+          {text.intro2}
         </p>
 
         <div className="bollplank-headerlinje" />
 
         <p className="bollplank-underrubrik">
-          ORD. BILDER. IDÉER. SAMTAL.
+          {text.nyckelord}
         </p>
+
         <img
-        src={bollplank1Bild}
-        alt="Arkitektur med betongtrappor och grönska"
-        className="bollplank-headerbild"
+          src={bollplank1Bild}
+          alt={text.bildAlt}
+          className="bollplank-headerbild"
         />
 
       </header>
 
-      {/* =====================================
-          4. HUVUDNAVIGATION
-      ===================================== */}
+      {/* HUVUDNAVIGATION */}
 
       <nav
         className="bollplank-flikar"
-        aria-label="Mitt Bollplanks sektioner"
+        aria-label={text.navigation}
       >
-
         <button
           type="button"
           className={aktivFlik === "ideer" ? "aktiv" : ""}
           aria-pressed={aktivFlik === "ideer"}
           onClick={() => bytFlik("ideer")}
         >
-          01 / IDÉARKIV
+          01 / {text.ideFlik}
         </button>
 
         <button
@@ -123,14 +350,11 @@ function MittBollplank({ morkt, setMorkt }) {
           aria-pressed={aktivFlik === "forum"}
           onClick={() => bytFlik("forum")}
         >
-          02 / DISKUSSIONSFORUM
+          02 / {text.forumFlik}
         </button>
-
       </nav>
 
-      {/* =====================================
-          5. IDÉARKIV
-      ===================================== */}
+      {/* IDÉARKIV */}
 
       {aktivFlik === "ideer" && (
         <section className="bollplank-sektion">
@@ -138,52 +362,55 @@ function MittBollplank({ morkt, setMorkt }) {
           <div className="bollplank-sektionshuvud">
             <div>
               <p className="bollplank-arkiv-underrubrik">
-          ARKITEKTUR. KOMMUNIKATION. VISUALISERING.
-        </p>
+                {text.arkitekturEtikett}
+              </p>
+
               <span className="bollplank-nummer">
-                01 / ARKIV
+                01 / {text.arkivEtikett}
               </span>
 
-              <h2>IDÉARKIV.</h2>
+              <h2>{text.arkivRubrik}</h2>
 
-              <p>
-                Ett organiserat arkiv för ord,
-                bilder, reflektioner och idéer.
-              </p>
+              <p>{text.arkivBeskrivning}</p>
             </div>
 
             <span className="bollplank-antal">
-              {ideer.length} INLÄGG
+              {oversattaIdeer.length} {text.inlagg}
             </span>
           </div>
 
           {/* KATEGORIER */}
 
           <div className="bollplank-kategorier">
-
-            {kategorier.map((namn) => (
+            {kategorier.map((namn, index) => (
               <button
                 type="button"
-                key={namn}
+                key={index}
                 className={
-                  kategori === namn ? "aktiv" : ""
+                  kategori === (index === 0 ? "ALLA" : oversattningar.sv.kategorier[index - 1])
+                    ? "aktiv"
+                    : ""
                 }
-                aria-pressed={kategori === namn}
+                aria-pressed={
+                  kategori === (index === 0 ? "ALLA" : oversattningar.sv.kategorier[index - 1])
+                }
                 onClick={() => {
-                  setKategori(namn);
+                  setKategori(
+                    index === 0
+                      ? "ALLA"
+                      : oversattningar.sv.kategorier[index - 1]
+                  );
                   setValdIde(null);
                 }}
               >
                 {namn}
               </button>
             ))}
-
           </div>
 
           {/* ENSKILT IDÉINLÄGG */}
 
           {valdIde ? (
-
             <article className="bollplank-detalj">
 
               <button
@@ -191,7 +418,7 @@ function MittBollplank({ morkt, setMorkt }) {
                 className="bollplank-tillbaka"
                 onClick={() => setValdIde(null)}
               >
-                ← TILLBAKA TILL ARKIVET
+                ← {text.tillbaka}
               </button>
 
               <span className="bollplank-nummer">
@@ -211,34 +438,22 @@ function MittBollplank({ morkt, setMorkt }) {
               <p>{valdIde.text}</p>
 
               <div className="bollplank-kommentarer">
-
-                <h3>DISKUSSION & KOMMENTARER.</h3>
-
-                <p>
-                  Här kommer besökare att kunna
-                  kommentera och diskutera
-                  det här inlägget.
-                </p>
-
+                <h3>{text.kommentarer}</h3>
+                <p>{text.kommentarBeskrivning}</p>
                 <button type="button" disabled>
-                  SKRIV EN KOMMENTAR – KOMMER SNART
+                  {text.skrivKommentar}
                 </button>
-
               </div>
 
             </article>
-
           ) : (
-
             <div className="bollplank-arkiv">
 
               {filtreradeIdeer.map((ide) => (
-
                 <article
                   className="bollplank-kort"
                   key={ide.id}
                 >
-
                   {ide.bild ? (
                     <img
                       src={ide.bild}
@@ -253,13 +468,11 @@ function MittBollplank({ morkt, setMorkt }) {
                   )}
 
                   <div className="bollplank-kortinnehall">
-
                     <span className="bollplank-nummer">
                       {ide.kategori}
                     </span>
 
                     <h3>{ide.rubrik}</h3>
-
                     <p>{ide.text}</p>
 
                     <button
@@ -267,110 +480,69 @@ function MittBollplank({ morkt, setMorkt }) {
                       className="bollplank-lasmer"
                       onClick={() => setValdIde(ide)}
                     >
-                      LÄS INLÄGGET
+                      {text.lasInlagg}
                       <span aria-hidden="true">↗</span>
                     </button>
-
                   </div>
-
                 </article>
-
               ))}
 
             </div>
-
           )}
-
         </section>
       )}
 
-      {/* =====================================
-          6. DISKUSSIONSFORUM
-      ===================================== */}
+      {/* DISKUSSIONSFORUM */}
 
       {aktivFlik === "forum" && (
-
         <section className="bollplank-sektion">
 
           <div className="bollplank-sektionshuvud">
-
             <div>
               <span className="bollplank-nummer">
-                02 / SAMTAL
+                02 / {text.samtal}
               </span>
 
-              <h2>SAMTALSRUMMET.</h2>
-
-              <p>
-                Ett öppet rum för frågor,
-                diskussioner och nya perspektiv.
-              </p>
+              <h2>{text.samtalsrum}</h2>
+              <p>{text.samtalsBeskrivning}</p>
             </div>
-
           </div>
 
           <div className="bollplank-forumintro">
-
             <span className="bollplank-nummer">
-              VÄLKOMMEN TILL SAMTALSRUMMET
+              {text.valkommen}
             </span>
 
-            <h3>Alla idéer börjar någonstans.</h3>
-
-            <p>
-              Här vill jag skapa en plats där
-              människor kan mötas genom tankar,
-              frågor och idéer.
-
-              Ett forum för samtal om arkitektur,
-              design, staden och allt däremellan.
-            </p>
-
+            <h3>{text.allaIdeer}</h3>
+            <p>{text.forumIntro}</p>
           </div>
 
           <div className="bollplank-forumkort">
-
             <span className="bollplank-nummer">
-              DISKUSSION / 001
+              {text.diskussion} / 001
             </span>
 
-            <h3>Vad gör en stad levande?</h3>
-
-            <p>
-              Vilka platser, miljöer och möten
-              gör att en stad känns levande?
-            </p>
+            <h3>{text.diskussionRubrik}</h3>
+            <p>{text.diskussionText}</p>
 
             <button type="button" disabled>
-              DELTA I DISKUSSIONEN – KOMMER SNART
+              {text.delta}
             </button>
-
           </div>
 
           <div className="bollplank-nydiskussion">
-
-            <h3>HAR DU EN EGEN IDÉ?</h3>
-
-            <p>
-              Här kommer du att kunna starta
-              en egen diskussion och bjuda in
-              andra att dela sina perspektiv.
-            </p>
+            <h3>{text.egenIde}</h3>
+            <p>{text.egenIdeText}</p>
 
             <button type="button" disabled>
-              + STARTA NY DISKUSSION – KOMMER SNART
+              {text.starta}
             </button>
-
           </div>
 
         </section>
-
       )}
 
-      {/* =====================================
-          7. MÖRKT / LJUST LÄGE
-          LÄNGST NER TILL HÖGER
-      ===================================== */}
+      {/* MÖRKT / LJUST LÄGE */}
 
       <div className="om-mig-installningar">
         <button
@@ -379,7 +551,7 @@ function MittBollplank({ morkt, setMorkt }) {
           onClick={() => setMorkt(!morkt)}
           aria-pressed={morkt}
         >
-          {morkt ? "LJUST LÄGE" : "MÖRKT LÄGE"}
+          {morkt ? text.ljust : text.morkt}
 
           <span aria-hidden="true">
             {morkt ? "☀" : "☾"}

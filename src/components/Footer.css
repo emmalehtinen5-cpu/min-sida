@@ -378,3 +378,279 @@ body.morkt-lage .footer .footer-social svg {
   }
 }
 
+
+/* =========================================
+   15. FOOTER – MOBILANPASSNING
+   ENDAST SKÄRMAR UNDER 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .footer .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 24px 15px;
+    gap: 24px;
+  }
+
+  /* SOCIALA IKONER OCH COPYRIGHT */
+
+  .footer .footer-vanster {
+    width: 100%;
+    min-width: 0;
+
+    align-items: center;
+    flex-shrink: 1;
+  }
+
+  .footer .footer-social {
+    left: 0;
+    transform: none;
+    justify-content: center;
+  }
+
+  .footer .footer-copyright {
+    margin-left: 0;
+    transform: none;
+
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+
+  /* NAVIGERING */
+
+  .footer .footer-meny {
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    left: 0;
+    transform: none;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer .footer-meny a {
+    flex-shrink: 1;
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* TA BORT LODRÄTA AVDELARE PÅ MOBIL */
+
+  .footer .footer-meny a + a::before {
+    display: none;
+  }
+}
+
+/* =========================================
+   FOOTER – RESPONSIV SURFPLATTA
+   601–1100 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  .footer .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 28px 25px;
+    gap: 25px;
+  }
+
+  .footer .footer-vanster {
+    width: 100%;
+    align-items: center;
+    flex-shrink: 1;
+    gap: 15px;
+  }
+
+  .footer .footer-social {
+    position: static;
+    left: auto;
+    transform: none;
+    justify-content: center;
+  }
+
+  .footer .footer-copyright {
+    margin-left: 0;
+    transform: none;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .footer .footer-meny {
+    width: 100%;
+    margin: 0;
+    left: auto;
+    transform: none;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer .footer-meny a {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .footer .footer-meny a + a::before {
+    display: none;
+  }
+}
+
+/* =========================================
+   FOOTER – MOBIL
+   UPP TILL 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .footer .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 28px 15px;
+    gap: 26px;
+  }
+
+  /* SPRÅK, SOCIALA IKONER OCH COPYRIGHT */
+
+  .footer .footer-vanster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 1;
+
+    gap: 18px;
+  }
+
+  .footer .footer-social {
+    position: static;
+    left: auto;
+    transform: none;
+
+    justify-content: center;
+    flex-shrink: 1;
+    gap: 12px;
+  }
+
+  .footer .footer-social a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer .footer-copyright {
+    margin: 0;
+    transform: none;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* NAVIGERING – CENTRERADE RADER */
+
+  .footer .footer-meny {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    position: static;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 18px 0 0;
+
+    gap: 8px 12px;
+
+    transform: none;
+    border-top: 1px solid var(--footer-accent);
+  }
+
+  .footer .footer-meny a {
+    display: inline-flex;
+    flex: 0 1 auto;
+
+    min-height: 38px;
+    max-width: 100%;
+
+    padding: 8px 10px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+
+    text-align: center;
+    white-space: normal;
+  }
+
+  /* INGA LODRÄTA STRECK PÅ MOBIL */
+
+  .footer .footer-meny a + a::before {
+    display: none;
+  }
+}
+
+/* =========================================
+   FOOTER – GLOB OCH SOCIALA IKONER
+   MOBIL OCH SURFPLATTA
+========================================= */
+
+@media (max-width: 1100px) {
+
+  /* Flytta upp språkväljaren */
+  .footer .footer-vanster > :first-child {
+    position: relative;
+    top: -15px;
+  }
+
+  /* Öka avståndet till sociala ikoner */
+  .footer .footer-social {
+    margin-top: 20px;
+  }
+}

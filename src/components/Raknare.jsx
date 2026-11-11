@@ -1,29 +1,90 @@
 
 /* =========================================
    RÄKNARE – EMMA LEHTINEN
+   SVENSKA / ENGELSKA / FINSKA
 ========================================= */
 
 import { useState } from "react";
 import "./Raknare.css";
 
-function Raknare() {
+/* =========================================
+   ÖVERSÄTTNINGAR
+========================================= */
+
+const oversattningar = {
+  sv: {
+    minska: "Minska antal",
+    oka: "Öka antal",
+    nollstall: "Nollställ",
+  },
+
+  en: {
+    minska: "Decrease count",
+    oka: "Increase count",
+    nollstall: "Reset",
+  },
+
+  fi: {
+    minska: "Vähennä lukumäärää",
+    oka: "Lisää lukumäärää",
+    nollstall: "Nollaa",
+  },
+};
+
+/* =========================================
+   RÄKNARKOMPONENT
+========================================= */
+
+function Raknare({ sprak = "sv" }) {
   const [antal, setAntal] = useState(0);
 
-  /* MINSKA – ALDRIG UNDER NOLL */
+  const text =
+    oversattningar[sprak] || oversattningar.sv;
+
+  /* =====================================
+     MINSKA – ALDRIG UNDER NOLL
+  ===================================== */
+
   function minska() {
-    setAntal((tidigare) => Math.max(0, tidigare - 1));
+    setAntal((tidigare) =>
+      Math.max(0, tidigare - 1)
+    );
   }
+
+  /* =====================================
+     ÖKA ANTAL
+  ===================================== */
+
+  function oka() {
+    setAntal((tidigare) => tidigare + 1);
+  }
+
+  /* =====================================
+     NOLLSTÄLL RÄKNAREN
+  ===================================== */
+
+  function nollstall() {
+    setAntal(0);
+  }
+
+  /* =====================================
+     VISA RÄKNAREN
+  ===================================== */
 
   return (
     <div className="raknare">
 
+      {/* MINSKA */}
+
       <button
         type="button"
         onClick={minska}
-        aria-label="Minska antal"
+        aria-label={text.minska}
       >
         −
       </button>
+
+      {/* ANTAL */}
 
       <span
         className={`raknare-antal ${
@@ -34,19 +95,23 @@ function Raknare() {
         {antal}
       </span>
 
+      {/* ÖKA */}
+
       <button
         type="button"
-        onClick={() => setAntal((tidigare) => tidigare + 1)}
-        aria-label="Öka antal"
+        onClick={oka}
+        aria-label={text.oka}
       >
         +
       </button>
 
+      {/* NOLLSTÄLL */}
+
       <button
         type="button"
-        onClick={() => setAntal(0)}
+        onClick={nollstall}
       >
-        Nollställ
+        {text.nollstall}
       </button>
 
     </div>

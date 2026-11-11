@@ -802,3 +802,513 @@ body.morkt-lage .hero .hero-form-nedre {
 body.morkt-lage .hero .hero-etikett {
   color: #a8b5a2;
 }
+
+/* =========================================
+   HÄLSNING – GOD MORGON / DAG / KVÄLL
+========================================= */
+
+.hero .hero-halsning {
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: none;
+  text-transform: uppercase;
+
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+   width: 100%;
+text-align: center;
+align-self: stretch;
+transform: translate(440px, -85px);
+margin-bottom: -30px;
+
+  color: #56675d;
+}
+
+/* MÖRKT LÄGE */
+
+body.morkt-lage .hero .hero-halsning {
+  color: #d5ded7;
+}
+
+
+/* =========================================
+   HÄLSNING – FINSK RETRODESIGN
+========================================= */
+
+.hero .hero-halsning-design {
+  position: relative;
+  align-self: flex-start;
+
+  display: flex;
+  align-items: center;
+
+  width: 520px;
+  height: 125px;
+
+  margin: -100px 0 -25px 0;
+  padding: 0;
+
+  transform: translateX(530px);
+}
+
+/* =========================================
+   SOL / MÅNE
+========================================= */
+
+.hero .hero-halsning-natur {
+  position: relative;
+  flex: 0 0 165px;
+
+  width: 165px;
+  height: 125px;
+
+  color: #405c48;
+}
+
+
+.hero .hero-halsning-sol {
+  position: absolute;
+
+  top: 0px;
+  left: 80px;
+
+  width: 95px;
+  height: 95px;
+
+  border-radius: 50%;
+  -webkit-mask-image: linear-gradient(
+  to bottom,
+  black 0%,
+  black 45%,
+  transparent 100%
+);
+
+mask-image: linear-gradient(
+  to bottom,
+  black 0%,
+  black 45%,
+  transparent 100%
+);
+
+  background: linear-gradient(
+    to bottom,
+   #b9ad7d 0%,
+  #d4c9a5 40%,
+  #f5f3ed 75%
+  );
+}
+
+
+/* =========================================
+   TRE DETALJERADE GRANAR
+========================================= */
+
+.hero .hero-halsning-granar {
+  position: absolute;
+  z-index: 2;
+
+  left: -10px;
+  bottom: 29px;
+
+  width: 170px;
+  height: 90px;
+
+  color: #405c48;
+  transform: translateX(25px);
+}
+
+/* =========================================
+   GOD MORGON / GOD DAG / GOD KVÄLL
+========================================= */
+
+.hero .hero-halsning-design .hero-halsning {
+  position: relative;
+  z-index: 3;
+
+  flex: 0 0 auto;
+
+  width: auto;
+  margin: 0 0 12px -5px;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: italic;
+
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  color: #344F3B;
+
+  transform: translate(2px,49px);
+}
+
+/* =========================================
+   TRE RAKA HORISONTELLA LINJER
+========================================= */
+
+.hero .hero-halsning-linjer {
+  position: absolute;
+  z-index: 4;
+
+  left: 31px;
+  right: 130px;
+  bottom: 29.5px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero .hero-halsning-linjer span {
+
+  display: none;
+}
+
+.hero .hero-halsning-linjer span:first-child {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #405c48;
+}
+
+/* =========================================
+   MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .hero .hero-halsning-design .hero-halsning,
+body.morkt-lage .hero .hero-halsning-granar,
+body.morkt-lage .hero .hero-halsning-natur {
+  color: #d5ded7;
+}
+
+body.morkt-lage .hero .hero-halsning-linjer span {
+  background: #d5ded7;
+}
+
+
+
+/* KORNIG RETROSTRUKTUR PÅ SOLEN */
+
+.hero .hero-halsning-sol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.55'/%3E%3C/svg%3E");
+
+  background-size: 140px 140px;
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+
+  pointer-events: none;
+}
+.hero .hero-halsning-linjer::before,
+.hero .hero-halsning-linjer::after {
+  content: "";
+  position: absolute;
+  left: 120px;
+  right: 0;
+  height: 1px;
+  background: #405c48;
+}
+
+.hero .hero-halsning-linjer::before {
+  top: -12px;
+}
+
+.hero .hero-halsning-linjer::after {
+  top: -6px;
+}
+
+/* =========================================
+   HERO – RESPONSIV ANPASSNING
+   SURFPLATTA OCH MOBIL
+========================================= */
+
+/* SURFPLATTA */
+
+@media (max-width: 1100px) {
+
+  .hero .hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 55px;
+    padding: 35px 5% 65px;
+  }
+
+  .hero .hero-innehall {
+    max-width: 100%;
+    transform: none;
+  }
+
+  .hero .hero-rubrik {
+    font-size: clamp(42px, 7vw, 72px);
+  }
+
+  .hero .hero-rubrik span {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .hero .hero-bildkolumn {
+    width: 100%;
+  }
+
+  .hero .hero-bildram {
+    height: clamp(350px, 65vw, 650px);
+  }
+
+  .hero .hero-halsning-design {
+    width: min(100%, 520px);
+    margin: 0 0 20px;
+    transform: none;
+  }
+
+  .hero .hero-citat {
+    max-width: 100%;
+    white-space: normal;
+    transform: none;
+  }
+
+  .hero .hero-etikett {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================
+   MOBIL – MAX 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero .hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 45px;
+
+    width: 100%;
+    padding: 35px 22px 55px;
+  }
+
+  /* VÄNSTER KOLUMN */
+
+  .hero .hero-innehall {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+
+    transform: none;
+  }
+
+  /* UNDERRUBRIK */
+
+  .hero .hero-underrubrik {
+    position: static;
+    top: auto;
+
+    max-width: 100%;
+    margin: 0 0 14px;
+
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.10em;
+  }
+
+  /* HEM / INTRODUKTION */
+
+  .hero .hero-innehall > .hero-etikett {
+    position: static;
+
+    margin: 0 0 30px;
+    transform: none;
+
+    font-size: 11px;
+  }
+
+  /* DEKORATIVA LINJER */
+
+  .hero .hero-ovre-linje {
+    margin-bottom: 18px;
+  }
+
+  /* EMMA LEHTINEN */
+
+  .hero .hero-rubrik {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+  }
+
+  .hero .hero-rubrik span {
+    display: block;
+
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .hero .hero-linje {
+    margin: 18px 0 25px;
+  }
+
+  /* PRESENTATIONSTEXT */
+
+  .hero .hero-introtext,
+  .hero .hero-introtext .startsida-intro,
+  .hero .hero-introtext .merit-introduktion {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero .hero-introtext .merit-introduktion {
+    position: static;
+    top: auto;
+  }
+
+  .hero .hero-introtext .merit-programlista li,
+  .hero .hero-introtext .merit-introduktion p,
+  .hero .hero-introtext .startsida-intro p:not(.hero-text) {
+    font-size: 15px;
+    line-height: 1.75;
+
+    text-align: left;
+    text-align-last: auto;
+
+    overflow-wrap: break-word;
+    hyphens: none;
+  }
+
+  /* FRÅGA / AVSLUTANDE INTROTEXT */
+
+  .hero .hero-introtext .hero-text {
+    margin-top: 65px;
+    font-size: 12px;
+  }
+
+  .hero .hero-introtext .hero-text span:nth-child(3) {
+    font-size: 17px;
+  }
+
+  /* PROJEKTKNAPP */
+
+  .hero .kontakt-knapp {
+    max-width: 100%;
+    margin-top: 28px;
+    padding: 15px 20px;
+  }
+
+  /* ARKITEKTURILLUSTRATION */
+
+  .hero .hero-bildkolumn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero .hero-bildram {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero .hero-bild {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* CITAT */
+
+  .hero .hero-citatomrade {
+    align-items: flex-end;
+    margin: 15px 0 0;
+  }
+
+  .hero .hero-citat {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 14px;
+    line-height: 1.5;
+
+    text-align: right;
+    white-space: normal;
+
+    transform: none;
+  }
+
+  /* HÄLSNING – SOL, GRANAR OCH TEXT */
+
+  .hero .hero-halsning-design {
+    width: 100%;
+    max-width: 320px;
+    height: 110px;
+
+    margin: 0 0 20px;
+    transform: none;
+  }
+
+  .hero .hero-halsning-natur {
+    flex: 0 0 120px;
+    width: 120px;
+    height: 105px;
+  }
+
+  .hero .hero-halsning-sol {
+    left: 35px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .hero .hero-halsning-granar {
+    left: -10px;
+    bottom: 15px;
+
+    width: 130px;
+    height: 80px;
+  }
+
+  .hero .hero-halsning-design .hero-halsning {
+    margin: 0;
+
+    font-size: 20px;
+    white-space: normal;
+
+    transform: none;
+  }
+
+  .hero .hero-halsning-linjer {
+    left: 15px;
+    right: 20px;
+    bottom: 10px;
+  }
+
+}

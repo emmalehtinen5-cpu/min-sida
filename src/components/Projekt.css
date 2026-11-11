@@ -477,6 +477,8 @@ body.morkt-lage .projekt .projekt-lista img {
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+   text-transform: uppercase;
+  opacity: 0.7;
   color: inherit;
 }
 
@@ -517,5 +519,159 @@ body.morkt-lage .projekt .projekt-lista img {
 
   .projekt-sortering select {
     width: 100%;
+  }
+}
+
+/* =========================================
+   PROJEKT – RESPONSIV SURFPLATTA
+========================================= */
+
+@media (min-width: 651px) and (max-width: 1000px) {
+
+  .projekt {
+    padding: 45px 25px 60px;
+  }
+
+  .projekt-lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .projekt-header {
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .projekt-header h2 {
+    font-size: 32px;
+  }
+}
+
+/* =========================================
+   PROJEKT – RESPONSIV MOBIL
+========================================= */
+
+@media (max-width: 650px) {
+
+  .projekt {
+    width: 100%;
+    min-width: 0;
+    padding: 40px 20px 55px;
+  }
+
+  /* RUBRIK OCH INTRODUKTION */
+
+  .projekt-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .projekt-header-text {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .projekt-etikett {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .projekt-header h2 {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(27px, 8vw, 35px);
+    line-height: 1.12;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .projekt-beskrivning {
+    width: 100%;
+    max-width: none;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* SE ALLA PROJEKT */
+
+  .projekt-alla-lank {
+    align-self: flex-start;
+    max-width: 100%;
+
+    gap: 20px;
+    margin: 0;
+  }
+
+  /* SORTERING OCH FILTER */
+
+  .projekt-sortering {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .projekt-sortering select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* PROJEKTKORT – EN KOLUMN */
+
+  .projekt-lista {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    width: 100%;
+    gap: 24px;
+  }
+
+  .projekt .projekt-lista > * {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* PROJEKTBILDER */
+
+  .projekt-lista .projekt-bildram {
+    width: 100%;
+    aspect-ratio: 1.8 / 1;
+  }
+
+  .projekt-lista .projekt-bildram img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* TEXT I KORTEN */
+
+  .projekt .projekt-lista .projekt-info {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .projekt .projekt-lista .projekt-kort-rubrik {
+    font-size: 15px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .projekt .projekt-lista .projekt-kort-text {
+    font-size: 14px;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+  }
+
+  .projekt .projekt-lista .projekt-teknik {
+    overflow-wrap: anywhere;
   }
 }

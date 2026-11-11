@@ -1,4 +1,3 @@
-
 /* =========================================
    VADER.CSS – EMMA LEHTINEN
    FINSK RETRO 90-TAL / MODERN 2026
@@ -108,6 +107,7 @@
 }
 
 
+
 /* =========================================
    4. VÄDERKORT – CONTAINER
 ========================================= */
@@ -124,6 +124,7 @@
   padding: 0;
   overflow: visible;
 }
+
 
 /* =========================================
    5. KORTENS GRUNDDESIGN
@@ -758,3 +759,4 @@ body.morkt-lage .vader .vader-kort .svart-bock {
   margin-bottom: 0 !important;
   padding: 0 !important;
 }
+

@@ -2,6 +2,7 @@
 /* =========================================
    APP.JSX – EMMA LEHTINEN
    NORDISK PORTFOLIO
+   RESPONSIV DESIGN
 ========================================= */
 
 import { useState, useEffect } from "react";
@@ -29,8 +30,10 @@ import SidUnderrubrik from "./components/SidUnderrubrik";
 import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./pages/Kontakt";
+import Logik from "./pages/Logik";
 import MittBollplank from "./pages/MittBollplank";
 import ProjektDetalj from "./pages/ProjektDetalj";
+import EjHittad from "./pages/EjHittad";
 
 /* =========================================
    STIL
@@ -42,7 +45,7 @@ import "./App.css";
    AUTOMATISK SCROLLNING
 ========================================= */
 
-function ScrollTillSektion({ skala }) {
+function ScrollTillSektion() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -73,7 +76,7 @@ function ScrollTillSektion({ skala }) {
       top: 0,
       behavior: "instant",
     });
-  }, [pathname, hash, skala]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -97,7 +100,7 @@ console.log("3");
 function App() {
   const { pathname } = useLocation();
 
-    /* =====================================
+  /* =====================================
      GEMENSAMT SPRÅKVAL
      SVENSKA / ENGELSKA / FINSKA
   ===================================== */
@@ -126,26 +129,6 @@ function App() {
   const [morkt, setMorkt] = useState(false);
 
   /* =====================================
-     PROPORTIONERLIG SKALNING
-  ===================================== */
-
-  const [skala, setSkala] = useState(
-    () => Math.min(1, window.innerWidth / 1440)
-  );
-
-  useEffect(() => {
-    const uppdateraSkala = () => {
-      setSkala(Math.min(1, window.innerWidth / 1440));
-    };
-
-    window.addEventListener("resize", uppdateraSkala);
-
-    return () => {
-      window.removeEventListener("resize", uppdateraSkala);
-    };
-  }, []);
-
-  /* =====================================
      AKTIVERA MÖRKT LÄGE
   ===================================== */
 
@@ -162,28 +145,23 @@ function App() {
 
   /* =====================================
      SIDANS INNEHÅLL
+     RESPONSIV BREDD UTAN SKALNING
   ===================================== */
 
   return (
-    <div
-      className="app"
-      style={{ width: `${1440 * skala}px` }}
-    >
-      <div
-        className="app-skala"
-        style={{ transform: `scale(${skala})` }}
-      >
+    <div className="app">
+      <div className="app-skala">
 
         {/* AUTOMATISK SCROLLNING */}
 
-        <ScrollTillSektion skala={skala} />
+        <ScrollTillSektion />
 
         {/* =====================================
             GEMENSAM RAM
         ===================================== */}
 
         <div className="startsida-ram">
-      
+
           {/* =====================================
               NAVBAR
           ===================================== */}
@@ -215,6 +193,7 @@ function App() {
                   <Hem
                     morkt={morkt}
                     setMorkt={setMorkt}
+                    sprak={sprak}
                   />
                 }
               />
@@ -227,6 +206,7 @@ function App() {
                   <OmMig
                     morkt={morkt}
                     setMorkt={setMorkt}
+                    sprak={sprak}
                   />
                 }
               />
@@ -239,6 +219,7 @@ function App() {
                   <Kontakt
                     morkt={morkt}
                     setMorkt={setMorkt}
+                    sprak={sprak}
                   />
                 }
               />
@@ -251,15 +232,18 @@ function App() {
                   <Hem
                     morkt={morkt}
                     setMorkt={setMorkt}
+                    sprak={sprak}
                   />
                 }
               />
+
               {/* PROJEKTDETALJ */}
 
               <Route
-              path="/projekt/:id"
-              element={<ProjektDetalj />}
-                />
+                path="/projekt/:id"
+                element={<ProjektDetalj />}
+              />
+
               {/* MITT BOLLPLANK */}
 
               <Route
@@ -268,19 +252,37 @@ function App() {
                   <MittBollplank
                     morkt={morkt}
                     setMorkt={setMorkt}
+                    sprak={sprak}
                   />
                 }
               />
-                <Route path="/studio92"
-                 element={
-                 <Studio92 
-                  morkt={morkt}
-                    setMorkt={setMorkt}
-                 
-                 />
-                }
 
+              {/* STUDIO92 */}
+
+              <Route
+                path="/studio92"
+                element={
+                  <Studio92
+                    morkt={morkt}
+                    setMorkt={setMorkt}
+                    sprak={sprak}
                   />
+                }
+              />
+
+              {/* LOGIK – JAVASCRIPTÖVNING */}
+
+              <Route
+                path="/logik"
+                element={<Logik />}
+              />
+
+              {/* 404 – SIDAN HITTADES INTE */}
+
+              <Route
+                path="*"
+                element={<EjHittad />}
+              />
 
             </Routes>
 
@@ -292,7 +294,10 @@ function App() {
             FOOTER
         ===================================== */}
 
-        <Footer  sprak={sprak} setSprak={setSprak} />
+        <Footer
+          sprak={sprak}
+          setSprak={setSprak}
+        />
 
       </div>
     </div>
@@ -300,3 +305,4 @@ function App() {
 }
 
 export default App;
+

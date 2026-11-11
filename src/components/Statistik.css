@@ -1,0 +1,341 @@
+
+/* =========================================
+   STATISTIK – NORDISK RETRO
+========================================= */
+
+.statistik {
+  width: 100%;
+  margin-top: 60px;
+  color: var(--om-text, #171717);
+}
+
+/* =========================================
+   HUVUDRUBRIK
+========================================= */
+
+.statistik-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+
+  padding-bottom: 18px;
+  margin-bottom: 34px;
+
+  border-bottom: 1px solid #171717 
+}
+
+.statistik-header-vanster {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.statistik-header h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transform: translateY(8px);
+
+  color: var(--om-text, #171717);
+}
+
+/* TRE STIGANDE STAPLAR */
+
+.statistik-dekor {
+  display: block;
+  position: relative;
+
+  width: 27px;
+  height: 34px;
+
+  background:
+    linear-gradient(#a8b5a2, #a8b5a2) 0 14px / 6px 20px no-repeat,
+    linear-gradient(#81947e, #81947e) 10px 8px / 6px 26px no-repeat,
+    linear-gradient(#56675d, #56675d) 20px 0 / 6px 34px no-repeat;
+}
+
+.statistik-etikett {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #171717;
+  white-space: nowrap;
+}
+
+/* =========================================
+   TVÅ HUVUDKOLUMNER
+========================================= */
+
+.statistik-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  align-items: start;
+}
+
+.statistik-metoder,
+.statistik-kunskapsniva {
+  min-width: 0;
+}
+
+.statistik-metoder {
+  padding-right: 30px;
+  border-right: 1px solid #171717;
+}
+
+/* RUBRIKER I BÅDA KOLUMNERNA */
+
+.statistik-layout h3 {
+  margin: 0 0 26px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--om-text, #171717);
+}
+
+/* =========================================
+   TVÅ MINDRE KOLUMNER I VARJE SEKTION
+========================================= */
+
+.statistik-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 22px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================
+   STATISTIKRAD
+========================================= */
+
+.statistik-rad {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.statistik-rad-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+
+  margin-bottom: 9px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  color: var(--om-text, #171717);
+}
+
+.statistik-rad-info span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.statistik-rad-info span:last-child {
+  flex-shrink: 0;
+  color: #718b76;
+  white-space: nowrap;
+}
+
+/* =========================================
+   PROCENTSTAPLAR
+========================================= */
+
+.statistik-stapel {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  background: #d5ded7;
+}
+
+.statistik-stapel-fyllning {
+  height: 100%;
+  background: #718b76;
+}
+
+/* ÅTERKOMMANDE METODER */
+
+.statistik-markering {
+  display: block;
+  margin-top: 6px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #718b76;
+}
+
+/* =========================================
+   MÖRKT LÄGE
+========================================= */
+
+.om-mig-innehall.morkt-lage .statistik-header,
+.om-mig-innehall.morkt-lage .statistik-metoder,
+body.morkt-lage .statistik-header,
+body.morkt-lage .statistik-metoder {
+  border-color: #718b76;
+}
+
+.om-mig-innehall.morkt-lage .statistik-stapel,
+body.morkt-lage .statistik-stapel {
+  background: #46534b;
+}
+
+.om-mig-innehall.morkt-lage .statistik-stapel-fyllning,
+body.morkt-lage .statistik-stapel-fyllning {
+  background: #a8b5a2;
+}
+
+.om-mig-innehall.morkt-lage .statistik-etikett,
+.om-mig-innehall.morkt-lage .statistik-markering,
+.om-mig-innehall.morkt-lage .statistik-rad-info span:last-child,
+body.morkt-lage .statistik-etikett,
+body.morkt-lage .statistik-markering,
+body.morkt-lage .statistik-rad-info span:last-child {
+  color: #a8b5a2;
+}
+
+/* =========================================
+   RESPONSIV DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+  .statistik-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .statistik-metoder {
+    padding-right: 0;
+    padding-bottom: 34px;
+
+    border-right: none;
+    border-bottom: 1px solid #a8b5a2;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistik-header h2 {
+    font-size: 29px;
+  }
+
+  .statistik-header-vanster {
+    gap: 10px;
+  }
+
+  .statistik-etikett {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .statistik-grid {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+}
+
+/* =========================================
+   STATISTIK – RESPONSIV FINJUSTERING
+========================================= */
+
+@media (max-width: 600px) {
+
+  .statistik {
+    min-width: 0;
+    margin-top: 45px;
+  }
+
+  .statistik-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .statistik-header-vanster {
+    min-width: 0;
+    align-items: center;
+  }
+
+  .statistik-header h2 {
+    transform: none;
+    line-height: 1.15;
+  }
+
+  .statistik-etikett {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .statistik-layout {
+    min-width: 0;
+  }
+
+  .statistik-grid {
+    min-width: 0;
+  }
+}
+
+/* =========================================
+   STATISTIK – ENHETLIG MOBILRUBRIK
+========================================= */
+
+@media (max-width: 600px) {
+
+  .statistik-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+
+  .statistik-header-vanster {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .statistik-header h2 {
+    margin: 0;
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.2;
+    transform: none;
+  }
+
+  .statistik-dekor {
+    flex: 0 0 27px;
+  }
+
+  .statistik-etikett {
+    display: block;
+    margin: 0;
+    padding-left: 37px;
+
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    white-space: normal;
+  }
+}

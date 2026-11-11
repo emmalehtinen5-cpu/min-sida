@@ -30,7 +30,7 @@ function Footer({ sprak,setSprak }) {
 
             <a
               href={`mailto:${EPOST}`}
-              aria-label="Skicka mejl till Emma Lehtinen"
+              aria-label={`Skicka mejl till ${NAMN}`}
               title="Skicka mejl"
             >
               <svg
@@ -59,7 +59,7 @@ function Footer({ sprak,setSprak }) {
               href="https://www.linkedin.com/in/emma-lehtinen-956443ab/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Emma Lehtinen på LinkedIn"
+              aria-label={`${NAMN} på LinkedIn`}
               title="LinkedIn"
             >
               <svg

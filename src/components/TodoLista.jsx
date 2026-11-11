@@ -10,7 +10,34 @@ import "./TodoLista.css";
 import TodoItem from "./TodoItem";
 
 /* =========================================
-   1. LÄS SPARADE UPPGIFTER FRÅN LOCALSTORAGE
+   1. ÖVERSÄTTNINGAR
+========================================= */
+
+const oversattningar = {
+  sv: {
+    rubrik: "ATT GÖRA.",
+    placeholder: "Skriv en uppgift...",
+    laggTill: "Lägg till",
+    tomLista: "Inga uppgifter ännu.",
+  },
+
+  en: {
+    rubrik: "TO DO.",
+    placeholder: "Write a task...",
+    laggTill: "Add",
+    tomLista: "No tasks yet.",
+  },
+
+  fi: {
+    rubrik: "TEHTÄVÄT.",
+    placeholder: "Kirjoita tehtävä...",
+    laggTill: "LISÄÄ",
+    tomLista: "Ei vielä tehtäviä.",
+  },
+};
+
+/* =========================================
+   2. LÄS SPARADE UPPGIFTER FRÅN LOCALSTORAGE
 ========================================= */
 
 function lasSparadeUppgifter() {
@@ -35,16 +62,16 @@ function lasSparadeUppgifter() {
 }
 
 /* =========================================
-   2. TODO-KOMPONENT
+   3. TODO-KOMPONENT
 ========================================= */
 
-function TodoLista() {
+function TodoLista({ sprak = "sv" }) {
+  const text = oversattningar[sprak] || oversattningar.sv;
 
   /* =====================================
-     3. STATE – UPPGIFTER OCH TEXTFÄLT
+     4. STATE – UPPGIFTER OCH TEXTFÄLT
   ===================================== */
 
-  // Läs sparade uppgifter när komponenten startar
   const [uppgifter, setUppgifter] = useState(
     () => lasSparadeUppgifter()
   );
@@ -52,7 +79,7 @@ function TodoLista() {
   const [nyUppgift, setNyUppgift] = useState("");
 
   /* =====================================
-     4. SPARA UPPGIFTER I LOCALSTORAGE
+     5. SPARA UPPGIFTER I LOCALSTORAGE
   ===================================== */
 
   useEffect(() => {
@@ -70,35 +97,31 @@ function TodoLista() {
   }, [uppgifter]);
 
   /* =====================================
-     5. LÄGG TILL EN NY UPPGIFT
+     6. LÄGG TILL EN NY UPPGIFT
   ===================================== */
 
   function laggTillUppgift() {
-    const text = nyUppgift.trim();
+    const innehall = nyUppgift.trim();
 
-    // Lägg inte till tomma uppgifter
-    if (!text) {
+    if (!innehall) {
       return;
     }
 
-    // Skapa en ny uppgift
     const uppgift = {
       id: crypto.randomUUID(),
-      text: text,
+      text: innehall,
     };
 
-    // Lägg till uppgiften i listan
     setUppgifter((tidigare) => [
       ...tidigare,
       uppgift,
     ]);
 
-    // Töm textfältet
     setNyUppgift("");
   }
 
   /* =====================================
-     6. TA BORT EN UPPGIFT
+     7. TA BORT EN UPPGIFT
   ===================================== */
 
   function taBortUppgift(id) {
@@ -110,22 +133,24 @@ function TodoLista() {
   }
 
   /* =====================================
-     7. VISA TODO-LISTAN
+     8. VISA TODO-LISTAN
   ===================================== */
 
   return (
     <section className="todo-lista">
 
       {/* RUBRIK */}
+
       <div className="todo-rubrik">
-    <span className="todo-nummer">02</span>
-        <h2>ATT GÖRA.</h2>
-        </div>
+        <span className="todo-nummer">02</span>
+        <h2>{text.rubrik}</h2>
+      </div>
 
       {/* TEXTFÄLT */}
+
       <input
         type="text"
-        placeholder="Skriv en uppgift..."
+        placeholder={text.placeholder}
         value={nyUppgift}
         onChange={(e) =>
           setNyUppgift(e.target.value)
@@ -133,27 +158,34 @@ function TodoLista() {
       />
 
       {/* LÄGG TILL-KNAPP */}
+
       <button
         type="button"
         onClick={laggTillUppgift}
       >
-        Lägg till
+        {text.laggTill}
       </button>
-{/* VISA ALLA UPPGIFTER */}
-{uppgifter.length === 0 && (
-  <p className="todo-tom">
-    Inga uppgifter ännu.
-  </p>
-)}
-<ul className="todo-uppgifter">
-  {uppgifter.map((uppgift) => (
-    <TodoItem
-      key={uppgift.id}
-      uppgift={uppgift}
-      taBortUppgift={taBortUppgift}
-    />
-  ))}
-</ul>
+
+      {/* TOM LISTA */}
+
+      {uppgifter.length === 0 && (
+        <p className="todo-tom">
+          {text.tomLista}
+        </p>
+      )}
+
+      {/* VISA ALLA UPPGIFTER */}
+
+      <ul className="todo-uppgifter">
+        {uppgifter.map((uppgift) => (
+          <TodoItem
+            key={uppgift.id}
+            uppgift={uppgift}
+            taBortUppgift={taBortUppgift}
+          />
+        ))}
+      </ul>
+
     </section>
   );
 }

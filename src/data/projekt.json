@@ -8,7 +8,27 @@
       "Analys",
       "Visualisering",
       "Gestaltning"
-    ]
+    ],
+    "oversattningar": {
+      "en": {
+        "titel": "My portfolio website",
+        "text": "A visually designed portfolio presenting projects in architecture, urban development and spatial design.",
+        "teknik": [
+          "Analysis",
+          "Visualization",
+          "Spatial design"
+        ]
+      },
+      "fi": {
+        "titel": "Portfoliosivustoni",
+        "text": "Visuaalisesti suunniteltu portfolio, joka esittelee arkkitehtuurin, kaupunkikehityksen ja tilallisen suunnittelun projekteja.",
+        "teknik": [
+          "Analyysi",
+          "Visualisointi",
+          "Tilallinen suunnittelu"
+        ]
+      }
+    }
   },
   {
     "id": 2,
@@ -18,7 +38,27 @@
       "Workshop",
       "Intervjuer",
       "Platsanalys"
-    ]
+    ],
+    "oversattningar": {
+      "en": {
+        "titel": "Method Book – Rosengård",
+        "text": "An analysis of Rosengård's urban environment, focusing on the area's qualities, opportunities and amenities for young adults.",
+        "teknik": [
+          "Workshop",
+          "Interviews",
+          "Site analysis"
+        ]
+      },
+      "fi": {
+        "titel": "Menetelmäkirja – Rosengård",
+        "text": "Rosengårdin kaupunkiympäristön analyysi, jossa keskitytään alueen ominaisuuksiin, mahdollisuuksiin ja nuorille aikuisille suunnattuihin palveluihin.",
+        "teknik": [
+          "Työpaja",
+          "Haastattelut",
+          "Paikka-analyysi"
+        ]
+      }
+    }
   },
   {
     "id": 3,
@@ -27,6 +67,24 @@
     "teknik": [
       "Plats- och designanalys",
       "Skisser"
-    ]
+    ],
+    "oversattningar": {
+      "en": {
+        "titel": "Västra Hamnen",
+        "text": "A spatial analysis of Västra Hamnen's urban environment, focusing on urban structure, spatial design and the area's qualities.",
+        "teknik": [
+          "Site and design analysis",
+          "Sketches"
+        ]
+      },
+      "fi": {
+        "titel": "Västra Hamnen",
+        "text": "Västra Hamnenin kaupunkiympäristön tilallinen analyysi, jossa tarkastellaan kaupunkirakennetta, suunnittelua ja alueen ominaisuuksia.",
+        "teknik": [
+          "Paikka- ja suunnitteluanalyysi",
+          "Luonnokset"
+        ]
+      }
+    }
   }
 ]

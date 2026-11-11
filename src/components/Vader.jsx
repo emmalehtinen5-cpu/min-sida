@@ -10,14 +10,185 @@ import TaBortKnapp from "./TaBortKnapp";
 
 import {
   grader,
-  temperaturText,
   arExtremTemperatur,
 } from "../utils/text";
 
 import { stader } from "../data/stader";
 
 /* =========================================
-   1. OMVANDLA LANDSKOD TILL FLAGGA
+   1. ÖVERSÄTTNINGAR
+========================================= */
+
+const oversattningar = {
+  sv: {
+    rubrik: "Vädret just nu:",
+    valjStad: "Välj stad...",
+    sokStad: "Sök efter stad...",
+    sok: "SÖK",
+    soker: "SÖKER...",
+    laddar: "Hämtar väder...",
+    kallt: "Kallt",
+    svalt: "Svalt",
+    milt: "Milt",
+    varmt: "Varmt",
+    hett: "Hett",
+    skont: "Skönt väder!",
+    normalt: "Normal temperatur",
+    extremt: "Extrem temperatur!",
+    vind: "VIND",
+    ingaStader: "Inga städer visas. Sök efter en stad!",
+    redanFinns: "Staden finns redan i listan.",
+    hittasInte: "Staden kunde inte hittas.",
+    sokFel: "Kunde inte hämta staden. Försök igen.",
+    vaderFel: "Kunde inte hämta vädret just nu.",
+  },
+
+  en: {
+    rubrik: "Current weather:",
+    valjStad: "Select city...",
+    sokStad: "Search for a city...",
+    sok: "SEARCH",
+    soker: "SEARCHING...",
+    laddar: "Loading weather...",
+    kallt: "Cold",
+    svalt: "Cool",
+    milt: "Mild",
+    varmt: "Warm",
+    hett: "Hot",
+    skont: "Nice weather!",
+    normalt: "Normal temperature",
+    extremt: "Extreme temperature!",
+    vind: "WIND",
+    ingaStader: "No cities displayed. Search for a city!",
+    redanFinns: "The city is already in the list.",
+    hittasInte: "The city could not be found.",
+    sokFel: "Could not retrieve the city. Please try again.",
+    vaderFel: "Could not load the weather right now.",
+  },
+
+  fi: {
+    rubrik: "Sää juuri nyt:",
+    valjStad: "Valitse kaupunki...",
+    sokStad: "Etsi kaupunkia...",
+    sok: "HAE",
+    soker: "HAETAAN...",
+    laddar: "Haetaan säätietoja...",
+    kallt: "Kylmä",
+    svalt: "Viileä",
+    milt: "Leuto",
+    varmt: "Lämmin",
+    hett: "Kuuma",
+    skont: "Mukava sää!",
+    normalt: "Normaali lämpötila",
+    extremt: "Äärimmäinen lämpötila!",
+    vind: "TUULI",
+    ingaStader: "Ei näytettäviä kaupunkeja. Etsi kaupunkia!",
+    redanFinns: "Kaupunki on jo listalla.",
+    hittasInte: "Kaupunkia ei löytynyt.",
+    sokFel: "Kaupunkia ei voitu hakea. Yritä uudelleen.",
+    vaderFel: "Säätietoja ei voitu hakea juuri nyt.",
+  },
+};
+
+/* =========================================
+   2. ÖVERSÄTT STADSNAMN
+========================================= */
+
+const stadsnamn = {
+  helsingfors: {
+    sv: "Helsingfors",
+    en: "Helsinki",
+    fi: "Helsinki",
+  },
+  helsinki: {
+    sv: "Helsingfors",
+    en: "Helsinki",
+    fi: "Helsinki",
+  },
+  moskva: {
+    sv: "Moskva",
+    en: "Moscow",
+    fi: "Moskova",
+  },
+  moscow: {
+    sv: "Moskva",
+    en: "Moscow",
+    fi: "Moskova",
+  },
+  moskova: {
+    sv: "Moskva",
+    en: "Moscow",
+    fi: "Moskova",
+  },
+  rom: {
+    sv: "Rom",
+    en: "Rome",
+    fi: "Rooma",
+  },
+  rome: {
+    sv: "Rom",
+    en: "Rome",
+    fi: "Rooma",
+  },
+  rooma: {
+    sv: "Rom",
+    en: "Rome",
+    fi: "Rooma",
+  },
+  peking: {
+    sv: "Peking",
+    en: "Beijing",
+    fi: "Peking",
+  },
+  beijing: {
+    sv: "Peking",
+    en: "Beijing",
+    fi: "Peking",
+  },
+  berlin: {
+    sv: "Berlin",
+    en: "Berlin",
+    fi: "Berliini",
+  },
+  berliini: {
+    sv: "Berlin",
+    en: "Berlin",
+    fi: "Berliini",
+  },
+};
+
+function oversattStadsnamn(namn, sprak) {
+  return stadsnamn[namn.toLowerCase()]?.[sprak] || namn;
+}
+
+/* =========================================
+   3. ÖVERSÄTT TEMPERATURBESKRIVNING
+========================================= */
+
+function oversattTemperatur(temperatur, sprak) {
+  const text = oversattningar[sprak] || oversattningar.sv;
+
+  if (temperatur < 0) {
+    return sprak === "fi" ? "Pakkasta" :
+           sprak === "en" ? "Below freezing" : "Minusgrader";
+  } else if (temperatur < 10) {
+    return text.kallt;
+  } else if (temperatur < 15) {
+    return text.svalt;
+  } else if (temperatur < 20) {
+    return text.milt;
+  } else if (temperatur < 25) {
+    return sprak === "fi" ? "Miellyttävä" :
+           sprak === "en" ? "Pleasant" : "Behagligt";
+  } else if (temperatur < 30) {
+    return text.varmt;
+  } else {
+    return text.hett;
+  }
+}
+
+/* =========================================
+   4. OMVANDLA LANDSKOD TILL FLAGGA
 ========================================= */
 
 function landsFlagga(landskod) {
@@ -37,7 +208,7 @@ function landsFlagga(landskod) {
 }
 
 /* =========================================
-   2. VÄDERIKONER – DAGTID
+   5. VÄDERIKONER – DAGTID
 ========================================= */
 
 function vaderIkon(kod) {
@@ -74,7 +245,7 @@ function vaderIkon(kod) {
 }
 
 /* =========================================
-   3. VÄDERIKONER – DAG OCH NATT
+   6. VÄDERIKONER – DAG OCH NATT
 ========================================= */
 
 function dagEllerNattIkon(kod, arDag) {
@@ -82,7 +253,7 @@ function dagEllerNattIkon(kod, arDag) {
 }
 
 /* =========================================
-   4. HÄMTA VÄDER FÖR EN STAD
+   7. HÄMTA VÄDER FÖR EN STAD
 ========================================= */
 
 async function hamtaStad(stad) {
@@ -121,11 +292,8 @@ async function hamtaStad(stad) {
 }
 
 /* =========================================
-   5. LOCALSTORAGE – LÄS SPARADE STÄDER
+   8. LOCALSTORAGE – LÄS SPARADE STÄDER
 ========================================= */
-
-// Vi sparar endast stadens uppgifter.
-// Temperatur och vind hämtas på nytt från API:et.
 
 function lasSparadeStader() {
   try {
@@ -159,7 +327,7 @@ function lasSparadeStader() {
 }
 
 /* =========================================
-   6. LOCALSTORAGE – SPARA STÄDER
+   9. LOCALSTORAGE – SPARA STÄDER
 ========================================= */
 
 function sparaStader(lista) {
@@ -184,30 +352,27 @@ function sparaStader(lista) {
 }
 
 /* =========================================
-   7. VÄDERKOMPONENT
+   10. VÄDERKOMPONENT
 ========================================= */
 
-function Vader() {
-  // Städer som ska visas och sparas
+function Vader({ sprak = "sv" }) {
+  const text = oversattningar[sprak] || oversattningar.sv;
+
   const [sparadeStader, setSparadeStader] = useState(
     () => lasSparadeStader() ?? stader
   );
 
-  // Aktuellt väder
   const [vader, setVader] = useState([]);
 
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
 
-  // Vald stad i stadsmenyn
   const [valdStad, setValdStad] = useState("");
 
-  // Sökfält
   const [soktext, setSoktext] = useState("");
   const [sokfel, setSokfel] = useState("");
   const [soker, setSoker] = useState(false);
 
-  // Håller reda på senaste väderlistan
   const vaderRef = useRef(vader);
 
   useEffect(() => {
@@ -215,7 +380,7 @@ function Vader() {
   }, [vader]);
 
   /* =====================================
-     8. SPARA STÄDER NÄR LISTAN ÄNDRAS
+     11. SPARA STÄDER NÄR LISTAN ÄNDRAS
   ===================================== */
 
   useEffect(() => {
@@ -223,7 +388,7 @@ function Vader() {
   }, [sparadeStader]);
 
   /* =====================================
-     9. HÄMTA VÄDER FÖR SPARADE STÄDER
+     12. HÄMTA VÄDER FÖR SPARADE STÄDER
   ===================================== */
 
   useEffect(() => {
@@ -274,7 +439,7 @@ function Vader() {
   }, [sparadeStader]);
 
   /* =====================================
-     10. UPPDATERA VÄDRET VAR TIONDE MINUT
+     13. UPPDATERA VÄDRET VAR TIONDE MINUT
   ===================================== */
 
   useEffect(() => {
@@ -331,7 +496,7 @@ function Vader() {
   }, []);
 
   /* =====================================
-     11. HÄMTA VÄDER NÄR VALD STAD ÄNDRAS
+     14. HÄMTA VÄDER NÄR VALD STAD ÄNDRAS
   ===================================== */
 
   useEffect(() => {
@@ -374,7 +539,7 @@ function Vader() {
   }, [valdStad]);
 
   /* =====================================
-     12. SÖK EFTER NY STAD
+     15. SÖK EFTER NY STAD
   ===================================== */
 
   async function sokStad(e) {
@@ -405,7 +570,7 @@ function Vader() {
       const geoData = await geoSvar.json();
 
       if (!geoData.results?.length) {
-        setSokfel("Staden kunde inte hittas.");
+        setSokfel(text.hittasInte);
         return;
       }
 
@@ -426,16 +591,13 @@ function Vader() {
       );
 
       if (finnsRedan) {
-        setSokfel(
-          "Staden finns redan i listan."
-        );
+        setSokfel(text.redanFinns);
         return;
       }
 
       // Kontrollera att vädret går att hämta
       await hamtaStad(nyStad);
 
-      // Uppdatera listan – useEffect hämtar vädret
       setSparadeStader((tidigare) => [
         ...tidigare,
         nyStad,
@@ -449,16 +611,14 @@ function Vader() {
         error
       );
 
-      setSokfel(
-        "Kunde inte hämta staden. Försök igen."
-      );
+      setSokfel(text.sokFel);
     } finally {
       setSoker(false);
     }
   }
 
   /* =====================================
-     13. TA BORT EN STAD
+     16. TA BORT EN STAD
   ===================================== */
 
   function taBortStad(id) {
@@ -474,27 +634,28 @@ function Vader() {
       )
     );
 
-    // Visa alla kvarvarande städer
-    // om den valda staden tas bort
     if (valdStad === id) {
       setValdStad("");
     }
   }
 
   /* =====================================
-     14. VISA VÄDERSEKTIONEN
+     17. VISA VÄDERSEKTIONEN
   ===================================== */
 
   return (
     <section className="vader">
 
       {/* RUBRIK */}
-      <h2>Vädret just nu:</h2>
+      <h2>{text.rubrik}</h2>
 
       {/* STADSMENY */}
       <div className="vader-stadsmeny">
-        <label htmlFor="vald-stad" className="vader-dold-etikett">
-          Välj stad:
+        <label
+          htmlFor="vald-stad"
+          className="vader-dold-etikett"
+        >
+          {text.valjStad}
         </label>
 
         <select
@@ -505,7 +666,7 @@ function Vader() {
           }
         >
           <option value="">
-            Välj stad...
+            {text.valjStad}
           </option>
 
           {vader.map((stad) => (
@@ -513,7 +674,7 @@ function Vader() {
               key={stad.id}
               value={stad.id}
             >
-              {stad.namn}
+              {oversattStadsnamn(stad.namn, sprak)}
             </option>
           ))}
         </select>
@@ -526,19 +687,19 @@ function Vader() {
       >
         <input
           type="text"
-          placeholder="Sök efter stad..."
+          placeholder={text.sokStad}
           value={soktext}
           onChange={(e) =>
             setSoktext(e.target.value)
           }
-          aria-label="Sök efter stad"
+          aria-label={text.sokStad}
         />
 
         <button
           type="submit"
           disabled={soker}
         >
-          {soker ? "Söker..." : "Sök"}
+          {soker ? text.soker : text.sok}
         </button>
       </form>
 
@@ -550,17 +711,17 @@ function Vader() {
       )}
 
       {laddar && (
-        <p>Hämtar väder...</p>
+        <p>{text.laddar}</p>
       )}
 
       {fel && (
         <p className="vader-fel" role="alert">
-          {fel}
+          {text.vaderFel}
         </p>
       )}
 
       {/* VÄDERKORT */}
-      <div className="vader-kort-container">
+  <div className="vader-kort-container">
 
         {vader
           .filter(
@@ -576,7 +737,7 @@ function Vader() {
 
               {/* TA BORT-KNAPP */}
               <TaBortKnapp
-                namn={stad.namn}
+                namn={oversattStadsnamn(stad.namn, sprak)}
                 onRemove={() =>
                   taBortStad(stad.id)
                 }
@@ -588,7 +749,9 @@ function Vader() {
                   {stad.flagga}
                 </span>
 
-                <h3>{stad.namn}</h3>
+                <h3>
+                  {oversattStadsnamn(stad.namn, sprak)}
+                </h3>
               </div>
 
               {/* VÄDERIKON OCH TEMPERATUR */}
@@ -612,17 +775,18 @@ function Vader() {
                     </p>
 
                     <p className="temperatur-beskrivning">
-                      {temperaturText(
-                        stad.temperatur
+                      {oversattTemperatur(
+                        stad.temperatur,
+                        sprak
                       )}
                     </p>
 
                   </div>
                 </div>
 
-                {/* SKÖNT VÄDER */}
+                {/* VÄDERMEDDELANDE */}
                 <p className="vader-meddelande">
-                  ☀️ Skönt väder!
+                  ☀️ {text.skont}
                 </p>
 
                 {/* TEMPERATURSTATUS */}
@@ -630,14 +794,14 @@ function Vader() {
                   stad.temperatur
                 ) ? (
                   <p className="vader-varning">
-                    ⚠️ Extrem temperatur!
+                    ⚠️ {text.extremt}
                   </p>
                 ) : (
                   <p className="vader-normal">
                     <span className="svart-bock">
                       ✓
                     </span>
-                    {" "}Normal temperatur
+                    {" "}{text.normalt}
                   </p>
                 )}
 
@@ -645,7 +809,7 @@ function Vader() {
 
               {/* VINDHASTIGHET */}
               <p className="vader-vind">
-                VIND: {stad.vind} km/h
+                {text.vind}: {stad.vind} km/h
               </p>
 
             </div>
@@ -654,10 +818,7 @@ function Vader() {
 
       {/* INGA STÄDER */}
       {!laddar && vader.length === 0 && (
-        <p>
-          Inga städer visas.
-          Sök efter en stad!
-        </p>
+        <p>{text.ingaStader}</p>
       )}
 
     </section>

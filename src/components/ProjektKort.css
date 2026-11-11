@@ -186,3 +186,60 @@
     font-size: 0.95rem;
   }
 }
+
+/* =========================================
+   REACT-ETIKETT
+========================================= */
+
+.projekt-react-etikett {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #171717;
+  background-color: #a8b8a0;
+  border-radius: 3px;
+}
+
+
+/* =========================================
+   PROJEKTKORT – RESPONSIV MOBIL
+========================================= */
+
+@media (max-width: 650px) {
+
+  .projekt-lista .projekt-kort {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .projekt-lista .projekt-kort .projekt-info {
+    width: 100%;
+    min-width: 0;
+    padding: 18px;
+  }
+
+  .projekt-lista .projekt-kort .projekt-kort-rubrik {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .projekt-lista .projekt-kort .projekt-kort-text {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .projekt-lista .projekt-kort .projekt-teknik {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .projekt-lista .projekt-kort .projekt-lank {
+    margin-top: auto;
+  }
+}
