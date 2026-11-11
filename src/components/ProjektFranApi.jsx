@@ -1,5 +1,4 @@
 
-
 /* =========================================
    PROJEKT FRÅN API – REACT
    HÄMTA DATA FRÅN EXPRESS-SERVERN
@@ -11,6 +10,7 @@
 ========================================= */
 
 import { useState, useEffect } from "react";
+
 
 /* =========================================
    02 – PROJEKTKOMPONENT
@@ -27,14 +27,22 @@ function ProjektFranApi() {
   const [fel, setFel] = useState(null);
 
 
- 
   /* =====================================
      03 – HÄMTA PROJEKT FRÅN API
   ===================================== */
 
-  useEffect(() => {
+  function hamtaProjekt() {
+
+    setLaddar(true);
+    setFel(null);
+
     fetch("http://localhost:3001/projekt")
-      .then((svar) => svar.json())
+      .then((svar) => {
+        if (!svar.ok) {
+          throw new Error("Kunde inte hämta projekt");
+        }
+        return svar.json();
+      })
       .then((data) => {
         setProjekt(data);
       })
@@ -44,11 +52,20 @@ function ProjektFranApi() {
       .finally(() => {
         setLaddar(false);
       });
+  }
+
+
+  /* =====================================
+     04 – HÄMTA VID SIDSTART
+  ===================================== */
+
+  useEffect(() => {
+    hamtaProjekt();
   }, []);
 
 
   /* =====================================
-     04 – VISA PROJEKTEN
+     05 – VISA PROJEKTEN
   ===================================== */
 
   return (
@@ -56,7 +73,20 @@ function ProjektFranApi() {
 
       <h2>PROJEKT FRÅN MITT API</h2>
 
+      {/* =================================
+          UPPDATERA PROJEKT
+      ================================= */}
+
+      <button
+        type="button"
+        onClick={hamtaProjekt}
+        disabled={laddar}
+      >
+        {laddar ? "Laddar..." : "UPPDATERA"}
+      </button>
+
       {laddar && <p>Laddar projekt...</p>}
+
       {fel && <p>{fel}</p>}
 
       {projekt.map((p) => (
@@ -71,8 +101,9 @@ function ProjektFranApi() {
   );
 }
 
+
 /* =========================================
-   05 – EXPORTERA KOMPONENTEN
+   06 – EXPORTERA KOMPONENTEN
 ========================================= */
 
 export default ProjektFranApi;
