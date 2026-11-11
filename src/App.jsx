@@ -35,6 +35,7 @@ import MittBollplank from "./pages/MittBollplank";
 import ProjektDetalj from "./pages/ProjektDetalj";
 import EjHittad from "./pages/EjHittad";
 import ProjektFranApi from "./components/ProjektFranApi";
+import KontaktBackend from "./components/KontaktBackend";
 
 
 /* =========================================
@@ -255,7 +256,14 @@ function App() {
                   element={<ProjektFranApi />}
                       />
 
+                {/* =====================================
+                      KONTAKT BACKEND – EXPRESSÖVNING
+                    ===================================== */}
 
+                    <Route
+                    path="/kontakt-backend"
+                    element={<KontaktBackend />}
+                    />
               {/* MITT BOLLPLANK */}
 
               <Route
