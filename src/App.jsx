@@ -34,6 +34,8 @@ import Logik from "./pages/Logik";
 import MittBollplank from "./pages/MittBollplank";
 import ProjektDetalj from "./pages/ProjektDetalj";
 import EjHittad from "./pages/EjHittad";
+import ProjektFranApi from "./components/ProjektFranApi";
+
 
 /* =========================================
    STIL
@@ -243,6 +245,16 @@ function App() {
                 path="/projekt/:id"
                 element={<ProjektDetalj />}
               />
+
+              {/* =====================================
+                  PROJEKT FRÅN API – BACKENDÖVNING
+                ===================================== */}
+
+                  <Route
+                  path="/projekt-api"
+                  element={<ProjektFranApi />}
+                      />
+
 
               {/* MITT BOLLPLANK */}
 

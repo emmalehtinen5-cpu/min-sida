@@ -14,3 +14,19 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+---
+
+## Backend – Express API
+
+Det här React-projektet har även en separat backend som är byggd med Node.js och Express.
+
+Backend-servern innehåller ett API som skickar projektdata till React med hjälp av `fetch` och `useEffect`.
+
+**GitHub – Backend:** [min-server](https://github.com/emmalehtinen5-cpu/min-server)
+
+**API:** `http://localhost:3001/projekt` (fungerar när den lokala Express-servern körs).
+
+
