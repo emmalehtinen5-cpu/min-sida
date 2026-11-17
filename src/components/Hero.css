@@ -444,9 +444,9 @@ flex-shrink: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 30px;
   font-weight: 400;
-  font-style: italic;
+  font-style: none;
 
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 
   text-align: left;
@@ -455,7 +455,7 @@ flex-shrink: 0;
 
   color: #000000;
 
-  transform: translate(-99px, 44px);
+  transform: translate(-420px, -41.7px);
 }
 
 /* =========================================
@@ -465,9 +465,9 @@ flex-shrink: 0;
 .hero-halsning-blad {
   position: relative;
   right: 0px;
-  top: 0px;
+  top: -97.5px;
 
-  transform: translateX(157px) scale(0.85);
+  transform: translateX(-191px) scale(0.85);
 }
 
 /* =========================================
@@ -869,6 +869,7 @@ align-items: left;
   object-fit: cover;
   display: block;
 }
+
 /* =========================================
    MÖRKT LÄGE
 ========================================= */
@@ -2967,4 +2968,90 @@ body.morkt-lage .hero
     z-index: 20;
   }
 
+}
+
+
+/* =========================================
+   EL. LOGOTYP – OVANFÖR HÄLSNINGEN
+========================================= */
+
+.hero .hero-logga {
+  position: absolute;
+  top: 37.5px;
+
+  left: 1010.5px;
+
+  width: 87px;
+  height: auto;
+
+  display: block;
+  object-fit: contain;
+  z-index: 10;
+}
+
+/* =========================================
+   EL. – INFORMATION OM EGEN LOGOTYP
+========================================= */
+
+.hero .hero-logga-info {
+  position: absolute;
+
+  top: 29px;
+  left: 1110px;
+
+  width: 300px;
+  padding-left: 25px;
+
+  border-left: 1px solid #000000;
+  z-index: 10;
+}
+
+/* RUBRIK */
+
+.hero .hero-logga-info h2 {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* HORISONTELL LINJE */
+
+.hero .hero-logga-info-linje {
+  width: 187px;
+  height: 1px;
+
+  margin: 14px 0;
+
+  background: #000000;
+}
+
+/* DESIGNER */
+
+.hero .hero-logga-info p {
+  margin: 0 0 7px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11.5px;
+  font-style: italic;
+
+  color: #000000;
+}
+
+/* COPYRIGHT */
+
+.hero .hero-logga-info small {
+  display: block;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11.5px;
+  font-style: italic;
+  line-height: 1.4;
+
+  color: #000000;
 }

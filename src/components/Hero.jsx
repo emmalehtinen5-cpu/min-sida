@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import minlogga from "../assets/MIN-LOGGA.png";
 import Valkommen from "./Valkommen";
 import blad from "../assets/blad1.png";
 import nolliBild from "../assets/NOLL.MAP.5.png";
@@ -102,7 +103,26 @@ function Hero({ namn, sprak = "sv" }) {
         ===================================== */}
 
         <div className="hero-innehall">
-    
+          {/* EL. LOGOTYP */}
+
+          <img
+          className="hero-logga"
+          src={minlogga}
+          alt="EL. – Emma Lehtinen"
+          />
+            {/* INFORMATION OM MIN LOGOTYP */}
+
+<div className="hero-logga-info">
+  <h2>EL. / EGEN DESIGNAD LOGOTYP</h2>
+
+  <div className="hero-logga-info-linje" />
+
+  <p>Designad av Emma Lehtinen.</p>
+
+  <small>
+    © 2026 Emma Lehtinen. Alla rättigheter förbehållna.
+  </small>
+</div>    
           {/* HÄLSNING – FINSK RETRODESIGN */}
 
           <div className="hero-halsning-design">
