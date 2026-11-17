@@ -34,7 +34,7 @@
   background: var(--footer-bg);
   color: var(--footer-text);
 
-  border: 3px solid var(--footer-line);
+  border: 2px solid var(--footer-line);
   border-radius: 0;
 
   box-shadow: none;

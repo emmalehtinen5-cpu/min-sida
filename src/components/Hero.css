@@ -3055,3 +3055,20 @@ body.morkt-lage .hero
 
   color: #000000;
 }
+/* =========================================
+   EL. LOGOTYP – MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .hero .hero-logga-info {
+  border-left-color: #ffffff;
+}
+
+body.morkt-lage .hero .hero-logga-info h2,
+body.morkt-lage .hero .hero-logga-info p,
+body.morkt-lage .hero .hero-logga-info small {
+  color: #ffffff;
+}
+
+body.morkt-lage .hero .hero-logga-info-linje {
+  background: #ffffff;
+}
