@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import minLogga from "../assets/min-logga.png";
+import minlogga from "../assets/MIN-LOGGA.png";
 import Valkommen from "./Valkommen";
 import blad from "../assets/blad1.png";
 import nolliBild from "../assets/NOLL.MAP.5.png";
@@ -107,7 +107,7 @@ function Hero({ namn, sprak = "sv" }) {
 
           <img
           className="hero-logga"
-          src={minLogga}
+          src={minlogga}
           alt="EL. – Emma Lehtinen"
           />
             {/* INFORMATION OM MIN LOGOTYP */}
