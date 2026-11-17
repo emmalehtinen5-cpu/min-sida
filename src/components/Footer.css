@@ -181,7 +181,7 @@
   letter-spacing: 0.04em;
   line-height: 1.4;
 
-  transform: translate(-15px, -75px);
+  transform: translate(111px, -75px);
 
   text-decoration: none;
   white-space: nowrap;
@@ -789,4 +789,15 @@ body.morkt-lage .footer .footer-meny a + a::before {
     margin-bottom: -30px;
   }
 
+
+  /* =========================================
+   COPYRIGHT – ENDAST DATOR
+========================================= */
+
+@media (min-width: 1101px) {
+  .footer .footer-copyright {
+    margin-left: 1220px;
+    transform: translate(111px, -75px);
+  }
+}
 }
