@@ -67,7 +67,7 @@
   letter-spacing: 0.14em;
   line-height: 1.5;
   text-transform: uppercase;
-  transform: translate(-117px, -40px);
+  transform: translate(-116px, -50px);
   overflow-wrap: break-word;
 }
 
@@ -1255,4 +1255,12 @@ body.morkt-lage .om-mig-innehall .om-mig-avdelare {
   text-align-last: left !important;
   word-spacing: normal !important;
   letter-spacing: normal !important;
+}
+
+/* ENDAST DATOR – OM MIG / BAKGRUND */
+
+@media (min-width: 1101px) {
+  .om-mig-innehall > .om-mig-etikett {
+    transform: translate(-116px, -50px);
+  }
 }
