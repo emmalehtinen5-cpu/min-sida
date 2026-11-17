@@ -11,7 +11,7 @@
   width: 100%;
   min-height: 370px;
 
-  margin-top: 35px;
+  margin-top: 0px;
   margin-bottom: 35px;
 
   overflow: hidden;
@@ -533,6 +533,7 @@ body.morkt-lage .github-varldstid {
     margin-left: 0;
     -webkit-mask-image: none;
     mask-image: none;
+    
   }
 
   .github-datum {

@@ -181,7 +181,7 @@
   letter-spacing: 0.04em;
   line-height: 1.4;
 
-  transform: translate(111px, -75px);
+  transform: translate(-15px, -75px);
 
   text-decoration: none;
   white-space: nowrap;
@@ -800,4 +800,99 @@ body.morkt-lage .footer .footer-meny a + a::before {
     transform: translate(111px, -75px);
   }
 }
+}
+/* =========================================
+   FOOTER – MOBIL
+   GE PLATS ÅT ÖPPEN SPRÅKMENY
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer .footer-vanster:has(.sprakvaljare-flaggor) .footer-social {
+    top: 0;
+  }
+
+  .footer .footer-vanster:has(.sprakvaljare-flaggor) .footer-copyright {
+    top: 0;
+  }
+  /* =========================================
+   FOOTER – MOBIL
+   COPYRIGHT VID ÖPPEN SPRÅKMENY
+========================================= */
+
+@media (max-width: 600px) {
+  .footer .footer-vanster:has(.sprakvaljare-flaggor)
+  .footer-copyright {
+    top: 25px;
+  }
+}
+/* =========================================
+   FOOTER – MOBIL
+   FLYTTA NED MENYN VID ÖPPET SPRÅKVAL
+========================================= */
+
+@media (max-width: 600px) {
+  .footer:has(.sprakvaljare-flaggor) .footer-meny {
+    top: 8px;
+  }
+}
+/* =========================================
+   FOOTER – MOBIL
+   GE PLATS ÅT HELA MENYN
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer:has(.sprakvaljare-flaggor) .footer-inner {
+    padding-bottom: 55px;
+  }
+
+}
+
+}
+/* =========================================
+   FOOTER – IPAD
+   COPYRIGHT VID ÖPPEN SPRÅKMENY
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .footer .footer-vanster:has(.sprakvaljare-flaggor)
+  .footer-copyright {
+    top: 0;
+    margin-top: 35px;
+  }
+}
+/* =========================================
+   FOOTER – IPAD
+   MER UTRYMME MELLAN COPYRIGHT OCH MENY
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .footer:has(.sprakvaljare-flaggor) .footer-meny {
+    margin-top: 0;
+  }
+}
+
+
+/* =========================================
+   IPAD PRO 13 – BREDDA FOOTERN ÅT BÅDA HÅLL
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+  .footer {
+    width: calc(98.8%);
+    max-width: none;
+    margin-left: 6px;
+   transform: none;
+  }
+}
+
+/* =========================================
+   IPAD PRO 13 – SOCIALA IKONER ÅT HÖGER
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+  .footer .footer-social {
+    transform: translateX(0px);
+  }
 }

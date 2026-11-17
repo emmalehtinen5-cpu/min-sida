@@ -65,7 +65,10 @@ function Sprakvaljare({ sprak = "sv", setSprak }) {
           aria-label={`Välj språk, vald språk: ${sprakNamn[sprak] ?? "SVENSKA"}`}
           aria-expanded={visaFlaggor}
           aria-controls="sprakvaljare-meny"
-          onClick={() => setVisaFlaggor(!visaFlaggor)}
+          onClick={() => {
+  console.log("SPRÅKKNAPPEN KLICKADES");
+  setVisaFlaggor(!visaFlaggor);
+}}
         >
 
           {/* JORDGLOB */}

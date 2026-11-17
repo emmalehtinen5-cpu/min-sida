@@ -468,3 +468,19 @@ body.morkt-lage .sprakvaljare svg path {
 body.morkt-lage .sprakvaljare .sprakvaljare-alternativ-text {
   color: #ffffff;
 }
+
+/* =========================================
+   SPRÅKMENY – MOBIL OCH IPAD
+========================================= */
+
+@media (max-width: 1100px) {
+  .sprakvaljare .sprakvaljare-flaggor {
+    position: relative;
+    top: 0;
+    left: auto;
+    transform: none;
+    background: transparent;
+    outline: none;
+    z-index: 20;
+  }
+}

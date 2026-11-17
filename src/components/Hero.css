@@ -87,19 +87,6 @@
   transform: translateY(50px);
 }
 
-/* =========================================
-   ÖVRE DEKORATIV LINJE
-========================================= */
-
-.hero .hero-ovre-linje {
-  width: 48px;
-  height: 2px;
-
-  margin-bottom: 0px;
-
-  background: #000000;
-  transform: none;
-}
 
 /* =========================================
    UNDERRUBRIK
@@ -107,11 +94,11 @@
 
 .hero .hero-underrubrik {
   position: relative;
-  top: -28px;
+  top: 84px;
   margin: 0 0 20px;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 
   letter-spacing: 0.14em;
@@ -378,20 +365,17 @@ flex-shrink: 0;
 
   align-self: flex-start;
 
-  margin: 0 0 -18px;
-  padding: 0;
-
   color: #56675d;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
 
   letter-spacing: 0.14em;
   line-height: 1.5;
   text-transform: uppercase;
 
-  transform: translateY(-45px);
+  transform: translateY(69px);
 }
 
 /* =========================================
@@ -440,7 +424,7 @@ flex-shrink: 0;
   margin: -100px 0 -25px 0;
   padding: 0;
 
-  transform: translate(755px, 87.5px);
+  transform: translate(755px, 209.5px);
 }
 
 /* =========================================
@@ -471,7 +455,7 @@ flex-shrink: 0;
 
   color: #000000;
 
-  transform: translate(-19px, 44px);
+  transform: translate(-99px, 44px);
 }
 
 /* =========================================
@@ -483,7 +467,7 @@ flex-shrink: 0;
   right: 0px;
   top: 0px;
 
-  transform: translateX(244px) scale(0.85);
+  transform: translateX(157px) scale(0.85);
 }
 
 /* =========================================
@@ -552,7 +536,7 @@ flex-shrink: 0;
 
 .hero .nolli-kort {
   position: relative;
-  top: 142.5px;
+  top: 275.5px;
 
   width: 75.5%;
   padding: 18px;
@@ -753,6 +737,7 @@ max-width: calc(100% - 40px);
 
 .hero .emma-kort {
   position: relative;
+  top: 110px;
 
   width: 700px;
   max-width: none;
@@ -1310,11 +1295,12 @@ body.morkt-lage .hero .nolli-titel-linje {
   align-items: center;
   justify-content: flex-start;
 
-  width: calc(100% - 58px);
-  margin: 30px auto 7.5px;
-  padding: 20px 0;
+  width: calc(96%);
+  margin: 15px;
+  padding: 290px 0 19px;
 
-  gap: 0;
+  gap: -3px;
+  height: auto;
 }
 
 /* VARJE KOMPETENS */
@@ -1407,7 +1393,7 @@ body.morkt-lage .hero .nolli-titel-linje {
   display: block;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: 0;
@@ -2109,7 +2095,7 @@ body.morkt-lage .hero .nolli-dokument-artal::before {
     max-width: 100%;
 
     margin: 0;
-    padding-top: 35px;
+    padding-top: 0px;
     padding-bottom: 55px;
   }
 
@@ -2201,94 +2187,6 @@ body.morkt-lage .hero .nolli-dokument-artal::before {
      06 – PROJEKTBOX
      MINDRE, LIKNAR DATORVERSIONEN
   ===================================== */
-
-  .hero .hero-projektbox {
-    position: relative;
-
-    width: 75%;
-    max-width: 300px;
-
-    margin-top: 55px;
-    padding: 5px;
-
-    border: 2px solid #000000;
-
-    background: #f5f3ed;
-
-    transform: scale(0.75);
-    transform-origin: top left;
-  }
-
-  /* INRE DUBBELRAM */
-
-  .hero .hero-projektbox-inre {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 100%;
-
-    padding: 12px 8px 15px;
-  }
-
-  /* BLAD OCH TEXT */
-
-  .hero .hero-projektbox-illustration {
-    position: relative;
-
-    width: 100%;
-    min-height: 105px;
-
-    padding: 10px 0 15px;
-  }
-
-  /* BLADILLUSTRATION */
-
-  .hero .hero-projektbox-blad {
-    position: absolute;
-    z-index: 1;
-
-    top: 12px;
-    left: 0;
-
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-
-    transform: none;
-    pointer-events: none;
-  }
-
-  /* TEXT FRAMFÖR BLADET */
-
-  .hero .hero-projektbox .hero-text {
-    position: relative;
-    z-index: 2;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    max-width: 100%;
-
-    margin: 0;
-    padding-left: 65px;
-  }
-
-  .hero .hero-projektbox .hero-text span {
-    display: block;
-
-    font-size: 11px;
-    line-height: 1.4;
-
-    white-space: normal;
-    overflow-wrap: break-word;
-  }
-
-  .hero .hero-projektbox .hero-text span:nth-child(3) {
-    font-size: 16px;
-  }
-
   /* SE MINA PROJEKT */
 
   .hero .hero-projektbox .kontakt-knapp {
@@ -2512,38 +2410,6 @@ body.morkt-lage .hero
 
 @media (min-width: 1000px) and (max-width: 1100px) {
 
-  /* YTTRE DUBBELRAM */
-
-  .hero .hero-projektbox {
-    position: relative;
-
-    width: 200px;
-    max-width: 100%;
-
-    margin-top: -75px;
-    padding: 4px;
-
-    transform: none;
-  }
-
-  /* INRE RAM */
-
-  .hero .hero-projektbox-inre {
-    width: 100%;
-    padding: 10px 8px 12px;
-  }
-
-  /* BLAD OCH TEXT */
-
-  .hero .hero-projektbox-illustration {
-    position: relative;
-
-    width: 100%;
-    min-height: 60px;
-
-    padding: 0px 0 2px;
-  }
-
   /* BLADILLUSTRATION */
 
   .hero .hero-projektbox-blad {
@@ -2570,17 +2436,6 @@ body.morkt-lage .hero
     width: 100%;
     padding-left: 38px;
   }
-
-  .hero .hero-projektbox .hero-text span {
-    font-size: 9px;
-    line-height: 1.3;
-    white-space: normal;
-  }
-
-  .hero .hero-projektbox .hero-text span:nth-child(3) {
-    font-size: 13px;
-  }
-
   /* KNAPP */
 
   .hero .hero-projektbox .kontakt-knapp {
@@ -2598,7 +2453,7 @@ body.morkt-lage .hero
 @media (min-width: 1000px) and (max-width: 1100px) {
 
   .hero .hero-halsning-design {
-    transform: translateX(65px);
+    transform: translate(65px, 65px);
   }
 
   .hero .hero-halsning-blad {
@@ -2632,14 +2487,15 @@ body.morkt-lage .hero
   .hero .hero-bildkolumn {
     margin-top: 80px;
   }
-  }
-
-  /* FLYTTA NOLLI MAP-RUTAN ÅT VÄNSTER */
+   /* FLYTTA NOLLI MAP-RUTAN ÅT VÄNSTER */
 
   .hero .nolli-dokument {
     position: relative;
     left: -75px;
   }
+  }
+
+ 
 
 /* IPAD PRO 13 – FLYTTA NOLLI MAP ÅT VÄNSTER */
 
@@ -2847,49 +2703,6 @@ body.morkt-lage .hero
   }
 }
 /* =========================================
-   HERO – SISTA MOBILJUSTERINGAR
-========================================= */
-
-@media (max-width: 600px) {
-
-  /* 1. RUBRIK INUTI EMMA-KORTET */
-
-  .hero .emma-kort-ovrerubrik {
-    left: 18px;
-    right: 18px;
-    gap: 8px;
-  }
-
-  .hero .emma-kort-ovrerubrik span {
-    font-size: 9px;
-    letter-spacing: 0.04em;
-    white-space: normal;
-    text-align: center;
-  }
-
-  /* 2. DÖLJ DUBBEL UNDERRUBRIK */
-
-  .hero .hero-underrubrik {
-    display: block;
-  }
-
-  /* 3. MINDRE AVSTÅND FÖRE NOLLI MAP */
-
-  .hero .hero-container {
-    gap: 15px;
-  }
-
-  .hero .hero-bildkolumn {
-    margin-top: -130px;
-  }
-  /* KOMPETENSLISTA – ENDAST IPHONE */
-
-.hero .hero-kompetensrad {
-  margin-top: 140px;
-}
-
-}
-/* =========================================
    IPAD MINI – EGNA JUSTERINGAR
    601–999 PX
 ========================================= */
@@ -2960,7 +2773,18 @@ body.morkt-lage .hero
   left: 120px;
   top: 160px;
 }
+/* IPAD MINI – ÅTERSTÄLL ÖVRE TEXTER */
 
+.hero .hero-innehall > .hero-underrubrik {
+  transform: translateY(100px);
+  z-index: 20;
+}
+
+.hero .hero-innehall > .hero-etikett {
+  transform: translateY(79px);
+  z-index: 20;
+}
+}
 /* IPAD MINI – MINSKA TOMRUMMET UNDER BOXARNA */
 
 .hero .hero-container {
@@ -2975,26 +2799,70 @@ body.morkt-lage .hero
 .hero .hero-container {
   transform: translateY(-100px);
 }
-/* IPAD MINI – ÅTERSTÄLL ÖVRE TEXTER */
-
-.hero .hero-innehall > .hero-underrubrik {
-  transform: translateY(100px);
-  z-index: 20;
-}
-
-.hero .hero-innehall > .hero-etikett {
-  transform: translateY(55px);
-  z-index: 20;
-}
 /* IPAD MINI – HUSBILDENS STORLEK */
 
 .hero .emma-kort-bild {
   width: 265px;
   height: 380px;
 }
+
+/* =========================================
+   HERO – SISTA MINI MOBILJUSTERINGAR
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* 1. RUBRIK INUTI EMMA-KORTET */
+
+  .hero .emma-kort-ovrerubrik {
+    left: 18px;
+    right: 18px;
+    gap: 8px;
+  }
+
+  .hero .emma-kort-ovrerubrik span {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* 2. DÖLJ DUBBEL UNDERRUBRIK */
+
+  .hero .hero-underrubrik {
+    display: block;
+  }
+
+  /* 3. MINDRE AVSTÅND FÖRE NOLLI MAP */
+
+  .hero .hero-container {
+    gap: 15px;
+  }
+
+  .hero .hero-bildkolumn {
+    margin-top: -130px;
+  }
+  /* KOMPETENSLISTA – ENDAST IPHONE */
+
+.hero .hero-kompetensrad {
+  margin-top: 140px;
 }
 
+}
 
+/* =========================================
+   IPAD MINI – FOOTERNS PLACERING
+   601–999 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 999px) {
+  .footer {
+    width: 98.5%;
+    max-width: none;
+    margin-left: 6px;
+    transform: none;
+  }
+}
 /* =========================================
    IPAD PRO 13 – EGNA JUSTERINGAR
    1000–1100 PX
@@ -3010,7 +2878,8 @@ body.morkt-lage .hero
     height: 600px;
     box-sizing: border-box;
     transform: scale(0.87);
-transform-origin: top left;
+   transform-origin: top left;
+     margin-bottom: -70px;
   }
 
  /* PRESENTATIONSTEXT – IPAD PRO 13 */
@@ -3079,4 +2948,23 @@ transform-origin: top left;
   left: 160px;
   top: 150px;
 }
+}
+
+/* =========================================
+   IPAD PRO 13 – ÖVRE TEXTER
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  .hero .hero-innehall > .hero-underrubrik {
+    transform: translateY(55px);
+    z-index: 20;
+  }
+
+  .hero .hero-innehall > .hero-etikett {
+    transform: translateY(15px);
+    z-index: 20;
+  }
+
 }
