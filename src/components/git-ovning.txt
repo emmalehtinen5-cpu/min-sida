@@ -1,0 +1,6 @@
+Git i team – vecka 47
+
+Jag arbetar i min första egna branch.
+Min branch heter feature/git-ovning.
+
+Jag övar på Git, GitHub och pull requests.
