@@ -129,10 +129,6 @@ function Hero({ namn, sprak = "sv" }) {
           <p className="hero-underrubrik">
             {text.underrubrik}
           </p>
-
-          <span className="hero-etikett">
-            {text.etikett}
-          </span>
                     <span className="hero-etikett">
             {text.etikett}
           </span>

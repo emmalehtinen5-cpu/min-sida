@@ -796,6 +796,7 @@ body.morkt-lage .kontakt1 .om-mig-temaknapp {
   }
 
   .kontakt-bild {
+    display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -804,6 +805,7 @@ body.morkt-lage .kontakt1 .om-mig-temaknapp {
 
     object-fit: contain;
     object-position: center;
+     transform: none;
   }
 
   /* DEKORATIVA FORMER */
@@ -921,4 +923,33 @@ body.morkt-lage .kontakt1 .om-mig-temaknapp {
     object-position: center;
   }
 
+}
+
+/* =========================================
+   KONTAKT – IPAD MINI
+   ENDAST 601–820 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 820px) {
+  .kontakt1 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .kontakt1 .kontakt-bildkolumn {
+    grid-column: 1;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .kontakt1 .kontakt-bild {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+    object-fit: contain;
+  }
 }
