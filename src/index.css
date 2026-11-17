@@ -8,7 +8,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
 
-  color: #171717;
+  color: #000000;
   background: #F5F3ED;
 
   font-synthesis: none;
@@ -21,12 +21,12 @@
 
   --bakgrund: #F5F3ED;
   --vit: #FFFFFF;
-  --text: #171717;
+  --text: #000000;
 
   --salvia: #A8B5A2;
   --ljus-salvia: #D5DED7;
 
-  --linje: #171717;
+  --linje: #000000;
   --diskret-linje: #D6D6D0;
 
   --text-diskret: #555555;
@@ -63,7 +63,7 @@ body {
   background: #F5F3ED;
   background-image: none;
 
-  color: #171717;
+  color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;

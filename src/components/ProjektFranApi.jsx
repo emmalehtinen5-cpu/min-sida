@@ -60,7 +60,40 @@ function ProjektFranApi() {
   ===================================== */
 
   useEffect(() => {
-    hamtaProjekt();
+    let arAktiv = true;
+
+    const hämtaProjektVidStart = async () => {
+      setLaddar(true);
+      setFel(null);
+
+      try {
+        const svar = await fetch("http://localhost:3001/projekt");
+
+        if (!svar.ok) {
+          throw new Error("Kunde inte hämta projekt");
+        }
+
+        const data = await svar.json();
+
+        if (arAktiv) {
+          setProjekt(data);
+        }
+      } catch {
+        if (arAktiv) {
+          setFel("Kunde inte hämta projekt");
+        }
+      } finally {
+        if (arAktiv) {
+          setLaddar(false);
+        }
+      }
+    };
+
+    hämtaProjektVidStart();
+
+    return () => {
+      arAktiv = false;
+    };
   }, []);
 
 

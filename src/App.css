@@ -779,7 +779,7 @@ body.morkt-lage .merit-grupper .kompetens-rubrik span {
   padding: 0.85rem 1.5rem;
 
   background: var(--salvia);
-  color: #171717;
+  color: #000000;
 
   border: 1px solid var(--salvia);
   border-radius: 0;
@@ -801,7 +801,7 @@ body.morkt-lage .merit-grupper .kompetens-rubrik span {
 
 .design-knapp:hover {
   background: #d5ded7;
-  color: #171717;
+  color: #000000;
 }
 
 .design-knapp:focus-visible {
@@ -1346,4 +1346,100 @@ body.morkt-lage .hem-innehall .om-mig-temaknapp {
     transform: none;
   }
 
+}
+
+/* =========================================
+   ADMIN – KONTAKTMEDDELANDEN
+   AVSTÅND OCH LAYOUT
+========================================= */
+
+.admin-meddelanden {
+  width: 100%;
+  min-width: 0;
+
+  padding: 90px var(--sidmarginal) 60px;
+
+  background: var(--bakgrund);
+  color: var(--text);
+}
+
+.admin-meddelanden h1 {
+  margin: 0 0 30px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+
+/* =========================================
+   STUDIO92 – MOBIL
+   LINJERA A, S, S OCH W
+========================================= */
+
+@media (max-width: 600px) {
+  .startsida-ram:has(.studio92) > .sid-underrubrik {
+    transform: translate(21px, 23px);
+  }
+}
+
+
+
+/* =========================================
+   KONTAKT – MOBIL
+   LINJERA A, K OCH K
+========================================= */
+
+@media (max-width: 600px) {
+  .startsida-ram:has(.kontakt1) > .sid-underrubrik {
+    transform: translate(21px, 23px);
+  }
+}
+
+
+/* =========================================
+   OM MIG – MOBIL
+   JUSTERA GEMENSAM UNDERRUBRIK
+========================================= */
+
+@media (max-width: 600px) {
+  .startsida-ram:has(.om-mig-innehall) > .sid-underrubrik {
+    transform: translate(7px, 44px);
+  }
+}
+
+
+/* =========================================
+   ENHETLIG MÖRK BAKGRUND – ALLA SIDOR
+========================================= */
+
+/* Yttre ram och huvudområde */
+
+body.morkt-lage .startsida-ram {
+  background-color: #1d2521;
+}
+
+body.morkt-lage .startsida-ram > .app-innehall {
+  background-color: #1d2521;
+}
+
+/* Underrubriker ovanför sidornas innehåll */
+
+body.morkt-lage .startsida-ram > .sid-underrubrik {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+/* Startsidan */
+
+body.morkt-lage .hem-innehall {
+  background-color: #1d2521;
+}
+/* IPAD – GEMENSAM YTTRE RAM */
+@media (min-width: 601px) and (max-width: 1100px) {
+  .startsida-ram {
+    width: calc(100% - 12px);
+    margin: 6px auto 0;
+  }
 }

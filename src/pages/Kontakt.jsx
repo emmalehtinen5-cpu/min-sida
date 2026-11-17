@@ -8,7 +8,7 @@
 
 import { useState } from "react";
 
-import arkitekturBild from "../assets/bildsspel.png";
+import kontaktBild from "../assets/kontaktsida2.png";
 
 import "./Kontakt.css";
 
@@ -456,7 +456,7 @@ function Kontakt({
 
           <img
             className="kontakt-bild"
-            src={arkitekturBild}
+            src={kontaktBild}
             alt={text.bildAlt}
           />
 

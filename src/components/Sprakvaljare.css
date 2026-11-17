@@ -1,122 +1,470 @@
 
-/* SPRÅKVÄLJARE */
+/* =========================================
+   SPRÅKVÄLJARE – STUDIO92
+   JORDGLOB / FLAGGOR / SPRÅKVAL
+========================================= */
+
+
+/* =========================================
+   01 – SPRÅKVÄLJARE / HUVUDBEHÅLLARE
+========================================= */
 
 .sprakvaljare {
   position: relative;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center;
 
-  width: fit-content;
-  height: auto;
-  min-height: 0;
-  padding: 9px;
+  width: 140px;
+  padding: 3.5px;
 
   background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
+
+  transform: translate(269px, 3px);
+
 }
-/* JORDGLOB OCH FLAGGOR */
+
+
+/* =========================================
+   02 – JORDGLOB OCH FLAGGOR / BEHÅLLARE
+========================================= */
 
 .sprakvaljare-symboler {
-  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 35px;
-  height: 18px;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 100px;
+  gap: 8px;
+}
+
+
+/* =========================================
+   03 – SPRÅKKNAPP / RUNDAD DESIGN
+========================================= */
+
+.sprakvaljare-glob {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 210px;
+  height: 50px;
+  padding: 0 16px;
+
+  border: 2px solid #000000;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #000000;
+
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 400;
+
+  cursor: pointer;
+  filter: none;
+}
+
+/* INRE SVART LINJE MED GENOMSKINLIGT MELLANRUM */
+
+.sprakvaljare-glob::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+
+  border: 2px solid #000000;
+  border-radius: 999px;
+
+  background: transparent;
+  pointer-events: none;
+}
+
+.sprakvaljare-glob {
+  /* Behåll dina övriga befintliga värden */
+
+  border: 2px solid #000000;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sprakvaljare-glob::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px solid #000000;
+  border-radius: 999px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.sprakvaljare-glob svg:not(.sprakvaljare-pil) {
+  display: block;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 
-/* KLICKBAR JORDGLOB */
-
-.sprakvaljare-glob {
-  position: absolute;
-  left: 35%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 35px;
-  height: 35px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-
-  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.3));
+.sprakvaljare-text {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+   font-family: Arial, sans-serif;
+  font-weight: 500;
+  font-size: 17px;
 }
 
-/* TRE KLICKBARA FLAGGOR */
+
+/* =========================================
+   04 – SPRÅKMENY / RUNDAD DESIGN
+========================================= */
 
 .sprakvaljare-flaggor {
   position: absolute;
-  right: -7px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 51px;
+  left: 50%;
+  transform: translateX(-50%);
 
   display: flex;
   flex-direction: column;
-  gap: 0;
+  align-items: stretch;
+  justify-content: center;
+
+  width: 100px;
+  padding: 3.5px 3.5px;
+  gap: 1.5px;
+
+  background: transparent;
+
+
+  z-index: 20;
 }
+
+
+/* =========================================
+   05 – SPRÅKMENY / TEXT OCH UTFORMNING
+========================================= */
 
 .sprakvaljare-flagga {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  width: 19px;
-  height: 12px;
-  padding: 0;
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
 
   border: none;
   background: transparent;
 
-  font-size: 47px;
+  color: #000000;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
   line-height: 1;
+
+  text-align: left;
   cursor: pointer;
 }
 
-/* HOVER PÅ FLAGGORNA */
+
+/* =========================================
+   06 – SPRÅKMENY / HOVER
+========================================= */
+
+.sprakvaljare-flagga:hover {
+  background: transparent;
+  transform: none;
+  transition: background 0.2s ease;
+}
+
+
+/* =========================================
+   07 – FLAGGOR / HOVER-EFFEKT
+========================================= */
 
 .sprakvaljare-flagga:hover {
   transform: scale(1.15);
 }
 
-/* TANGENTBORDSFOKUS */
+
+/* =========================================
+   08 – TANGENTBORD / FOKUS
+========================================= */
 
 .sprakvaljare-flagga:focus-visible,
 .sprakvaljare-glob:focus-visible {
-  outline: 2px solid #171717;
+  outline: 2px solid #000000;
   outline-offset: 2px;
 }
-.sprakvaljare-flagga:last-child {
-  position: relative;
-  top: 34px;
-  left: 2.5px
-}
-.sprakvaljare-flagga:nth-child(2) {
-  position: relative;
-  top: 17px;
-  left: 10px;
-}
 
-.sprakvaljare-flagga:first-child {
-  position: relative;
-  left: 15px;
-}
 
 /* =========================================
-   JORDGLOB – VITA LINJER I MÖRKT LÄGE
+   09 – MÖRKT LÄGE / JORDGLOB
 ========================================= */
 
 body.morkt-lage .sprakvaljare-glob svg circle,
 body.morkt-lage .sprakvaljare-glob svg ellipse,
 body.morkt-lage .sprakvaljare-glob svg path {
   stroke: #ffffff;
+}
+
+
+/* =====================================
+   RAKA FLAGGOR – UTAN RUNDA HÖRN
+===================================== */
+
+.sprakvaljare-flagga img {
+  display: block;
+  width: 32px;
+  height: 22px;
+  object-fit: fill;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+/* =========================================
+   11 – FLAGGOR UTAN MARKERINGSRAM
+========================================= */
+
+.sprakvaljare-flagga,
+.sprakvaljare-flagga.aktiv {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.sprakvaljare-flagga img,
+.sprakvaljare-flagga.aktiv img {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* =========================================
+   12 – PIL FÖR UTFÄLLBAR SPRÅKMENY
+========================================= */
+
+.sprakvaljare-glob svg.sprakvaljare-pil {
+  position: static;
+
+  display: block;
+  width: 18px;
+  height: 18px;
+
+  min-width: 18px;
+  max-width: 18px;
+
+  flex-shrink: 0;
+  color: #000000;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   13 – TRANSPARENT BAKGRUND / SPRÅKKNAPP
+========================================= */
+
+.sprakvaljare .sprakvaljare-glob {
+  background-color: transparent;
+}
+
+
+/* =========================================
+   14 – SPRÅKMENY / BREDD OCH PILAR
+========================================= */
+
+/* Längre språkknappar */
+.sprakvaljare .sprakvaljare-flaggor {
+  width: 308px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* En språkknapp per rad */
+.sprakvaljare .sprakvaljare-flagga {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 296px;
+  margin-inline: auto;
+  min-height: 22px;
+  height: auto;
+  padding: 0 4px;
+  gap: 5.5px;
+
+  box-sizing: border-box;
+}
+
+/* Språktext på en enda rad */
+.sprakvaljare .sprakvaljare-alternativ-text {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #000000;
+}
+
+/* Mindre högerpilar */
+.sprakvaljare .sprakvaljare-flagga svg.sprakvaljare-hogerpil {
+  display: block;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   14 – INDIVIDUELLA RAMAR RUNT SPRÅKEN
+========================================= */
+
+.sprakvaljare .sprakvaljare-flagga {
+  border: 0.11px solid #000000;
+  border-radius: 699px;
+
+  background: transparent;
+
+  box-shadow:
+    0 0 0 0.5px transparent,
+    0 0 0 0.5px #000000;
+}
+
+
+/* =========================================
+   15 – SMÅ JORDGLOBER FRAMFÖR SPRÅKEN
+========================================= */
+
+.sprakvaljare .sprakvaljare-liten-jordglob {
+  display: block;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  flex-shrink: 0;
+  color: #000000;
+}
+
+.sprakvaljare::before,
+.sprakvaljare::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 121px;
+  width: 1px;
+  background: #000000;
+}
+
+.sprakvaljare::before {
+  left: -105px;
+}
+
+.sprakvaljare::after {
+  right: -105px;
+}
+
+.sprakvaljare-engelska {
+  font-size: 13px;
+}
+
+/* =========================================
+   16 – SPRÅKVÄLJARE / MOBILANPASSNING
+========================================= */
+
+@media (max-width: 600px) {
+
+  .sprakvaljare {
+    transform: none;
+  }
+
+  .sprakvaljare::before,
+.sprakvaljare::after {
+  display: none;
+}
+}
+
+/* =========================================
+   DARK MODE – LODRÄTA LINJER
+========================================= */
+
+body.morkt-lage .sprakvaljare::before,
+body.morkt-lage .sprakvaljare::after {
+  background: #ffffff;
+}
+
+/* =========================================
+   DARK MODE – LJUSA RAMAR
+========================================= */
+
+body.morkt-lage .sprakvaljare-glob,
+body.morkt-lage .sprakvaljare-glob::after,
+body.morkt-lage .sprakvaljare .sprakvaljare-flagga {
+  border-color: #ffffff;
+}
+
+body.morkt-lage .sprakvaljare .sprakvaljare-flagga {
+  box-shadow:
+    0 0 0 0.5px transparent,
+    0 0 0 0.5px #ffffff;
+}
+
+/* =========================================
+   DARK MODE – ALLT VITT
+   SPRÅKVÄLJARE OCH DEKORATIVA LINJER
+========================================= */
+
+/* Alla texter, jordglober och pilar */
+body.morkt-lage .sprakvaljare,
+body.morkt-lage .sprakvaljare button,
+body.morkt-lage .sprakvaljare span,
+body.morkt-lage .sprakvaljare svg {
+  color: #ffffff;
+}
+
+/* Alla ramar */
+body.morkt-lage .sprakvaljare-glob,
+body.morkt-lage .sprakvaljare-glob::after,
+body.morkt-lage .sprakvaljare .sprakvaljare-flagga {
+  border-color: #ffffff;
+}
+
+/* Extra ram runt språkknapparna */
+body.morkt-lage .sprakvaljare .sprakvaljare-flagga {
+  box-shadow: 0 0 0 0.5px #ffffff;
+}
+
+/* Lodräta linjer */
+body.morkt-lage .sprakvaljare::before,
+body.morkt-lage .sprakvaljare::after {
+  background: #ffffff;
+}
+
+/* Säkerställ att jordglober och pilar är vita */
+body.morkt-lage .sprakvaljare svg circle,
+body.morkt-lage .sprakvaljare svg ellipse,
+body.morkt-lage .sprakvaljare svg path {
+  stroke: #ffffff;
+}
+
+/* Språkalternativens text */
+body.morkt-lage .sprakvaljare .sprakvaljare-alternativ-text {
+  color: #ffffff;
 }

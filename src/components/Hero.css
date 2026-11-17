@@ -18,11 +18,9 @@
 
 .hero {
   position: relative;
-
   width: 100%;
   margin: 0;
   padding: 0;
-
   overflow: hidden;
 
   background: #f5f3ed;
@@ -31,14 +29,13 @@
 
 .hero::after {
   content: "";
-
   position: absolute;
   bottom: 0;
   left: 4%;
   right: 4%;
 
   height: 2px;
-  background: #171717;
+  background: #000000;
 }
 
 .startsida-ram .hero::after {
@@ -58,12 +55,14 @@
 
   align-items: start;
   column-gap: 43px;
+  row-gap: 0;
 
   width: 100%;
-  max-width: none;
+  max-width: 100%;
 
-  margin: 0 auto;
-  padding: 24px 29px 55px;
+  margin: 0;
+  padding-top: 45px;
+  padding-bottom: 55px;
 }
 
 /* =========================================
@@ -96,10 +95,9 @@
   width: 48px;
   height: 2px;
 
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 
   background: #000000;
-
   transform: none;
 }
 
@@ -124,14 +122,8 @@
 }
 
 /* =========================================
-   BYT PLATS PÅ UNDERRUBRIK OCH ÖVRE LINJE
-   UTAN ATT FLYTTA RESTEN AV INNEHÅLLET
+   ORDNING – UNDERRUBRIK OCH ÖVRE LINJE
 ========================================= */
-
-.hero .hero-innehall {
-  display: flex;
-  flex-direction: column;
-}
 
 .hero .hero-innehall > .hero-underrubrik {
   order: -2;
@@ -146,6 +138,8 @@
 ========================================= */
 
 .hero .hero-rubrik {
+  position: relative;
+  top: 0;
   display: flex;
   flex-direction: column;
 
@@ -155,7 +149,6 @@
   padding: 0;
 
   font-family: Georgia, "Times New Roman", serif;
-
   font-size: 52px;
   font-weight: 400;
 
@@ -176,9 +169,10 @@
 .hero .hero-linje {
   width: 48px;
   height: 2px;
+  position: relative;
+  top: 0;
 
-  margin: 15px 0 24px;
-  margin-bottom: 15px;
+  margin: 1px 0 15px;
 
   background: #000000;
 }
@@ -188,8 +182,11 @@
 ========================================= */
 
 .hero .hero-introtext {
-  width: 100%;
-  max-width: 500px;
+  width: 77%;
+  max-width: none;
+  position: relative;
+  top: 0px;
+  left: 65%;
 
   margin: 0;
   padding: 0;
@@ -198,11 +195,23 @@
   text-align: left;
 }
 
-/* FLYTTA ENDAST PRESENTATIONSTEXTEN NEDÅT */
-
 .hero .hero-introtext .merit-introduktion {
   position: relative;
-  top: 29px;
+  top: 75px;
+  left: -69.5px;
+
+  display: block;
+  width: 155%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  
+
 }
 
 .hero .hero-introtext .startsida-intro {
@@ -211,30 +220,16 @@
   align-items: flex-start;
 
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
 
-  gap: 0;
-
-  margin: 0;
-  padding: 0;
-}
-
-.hero .hero-introtext .merit-introduktion {
-  display: block;
-
-  width: 100%;
+  gap: 1px;
 
   margin: 0;
   padding: 0;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
 }
 
 .hero .hero-introtext .merit-programlista {
   display: block;
-
   width: 100%;
 
   margin: 0;
@@ -250,154 +245,26 @@
 .hero .hero-introtext .merit-programlista li,
 .hero .hero-introtext .merit-introduktion p,
 .hero .hero-introtext .startsida-intro p:not(.hero-text) {
-  margin: 0;
-  padding: 0;
+  
+width: 100%;
+max-width: 100%;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 400;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 15px;
+font-weight: 500;
+text-transform: none;
 
-  line-height: 1.7;
-  letter-spacing: 0;
+line-height: 1.5;
+letter-spacing: normal;
 
-  text-align: justify;
-  text-align-last: left;
+text-align: left;
+text-align-last: left;
 
-  color: #000000;
+overflow-wrap: normal;
+hyphens: none;
 
-  overflow-wrap: normal;
-  hyphens: auto;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
 }
 
-/* =========================================
-   SEPARAT INTROTEXT / FRÅGA
-========================================= */
-
-.hero .hero-introtext .hero-text {
-  display: block;
-
-  width: 100%;
-
-  margin: 165px 0 0;
-  padding: 0;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 700;
-
-  line-height: 1.6;
-  letter-spacing: 0.035em;
-
-  text-transform: uppercase;
-  text-align: left;
-
-  color: #000000;
-
-  /* Perspektiv för de tre textraderna */
-  perspective: 800px;
-}
-
-/* =========================================
-   HERO-TEXT – 3D-ANIMATION
-========================================= */
-
-.hero .hero-introtext .hero-text span {
-  display: block;
-
-  transform-origin: center center;
-
-  animation: heroText3D 1.5s ease-out both;
-}
-
-/* EXEMPEL 12 – FRÄMSTA TEXTRADEN */
-
-.hero .hero-introtext .hero-text span:nth-child(3) {
-  font-size: 18px;
-  color: #263d30;
-}
-
-/* =========================================
-   HERO-TEXT – FÖRDRÖJNING MELLAN RADER
-========================================= */
-
-.hero .hero-introtext .hero-text span:nth-child(1) {
-  animation-delay: 0s;
-  color: #748775;
-}
-
-.hero .hero-introtext .hero-text span:nth-child(2) {
-  animation-delay: 0.35s;
-   color: #536e59;
-}
-
-.hero .hero-introtext .hero-text span:nth-child(3) {
-  animation-delay: 0.7s;
-}
-
-
-@keyframes heroText3D {
-  0% {
-    opacity: 0;
-    transform: translateZ(-250px) rotateX(25deg);
-    text-shadow: 0 12px 18px rgba(0, 0, 0, 0.20);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateZ(-35px) rotateX(5deg);
-    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.14);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateZ(0) rotateX(0deg);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
-  }
-}
-
-/* =========================================
-   EXEMPEL 12 – DISKRET SLUTPERSPEKTIV
-   ENDAST SISTA TEXTRADEN
-========================================= */
-
-.hero .hero-introtext .hero-text span:nth-child(3) {
-  animation-name: heroText3DFramre;
-}
-
-@keyframes heroText3DFramre {
-  0% {
-    opacity: 0;
-    transform: translateZ(-250px) rotateX(25deg);
-    text-shadow: 0 12px 18px rgba(0, 0, 0, 0.20);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateZ(-35px) rotateX(5deg);
-    text-shadow: 0 6px 10px rgba(0, 0, 0, 0.14);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateZ(12px) rotateX(-2deg);
-    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
-  }
-}
-
-
-/* TILLGÄNGLIGHET – MINSKAD RÖRELSE */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero .hero-introtext .hero-text span {
-    animation: none;
-  }
-}
 
 /* =========================================
    KNAPP – SE MINA PROJEKT
@@ -405,18 +272,16 @@
 
 .hero .hero-knapp {
   display: inline-flex;
-
   align-items: center;
   justify-content: space-between;
 
-  gap: 26px;
-  min-width: 220px;
+  gap: 0px;
+  min-width: 0px;
 
-  margin-top: 26px;
-  padding: 14px 19px;
+  margin-top: 0px;
+  padding: 0px 0px;
 
   font-family: Arial, Helvetica, sans-serif;
-
   font-size: 13px;
   font-weight: 600;
 
@@ -447,9 +312,10 @@
 }
 
 .hero .hero-knapp:focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid #000000;
   outline-offset: 4px;
 }
+
 
 /* =========================================
    SE MINA PROJEKT – SAMMA STIL SOM KONTAKT
@@ -459,17 +325,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 16px;
 
-  width: fit-content;
-  max-width: 100%;
-
-  margin-top: 26px;
+  width: max-content;
+  max-width: none;
+flex-shrink: 0;
+  margin-top: 0;
   padding: 15px 24px;
 
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 
   border: 1px solid #a8b5a2;
   border-radius: 0;
@@ -478,12 +343,12 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 600;
-
   letter-spacing: 0.08em;
   line-height: 1.4;
 
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
 
   cursor: pointer;
 
@@ -492,283 +357,15 @@
     transform 0.2s ease;
 }
 
+
 .hero .kontakt-knapp:hover {
   background: #d5ded7;
   transform: translateY(-2px);
 }
 
 .hero .kontakt-knapp:focus-visible {
-  outline: 2px solid #171717;
+  outline: 2px solid #000000;
   outline-offset: 4px;
-}
-
-/* =========================================
-   HÖGER KOLUMN – BILD
-========================================= */
-
-.hero .hero-bildkolumn {
-  position: relative;
-  z-index: 1;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-
-  width: 100%;
-  min-width: 0;
-
-  margin: 0;
-  padding: 0;
-}
-
-.hero .hero-bildram {
-  position: relative;
-  isolation: isolate;
-
-  width: 100%;
-  height: 700px;
-
-  margin: 0;
-  padding: 0;
-
-  overflow: visible;
-}
-
-/* =========================================
-   DEKORATIVA GRÖNA FORMER
-========================================= */
-
-.hero .hero-form {
-  position: absolute;
-
-  display: block;
-
-  pointer-events: none;
-  border-radius: 0;
-}
-
-/* BAKRE FORM */
-
-.hero .hero-form-bakre {
-  z-index: 1;
-
-  top: 4%;
-  right: -2%;
-
-  width: 48%;
-  height: 32%;
-
-  background: rgba(168, 181, 162, 0.48);
-}
-
-/* FRÄMRE FORM */
-
-.hero .hero-form-framre {
-  z-index: 2;
-
-  top: 26%;
-  left: -4%;
-
-  width: 45%;
-  height: 30%;
-
-  background: rgba(213, 222, 215, 0.68);
-}
-
-/* NEDRE FORM */
-
-.hero .hero-form-nedre {
-  z-index: 1;
-
-  bottom: 5%;
-  right: 8%;
-
-  width: 35%;
-  height: 20%;
-
-  background: rgba(168, 181, 162, 0.30);
-}
-
-/* =========================================
-   ARKITEKTURBILD
-========================================= */
-
-.hero .hero-bild {
-  position: absolute;
-  z-index: 4;
-
-  top: -20px;
-  left: 0;
-
-  display: block;
-
-  width: 100%;
-  height: calc(100% + 40px);
-
-  max-width: none;
-
-  object-fit: cover;
-  object-position: left center;
-
-  transform: none;
-
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-/* =========================================
-   CITAT UNDER BILDEN
-========================================= */
-
-.hero .hero-citatomrade {
-  position: relative;
-  z-index: 5;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  width: 100%;
-
-  margin: -38px 0 0;
-  padding: 0;
-}
-
-.hero .hero-citat {
-  width: 100%;
-  max-width: 390px;
-
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 15px;
-  font-style: italic;
-  font-weight: 400;
-
-  line-height: 1.4;
-
-  text-align: right;
-
-  color: #000000;
-  white-space: nowrap;
-  transform: translateX(-40px);
-}
-
-.hero .hero-citat::before {
-  content: "“";
-}
-
-.hero .hero-citat::after {
-  content: "”";
-}
-
-.hero .hero-citat-linje {
-  width: 80px;
-  height: 2px;
-
-  margin-top: 6px;
-
-  background: #000000;
-}
-
-/* =========================================
-   MÖRKT LÄGE
-========================================= */
-
-body.morkt-lage .hero {
-  background: #4a5a50;
-  color: #f5f3ed;
-}
-
-body.morkt-lage .hero .hero-rubrik,
-body.morkt-lage .hero .hero-rubrik span,
-body.morkt-lage .hero .hero-underrubrik {
-  color: #f5f3ed;
-}
-
-body.morkt-lage .hero .hero-introtext,
-body.morkt-lage .hero .hero-introtext .merit-programlista li,
-body.morkt-lage .hero .hero-introtext .merit-introduktion p,
-body.morkt-lage .hero .hero-introtext .startsida-intro p {
-  color: #f5f3ed;
-}
-
-body.morkt-lage .hero .hero-introtext .hero-text {
-  color: #f5f3ed;
-}
-
-body.morkt-lage .hero .hero-ovre-linje,
-body.morkt-lage .hero .hero-linje,
-body.morkt-lage .hero .hero-citat-linje,
-body.morkt-lage .hero::after {
-  background: #a8b5a2;
-}
-
-body.morkt-lage .hero .hero-citat {
-  color: #f5f3ed;
-}
-
-body.morkt-lage .hero .hero-knapp {
-  background: #a8b5a2;
-  color: #000000;
-
-  border-color: #a8b5a2;
-}
-
-body.morkt-lage .hero .hero-knapp:hover {
-  background: #d5ded7;
-  color: #000000;
-}
-
-body.morkt-lage .hero .hero-knapp:focus-visible {
-  outline-color: #f5f3ed;
-}
-
-/* =========================================
-   DEKORATIVA FORMER – MÖRKT LÄGE
-========================================= */
-
-body.morkt-lage .hero .hero-form-bakre {
-  background: rgba(168, 181, 162, 0.35);
-}
-
-body.morkt-lage .hero .hero-form-framre {
-  background: rgba(168, 181, 162, 0.25);
-}
-
-body.morkt-lage .hero .hero-form-nedre {
-  background: rgba(168, 181, 162, 0.20);
-}
-
-/* =========================================
-   ÖVERGÅNGAR
-========================================= */
-
-.hero,
-.hero .hero-rubrik,
-.hero .hero-underrubrik,
-.hero .hero-introtext,
-.hero .hero-citat {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-/* =========================================
-   TILLGÄNGLIGHET
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .hero .hero-knapp,
-  .hero,
-  .hero .hero-rubrik,
-  .hero .hero-underrubrik,
-  .hero .hero-introtext,
-  .hero .hero-citat {
-    transition: none;
-  }
 }
 
 /* =========================================
@@ -794,13 +391,7 @@ body.morkt-lage .hero .hero-form-nedre {
   line-height: 1.5;
   text-transform: uppercase;
 
-  transform: translateY(-60px);
-}
-
-/* MÖRKT LÄGE */
-
-body.morkt-lage .hero .hero-etikett {
-  color: #a8b5a2;
+  transform: translateY(-45px);
 }
 
 /* =========================================
@@ -816,26 +407,21 @@ body.morkt-lage .hero .hero-etikett {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 22px;
   font-weight: 400;
-  font-style: none;
-  text-transform: uppercase;
+  font-style: normal;
 
+  text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.4;
-   width: 100%;
-text-align: center;
-align-self: stretch;
-transform: translate(440px, -85px);
-margin-bottom: -30px;
 
-  color: #56675d;
+  width: 100%;
+  text-align: center;
+  align-self: stretch;
+
+  transform: translate(440px, -85px);
+  margin-bottom: -30px;
+
+  color: #000000;
 }
-
-/* MÖRKT LÄGE */
-
-body.morkt-lage .hero .hero-halsning {
-  color: #d5ded7;
-}
-
 
 /* =========================================
    HÄLSNING – FINSK RETRODESIGN
@@ -855,72 +441,6 @@ body.morkt-lage .hero .hero-halsning {
   padding: 0;
 
   transform: translateX(530px);
-}
-
-/* =========================================
-   SOL / MÅNE
-========================================= */
-
-.hero .hero-halsning-natur {
-  position: relative;
-  flex: 0 0 165px;
-
-  width: 165px;
-  height: 125px;
-
-  color: #405c48;
-}
-
-
-.hero .hero-halsning-sol {
-  position: absolute;
-
-  top: 0px;
-  left: 80px;
-
-  width: 95px;
-  height: 95px;
-
-  border-radius: 50%;
-  -webkit-mask-image: linear-gradient(
-  to bottom,
-  black 0%,
-  black 45%,
-  transparent 100%
-);
-
-mask-image: linear-gradient(
-  to bottom,
-  black 0%,
-  black 45%,
-  transparent 100%
-);
-
-  background: linear-gradient(
-    to bottom,
-   #b9ad7d 0%,
-  #d4c9a5 40%,
-  #f5f3ed 75%
-  );
-}
-
-
-/* =========================================
-   TRE DETALJERADE GRANAR
-========================================= */
-
-.hero .hero-halsning-granar {
-  position: absolute;
-  z-index: 2;
-
-  left: -10px;
-  bottom: 29px;
-
-  width: 170px;
-  height: 90px;
-
-  color: #405c48;
-  transform: translateX(25px);
 }
 
 /* =========================================
@@ -949,96 +469,593 @@ mask-image: linear-gradient(
   text-transform: uppercase;
   white-space: nowrap;
 
-  color: #344F3B;
+  color: #000000;
 
-  transform: translate(2px,49px);
+  transform: translate(231.5px, 17px);
 }
 
 /* =========================================
-   TRE RAKA HORISONTELLA LINJER
+   DEKORATIV BLADKVIST
 ========================================= */
 
-.hero .hero-halsning-linjer {
-  position: absolute;
-  z-index: 4;
+.hero-halsning-blad {
+  position: relative;
+  right: 0px;
+  top: -34px;
 
-  left: 31px;
-  right: 130px;
-  bottom: 29.5px;
+  transform: translateX(110px) scale(0.85);
+}
+
+/* =========================================
+   NOLLI-KARTA – GRUNDLAYOUT
+========================================= */
+
+.hero .hero-bildkolumn {
+  min-width: 0;
+}
+
+/* BEHÅLLARE – KARTA */
+
+.hero .hero-bildram {
+  position: relative;
+  isolation: isolate;
+
+  width: 1255px;
+  height: 255px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: visible;
+  clip-path: none;
+
+  border: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   KARTBILD – STORLEK OCH PLACERING
+========================================= */
+
+.hero .hero-bild {
+  position: absolute;
+  z-index: 0;
+
+  top: -25px;
+  left: -360.5px;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  opacity: 0.95;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: scale(0.77);
+  transform-origin: left center;
+  clip-path: inset(0 0 20% 0);
+}
+
+/* INGEN EXTRA RAM */
+
+.hero .hero-bildram::after {
+  content: none;
+}
+
+/* =========================================
+   NOLLI MAP – GEMENSAM DUBBELRAM
+========================================= */
+
+.hero .nolli-kort {
+  position: relative;
+
+  width: 75.5%;
+  padding: 18px;
+
+  border: 2.5px solid #000000;
+  outline: 1px solid #000000;
+  outline-offset: -12.5px;
+
+  background: #f5f3ed;
+
+  margin-top: 99px;
+  margin-left: 155px;
+  height: 400px;
+}
+
+/* =========================================
+   NOLLI – ÖVRE RUBRIK
+========================================= */
+
+.hero .nolli-ovre-rubrik {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  width: 100%;
+  margin: 0 0 15px;
+}
+
+/* HORISONTELLA LINJER */
+
+.hero .nolli-ovre-rubrik::before,
+.hero .nolli-ovre-rubrik::after {
+  content: "";
+
+  flex: 1;
+  height: 1px;
+
+  background: #000000;
+}
+
+/* TEXT – PIANTA GRANDE DI ROMA */
+
+.hero .nolli-ovre-rubrik span {
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* =========================================
+   NOLLI – LODRÄT LINJE
+========================================= */
+
+.hero .nolli-vertikal-linje {
+  position: absolute;
+
+  top: -250px;
+  left: 52%;
+
+  width: 1px;
+  height: 150px;
+
+  background: #000000;
+}
+/* =========================================
+   NOLLI MAP – TITEL TILL HÖGER
+========================================= */
+
+.hero .nolli-titel {
+  position: absolute;
+
+  top: -250px;
+  left: 56%;
+
+  width: 34%;
 
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: flex-start;
 }
 
-.hero .hero-halsning-linjer span {
+/* TEXT – NOLLI MAP */
 
-  display: none;
+.hero .nolli-titel span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 33px;
+  font-style: none;
+  font-weight: 400;
+
+  color: #000000;
+  white-space: nowrap;
 }
 
-.hero .hero-halsning-linjer span:first-child {
-  display: block;
+/* HORISONTELL LINJE UNDER TITELN */
+
+.hero .nolli-titel-linje {
   width: 100%;
-  height: 3px;
-  background: #405c48;
+  height: 1px;
+
+  margin-top: 12px;
+  background: #000000;
 }
 
+/* =========================================
+   INFORMATION UNDER KARTAN
+========================================= */
+
+.hero .nolli-information {
+  display: block;
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 0;
+  padding: 0;
+
+  border-top: none;
+  border-bottom: none;
+}
+
+/* =========================================
+   NOLLI – NAMN OCH ÅRTAL
+========================================= */
+
+.hero .nolli-titel .nolli-titel-artal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+
+  color: #000000;
+
+  margin-top: 12px;
+  white-space: normal;
+  transform: translate(11.5px, 7px);
+
+}
+
+/* =========================================
+   ENGELSK INFORMATIONSTEXT
+========================================= */
+
+.hero .nolli-beskrivning {
+  position: relative;
+
+  left: 14px;
+  top: -85.5px;
+
+  width: calc(100% - 15px);
+max-width: calc(100% - 40px);
+
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 13.9px;
+  font-weight: 400;
+  line-height: 1.45;
+
+  color: #000000;
+  text-align: left;
+}
+
+.hero .nolli-beskrivning strong {
+  font-weight: 700;
+}
+/* =========================================
+   PROJEKTKNAPP – PIL
+========================================= */
+
+.hero .kontakt-knapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero .kontakt-knapp-pil {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   EMMA LEHTINEN – DUBBELRAM
+   ENDAST VÄNSTER BOX
+========================================= */
+
+.hero .emma-kort {
+  position: relative;
+
+  width: 700px;
+  max-width: none;
+
+  padding: 100px 200px 80px;
+
+  background: #f5f3ed;
+
+  border: 2.5px solid #000000;
+  outline: 1px solid #000000;
+  outline-offset: -12.5px;
+  
+
+  display: justify;
+flex-direction: column;
+align-items: left;
+}
+/* EMMA LEHTINEN – EN RAD */
+
+.hero .emma-kort .hero-rubrik {
+  width: 100%;
+  font-size: 42px;
+  white-space: nowrap;
+  letter-spacing: -0.055em;
+}
+/* SVART LINJE UNDER EMMA LEHTINEN */
+
+.hero .emma-kort .hero-rubrik span {
+  display: inline-block;
+  width: max-content;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 5px;
+}
+
+/* NAMNETS PLACERING */
+
+.hero .emma-kort .hero-rubrik {
+  position: relative;
+  top: -40px;
+  left: -170px;
+}
+
+/* KNAPPENS PLACERING */
+
+.hero .emma-kort .kontakt-knapp {
+  position: relative;
+  top: 50px;
+  left: 235px;
+}
+
+/* =========================================
+   EMMA-KORT – ÖVRE RUBRIK MED LINJER
+========================================= */
+
+.hero .emma-kort-ovrerubrik {
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  right: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero .emma-kort-ovrerubrik::before,
+.hero .emma-kort-ovrerubrik::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #000000;
+}
+
+.hero .emma-kort-ovrerubrik span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.hero .hero-introtext .merit-introduktion p:not(:last-child) {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.hero .hero-introtext .merit-introduktion p:not(:last-child)::after {
+  content: "";
+  display: block;
+
+  width: 80%;
+  height: 1px;
+  background: #000000;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* LODRÄT LINJE – EMMA LEHTINEN */
+
+.hero .hero-introtext::before {
+  content: "";
+  position: absolute;
+
+  left: -80px;
+  top: 90px;
+
+  width: 1px;
+  height: calc(100% + 19px);
+
+  background: #000000;
+}
+
+
+/* BILD – EMMA LEHTINEN-KORTET */
+
+.hero .emma-kort-bild {
+  position: absolute;
+
+  top: 130px;
+  left: 30px;
+
+  width: 270px;
+  height: 399px;
+
+  object-fit: cover;
+  display: block;
+}
 /* =========================================
    MÖRKT LÄGE
 ========================================= */
 
-body.morkt-lage .hero .hero-halsning-design .hero-halsning,
-body.morkt-lage .hero .hero-halsning-granar,
-body.morkt-lage .hero .hero-halsning-natur {
-  color: #d5ded7;
+body.morkt-lage .hero {
+  background: #1d2521;
+  color: #ffffff;
 }
 
-body.morkt-lage .hero .hero-halsning-linjer span {
+body.morkt-lage .hero .hero-rubrik,
+body.morkt-lage .hero .hero-rubrik span,
+body.morkt-lage .hero .hero-underrubrik,
+body.morkt-lage .hero .hero-etikett,
+body.morkt-lage .hero .hero-halsning,
+body.morkt-lage .hero .hero-halsning-design .hero-halsning {
+  color: #ffffff;
+}
+
+body.morkt-lage .hero .hero-introtext,
+body.morkt-lage .hero .hero-introtext p,
+body.morkt-lage .hero .hero-introtext li,
+body.morkt-lage .hero .hero-introtext .hero-text,
+body.morkt-lage .hero .hero-introtext .hero-text span {
+  color: #ffffff;
+}
+
+/* DEKORATIVA LINJER */
+
+body.morkt-lage .hero .hero-ovre-linje,
+body.morkt-lage .hero .hero-linje,
+body.morkt-lage .hero .hero-citat-linje,
+body.morkt-lage .hero .hero-halsning-linjer span,
+body.morkt-lage .hero .hero-halsning-linjer::before,
+body.morkt-lage .hero .hero-halsning-linjer::after {
+  background-color: #ffffff;
+}
+
+body.morkt-lage .hero::after {
+  background: #a8b5a2;
+}
+
+/* KNAPP */
+
+body.morkt-lage .hero .hero-knapp {
+  background: #a8b5a2;
+  color: #000000;
+  border-color: #a8b5a2;
+}
+
+body.morkt-lage .hero .hero-knapp:hover {
   background: #d5ded7;
+  color: #000000;
 }
 
-
-
-/* KORNIG RETROSTRUKTUR PÅ SOLEN */
-
-.hero .hero-halsning-sol::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.55'/%3E%3C/svg%3E");
-
-  background-size: 140px 140px;
-  opacity: 0.95;
-  mix-blend-mode: multiply;
-
-  pointer-events: none;
-}
-.hero .hero-halsning-linjer::before,
-.hero .hero-halsning-linjer::after {
-  content: "";
-  position: absolute;
-  left: 120px;
-  right: 0;
-  height: 1px;
-  background: #405c48;
+body.morkt-lage .hero .hero-knapp:focus-visible {
+  outline-color: #f5f3ed;
 }
 
-.hero .hero-halsning-linjer::before {
-  top: -12px;
+/* DEKORATIVA FORMER */
+
+body.morkt-lage .hero .hero-form-bakre {
+  background: rgba(168, 181, 162, 0.35);
 }
 
-.hero .hero-halsning-linjer::after {
-  top: -6px;
+body.morkt-lage .hero .hero-form-framre {
+  background: rgba(168, 181, 162, 0.25);
+}
+
+body.morkt-lage .hero .hero-form-nedre {
+  background: rgba(168, 181, 162, 0.20);
+}
+
+/* NOLLI-INFORMATION */
+
+body.morkt-lage .hero .nolli-dokument {
+  background: #4a5a50;
+  border-color: #f5f3ed;
+}
+
+body.morkt-lage .hero .nolli-dokument span,
+body.morkt-lage .hero .nolli-beskrivning,
+body.morkt-lage .hero .nolli-avslutning {
+  color: #f5f3ed;
+}
+
+body.morkt-lage .hero .nolli-vertikal-linje,
+body.morkt-lage .hero .nolli-horisontell-linje,
+body.morkt-lage .hero .nolli-dokument-linje,
+body.morkt-lage .hero .nolli-avslutning {
+  background: #f5f3ed;
+}
+
+body.morkt-lage .hero .hero-bildram {
+  border-color: #f5f3ed;
+}
+
+/* =========================================
+   HERO – MÖRKT LÄGE
+========================================= */
+
+/* BÅDA BOXARNA – SAMMA GRÖNA BAKGRUND */
+
+body.morkt-lage .hero .emma-kort,
+body.morkt-lage .hero .nolli-kort {
+  background: #1d2521;
+  color: #ffffff;
+  border-color: #ffffff;
+  outline-color: #ffffff;
+}
+
+/* EMMA LEHTINEN – ALL TEXT */
+
+body.morkt-lage .hero .emma-kort .hero-rubrik,
+body.morkt-lage .hero .emma-kort .hero-introtext,
+body.morkt-lage .hero .emma-kort .hero-introtext p,
+body.morkt-lage .hero .emma-kort .emma-kort-ovrerubrik span {
+  color: #ffffff;
+}
+
+/* NOLLI MAP – ALL TEXT */
+
+body.morkt-lage .hero .nolli-kort .nolli-titel span,
+body.morkt-lage .hero .nolli-kort .nolli-beskrivning,
+body.morkt-lage .hero .nolli-kort .nolli-beskrivning strong,
+body.morkt-lage .hero .nolli-kort .nolli-ovre-rubrik span {
+  color: #ffffff;
+}
+
+/* EMMA LEHTINEN – DEKORATIVA LINJER */
+
+body.morkt-lage .hero .emma-kort .hero-rubrik span {
+  border-bottom-color: #ffffff;
+}
+
+body.morkt-lage .hero .emma-kort-ovrerubrik::before,
+body.morkt-lage .hero .emma-kort-ovrerubrik::after,
+body.morkt-lage .hero .hero-introtext::before,
+body.morkt-lage .hero .hero-introtext
+.merit-introduktion p:not(:last-child)::after {
+  background: #ffffff;
+}
+
+/* NOLLI MAP – DEKORATIVA LINJER */
+
+body.morkt-lage .hero .nolli-ovre-rubrik::before,
+body.morkt-lage .hero .nolli-ovre-rubrik::after,
+body.morkt-lage .hero .nolli-vertikal-linje,
+body.morkt-lage .hero .nolli-titel-linje {
+  background: #ffffff;
+}
+
+/* =========================================
+   TILLGÄNGLIGHET
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-introtext .hero-text span {
+    animation: none;
+  }
+
+  .hero .hero-knapp,
+  .hero,
+  .hero .hero-rubrik,
+  .hero .hero-underrubrik,
+  .hero .hero-introtext {
+    transition: none;
+  }
 }
 
 /* =========================================
    HERO – RESPONSIV ANPASSNING
    SURFPLATTA OCH MOBIL
 ========================================= */
-
-/* SURFPLATTA */
 
 @media (max-width: 1100px) {
 
@@ -1070,24 +1087,10 @@ body.morkt-lage .hero .hero-halsning-linjer span {
     height: clamp(350px, 65vw, 650px);
   }
 
-  .hero .hero-halsning-design {
-    width: min(100%, 520px);
-    margin: 0 0 20px;
-    transform: none;
-  }
-
-  .hero .hero-citat {
-    max-width: 100%;
-    white-space: normal;
-    transform: none;
-  }
-
   .hero .hero-etikett {
     transform: none;
   }
-
 }
-
 
 /* =========================================
    MOBIL – MAX 600 PX
@@ -1221,94 +1224,1456 @@ body.morkt-lage .hero .hero-halsning-linjer span {
     padding: 15px 20px;
   }
 
-  /* ARKITEKTURILLUSTRATION */
+  /* ORDNING PÅ MOBIL */
 
-  .hero .hero-bildkolumn {
-    width: 100%;
-    min-width: 0;
+  .hero .hero-innehall > .hero-halsning-design {
+    order: 0;
   }
 
-  .hero .hero-bildram {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
+  .hero .hero-innehall > .hero-underrubrik {
+    order: 1;
   }
+
+  .hero .hero-innehall > .hero-etikett {
+    order: 2;
+  }
+
+  .hero .hero-innehall > .hero-ovre-linje {
+    order: 3;
+    margin: 0 0 20px;
+  }
+
+  .hero .hero-innehall > .hero-rubrik {
+    order: 4;
+  }
+
+  .hero .hero-innehall > .hero-linje {
+    order: 5;
+  }
+
+  .hero .hero-innehall > .hero-introtext {
+    order: 6;
+  }
+
+  .hero .hero-innehall > .kontakt-knapp {
+    order: 7;
+  }
+
+  /* NOLLI-KARTA – MOBIL */
 
   .hero .hero-bild {
+    position: relative;
+
     top: 0;
     left: 0;
 
     width: 100%;
     height: 100%;
 
+    margin: 0;
+
     object-fit: contain;
     object-position: center;
+
+    transform: none;
+    clip-path: none;
+
+    opacity: 0.9;
+  }
+}
+
+/* =========================================
+   NOLLI-RAM – MINDRE SKÄRMAR
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .hero .hero-kart-ram {
+    display: none;
+  }
+}
+
+/* =========================================
+   FEM KOMPETENSOMRÅDEN – DATOR
+========================================= */
+
+.hero .hero-kompetensrad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: calc(100% - 58px);
+  margin: 30px auto 7.5px;
+  padding: 20px 0;
+
+  gap: 0;
+}
+
+/* VARJE KOMPETENS */
+
+.hero .hero-kompetensrad > .hero-kompetens {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+
+  gap: 9px;
+  margin: 0;
+  padding: 0 18px;
+
+  border: none;
+}
+.hero .hero-kompetensrad > .hero-kompetens:not(:first-child) {
+  transform: translateX(0.35cm);
+}
+/* FLYTTA ENDAST VISUALISERING ÅT HÖGER */
+
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(3) svg,
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(3) span {
+  transform: translateX(0.35cm);
+}
+/* FLYTTA HÅLLBAR UTVECKLING ÅT HÖGER */
+
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(4) svg,
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(4) span {
+  transform: translateX(0.35cm);
+}
+/* FLYTTA KONCEPT & GESTALTNING 0,5 CM ÅT HÖGER */
+
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(5) svg,
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(5) span {
+  transform: translateX(0.15cm);
+}
+
+
+/* FÖRSTA KOMPETENSEN BÖRJAR LÄNGRE VÄNSTER */
+
+.hero .hero-kompetensrad > .hero-kompetens:first-child {
+  padding-left: 0;
+  
+}
+/* FLYTTA BEFINTLIGA LINJER 0,5 CM ÅT HÖGER */
+
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(2),
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(3),
+.hero .hero-kompetensrad > .hero-kompetens:nth-child(4) {
+  border-right: 2px solid #000000;
+  padding-right: calc(18px + 0.5cm);
+}
+
+/* FYRA LODRÄTA LINJER */
+
+.hero .hero-kompetensrad > .hero-kompetens:not(:last-child) {
+  border-right: 2px solid #000000;
+}
+
+/* TA BORT GAMLA PSEUDOLINJER */
+
+.hero .hero-kompetensrad > .hero-kompetens::before,
+.hero .hero-kompetensrad > .hero-kompetens::after {
+  content: none;
+  display: none;
+}
+
+/* SYMBOLER */
+
+.hero .hero-kompetensrad > .hero-kompetens svg {
+  display: block;
+
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+
+  stroke: #000000;
+  stroke-width: 1.6;
+  fill: none;
+}
+
+/* TEXTER */
+
+.hero .hero-kompetensrad > .hero-kompetens span {
+  display: block;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+
+  white-space: nowrap;
+  color: #000000;
+}
+
+/* MÖRKT LÄGE */
+
+body.morkt-lage .hero
+.hero-kompetensrad > .hero-kompetens:not(:last-child) {
+  border-right-color: #ffffff;
+}
+
+body.morkt-lage .hero
+.hero-kompetensrad > .hero-kompetens svg {
+  stroke: #ffffff;
+}
+
+body.morkt-lage .hero
+.hero-kompetensrad > .hero-kompetens span {
+  color: #ffffff;
+}
+/* TVÅ LINJER INUTI NOLLI-RUTAN */
+
+.hero .nolli-dokument-rubrik::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 1.5px;
+  background: #000;
+  margin: 0px auto 10px;
+}
+
+.hero .nolli-dokument-artal::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 1.5px;
+  background: #000;
+  margin: 0 auto -3px;
+}
+
+/* =========================================
+   BEFINTLIG PROJEKTKNAPP
+========================================= */
+
+.hero .hero-projektbox .kontakt-knapp {
+  position: relative;
+  z-index: 2;
+
+  margin: -7.5px 0 9.5px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .hero .hero-projektbox,
+body.morkt-lage .hero .hero-projektbox-inre {
+  background: #4a5a50;
+  border-color: #f5f3ed;
+}
+
+body.morkt-lage .hero .hero-projektbox-text span:nth-child(1),
+body.morkt-lage .hero .hero-projektbox-text span:nth-child(2) {
+  color: #f5f3ed;
+}
+
+body.morkt-lage .hero .hero-projektbox-text span:nth-child(3) {
+  color: #d5ded7;
+}
+
+
+/* =========================================
+   HERO – VIT TEXT OCH VITA LINJER
+   I MÖRKT LÄGE
+========================================= */
+
+/* Introduktionstext */
+body.morkt-lage .hero .hero-introtext,
+body.morkt-lage .hero .hero-introtext p,
+body.morkt-lage .hero .merit-programlista p {
+  color: #ffffff;
+}
+
+/* Dekorativa linjer */
+body.morkt-lage .hero .hero-ovre-linje,
+body.morkt-lage .hero .hero-linje {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Nolli-informationens vågräta linjer */
+body.morkt-lage .hero .nolli-information {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+/* Övriga linjer i Nolli-sektionen */
+body.morkt-lage .hero .nolli-vertikal-linje {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Projektboxens animerade text */
+body.morkt-lage .hero .hero-projektbox .hero-text span {
+  color: #ffffff;
+}
+
+/* Behåll projektboxens vita dubbelram */
+body.morkt-lage .hero .hero-projektbox,
+body.morkt-lage .hero .hero-projektbox-inre {
+  border-color: #ffffff;
+}
+/* =========================================
+   NOLLI MAP – MÖRKT LÄGE
+========================================= */
+
+/* Yttre ramen */
+body.morkt-lage .hero .nolli-dokument {
+  background: transparent;
+  border-color: #ffffff;
+}
+
+/* Lilla rubriken */
+body.morkt-lage .hero .nolli-dokument .nolli-dokument-rubrik {
+  color: #ffffff;
+}
+
+/* Årtalet */
+body.morkt-lage .hero .nolli-dokument .nolli-dokument-artal {
+  color: #ffffff;
+}
+
+/* Nolli Map */
+body.morkt-lage .hero .nolli-dokument span {
+  color: #ffffff;
+}
+
+/* Informationstexten bredvid */
+body.morkt-lage .hero .nolli-beskrivning {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   STARTSIDA INTRO – MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .hero .hero-introtext .startsida-intro {
+  color: #ffffff;
+}
+
+/* All text inuti introduktionen */
+body.morkt-lage .hero .hero-introtext .startsida-intro p,
+body.morkt-lage .hero .hero-introtext .startsida-intro span,
+body.morkt-lage .hero .hero-introtext .startsida-intro strong {
+  color: #ffffff;
+}
+
+/* =========================================
+   NOLLI MAP – VITA LINJER I MÖRKT LÄGE
+========================================= */
+
+/* Vågrät linje ovanför kartbilden */
+body.morkt-lage .hero .hero-bildkolumn::before,
+body.morkt-lage .hero .hero-bildram::before {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* De två små linjerna i Nolli Map-boxen */
+body.morkt-lage .hero .nolli-dokument-linje {
+  background: #ffffff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* =========================================
+   NOLLI MAP – VITA INRE LINJER
+   I MÖRKT LÄGE
+========================================= */
+
+/* Linjen under PIANTA GRANDE DI ROMA */
+body.morkt-lage .hero .nolli-dokument-rubrik::after {
+  background: #ffffff;
+}
+
+/* Linjen ovanför GIAMBATTISTA NOLLI, 1748 */
+body.morkt-lage .hero .nolli-dokument-artal::before {
+  background: #ffffff;
+}
+
+/* =========================================
+   PROJEKTBOX – FLYTTA TEXT ÅT VÄNSTER
+========================================= */
+
+.hero .hero-projektbox .hero-text {
+  position: relative;
+  left: 22px;
+   top: 8px;
+}
+
+
+
+/* =========================================
+   HERO – SLUTLIG MOBILANPASSNING
+   ENDAST MOBIL – MAX 600 PX
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* =====================================
+     01 – GRUNDLAYOUT
+  ===================================== */
+
+  .hero .hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    width: 100%;
+    gap: 45px;
+
+    padding: 35px 22px 55px;
   }
 
-  /* CITAT */
-
-  .hero .hero-citatomrade {
-    align-items: flex-end;
-    margin: 15px 0 0;
+  .hero .hero-innehall,
+  .hero .hero-bildkolumn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
-  .hero .hero-citat {
+  /* =====================================
+     02 – PROJEKTBOXENS RAM
+  ===================================== */
+
+  .hero .hero-projektbox {
     width: 100%;
     max-width: 100%;
 
-    font-size: 14px;
+    margin-top: 45px;
+    padding: 5px;
+  }
+
+  .hero .hero-projektbox-inre {
+    width: 100%;
+    padding: 22px 15px 25px;
+  }
+
+  /* =====================================
+     03 – PROJEKTBOXENS INNEHÅLL
+  ===================================== */
+
+  .hero .hero-projektbox-illustration {
+    position: relative;
+
+    width: 100%;
+    min-height: 0;
+
+    padding: 0;
+  }
+
+  /* Bladillustrationen till vänster */
+
+  .hero .hero-projektbox-blad {
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    left: 0px;
+
+    width: 95px;
+    max-width: 30%;
+    height: auto;
+
+    object-fit: contain;
+    transform: none;
+  }
+
+  /* Texten till höger om bladet */
+
+  .hero .hero-projektbox-text {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 20px 0 20px 80px;
+  }
+
+  .hero .hero-projektbox .hero-text {
+    position: relative;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Alla tre textrader */
+
+  .hero .hero-projektbox .hero-text span {
+    display: block;
+
+    max-width: 100%;
+
+    font-size: 10px;
     line-height: 1.5;
 
-    text-align: right;
     white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Sista textraden */
+
+  .hero .hero-projektbox .hero-text span:nth-child(3) {
+    font-size: 15px;
+  }
+
+  /* =====================================
+     04 – SE MINA PROJEKT
+  ===================================== */
+
+  .hero .hero-projektbox .kontakt-knapp {
+    position: relative;
+    z-index: 2;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 15px auto 0;
+    padding: 14px 18px;
+
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* =====================================
+     05 – NOLLI MAP KARTBILD
+  ===================================== */
+
+  .hero .hero-bildram {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .hero .hero-bild {
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Linjen ovanför kartan */
+
+  .hero .hero-bildram::before {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+  }
+
+  /* =====================================
+     06 – NOLLI MAP INFORMATION
+  ===================================== */
+
+  .hero .nolli-information {
+    position: relative;
+
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+
+    gap: 18px;
+
+    margin-top: 20px;
+    padding: 22px 0;
+  }
+
+  /* Dokumentrutan */
+
+  .hero .nolli-dokument {
+    width: 190px;
+    height: 110px;
+
+    max-width: 100%;
+    flex-shrink: 0;
+  }
+
+  /* Dölj den lodräta avdelaren */
+
+  .hero .nolli-vertikal-linje {
+    display: none;
+  }
+
+  /* Beskrivningstext */
+
+  .hero .nolli-beskrivning {
+    position: static;
+    left: auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
+  /* =====================================
+     07 – KOMPETENSRAD
+  ===================================== */
+
+  .hero .hero-kompetensrad {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    width: 100%;
+    max-width: 100%;
+
+    gap: 18px;
+
+    margin: 20px auto;
+    padding: 15px 22px;
+  }
+
+  /* Varje kompetens */
+
+  .hero .hero-kompetensrad > .hero-kompetens {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    gap: 12px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    transform: none;
+  }
+
+  /* Ta bort desktopavdelarna */
+
+  .hero .hero-kompetensrad > .hero-kompetens:not(:last-child),
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(2),
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(3),
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(4) {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  /* Ikoner */
+
+  .hero .hero-kompetensrad > .hero-kompetens svg {
+    width: 25px;
+    height: 25px;
+
+    flex: 0 0 25px;
 
     transform: none;
   }
 
-  /* HÄLSNING – SOL, GRANAR OCH TEXT */
+  /* Kompetenstexter */
+
+  .hero .hero-kompetensrad > .hero-kompetens span {
+    font-size: 12px;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+
+    transform: none;
+  }
+
+  /* =====================================
+     08 – EXTRA SMÅ MOBILER
+  ===================================== */
+
+  @media (max-width: 380px) {
+
+    .hero .hero-projektbox-text {
+      padding-left: 65px;
+    }
+
+    .hero .hero-projektbox-blad {
+      width: 75px;
+    }
+
+    .hero .hero-projektbox .hero-text span {
+      font-size: 9px;
+    }
+
+    .hero .hero-projektbox .hero-text span:nth-child(3) {
+      font-size: 13px;
+    }
+  }
+
+}
+
+/* =========================================
+   MOBIL – PROJEKTBOX EFTER INTROTEXTEN
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Introduktionstexten kommer först */
+  .hero .hero-innehall > .hero-introtext {
+    order: 6;
+  }
+
+  /* Projektboxen placeras direkt efter */
+  .hero .hero-innehall > .hero-projektbox {
+    order: 7;
+    margin-top: 35px;
+  }
+
+}
+
+/* =========================================
+   MOBIL – BLAD BAKOM TEXTEN I PROJEKTBOXEN
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Behållare för text och blad */
+  .hero .hero-projektbox-illustration {
+    position: relative;
+    isolation: isolate;
+  }
+
+  /* Bladillustrationen bakom texten */
+  .hero .hero-projektbox-blad {
+    position: absolute;
+    z-index: 0;
+
+    top: 5px;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+
+  /* Texten ovanför bladillustrationen */
+  .hero .hero-projektbox-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero .hero-projektbox .hero-text {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* =========================================
+   MOBIL – GOD DAG OCH BLADILLUSTRATION
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Hälsningens behållare */
+  .hero .hero-halsning-design {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+
+    margin: 0 0 25px;
+    padding: 0;
+
+    transform: none;
+  }
+
+  /* GOD MORGON / GOD DAG / GOD KVÄLL */
+  .hero .hero-halsning-design .hero-halsning {
+    position: relative;
+    z-index: 1;
+
+    width: auto;
+    max-width: 100%;
+
+    margin: 30px;
+    padding: 0;
+
+    font-size: clamp(20px, 6vw, 28px);
+    text-align: center;
+
+    white-space: nowrap;
+    transform: none;
+  }
+
+  /* Behållaren för bladen */
+  .hero .hero-halsning-natur {
+    position: absolute;
+    z-index: 1;
+
+    top: 0;
+    left: 40%;
+
+    width: 140px;
+    height: 100px;
+
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  /* Bladillustrationen */
+  .hero .hero-halsning-blad {
+    position: relative;
+
+    top: 20px;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    transform: none;
+  }
+}
+
+
+/* =========================================
+   HERO – IPAD MINI OCH IPAD PRO 13
+   ENDAST 601–1100 PX
+   GEMENSAM RESPONSIV LAYOUT
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  /* =====================================
+     01 – TVÅ KOLUMNER
+  ===================================== */
+
+  .hero .hero-container {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    align-items: start;
+    column-gap: 24px;
+    row-gap: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding-top: 35px;
+    padding-bottom: 55px;
+  }
+
+  /* =====================================
+     02 – VÄNSTER KOLUMN
+  ===================================== */
+
+  .hero .hero-innehall {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  /* =====================================
+     03 – HÄLSNING OCH BLAD
+  ===================================== */
 
   .hero .hero-halsning-design {
     width: 100%;
-    max-width: 320px;
-    height: 110px;
-
-    margin: 0 0 20px;
-    transform: none;
-  }
-
-  .hero .hero-halsning-natur {
-    flex: 0 0 120px;
-    width: 120px;
+    max-width: 100%;
     height: 105px;
-  }
 
-  .hero .hero-halsning-sol {
-    left: 35px;
-    width: 75px;
-    height: 75px;
-  }
+    margin: 0 0 0px;
+    padding: 0;
 
-  .hero .hero-halsning-granar {
-    left: -10px;
-    bottom: 15px;
-
-    width: 130px;
-    height: 80px;
+    transform: none;
   }
 
   .hero .hero-halsning-design .hero-halsning {
+    width: auto;
+    max-width: 100%;
+
     margin: 0;
 
-    font-size: 20px;
+    font-size: clamp(19px, 2.6vw, 27px);
     white-space: normal;
+
+    transform: translate(155px, -45px);
+  }
+
+  .hero .hero-halsning-blad {
+    left: 300px;
+    top: -80px;
+
+    transform: scale(0.65);
+  }
+
+  /* =====================================
+     04 – HUVUDRUBRIK
+  ===================================== */
+
+  .hero .hero-rubrik {
+    font-size: clamp(35px, 4.5vw, 49px);
+  }
+
+  /* =====================================
+     05 – INTRODUKTIONSTEXT
+  ===================================== */
+
+  .hero .hero-introtext,
+  .hero .hero-introtext .startsida-intro,
+  .hero .hero-introtext .merit-introduktion {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero .hero-introtext .merit-programlista li,
+  .hero .hero-introtext .merit-introduktion p,
+  .hero .hero-introtext .startsida-intro p:not(.hero-text) {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: left;
+    text-align-last: left;
+
+    overflow-wrap: break-word;
+  }
+
+  /* =====================================
+     06 – PROJEKTBOX
+     MINDRE, LIKNAR DATORVERSIONEN
+  ===================================== */
+
+  .hero .hero-projektbox {
+    position: relative;
+
+    width: 75%;
+    max-width: 300px;
+
+    margin-top: 55px;
+    padding: 5px;
+
+    border: 2px solid #000000;
+
+    background: #f5f3ed;
+
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  /* INRE DUBBELRAM */
+
+  .hero .hero-projektbox-inre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 12px 8px 15px;
+  }
+
+  /* BLAD OCH TEXT */
+
+  .hero .hero-projektbox-illustration {
+    position: relative;
+
+    width: 100%;
+    min-height: 105px;
+
+    padding: 10px 0 15px;
+  }
+
+  /* BLADILLUSTRATION */
+
+  .hero .hero-projektbox-blad {
+    position: absolute;
+    z-index: 1;
+
+    top: 12px;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    transform: none;
+    pointer-events: none;
+  }
+
+  /* TEXT FRAMFÖR BLADET */
+
+  .hero .hero-projektbox .hero-text {
+    position: relative;
+    z-index: 2;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding-left: 65px;
+  }
+
+  .hero .hero-projektbox .hero-text span {
+    display: block;
+
+    font-size: 11px;
+    line-height: 1.4;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .hero .hero-projektbox .hero-text span:nth-child(3) {
+    font-size: 16px;
+  }
+
+  /* SE MINA PROJEKT */
+
+  .hero .hero-projektbox .kontakt-knapp {
+    position: relative;
+    z-index: 2;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 12px auto 0;
+    padding: 11px 14px;
+
+    font-size: 10px;
+    text-align: center;
+  }
+
+ 
+/* =========================================
+   IPAD – FLYTTA HELA NOLLI-SEKTIONEN UPPÅT
+========================================= */
+
+.hero .hero-bildkolumn {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+
+  margin-top: 75px;
+}
+
+  /* =====================================
+     08 – NOLLI-KARTA
+  ===================================== */
+
+  .hero .hero-bildram {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+  .hero .hero-bild {
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
 
     transform: none;
   }
 
-  .hero .hero-halsning-linjer {
-    left: 15px;
-    right: 20px;
-    bottom: 10px;
+  /* DEKORATIV LINJE */
+
+  .hero .hero-bildram::before {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
   }
 
+  /* =====================================
+     09 – NOLLI-INFORMATION
+  ===================================== */
+
+  .hero .nolli-information {
+    position: relative;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+
+    align-items: stretch;
+
+    width: 100%;
+    max-width: 100%;
+
+    gap: 16px;
+
+    margin-top: 15px;
+    padding: 20px 0;
+  }
+
+  /* NOLLI MAP – DOKUMENTRUTA */
+
+  .hero .nolli-dokument {
+    width: 190px;
+    max-width: 100%;
+
+    margin: 0 auto;
+  }
+
+  /* DÖLJ LODRÄT AVDELARE */
+
+  .hero .nolli-vertikal-linje {
+    display: none;
+  }
+
+  /* ENGELSK BESKRIVNING */
+
+  .hero .nolli-beskrivning {
+    position: static;
+    left: auto;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
+
+/* =========================================
+   10. IPAD – KOMPETENSRAD
+   KOMPAKT OCH JÄMN PLACERING
+========================================= */
+
+.hero .hero-kompetensrad {
+  display: grid;
+  grid-template-columns:
+    1fr 1.5fr 1.5fr 1.2fr 1.4fr;
+
+  align-items: center;
+
+  width: calc(100% - 35px);
+  max-width: none;
+
+  gap: 0;
+  margin: 0px auto 25px;
+  padding: 0px 0;
+}
+
+/* VARJE KOMPETENS */
+
+.hero .hero-kompetensrad > .hero-kompetens,
+.hero .hero-kompetensrad > .hero-kompetens:not(:first-child) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 45px;
+
+  gap: 6px;
+  margin: 0;
+  padding: 0 7px;
+
+  border: none;
+  transform: none;
+}
+
+/* FYRA KORTARE LODRÄTA LINJER */
+
+.hero .hero-kompetensrad > .hero-kompetens:not(:last-child) {
+  border-right: 1px solid #000000;
+}
+
+/* IKONER */
+
+.hero .hero-kompetensrad > .hero-kompetens svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+
+  transform: none;
+}
+
+/* TEXTER */
+
+.hero .hero-kompetensrad > .hero-kompetens span {
+  font-size: 9px;
+  line-height: 1.35;
+
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: normal;
+
+  transform: none;
+}
+
+/* ÅTERSTÄLL SISTA KOMPETENSEN */
+
+.hero .hero-kompetensrad > .hero-kompetens:last-child {
+  grid-column: auto;
+  justify-self: stretch;
+  width: 100%;
+}
+
+/* VITA LINJER I MÖRKT LÄGE */
+
+body.morkt-lage .hero
+.hero-kompetensrad > .hero-kompetens:not(:last-child) {
+  border-right-color: #ffffff;
+}
+}
+
+/* =========================================
+   IPAD – FLYTTA NAMN OCH LINJE UPPÅT
+========================================= */
+
+/* EMMA LEHTINEN */
+
+.hero .hero-rubrik {
+  position: relative;
+  top: 0px;
+}
+
+/* SVARTA LINJEN UNDER NAMNET */
+
+.hero .hero-linje {
+  position: relative;
+  top: 0px;
+}
+
+/* =========================================
+   IPAD – FLYTTA INTRODUKTIONSTEXT UPPÅT
+========================================= */
+
+.hero .hero-introtext {
+  position: relative;
+  top: -110px;
+}
+
+/* =========================================
+   IPAD – FLYTTA PROJEKTBOXEN UPPÅT
+========================================= */
+
+.hero .hero-projektbox {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: -45px;
+  padding: 5px;
+
+  transform: scale(0.75);
+  transform-origin: top left;
+}
+
+/* =========================================
+   IPAD PRO 13 – MINDRE PROJEKTBOX
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  /* YTTRE DUBBELRAM */
+
+  .hero .hero-projektbox {
+    position: relative;
+
+    width: 200px;
+    max-width: 100%;
+
+    margin-top: -75px;
+    padding: 4px;
+
+    transform: none;
+  }
+
+  /* INRE RAM */
+
+  .hero .hero-projektbox-inre {
+    width: 100%;
+    padding: 10px 8px 12px;
+  }
+
+  /* BLAD OCH TEXT */
+
+  .hero .hero-projektbox-illustration {
+    position: relative;
+
+    width: 100%;
+    min-height: 60px;
+
+    padding: 0px 0 2px;
+  }
+
+  /* BLADILLUSTRATION */
+
+  .hero .hero-projektbox-blad {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100%;
+    height: 80px;
+
+    transform: none;
+  }
+
+  /* TEXT */
+
+  .hero .hero-projektbox .hero-text {
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    padding-left: 38px;
+  }
+
+  .hero .hero-projektbox .hero-text span {
+    font-size: 9px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .hero .hero-projektbox .hero-text span:nth-child(3) {
+    font-size: 13px;
+  }
+
+  /* KNAPP */
+
+  .hero .hero-projektbox .kontakt-knapp {
+    margin: 8px auto 0;
+    padding: 9px 12px;
+
+    font-size: 9px;
+  }
+}
+
+/* IPAD PRO 13 – FLYTTA HÄLSNING OCH BLAD ÅT HÖGER */
+
+.hero .hero-halsning-design {
+  transform: translateX(65px);
+}
+
+.hero .hero-halsning-blad {
+  left: 369px;
+}
+
+/* =========================================
+   IPAD MINI – FLYTTA BLADEN ÅT VÄNSTER
+   ENDAST 601–999 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 999px) {
+
+  .hero .hero-halsning-blad {
+    left: 305px;
+  }
+
+}
+
+/* =========================================
+   IPAD MINI – NOLLI MAP
+   ENDAST 601–999 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 999px) {
+
+  /* FLYTTA NED HELA KARTSEKTIONEN */
+
+  .hero .hero-bildkolumn {
+    margin-top: 80px;
+  }
+
+  /* FLYTTA NOLLI MAP-RUTAN ÅT VÄNSTER */
+
+  .hero .nolli-dokument {
+    position: relative;
+    left: -75px;
+  }
+
+}
+
+/* IPAD PRO 13 – FLYTTA NOLLI MAP ÅT VÄNSTER */
+
+.hero .nolli-dokument {
+  position: relative;
+  left: -140px;
 }

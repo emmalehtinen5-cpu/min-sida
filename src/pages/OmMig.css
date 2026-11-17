@@ -11,7 +11,7 @@
 
 .om-mig-innehall {
   --om-bakgrund: #f5f3ed;
-  --om-text: #171717;
+  --om-text: #000000;
   --om-diskret: #555555;
   --om-salvia: #a8b5a2;
   --om-ljus-salvia: #d5ded7;
@@ -239,7 +239,7 @@
 
   margin: 26px 0 24px;
 
-  background: var(--om-salvia);
+  background: #000000;
 }
 
 /* INTRODUKTION */
@@ -276,7 +276,7 @@
   padding: 0.9rem 1.4rem;
 
   background: var(--om-salvia);
-  color: #171717;
+  color: #000000;
 
   border: 1px solid var(--om-salvia);
   border-radius: 0;
@@ -509,7 +509,7 @@
   padding: 10px 12px;
 
   background: #d5ded7;
-  color: #171717;
+  color: #000000;
 }
 
 .kompetenser-kolumn:nth-child(even)
@@ -540,7 +540,7 @@
   letter-spacing: 0;
   line-height: 1.1;
 
-  color: #171717;
+  color: #000000;
 
   overflow-wrap: anywhere;
 }
@@ -651,7 +651,7 @@
 .om-mig-innehall.morkt-lage,
 body.morkt-lage .om-mig-innehall {
   --om-bakgrund: #1d2521;
-  --om-text: #f5f3ed;
+  --om-text: #ffffff;
   --om-diskret: #d0d6d0;
   --om-salvia: #a8b5a2;
   --om-ljus-salvia: #4a5a50;
@@ -663,13 +663,13 @@ body.morkt-lage .om-mig-innehall {
 
 .om-mig-innehall.morkt-lage > .om-mig-etikett,
 body.morkt-lage .om-mig-innehall > .om-mig-etikett {
-  color: #a8b5a2;
+  color: #ffffff;
 }
 
 .om-mig-innehall.morkt-lage .om-mig-lasmer,
 body.morkt-lage .om-mig-innehall .om-mig-lasmer {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
   border-color: #a8b5a2;
 }
 
@@ -686,7 +686,7 @@ body.morkt-lage .om-mig-innehall .om-mig-illustration img {
 .om-mig-innehall.morkt-lage .kompetenser-rubrikfalt,
 body.morkt-lage .om-mig-innehall .kompetenser-rubrikfalt {
   background: #4a5a50;
-  color: #f5f3ed;
+  color: #ffffff;
 }
 
 .om-mig-innehall.morkt-lage
@@ -702,12 +702,19 @@ body.morkt-lage .om-mig-innehall
 .om-mig-innehall.morkt-lage .kompetenser-ikon,
 body.morkt-lage .om-mig-innehall .kompetenser-nummer,
 body.morkt-lage .om-mig-innehall .kompetenser-ikon {
-  color: #d5ded7;
+  color: #ffffff;
 }
 
 .om-mig-innehall.morkt-lage .kompetenser-rubrikfalt h3,
 body.morkt-lage .om-mig-innehall .kompetenser-rubrikfalt h3 {
-  color: #f5f3ed;
+  color: #ffffff;
+}
+
+/* VIT LINJE UNDER OM MIG I MÖRKT LÄGE */
+
+.om-mig-innehall.morkt-lage .om-mig-rubriklinje,
+body.morkt-lage .om-mig-innehall .om-mig-rubriklinje {
+  background: #ffffff;
 }
 
 /* =========================================
@@ -1035,12 +1042,12 @@ body.morkt-lage .om-mig-innehall .kompetenser-rubrikfalt h3 {
 .om-mig-innehall.morkt-lage .om-mig-portrattlinje,
 body.morkt-lage .om-mig-innehall .om-mig-portrattram::after,
 body.morkt-lage .om-mig-innehall .om-mig-portrattlinje {
-  background: #a8b5a2;
+  background: #ffffff;
 }
 
 .om-mig-innehall.morkt-lage .om-mig-avdelare,
 body.morkt-lage .om-mig-innehall .om-mig-avdelare {
-  background: #81947e;
+  background: #ffffff;
 }
 
 /* =========================================
@@ -1212,4 +1219,40 @@ body.morkt-lage .om-mig-innehall .om-mig-avdelare {
     bottom: auto;
     left: 0;
   }
+}
+
+
+/* =========================================
+   OM MIG – ENDAST MOBILLÄGE
+   FLYTTA RUBRIKEN 10 PX NEDÅT
+========================================= */
+
+@media (max-width: 600px) {
+  .om-mig-sektion .om-mig-rubrik {
+    transform: translateY(28px);
+  }
+}
+
+/* =========================================
+   INTRODUKTION – TRE STYCKEN
+========================================= */
+
+.hero .hero-introtext .merit-introduktion .merit-programlista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    transform: translateY(19.5px);
+}
+
+.hero .hero-introtext .merit-introduktion .merit-programlista p {
+  margin: 0;
+}
+
+/* INTRODUKTION – NORMALT ORDAVSTÅND */
+
+.hero .hero-introtext .merit-introduktion p {
+  text-align: left !important;
+  text-align-last: left !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
 }

@@ -17,7 +17,7 @@ const oversattningar = {
     fraga: [
       "NYFIKEN PÅ MINA ERFARENHETER,",
       "IDÉER OCH VAD JAG",
-      "KAN BIDRA MED?",
+      
     ],
 
     digital: "Digital",
@@ -106,18 +106,18 @@ function Valkommen({
           id="om-mig"
         >
           <article className="merit-grupp merit-introduktion">
-            <ul className="merit-programlista">
-              <li>{text.intro}</li>
-            </ul>
+  <div className="merit-programlista">
+  {text.intro
+    .split(". ")
+    .filter(Boolean)
+    .map((stycke, index) => (
+      <p key={index}>
+        {stycke.endsWith(".") ? stycke : `${stycke}.`}
+      </p>
+    ))}
+</div>
           </article>
 
-          <blockquote className="hero-text">
-            {text.fraga.map((rad, index) => (
-              <span key={index}>
-                {rad}
-              </span>
-            ))}
-          </blockquote>
         </div>
       )}
 

@@ -354,8 +354,8 @@
 ========================================= */
 
 body.morkt-lage .github-repon {
-  background: #1c1c1c;
-  color: #f5f3ed;
+  background: #1d2521;
+  color: #ffffff;
   border-top-color: #ffffff;
   border-bottom-color: #ffffff;
 }
@@ -392,19 +392,19 @@ body.morkt-lage .github-kategori:hover {
 
 body.morkt-lage .github-projektlista {
   background: rgba(38, 49, 41, 0.94);
-  color: #f5f3ed;
+  color: #ffffff;
   border-color: #617067;
 }
 
 body.morkt-lage .github-lank {
-  background: #f2e9d8;
+  background: #D8CCBA;
   color: #000000;
   border-color: #000000;
 }
 
 body.morkt-lage .github-varldstid {
   background: transparent;
-  color: #f5f3ed;
+  color: #ffffff;
 }
 
 /* =========================================

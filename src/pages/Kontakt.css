@@ -40,7 +40,7 @@
   padding: 70px 6%;
 
   background: #f5f3ed;
-  color: #171717;
+  color: #000000;
 }
 
 /* =========================================
@@ -108,7 +108,7 @@
   line-height: 1.02;
   text-transform: uppercase;
 
-  color: #171717;
+  color:#000000;
 }
 
 /* SALVIAGRÖN LINJE UNDER RUBRIKEN */
@@ -124,7 +124,7 @@
   width: 77px;
   height: 1.5px;
 
-  background: #a8b5a2;
+  background: #000000;
   width: 100px;
   height: 2.5px;
   margin: 10px 0 12px;
@@ -185,7 +185,7 @@
 /* ETIKETTER */
 
 .kontakt-falt label {
-  color: #171717;
+  color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -207,7 +207,7 @@
   padding: 16px 20px;
 
   background: #f5f3ed;
-  color: #171717;
+  color: #000000;
 
   border: 1px solid #d5d9d2;
   border-radius: 0;
@@ -292,7 +292,7 @@
   padding: 15px 24px;
 
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 
   border: 1px solid #a8b5a2;
   border-radius: 0;
@@ -321,7 +321,7 @@
 }
 
 .kontakt-knapp:focus-visible {
-  outline: 2px solid #171717;
+  outline: 2px solid #000000;
   outline-offset: 4px;
 }
 
@@ -340,7 +340,7 @@
 .kontakt-bekraftelse h3 {
   margin: 0 0 12px;
 
-  color: #171717;
+  color: #000000;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: 26px;
@@ -350,79 +350,10 @@
 .kontakt-bekraftelse p {
   margin: 0 0 24px;
 
-  color: #171717;
+  color: #000000;
 
   font-size: 16px;
   line-height: 1.7;
-}
-
-/* =========================================
-   9. HÖGER KOLUMN – ARKITEKTURBILD
-========================================= */
-
-.kontakt-bildkolumn {
-  display: flex;
-  flex-direction: column;
-
-  grid-column: 2;
-
-  align-items: flex-end;
-  justify-content: center;
-
-  width: 100%;
-  min-width: 0;
-
-  margin: 0;
-  padding: 0;
-}
-
-.kontakt-bildram {
-  position: relative;
-  isolation: isolate;
-
-  width: 100%;
-  max-width: 650px;
-
-  margin: 0;
-  padding: 32px 24px 32px 0;
-}
-
-/* =========================================
-   10. DEKORATIVA GRÖNA FORMER
-========================================= */
-
-.kontakt-form-bakre,
-.kontakt-form-framre {
-  position: absolute;
-  z-index: -1;
-
-  pointer-events: none;
-}
-
-/* BAKRE FORM */
-
-.kontakt-form-bakre {
-  top: 180px;
-  right: -5%;
-
-  width: 90%;
-  height: 65%;
-
-  background: #d5ded7;
-  opacity: 0.45;
-}
-
-/* FRÄMRE FORM */
-
-.kontakt-form-framre {
-  left: 8%;
-  bottom: 0;
-
-  width: 55%;
-  height: 40%;
-
-  background: #a8b5a2;
-  opacity: 0.8;
 }
 
 /* =========================================
@@ -433,41 +364,19 @@
   position: relative;
   z-index: 1;
 
-  display: block;
-
-  width: 115%;
+  width: 75%;
   max-width: none;
-  height: 570px;
+  height: 600px;
 
-  margin-top: 145px;
-  margin-left: 0;
-
-  object-fit: cover;
-  object-position: left center;
+  margin-top: 105px;
+  margin-left: 10px;
+  object-position: right;
 
   border: none;
   border-radius: 0;
   box-shadow: none;
-}
-
-/* =========================================
-   12. TEXT UNDER BILDEN
-========================================= */
-
-.kontakt-bildtext {
-  width: 100%;
-  max-width: 650px;
-
-  margin: 16px 0 0;
-
-  color: #56675d;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  font-style: italic;
-
-  line-height: 1.5;
-  text-align: right;
+  opacity: 0.77;
+  transform: translate(47.5px, -77px);
 }
 
 /* =========================================
@@ -482,20 +391,20 @@ body.morkt-lage .kontakt1 {
 /* RUBRIKER OCH TEXT */
 
 body.morkt-lage .kontakt1 .kontakt-etikett {
-  color: #a8b5a2;
+  color: #ffffff;
 }
 
 body.morkt-lage .kontakt1 .kontakt-info h2 {
-  color: #f5f3ed;
+  color: #ffffff;
 }
 
 body.morkt-lage .kontakt1 .kontakt-info h2::after {
-  background: #a8b5a2;
+  background: #ffffff;
 }
 
 body.morkt-lage .kontakt1 .kontakt-text,
 body.morkt-lage .kontakt1 .kontakt-underrubrik {
-  color: #d5ded7;
+  color: #ffffff;
 }
 
 /* =========================================
@@ -547,18 +456,18 @@ body.morkt-lage .kontakt1 .kontakt-fel {
 
 body.morkt-lage .kontakt1 .kontakt-knapp {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 
   border-color: #a8b5a2;
 }
 
 body.morkt-lage .kontakt1 .kontakt-knapp:hover {
   background: #d5ded7;
-  color: #171717;
+  color: #000000;
 }
 
 body.morkt-lage .kontakt1 .kontakt-knapp:focus-visible {
-  outline-color: #f5f3ed;
+  outline-color: #ffffff;
 }
 
 /* =========================================
@@ -641,7 +550,7 @@ body.morkt-lage .kontakt1 .kontakt-bildtext {
   padding: 10px 0;
 
   background: transparent;
-  color: #171717;
+  color: #000000;
 
   border: none;
   border-bottom: none;
@@ -934,13 +843,82 @@ body.morkt-lage .kontakt1 .om-mig-temaknapp {
 
 /* =========================================
    KONTAKT – IPAD MINI / IPAD PRO 13
-   KORRIGERA ETIKETTENS PLACERING
+   ENDAST SURFPLATTA 601–1100 PX
 ========================================= */
 
 @media (min-width: 601px) and (max-width: 1100px) {
 
+  /* HUVUDLAYOUT – TVÅ KOLUMNER */
+
+  .kontakt1 {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    align-items: center;
+    column-gap: 30px;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 55px 5%;
+  }
+
+  /* VÄNSTER KOLUMN OCH FORMULÄR */
+
+  .kontakt1 .kontakt-vanster,
+  .kontakt1 .kontakt-formular {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* KONTAKT / SAMARBETE */
+
   .kontakt1 .kontakt-etikett {
     transform: none;
+  }
+
+  /* HÖGER BILDKOLUMN */
+
+  .kontakt1 .kontakt-bildkolumn {
+    grid-column: 2;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* BILDRAM */
+
+  .kontakt1 .kontakt-bildram {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ARKITEKTURBILD */
+
+  .kontakt1 .kontakt-bild {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    object-fit: contain;
+    object-position: center;
   }
 
 }

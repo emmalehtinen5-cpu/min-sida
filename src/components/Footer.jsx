@@ -21,7 +21,7 @@ function Footer({ sprak,setSprak }) {
           SPRÅKVÄLJARE – SV / ENG / FI
       ===================================== */}
 
-      <Sprakvaljare setSprak={setSprak} />
+      <Sprakvaljare sprak={sprak} setSprak={setSprak} />
 
 
           <div className="footer-social">
@@ -128,7 +128,7 @@ function Footer({ sprak,setSprak }) {
           </NavLink>
 
           <a
-            href="/portfoliosida.pdf"
+            href="/projekt/portfoliosida.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -760,3 +760,25 @@ body.morkt-lage .vader .vader-kort .svart-bock {
   padding: 0 !important;
 }
 
+/* =========================================
+   VÄDER – RESPONSIV SURFPLATTA
+   651–1100 PX
+========================================= */
+
+@media (min-width: 651px) and (max-width: 1100px) {
+
+  .vader-kort-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .vader-kort {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}

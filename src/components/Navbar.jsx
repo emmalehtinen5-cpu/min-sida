@@ -112,7 +112,7 @@ function Navbar({ sprak }) {
           {/* PORTFOLIO */}
 
           <a
-            href="/portfoliosida.pdf"
+            href="/projekt/portfoliosida.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={stangMeny}

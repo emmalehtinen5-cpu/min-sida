@@ -36,7 +36,7 @@ import ProjektDetalj from "./pages/ProjektDetalj";
 import EjHittad from "./pages/EjHittad";
 import ProjektFranApi from "./components/ProjektFranApi";
 import KontaktBackend from "./components/KontaktBackend";
-
+import AdminMeddelanden from "./components/AdminMeddelanden";
 
 /* =========================================
    STIL
@@ -264,6 +264,17 @@ function App() {
                     path="/kontakt-backend"
                     element={<KontaktBackend />}
                     />
+
+                  {/* =====================================
+                        ADMIN – KONTAKTMEDDELANDEN
+                        ENDAST LOKAL ÖVNING
+                      ===================================== */}
+
+                  <Route
+                  path="/admin-meddelanden"
+                  element={<AdminMeddelanden />}
+                    />
+
               {/* MITT BOLLPLANK */}
 
               <Route

@@ -17,8 +17,8 @@
 
 .footer {
   --footer-bg: #f5f3ed;
-  --footer-text: #171717;
-  --footer-line: #171717;
+  --footer-text: #000000;
+  --footer-line: #000000;
   --footer-accent: #a8b5a2;
   --footer-active: #d5ded7;
 
@@ -42,7 +42,6 @@
 
 /* =========================================
    2. SALVIAGRÖN REMSA
-   MED SVART LINJE UNDER
 ========================================= */
 
 .footer::before {
@@ -56,12 +55,12 @@
   height: 10px;
 
   background: var(--footer-accent);
-
   border-bottom: 2px solid var(--footer-line);
 }
 
 /* =========================================
    3. FOOTERNS HUVUDLAYOUT
+   DESKTOP
 ========================================= */
 
 .footer .footer-inner {
@@ -72,7 +71,7 @@
   justify-content: space-between;
 
   width: 100%;
-  min-height: 85px;
+  min-height: 40px;
 
   margin: 0;
   padding: 12px 29px;
@@ -84,7 +83,6 @@
 
 /* =========================================
    4. VÄNSTER DEL
-   IKONER OCH COPYRIGHT
 ========================================= */
 
 .footer .footer-vanster {
@@ -98,11 +96,9 @@
 
   gap: 12px;
 
-  margin: 0;
+  margin: 0 0 -75px;
   padding: 0;
 }
-
-/* Dölj eventuell gammal textlogotyp */
 
 .footer .footer-logo {
   display: none;
@@ -121,13 +117,15 @@
 
   flex-shrink: 0;
 
-  gap: 10px;
+  gap: 5.5px;
 
   margin: 0;
   padding: 0;
-  transform: translateY(31px);
+
   position: relative;
-left: -10px;
+  left: -0.5px;
+
+  transform: translateY(-105px);
 }
 
 .footer .footer-social a {
@@ -136,13 +134,13 @@ left: -10px;
   align-items: center;
   justify-content: center;
 
-  width: 38px;
-  height: 38px;
+  width: 58px;
+  height: 58px;
 
   color: var(--footer-text);
   background: var(--footer-bg);
 
-  border: 1px solid var(--footer-line);
+  border: 2.5px solid var(--footer-line);
   border-radius: 0;
 
   text-decoration: none;
@@ -160,19 +158,18 @@ left: -10px;
 .footer .footer-social svg {
   display: block;
 
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
 }
 
 /* =========================================
    6. COPYRIGHT
-   VÄNSTERPLACERAD
 ========================================= */
 
 .footer .footer-copyright {
   display: block;
 
-  margin: 0;
+  margin: 0 0 0 1220px;
   padding: 0;
 
   color: var(--footer-text);
@@ -183,16 +180,15 @@ left: -10px;
 
   letter-spacing: 0.04em;
   line-height: 1.4;
-  margin-left: 1220px;
-  transform: translateX(-15px);
+
+  transform: translate(-15px, -75px);
 
   text-decoration: none;
   white-space: nowrap;
 }
 
 /* =========================================
-   7. NAVIGERING
-   HEM TILL KONTAKT PÅ SAMMA RAD
+   7. NAVIGERING – DESKTOP
 ========================================= */
 
 .footer .footer-meny {
@@ -203,6 +199,7 @@ left: -10px;
   justify-content: flex-end;
 
   flex-wrap: nowrap;
+
   position: relative;
   left: -20px;
 
@@ -210,7 +207,8 @@ left: -10px;
 
   margin-left: auto;
   padding: 0;
-  transform: translateY(0px);
+
+  transform: translateY(-25px);
 }
 
 /* =========================================
@@ -240,6 +238,7 @@ left: -10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 900;
+
   letter-spacing: 0.06em;
   line-height: 1.4;
 
@@ -254,8 +253,7 @@ left: -10px;
 }
 
 /* =========================================
-   9. LODRÄTA SVARTA STRECK
-   SAMMA SOM I DIN URSPRUNGLIGA FOOTER
+   9. LODRÄTA AVDELARE
 ========================================= */
 
 .footer .footer-meny a + a::before {
@@ -277,18 +275,14 @@ left: -10px;
    10. HOVER OCH AKTIV LÄNK
 ========================================= */
 
-.footer .footer-meny a:hover {
-  background: var(--footer-active);
-  color: var(--footer-text);
-}
-
+.footer .footer-meny a:hover,
 .footer .footer-meny a.active {
   background: var(--footer-active);
   color: var(--footer-text);
 }
 
 /* =========================================
-   11. DÖLJ GAMMAL EXTRA ACCENT
+   11. DÖLJ GAMMAL ACCENT
 ========================================= */
 
 .footer .footer-accent {
@@ -301,8 +295,8 @@ left: -10px;
 
 body.morkt-lage .footer {
   --footer-bg: #1d2521;
-  --footer-text: #f5f3ed;
-  --footer-line: #a8b5a2;
+  --footer-text: #ffffff;
+  --footer-line: #ffffff;
   --footer-accent: #617067;
   --footer-active: #4a5a50;
 }
@@ -316,10 +310,7 @@ body.morkt-lage .footer::before {
   border-bottom-color: var(--footer-line);
 }
 
-body.morkt-lage .footer .footer-copyright {
-  color: var(--footer-text);
-}
-
+body.morkt-lage .footer .footer-copyright,
 body.morkt-lage .footer .footer-meny a {
   color: var(--footer-text);
 }
@@ -344,8 +335,12 @@ body.morkt-lage .footer .footer-social svg {
   color: var(--footer-text);
 }
 
+body.morkt-lage .footer .footer-meny a + a::before {
+  background: #ffffff;
+}
+
 /* =========================================
-   13. MJUKA FÄRGÖVERGÅNGAR
+   13. MJUKA ÖVERGÅNGAR
 ========================================= */
 
 .footer,
@@ -368,163 +363,185 @@ body.morkt-lage .footer .footer-social svg {
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .footer,
-  .footer .footer-inner,
-  .footer .footer-meny a,
-  .footer .footer-social a,
-  .footer .footer-copyright {
-    transition: none;
-  }
-}
-
-
 /* =========================================
-   15. FOOTER – MOBILANPASSNING
-   ENDAST SKÄRMAR UNDER 600 PX
-========================================= */
-
-@media (max-width: 600px) {
-
-  .footer {
-    width: calc(100% - 20px);
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .footer .footer-inner {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 24px 15px;
-    gap: 24px;
-  }
-
-  /* SOCIALA IKONER OCH COPYRIGHT */
-
-  .footer .footer-vanster {
-    width: 100%;
-    min-width: 0;
-
-    align-items: center;
-    flex-shrink: 1;
-  }
-
-  .footer .footer-social {
-    left: 0;
-    transform: none;
-    justify-content: center;
-  }
-
-  .footer .footer-copyright {
-    margin-left: 0;
-    transform: none;
-
-    max-width: 100%;
-    white-space: normal;
-    overflow-wrap: break-word;
-    text-align: center;
-  }
-
-  /* NAVIGERING */
-
-  .footer .footer-meny {
-    width: 100%;
-    min-width: 0;
-
-    margin: 0;
-    left: 0;
-    transform: none;
-
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .footer .footer-meny a {
-    flex-shrink: 1;
-    min-height: 40px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-align: center;
-  }
-
-  /* TA BORT LODRÄTA AVDELARE PÅ MOBIL */
-
-  .footer .footer-meny a + a::before {
-    display: none;
-  }
-}
-
-/* =========================================
-   FOOTER – RESPONSIV SURFPLATTA
+   15. SURFPLATTA
    601–1100 PX
 ========================================= */
 
 @media (min-width: 601px) and (max-width: 1100px) {
 
+  /* FOOTERNS HUVUDLAYOUT */
+
   .footer .footer-inner {
+    display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
+
+    width: 100%;
+    min-height: 0;
 
     padding: 28px 25px;
-    gap: 25px;
+    gap: 28px;
   }
+
+  /* SOCIALA IKONER TILL VÄNSTER
+     OM SPRÅKVÄLJAREN */
 
   .footer .footer-vanster {
-    width: 100%;
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+
+    grid-template-areas:
+      "social sprak ."
+      "copyright copyright copyright";
+
     align-items: center;
-    flex-shrink: 1;
-    gap: 15px;
+    justify-items: center;
+
+    column-gap: 20px;
+    row-gap: 25px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
   }
+
+  /* SPRÅKVÄLJAREN */
+
+  .footer .footer-vanster > :first-child {
+    grid-area: sprak;
+
+    position: static;
+    top: auto;
+    left: auto;
+
+    margin: 0;
+    transform: none;
+
+    justify-self: center;
+  }
+
+  /* SOCIALA IKONER */
 
   .footer .footer-social {
+    grid-area: social;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: flex-start;
+
     position: static;
+
+    width: auto;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
     left: auto;
     transform: none;
-    justify-content: center;
+
+    gap: 10px;
+
+    justify-self: start;
   }
 
+  .footer .footer-social a {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer .footer-social svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* COPYRIGHT UNDER IKONER OCH SPRÅK */
+
   .footer .footer-copyright {
-    margin-left: 0;
-    transform: none;
+    grid-area: copyright;
+
+    position: static;
+
+    width: 100%;
     max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    font-size: 11px;
     text-align: center;
     white-space: normal;
   }
 
+  /* NAVIGERING LÄNGST NER */
+
   .footer .footer-meny {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    position: static;
+
     width: 100%;
+    min-width: 0;
+
     margin: 0;
+    padding: 20px 0 0;
+
+    gap: 8px 12px;
+
     left: auto;
     transform: none;
 
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
+    border-top: 1px solid var(--footer-accent);
   }
 
   .footer .footer-meny a {
-    padding: 10px 14px;
-    font-size: 12px;
+    flex-shrink: 1;
+
+    min-height: 40px;
+
+    padding: 8px 10px;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-align: center;
+    white-space: normal;
   }
 
   .footer .footer-meny a + a::before {
     display: none;
   }
+
+  /* VIT AVDELARE I MÖRKT LÄGE */
+
+  body.morkt-lage .footer .footer-meny {
+    border-top-color: #ffffff;
+  }
 }
 
 /* =========================================
-   FOOTER – MOBIL
+   16. MOBIL
    UPP TILL 600 PX
 ========================================= */
 
 @media (max-width: 600px) {
+
+  /* FOOTERNS YTTERKANT */
 
   .footer {
     width: calc(100% - 20px);
@@ -532,9 +549,12 @@ body.morkt-lage .footer .footer-social svg {
     min-width: 0;
   }
 
+  /* HUVUDLAYOUT */
+
   .footer .footer-inner {
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
@@ -545,26 +565,57 @@ body.morkt-lage .footer .footer-social svg {
     gap: 26px;
   }
 
-  /* SPRÅK, SOCIALA IKONER OCH COPYRIGHT */
+  /* SPRÅK, IKONER OCH COPYRIGHT */
 
   .footer .footer-vanster {
     display: flex;
     flex-direction: column;
+
     align-items: center;
+    justify-content: center;
 
     width: 100%;
     min-width: 0;
+
     flex-shrink: 1;
+
+    margin: 0;
+    padding: 0;
 
     gap: 18px;
   }
 
-  .footer .footer-social {
+  /* SPRÅKVÄLJAREN */
+
+  .footer .footer-vanster > :first-child {
     position: static;
+
+    top: auto;
+    left: auto;
+
+    margin: 0;
+    transform: none;
+  }
+
+  /* SOCIALA IKONER */
+
+  .footer .footer-social {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+
+    position: static;
+
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
     left: auto;
     transform: none;
 
-    justify-content: center;
     flex-shrink: 1;
     gap: 12px;
   }
@@ -574,12 +625,23 @@ body.morkt-lage .footer .footer-social svg {
     height: 42px;
   }
 
+  .footer .footer-social svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* COPYRIGHT */
+
   .footer .footer-copyright {
-    margin: 0;
-    transform: none;
+    position: static;
 
     width: 100%;
     max-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
 
     font-size: 11px;
     line-height: 1.6;
@@ -589,11 +651,12 @@ body.morkt-lage .footer .footer-social svg {
     overflow-wrap: anywhere;
   }
 
-  /* NAVIGERING – CENTRERADE RADER */
+  /* NAVIGERING */
 
   .footer .footer-meny {
     display: flex;
     flex-direction: row;
+
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -608,7 +671,9 @@ body.morkt-lage .footer .footer-social svg {
 
     gap: 8px 12px;
 
+    left: auto;
     transform: none;
+
     border-top: 1px solid var(--footer-accent);
   }
 
@@ -629,28 +694,99 @@ body.morkt-lage .footer .footer-social svg {
     white-space: normal;
   }
 
-  /* INGA LODRÄTA STRECK PÅ MOBIL */
+  /* INGA LODRÄTA AVDELARE */
 
   .footer .footer-meny a + a::before {
     display: none;
   }
+
+  /* VIT LINJE I MÖRKT LÄGE */
+
+  body.morkt-lage .footer .footer-meny {
+    border-top-color: #ffffff;
+  }
 }
 
 /* =========================================
-   FOOTER – GLOB OCH SOCIALA IKONER
-   MOBIL OCH SURFPLATTA
+   17. MINSKAD RÖRELSE
 ========================================= */
 
-@media (max-width: 1100px) {
+@media (prefers-reduced-motion: reduce) {
 
-  /* Flytta upp språkväljaren */
-  .footer .footer-vanster > :first-child {
+  .footer,
+  .footer .footer-inner,
+  .footer .footer-meny a,
+  .footer .footer-social a,
+  .footer .footer-copyright {
+    transition: none;
+  }
+}
+
+/* FLYTTA UPP COPYRIGHT PÅ SURFPLATTA */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .footer .footer-copyright {
     position: relative;
-    top: -15px;
+    top: -45px;
+  }
+}
+
+/* FLYTTA UPP NAVIGERINGEN PÅ SURFPLATTA */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  .footer .footer-meny {
+    margin-top: -45px;
+  }
+}
+
+/* =========================================
+   FOOTER – ALLA MOBILER
+   FLYTTA UPP SOCIALA IKONER OCH COPYRIGHT
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Flytta upp sociala ikoner */
+  .footer .footer-social {
+    position: relative;
+    top: -45px;
   }
 
-  /* Öka avståndet till sociala ikoner */
-  .footer .footer-social {
-    margin-top: 20px;
+  /* Flytta upp Emma Lehtinen */
+  .footer .footer-copyright {
+    position: relative;
+    top: -45px;
   }
+
+}
+
+/* =========================================
+   FOOTER – ALLA MOBILER
+   FLYTTA UPP NAVIGERINGEN
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer .footer-meny {
+    position: relative;
+    top: -37px;
+  }
+
+}
+
+/* =========================================
+   FOOTER – ALLA MOBILER
+   MINSKA UTRYMMET UNDER KONTAKT
+========================================= */
+
+@media (max-width: 600px) {
+
+  .footer .footer-inner {
+    padding-bottom: 0;
+  }
+
+  .footer .footer-meny {
+    margin-bottom: -30px;
+  }
+
 }

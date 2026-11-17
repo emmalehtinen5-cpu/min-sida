@@ -9,17 +9,17 @@
   width: 100%;
   padding: 24px 29px;
 
-  background: #f5f3ed;
-  color: #171717;
+  background: #ffffff;
+  color: #000000;
 }
 
 .visa-mer-knapp {
   padding: 10px 18px;
 
-  background: #171717;
+  background: #000000;
   color: #ffffff;
 
-  border: 1px solid #171717;
+  border: 1px solid #000000;
   border-radius: 0;
 
   font-family: Arial, Helvetica, sans-serif;
@@ -31,12 +31,12 @@
 
 .visa-mer-knapp:hover {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 }
 
 .visa-mer-text {
   margin: 18px 0 0;
-  color: #171717;
+  color: #000000;
 }
 
 .visa-mer-text[hidden] {
@@ -48,21 +48,21 @@
 ===================================== */
 
 body.morkt-lage .visa-mer {
-  background: #1d2521;
-  color: #f5f3ed;
+  background: #000000;
+  color:#ffffff;
 }
 
 body.morkt-lage .visa-mer-knapp {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
   border-color: #a8b5a2;
 }
 
 body.morkt-lage .visa-mer-knapp:hover {
-  background: #d5ded7;
-  color: #171717;
+  background: #ffffff;
+  color: #000000;
 }
 
 body.morkt-lage .visa-mer-text {
-  color: #f5f3ed;
+  color: #ffffff;
 }

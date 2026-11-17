@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
 
-  background: #F5F3ED;
+  background: #f5f3ed;
   border: 1px solid #C9C9C3;
   border-radius: 0;
   box-shadow: none;
@@ -78,7 +78,7 @@
   margin: 0 0 0.45rem;
   padding: 0;
 
-  color: #171717;
+  color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -96,7 +96,7 @@
   margin: 0 0 0.9rem;
   padding: 0;
 
-  color: #171717;
+  color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(0.85rem, 1vw, 1rem);
@@ -114,7 +114,7 @@
   margin: 0 0 1rem;
   padding: 0;
 
-  color: #171717;
+  color: #000000;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.68rem;
@@ -144,7 +144,7 @@
   padding: 0.35rem 0.5rem;
 
   background: #A8B5A2;
-  color: #171717;
+  color: #000000;
 
   border: 1px solid #77877D;
   border-radius: 0;
@@ -168,7 +168,7 @@
 }
 
 .projekt-lista .projekt-kort .projekt-lank:focus-visible {
-  outline: 2px solid #171717;
+  outline: 2px solid #000000;
   outline-offset: 3px;
 }
 
@@ -200,7 +200,7 @@
   font-weight: 600;
   letter-spacing: 0.5px;
 
-  color: #171717;
+  color: #000000;
   background-color: #a8b8a0;
   border-radius: 3px;
 }

@@ -36,7 +36,7 @@
   padding: 20px 29px;
 
   background: #f5f3ed;
-  color: #171717;
+  color: #000000;
 }
 
 /* =========================================
@@ -57,7 +57,7 @@
   font-weight: 500;
 
   background: #d5ded7;
-  color: #171717;
+  color: #000000;
 
   border: 1px solid #a8b5a2;
   border-radius: 0;
@@ -78,7 +78,7 @@
 }
 
 .raknare button:focus-visible {
-  outline: 2px solid #171717;
+  outline: 2px solid #000000;
   outline-offset: 3px;
 }
 
@@ -114,23 +114,23 @@
 
 body.morkt-lage .raknare {
   background: #1d2521;
-  color: #f5f3ed;
+  color: #ffffff;
 }
 
 body.morkt-lage .raknare button {
   background: #4a5a50;
-  color: #f5f3ed;
+  color: #ffffff;
 
   border-color: #a8b5a2;
 }
 
 body.morkt-lage .raknare button:hover {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
 }
 
 body.morkt-lage .raknare button:focus-visible {
-  outline-color: #f5f3ed;
+  outline-color: #ffffff;
 }
 
 body.morkt-lage .raknare-antal.positivt {

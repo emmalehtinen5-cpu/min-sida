@@ -4,13 +4,12 @@
    KONTAKTFORMULÄR FÖR EXPRESS API
 ========================================= */
 
-
 /* =========================================
    01 – IMPORTER
 ========================================= */
 
 import { useState } from "react";
-
+import "./KontaktBackend.css";
 
 /* =========================================
    02 – KONTAKTKOMPONENT
@@ -26,70 +25,105 @@ function KontaktBackend() {
   const [email, setEmail] = useState("");
   const [meddelande, setMeddelande] = useState("");
 
-
   /* =====================================
-     03 – HANTERA FORMULÄRET
+     STATE – STATUS OCH SKICKNING
   ===================================== */
 
-  
-/* =====================================
-   03 – SKICKA FORMULÄRET TILL EXPRESS
-===================================== */
+  const [status, setStatus] = useState("");
+  const [statusTyp, setStatusTyp] = useState("");
+  const [skickar, setSkickar] = useState(false);
 
-async function hanteraSkicka(e) {
-  e.preventDefault();
+  /* =====================================
+     03 – SKICKA FORMULÄRET TILL EXPRESS
+  ===================================== */
 
-  try {
+  async function hanteraSkicka(e) {
+    e.preventDefault();
 
-    // Skicka formulärdata till backend
-    const svar = await fetch(
-      "http://localhost:3001/kontakt",
-      {
-        method: "POST",
+    // Förhindra en ny skickning om en pågår
+    if (skickar) {
+      return;
+    }
 
-        headers: {
-          "Content-Type": "application/json"
-        },
+    // Rensa tidigare statusmeddelande
+    setStatus("");
+    setStatusTyp("");
 
-        body: JSON.stringify({
-          namn: namn,
-          email: email,
-          text: meddelande
-        })
+    // Markera att skickningen har startat
+    setSkickar(true);
+
+    try {
+
+      /* =================================
+         SKICKA DATA TILL EXPRESS
+      ================================= */
+
+      const svar = await fetch(
+        "http://localhost:3001/kontakt",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            namn: namn,
+            email: email,
+            text: meddelande
+          })
+        }
+      );
+
+      /* =================================
+         KONTROLLERA SERVERNS SVAR
+      ================================= */
+
+      if (!svar.ok) {
+        const felData = await svar.json();
+
+        throw new Error(
+          felData.fel || "Kunde inte skicka meddelandet"
+        );
       }
-    );
 
-        
-/* =====================================
-   KONTROLLERA SERVERNS SVAR
-===================================== */
+      const data = await svar.json();
 
-if (!svar.ok) {
-  const felData = await svar.json();
+      console.log("Svar från servern:", data);
 
-  throw new Error(
-    felData.fel || "Kunde inte skicka meddelandet"
-  );
-}
+      /* =================================
+         LYCKAD SKICKNING
+      ================================= */
 
-    const data = await svar.json();
+      setStatus("Meddelandet har skickats!");
+      setStatusTyp("success");
 
-    console.log("Svar från servern:", data);
-    alert("Meddelandet har skickats!");
+      // Töm formuläret
+      setNamn("");
+      setEmail("");
+      setMeddelande("");
 
-    // Töm formuläret
-    setNamn("");
-    setEmail("");
-    setMeddelande("");
+    } catch (error) {
 
-  } catch (error) {
+      /* =================================
+         FEL VID SKICKNING
+      ================================= */
 
-  console.error("Fel vid skickning:", error);
+      console.error("Fel vid skickning:", error);
 
-  alert(error.message);
+      setStatus(error.message);
+      setStatusTyp("error");
 
-}
-}
+    } finally {
+
+      /* =================================
+         AVSLUTA SKICKNINGEN
+      ================================= */
+
+      setSkickar(false);
+    }
+  }
+
   /* =====================================
      04 – VISA KONTAKTFORMULÄRET
   ===================================== */
@@ -112,9 +146,7 @@ if (!svar.ok) {
             type="text"
             id="backend-namn"
             value={namn}
-            onChange={(e) =>
-              setNamn(e.target.value)
-            }
+            onChange={(e) => setNamn(e.target.value)}
           />
         </div>
 
@@ -129,9 +161,7 @@ if (!svar.ok) {
             type="email"
             id="backend-email"
             value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -154,16 +184,28 @@ if (!svar.ok) {
 
         {/* SKICKA-KNAPP */}
 
-        <button type="submit">
-          SKICKA MEDDELANDE
-        </button>
+       
+          <button type="submit" disabled={skickar}>
+          {skickar ? "SKICKAR..." : "SKICKA MEDDELANDE"}
+          </button>
+
 
       </form>
+
+      {/* STATUSMEDDELANDE */}
+
+      {status && (
+        <p
+          className={`kontakt-status ${statusTyp}`}
+          role={statusTyp === "error" ? "alert" : "status"}
+        >
+          {status}
+        </p>
+      )}
 
     </section>
   );
 }
-
 
 /* =========================================
    05 – EXPORTERA KOMPONENTEN

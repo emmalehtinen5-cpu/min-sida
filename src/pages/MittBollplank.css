@@ -17,7 +17,7 @@
 
 .bollplank {
   --bp-bg: #f5f3ed;
-  --bp-text: #171717;
+  --bp-text: #000000;
   --bp-green: #a8b5a2;
   --bp-light-green: #d5ded7;
   --bp-line: #c5cec2;
@@ -57,7 +57,7 @@
   margin: 24px 0;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(62px, 6vw, 42px);
+  font-size: clamp(32px, 4.5vw, 62px);
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 1.05;
@@ -225,7 +225,7 @@
   min-width: 0;
 
   border: 2px solid var(--bp-text);
-  background: #ffffff;
+  background: #f5f3ed;
 }
 
 .bollplank-bild,
@@ -466,7 +466,7 @@
 
 body.morkt-lage .bollplank {
   --bp-bg: #1d2521;
-  --bp-text: #f5f3ed;
+  --bp-text: #ffffff;
   --bp-green: #a8b5a2;
   --bp-light-green: #4a5a50;
   --bp-line: #617067;
@@ -474,7 +474,7 @@ body.morkt-lage .bollplank {
 
 body.morkt-lage .bollplank-header,
 body.morkt-lage .bollplank-nydiskussion {
-  color: #171717;
+  color: #000000;
 }
 
 body.morkt-lage .bollplank-kort,
@@ -484,12 +484,12 @@ body.morkt-lage .bollplank-forumkort {
 }
 
 body.morkt-lage .bollplank-kategorier button.aktiv {
-  background: #f5f3ed;
-  color: #171717;
+  background: #ffffff;
+  color: #000000;
 }
 
 body.morkt-lage .bollplank-bildplats {
-  color: #f5f3ed;
+  color: #ffffff;
 }
 
 /* SVARTA LINJER PÅ LJUSGRÖN HEADER */
@@ -501,9 +501,9 @@ body.morkt-lage .bollplank-headerlinje {
 /* KNAPPAR I GRÖNA YTOR */
 
 body.morkt-lage .bollplank-nydiskussion button {
-  background: #171717;
+  background: #000000;
   color: #ffffff;
-  border-color: #171717;
+  border-color: #000000;
 }
 
 /* =========================================
@@ -659,7 +659,7 @@ body.morkt-lage .bollplank-nydiskussion button {
 
 body.morkt-lage .bollplank .om-mig-temaknapp {
   background: transparent;
-  color: #f5f3ed;
+  color: #ffffff;
   border-bottom: none;
 }
 
@@ -770,4 +770,92 @@ body.morkt-lage .bollplank .om-mig-temaknapp {
     transform: none;
   }
 
+}
+
+/* =========================================
+   MITT BOLLPLANK – SURFPLATTA
+   IPAD MINI / IPAD PRO / SURFACE PRO
+   601–1100 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+  /* HEADER */
+
+  .bollplank .bollplank-header {
+    position: relative;
+    min-height: 0;
+    padding: 35px 25px;
+    overflow: hidden;
+  }
+
+  /* BILDEN TILL HÖGER */
+
+  .bollplank .bollplank-headerbild {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 38%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* TEXTEN FÅR EGET UTRYMME */
+
+  .bollplank .bollplank-overrubrik,
+  .bollplank .bollplank-header h1,
+  .bollplank .bollplank-intro,
+  .bollplank .bollplank-headerlinje,
+  .bollplank .bollplank-underrubrik {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* RUBRIKEN */
+
+  .bollplank .bollplank-header h1 {
+    width: 60%;
+    max-width: 60%;
+
+    margin: 22px 0;
+
+    font-size: clamp(28px, 3.8vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+
+    overflow-wrap: normal;
+  }
+
+  /* INTRODUKTIONSTEXT */
+
+  .bollplank .bollplank-intro {
+    width: 60%;
+    max-width: 60%;
+
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+
+  /* DEKORATIV LINJE */
+
+  .bollplank .bollplank-headerlinje {
+    width: 65px;
+    margin: 25px 0 18px;
+  }
+
+  /* FLIKAR */
+
+  .bollplank .bollplank-flikar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bollplank .bollplank-flikar button {
+    min-width: 0;
+    padding: 15px 12px;
+    font-size: 11px;
+  }
 }

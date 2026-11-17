@@ -57,7 +57,7 @@
   border: 1px solid #a8b5a2;
   border-radius: 2px;
 
-  background: #f5f3ed;
+  background: #ffffff;
 }
 
 /* SVARTVIT ARKITEKTURKARTA */
@@ -88,8 +88,8 @@
 /* INFORMATIONSRUTOR */
 
 .urbana-karta .leaflet-popup-content-wrapper {
-  background: #f5f3ed;
-  color: #222222;
+  background: #ffffff;
+  color: #000000;
   border: 1px solid #a8b5a2;
   border-radius: 2px;
 }
@@ -107,8 +107,8 @@
 /* KARTANS ZOOMKNAPPAR */
 
 .urbana-karta .leaflet-control-zoom a {
-  background: #f5f3ed;
-  color: #222222;
+  background: #ffffff;
+  color: #000000;
   border-radius: 0;
 }
 
@@ -161,8 +161,8 @@
   height: 46px;
   padding: 0 14px;
 
-  background: #f5f3ed;
-  color: #222222;
+  background:  #f5f3ed;
+  color: #000000;
 
   border: 1px solid #888888;
   border-radius: 2px;

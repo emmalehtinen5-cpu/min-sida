@@ -22,11 +22,11 @@
 
 .navbar {
   --nav-bg: #f5f3ed;
-  --nav-text: #171717;
+  --nav-text: #000000;
   --nav-green: #a8b5a2;
   --nav-light-green: #d5ded7;
   --nav-line: #c5cec2;
-  --nav-active-text: #171717;
+  --nav-active-text: #000000;
 
   position: relative;
   z-index: 100;
@@ -325,7 +325,7 @@
   padding: 0;
 
   background: var(--nav-green);
-  color: #171717;
+  color: #000000;
 
   border: 1px solid var(--nav-text);
   border-radius: 0;
@@ -396,7 +396,7 @@ body.morkt-lage .startsida-ram > .navbar {
 
 body.morkt-lage .navbar .meny-knapp {
   background: #a8b5a2;
-  color: #171717;
+  color: #000000;
   border-color: #f5f3ed;
 }
 
@@ -491,7 +491,7 @@ body.morkt-lage .navbar .meny-knapp {
 
   .navbar .lankar a.active {
     background: var(--nav-green);
-    color: #171717;
+    color: #000000;
     border: 1px solid var(--nav-text);
   }
 
@@ -506,7 +506,7 @@ body.morkt-lage .navbar .meny-knapp {
 
   body.morkt-lage .navbar .lankar a.active {
     background: #a8b5a2;
-    color: #171717;
+    color: #000000;
     border-color: #f5f3ed;
   }
 }

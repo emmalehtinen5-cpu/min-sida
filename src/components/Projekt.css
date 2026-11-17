@@ -31,7 +31,7 @@
   background-color: #f5f3ed;
   color: #000000;
 
-  border-top: 2px solid #171717;
+  border-top: 2px solid #000000;
   border-bottom: 1px solid #a8b5a2;
 }
 
@@ -332,8 +332,8 @@ body.morkt-lage .projekt {
   background-color: #1d2521;
   color: #f5f3ed;
 
-  border-top-color: #a8b5a2;
-  border-bottom-color: #617067;
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
 }
 
 /* RUBRIKER OCH INTRODUKTION */

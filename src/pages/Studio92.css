@@ -35,11 +35,11 @@
   display: block;
 
   width: 77px;
-  height: 3.5px;
+  height: 2.5px;
 
   margin-top: 1px;
 
-  background-color: #a8b5a2;
+  background-color: #000000;
 }
 .studio92 h1 sup {
   font-size: 24px;
@@ -102,8 +102,8 @@
 
   grid-column: 1 / -1;
 
-  border-top: 1px solid #a8b5a2;
-  border-bottom: 1px solid #a8b5a2;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 
 /* NUMMER 03 OCH RUBRIK */
@@ -218,7 +218,7 @@
 /* MÖRKT LÄGE */
 
 body.morkt-lage .studio92-etikett {
-  color: #a8b5a2;
+  color: #ffffff;
 }
 
 /* =========================================
@@ -319,7 +319,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   padding: 0 16px;
   border: 1px solid #888;
   border-radius: 2px;
-  background: #f5f3ed;
+  background: #f5f3ed;;
   color: #000;
   font-size: 16px;
 }
@@ -621,7 +621,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   width: 1px;
   height: 100px;
 
-  background-color: #a8b5a2;
+  background-color: #000000;
 }
 
 .studio92-world-time::before {
@@ -650,8 +650,8 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   left: -0.5cm;
   right: -1cm;
   height: 1px;
-  width: calc(100% + 1cm);
-  background-color: #a8b5a2;
+  width: calc(100% + 193px);
+  background-color: #000000;
 }
 
 /* =========================================
@@ -761,7 +761,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   padding: 20px;
   box-sizing: border-box;
 
-  border: 1px dashed #a8b5a2;
+  border: 1px dashed #000000;
   text-align: center;
 }
 
@@ -939,7 +939,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
 /* SVART LINJE MELLAN SEKTION 01 OCH 02 */
 
 .studio92-hoger {
-  border-top: 1px solid #a8b5a2;;
+  border-top: 1px solid #000000;;
   padding-top: 25px;
   width: 975px;
 }
@@ -995,7 +995,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
 .studio92-avdelare {
   width: 1335px;
   height: 1px;
-  background-color: #a8b5a2;
+  background-color: #000000;
 
   margin: 30px 0 25px 0px;
 }
@@ -1014,7 +1014,7 @@ body.morkt-lage .studio92 .om-mig-temaknapp {
   left: 50%;
 
   width: 1px;
-  background-color: #a8b5a2;
+  background-color: #000000;
 
   transform: translateX(-50%);
 }
@@ -1083,7 +1083,7 @@ body.morkt-lage .studio92-vader .vader {
     min-width: 0;
     border-width: 2px;
     border-radius: 12px;
-    box-shadow: 3px 4px 0 #171717;
+    box-shadow: 3px 4px 0 #000000;
   }
 
   .studio92-vader .vader-kort-rubrik {
@@ -1854,6 +1854,57 @@ body.morkt-lage .studio92-vader .vader {
     height: auto;
     max-height: none;
     overflow-y: visible;
+  }
+
+}
+
+
+/* =========================================
+   STUDIO92 – VITA LINJER I MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .studio92 h1::after,
+body.morkt-lage .studio92-world-time::before,
+body.morkt-lage .studio92-world-time::after,
+body.morkt-lage .studio92-layout::before {
+  background-color: #ffffff;
+}
+
+/* =========================================
+   STUDIO92 – VITA AVDELARE I MÖRKT LÄGE
+========================================= */
+
+body.morkt-lage .studio92 .studio92-vader {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+body.morkt-lage .studio92 .studio92-avdelare,
+body.morkt-lage .studio92 .studio92-tva-sektioner::before {
+  background-color: #ffffff;
+}
+
+body.morkt-lage .studio92 .studio92-hoger {
+  border-top-color: #ffffff;
+}
+
+/* =========================================
+   STUDIO92 – SAMMA VÄNSTERKANT I MOBILLÄGE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .studio92 .studio92-etikett {
+    transform: none;
+  }
+
+  .studio92 h1 {
+    transform: none;
+  }
+
+  .studio92 .studio92-world-time {
+    left: 0;
+    margin-left: 0;
   }
 
 }
