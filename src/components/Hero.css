@@ -94,14 +94,14 @@
 
 .hero .hero-underrubrik {
   position: relative;
-  top: 84px;
+  top: 47px;
   margin: 0 0 20px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   line-height: 1.5;
   text-transform: uppercase;
 
@@ -368,14 +368,14 @@ flex-shrink: 0;
   color: #56675d;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   line-height: 1.5;
   text-transform: uppercase;
 
-  transform: translateY(69px);
+  transform: translateY(29px);
 }
 
 /* =========================================
@@ -2771,21 +2771,26 @@ body.morkt-lage .hero
 
 .hero .hero-halsning-design {
   position: relative;
-  left: 120px;
-  top: 160px;
+  left: -13px;
+  top: 223px;
 }
 /* IPAD MINI – ÅTERSTÄLL ÖVRE TEXTER */
 
 .hero .hero-innehall > .hero-underrubrik {
-  transform: translateY(100px);
+  transform: translateY(105px);
   z-index: 20;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .hero .hero-innehall > .hero-etikett {
-  transform: translateY(79px);
+  transform: translateY(127px);
   z-index: 20;
 }
+
 }
+
 /* IPAD MINI – MINSKA TOMRUMMET UNDER BOXARNA */
 
 .hero .hero-container {
@@ -2880,7 +2885,7 @@ body.morkt-lage .hero
     box-sizing: border-box;
     transform: scale(0.87);
    transform-origin: top left;
-     margin-bottom: -70px;
+     margin-bottom: 70px;
   }
 
  /* PRESENTATIONSTEXT – IPAD PRO 13 */
@@ -3071,4 +3076,579 @@ body.morkt-lage .hero .hero-logga-info small {
 
 body.morkt-lage .hero .hero-logga-info-linje {
   background: #ffffff;
+}
+
+/* COPYRIGHT – ENDAST FINSKA */
+
+.hero .hero-logga-info small.copyright-fi {
+  position: relative;
+  left: 0;
+  width: 260px;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+/* HÄLSNING – ENDAST ENGELSKA */
+
+.hero .hero-halsning-en {
+  position: relative;
+  left: 20px;
+}
+/* EL. LOGOTYP – ENDAST MOBIL */
+
+@media (max-width: 600px) {
+  .hero .hero-innehall > .hero-logga {
+    position: absolute;
+    top: 310px;
+    left: 10px;
+  }
+  }
+  /* HERO – MER UTRYMME PÅ IPHONE SE */
+
+@media (max-width: 380px) {
+  .hero .hero-container {
+    padding-top: 35px;
+  }
+
+  .hero .hero-innehall {
+    padding-top: 190px;
+  }
+}
+/* EL. LOGOTYPINFORMATION – IPHONE SE */
+
+@media (max-width: 380px) {
+  .hero .hero-logga-info {
+    position: absolute;
+    top: 305px;
+    left: 110px;
+
+    width: calc(70% - 40px);
+    padding-left: 13px;
+
+    border-left: 1px solid #000000;
+  }
+
+  .hero .hero-logga-info-linje {
+    max-width: 70%;
+  }
+
+  .hero .hero-logga-info small {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+/* IPHONE SE – FLYTTA UPP ÖVRE TEXTER */
+
+@media (max-width: 380px) {
+
+  .hero .hero-innehall > .hero-underrubrik {
+    transform: translateY(-100px);
+  }
+
+  .hero .hero-innehall > .hero-etikett {
+    transform: translateY(-100px);
+  }
+
+  .hero .hero-halsning-design {
+    transform: translateY(-80px);
+  }
+
+}
+/* IPHONE SE – FLYTTA UPP LOGOTYP OCH TEXT */
+
+@media (max-width: 380px) {
+
+  .hero .hero-innehall > .hero-logga {
+    transform: translateY(-45px);
+  }
+
+  .hero .hero-logga-info {
+    transform: translateY(-45px);
+  }
+
+}
+
+/* =========================================
+   IPHONE SE – MINDRE KORT
+========================================= */
+
+@media (max-width: 380px) {
+
+  .hero .emma-kort,
+  .hero .nolli-kort {
+    width: 92%;
+    max-width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+/* IPHONE SE – MINSKA EMMA-KORTETS HÖJD */
+
+@media (max-width: 380px) {
+
+  .hero .emma-kort {
+    padding-top: 40px;
+    padding-bottom: 15px;
+  }
+
+}
+
+/* IPHONE SE – MINSKA NOLLI MAP-KORTETS HÖJD */
+
+@media (max-width: 380px) {
+  .hero .nolli-kort {
+    padding-top: 13px;
+    padding-bottom: 11px;
+  }
+}
+
+/* IPHONE SE – MINSKA INNEHÅLLET MED 10 % */
+
+@media (max-width: 380px) {
+
+  .hero .emma-kort > *,
+  .hero .nolli-kort > * {
+       scale: 0.86;
+  }
+
+}
+/* IPHONE SE – EMMA-KORTETS INNEHÅLL */
+
+@media (max-width: 380px) {
+
+  .hero .hero-introtext {
+    margin-top: -66px;
+  }
+
+}
+/* IPHONE SE – FLYTTA UPP FOTOT */
+
+@media (max-width: 380px) {
+  .hero .emma-kort-bild {
+    margin-top: -22px;
+  }
+}
+/* IPHONE SE – FLYTTA UPP KNAPPEN */
+
+@media (max-width: 380px) {
+  .hero .emma-kort .kontakt-knapp {
+    margin-top: -3px;
+  }
+}
+/* IPHONE SE – NOLLI MAP INNEHÅLL */
+
+@media (max-width: 380px) {
+
+  .hero .nolli-information {
+    margin-top: -79px;
+    gap: 1px;
+  }
+
+}
+/* IPHONE SE – FLYTTA UPP NOLLI-KARTAN */
+
+@media (max-width: 380px) {
+  .hero .hero-bildram {
+    transform: translateY(-25px);
+  }
+}
+/* IPHONE SE – MINSKA TOMRUMMET UNDER NOLLI-TEXTEN */
+
+@media (max-width: 380px) {
+  .hero .nolli-kort {
+    padding-bottom: 0px;
+  }
+}
+/* IPHONE SE – FLYTTA NED NOLLI-BESKRIVNINGEN */
+
+@media (max-width: 380px) {
+  .hero .nolli-beskrivning {
+    margin-top: 15px;
+  }
+}
+/* IPHONE SE – FLYTTA NED KOMPETENSLISTAN */
+
+@media (max-width: 380px) {
+  .hero .hero-kompetensrad {
+    margin-top: 189px;
+  }
+}
+
+/* IPHONE 16 – LOGOTYP, TEXT OCH LINJER */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .hero-logga,
+  .hero .hero-logga-info {
+    transform: translateY(-25px);
+  }
+  }
+/* EL. LOGOTYPINFORMATION – IPHONE 16 */
+
+@media (min-width: 381px) and (max-width: 430px) {
+  .hero .hero-logga-info {
+    position: absolute;
+    top: 277px;
+    left: 110px;
+
+    width: calc(70% - 40px);
+    padding-left: 13px;
+
+    border-left: 1px solid #000000;
+    transform: none;
+  }
+
+  .hero .hero-logga-info-linje {
+    max-width: 70%;
+  }
+
+  .hero .hero-logga-info small {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}
+  /* IPHONE 16 – MER UTRYMME OVANFÖR EMMA-KORTET */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .emma-kort {
+    top: 280px;
+  }
+
+}
+/* IPHONE 16 – HÄLSNING OCH BLAD */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .hero-halsning-blad {
+    top: 19.5px;
+  }
+
+}
+/* IPHONE 16 – GOD KVÄLL */
+
+@media (min-width: 381px) and (max-width: 430px) {
+  .hero .hero-halsning-design {
+    transform: translateY(107px);
+  }
+}
+
+/* IPHONE 16 – FLYTTA NED ÖVRE TEXTER */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .hero-innehall > .hero-underrubrik {
+    position: relative;
+    top: 110px;
+    transform: none;
+  }
+
+  .hero .hero-innehall > .hero-etikett {
+    position: relative;
+    top: 100px;
+    transform: none;
+  }
+
+}
+/* IPHONE 16 – MER UTRYMME UNDER KOMPETENSLISTAN */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .hero-kompetensrad {
+    padding-bottom: 0px;
+  }
+
+}
+/* IPHONE 16 – FLYTTA NED KOMPETENSKORTEN */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .hero-kompetensrad {
+    margin-top: 390px;
+  }
+
+}
+/* IPHONE 16 – FLYTTA NED NOLLI MAP-BOXEN */
+
+@media (min-width: 381px) and (max-width: 430px) {
+
+  .hero .nolli-kort {
+    transform: translateY(190px);
+  }
+
+}
+/* IPHONE 16 PRO MAX – FLYTTA NED KOMPETENSKORTEN */
+
+@media (min-width: 431px) and (max-width: 480px) {
+  .hero .hero-kompetensrad {
+    position: relative;
+    top: 60px;
+  }
+ 
+}
+
+  /* IPHONE 16 PRO MAX – EL. LOGOTYP */
+
+@media (min-width: 431px) and (max-width: 480px) {
+   .hero .hero-innehall >  .hero-logga {
+    position: absolute;
+    top: 285px;
+    left: 10px;
+  }
+  .hero .hero-logga-info {
+    position: absolute;
+    top: 279px;
+    left: 110px;
+
+    width: calc(100% - 145px);
+    padding-left: 19px;
+
+    border-left: 1px solid #000000;
+    transform: none;
+  }
+
+  .hero .hero-logga-info-linje {
+    max-width: 70%;
+  }
+
+  .hero .hero-logga-info small {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  }
+
+
+  /* IPHONE 16 PRO MAX – MER UTRYMME OVANFÖR EMMA-KORTET */
+
+@media (min-width: 431px) and (max-width: 480px) {
+  .hero .emma-kort {
+    margin-top: 200px;
+  }
+  }
+  /* IPHONE 16 PRO MAX – GOD KVÄLL OCH BLADKVIST */
+
+@media (min-width: 431px) and (max-width: 480px) {
+
+  .hero .hero-halsning-design {
+    transform: translateY(120px);
+  }
+
+}
+/* IPHONE 16 PRO MAX – FLYTTA NED ÖVRE TEXTER */
+
+@media (min-width: 431px) and (max-width: 480px) {
+
+  .hero .hero-innehall > .hero-underrubrik {
+    position: relative;
+    top: 110px;
+    transform: none;
+  }
+
+  .hero .hero-innehall > .hero-etikett {
+    position: relative;
+    top: 100px;
+    transform: none;
+  }
+}
+/* IPHONE 16 PRO MAX – MER UTRYMME UNDER KOMPETENSLISTAN */
+
+@media (min-width: 431px) and (max-width: 480px) {
+
+  .hero .hero-kompetensrad {
+    padding-bottom: 65px;
+  }
+
+}
+
+
+
+/* =========================================
+   IPAD MINI – EL. LOGOTYP
+   ENDAST 601–999 PX
+========================================= */
+
+@media (min-width: 601px) and (max-width: 999px) {
+
+    /* EL. LOGOTYP */
+
+  .hero .hero-innehall > .hero-logga {
+    position: absolute;
+    top: 120px;
+    left: 480px;
+
+    width: 65px;
+    height: auto;
+    z-index: 10;
+  }
+
+ .hero .hero-innehall > .hero-logga-info {
+  position: absolute;
+  top: 115px;
+  left:559px;
+
+  width: 230px;
+  padding-left: 15px;
+
+  border-left: 1px solid #000000;
+  transform: scale(0.75);
+  transform-origin: top left;
+}
+
+@media (min-width: 601px) and (max-width: 999px) {
+
+  .hero .hero-kompetensrad {
+    position: relative;
+    top: 0;
+    margin-top: -29.5px;
+  }
+  
+}
+}
+/* =========================================
+   IPAD PRO 13 – BOXARNAS PLACERING
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  /* EMMA-KORTET – FLYTTA UPP 30 PX */
+
+  .hero .hero-innehall > .emma-kort {
+    position: relative;
+    top: 60px;
+  }
+
+  /* NOLLI MAP – FLYTTA UPP 30 PX */
+
+  .hero .hero-bildkolumn {
+    top: -44px;
+  }
+  } 
+  /* AVSLUTAR IPAD PRO 13 – BOXARNAS PLACERING */
+
+/* =========================================
+   IPAD PRO 13 – GOD KVÄLL OCH BLADKVIST
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  .hero .hero-halsning-design {
+    transform: translate(-165px, 17px);
+  }
+
+}
+/* =========================================
+   IPAD PRO 13 – EL. LOGOTYP OCH INFORMATION
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  /* EL. LOGOTYP */
+
+  .hero .hero-innehall > .hero-logga {
+    position: absolute;
+    top: 115px;
+    left: 670px;
+
+    width: 75px;
+    height: auto;
+  }
+
+  /* INFORMATIONSTEXT OCH LODRÄT LINJE */
+
+  .hero .hero-innehall > .hero-logga-info {
+    position: absolute;
+    top: 110px;
+    left: 765px;
+
+    width: 240px;
+    padding-left: 18px;
+
+    border-left: 1px solid #000000;
+
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+
+  /* VÅGRÄT LINJE */
+
+  .hero .hero-logga-info-linje {
+    width: 187px;
+  }
+
+}
+
+/* =========================================
+   IPAD PRO 13 – ÖVRE TEXTER
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+
+  /* =========================================
+   IPAD PRO 13 – ÖVRE TEXTER
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  /* ARKITEKTUR. KOMMUNIKATION. VISUALISERING. */
+
+  .hero .hero-innehall > .hero-underrubrik {
+    position: relative;
+    top: 19.5px;
+    left: 0;
+    transform: translateY(95px);
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 20;
+  }
+
+  /* HEM / INTRODUKTION */
+
+  .hero .hero-innehall > .hero-etikett {
+    position: relative;
+    top: -14px;
+    left: 0;
+    transform: translateY(115px);
+    font-size: 11px;
+    z-index: 20;
+  }
+
+}
+ /* =========================================
+   IPAD PRO 13 – KOMPETENSERNAS LINJER
+   ENDAST 1000–1100 PX
+========================================= */
+
+@media (min-width: 1000px) and (max-width: 1100px) {
+
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(3),
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(4) {
+    border-right: none;
+    position: relative;
+  }
+
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(3)::after,
+  .hero .hero-kompetensrad > .hero-kompetens:nth-child(4)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -8px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #000000;
+  }
+
+  body.morkt-lage .hero .hero-kompetensrad > .hero-kompetens:nth-child(3)::after,
+  body.morkt-lage .hero .hero-kompetensrad > .hero-kompetens:nth-child(4)::after {
+    background: #ffffff;
+  }
+
+}
 }

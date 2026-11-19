@@ -71,9 +71,10 @@
 }
 
 .kontakt-etikett {
+  position: relative;
   display: block;
 
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 
   color: #56675d;
 
@@ -86,7 +87,7 @@
   text-transform: uppercase;
 
   position: relative;
-  transform: translate(-56px, -40px);
+  transform: translate(-56px, -39px);
 }
 
 /* KONTAKTA MIG */

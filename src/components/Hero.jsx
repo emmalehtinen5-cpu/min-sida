@@ -30,8 +30,12 @@ const oversattningar = {
     bildAlt: "Giambattista Nollis historiska karta över Rom från 1748",
     citat:
       "En kreativ plats där data blir till stad och analys blir till form.",
+      loggaRubrik: "EL. / EGEN DESIGNAD LOGOTYP",
+      loggaDesign: "Designad av Emma Lehtinen.",
+       loggaCopyright: "© 2026 Emma Lehtinen. Alla rättigheter förbehållna.",
   },
 
+  
   en: {
     morgon: "Good morning",
     dag: "Good afternoon",
@@ -42,7 +46,11 @@ const oversattningar = {
     bildAlt: "Giambattista Nolli's historical map of Rome from 1748",
     citat:
       "A creative space where data becomes a city and analysis takes shape.",
-  },
+
+      loggaRubrik: "EL. / CUSTOM-DESIGNED LOGO",
+loggaDesign: "Designed by Emma Lehtinen.",
+loggaCopyright: "© 2026 Emma Lehtinen. All rights reserved.",
+    },
 
   fi: {
     morgon: "Hyvää huomenta",
@@ -54,6 +62,10 @@ const oversattningar = {
     bildAlt: "Giambattista Nollin historiallinen Rooman kartta vuodelta 1748",
     citat:
       "Luova tila, jossa datasta syntyy kaupunkia ja analyysi saa formen.",
+
+      loggaRubrik: "EL. / ITSE SUUNNITELTU LOGO",
+loggaDesign: "Emma Lehtinen suunnittelema.",
+loggaCopyright: "© 2026 Emma Lehtinen. Kaikki oikeudet pidätetään.",
   },
 };
 
@@ -112,16 +124,17 @@ function Hero({ namn, sprak = "sv" }) {
           />
             {/* INFORMATION OM MIN LOGOTYP */}
 
+
 <div className="hero-logga-info">
-  <h2>EL. / EGEN DESIGNAD LOGOTYP</h2>
+  <h2>{text.loggaRubrik}</h2>
 
   <div className="hero-logga-info-linje" />
 
-  <p>Designad av Emma Lehtinen.</p>
+  <p>{text.loggaDesign}</p>
 
-  <small>
-    © 2026 Emma Lehtinen. Alla rättigheter förbehållna.
-  </small>
+  <small className={sprak === "fi" ? "copyright-fi" : ""}>
+  {text.loggaCopyright}
+</small>
 </div>    
           {/* HÄLSNING – FINSK RETRODESIGN */}
 
@@ -138,9 +151,9 @@ function Hero({ namn, sprak = "sv" }) {
               />
             </div>
 
-            <p className="hero-halsning">
-              {hamtaHalsning(sprak)}
-            </p>
+          <p className={`hero-halsning ${sprak === "en" ? "hero-halsning-en" : ""}`}>
+  {hamtaHalsning(sprak)}
+</p>
 
           </div>
 
