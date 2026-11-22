@@ -15,6 +15,15 @@ import Portobild from "../assets/portobild.jpg";
 import Rosen from "../assets/rosen.png";
 import Hero3 from "../assets/Hero3.webp";
 
+import GameStreet from "../assets/GAME-STREET..png";
+import Sege from "../assets/SEGE..png";
+import VardaGrupp from "../assets/VARDA.GRUPP.png";
+
+import GruppVarda from "../assets/GRUPP.VARDA..png";
+import FinalPres from "../assets/FINAL.PRES.png";
+import Drottningtorget from "../assets/DROTTTNING..png";
+import EssäBild from "../assets/essäbild.png";
+
 /* =========================================
    ÖVERSÄTTNINGAR
 ========================================= */
@@ -83,12 +92,26 @@ const bilder = {
   1: Portobild,
   2: Rosen,
   3: Hero3,
+  4: GameStreet,
+  5: Sege,
+  6: VardaGrupp,
+  7: GruppVarda,
+  8: FinalPres,
+  9: EssäBild,
+  10: Drottningtorget,
 };
 
 const lankar = {
   1: "/projekt/portfoliosida.pdf",
   2: "/projekt/projekt2.pdf",
   3: "/projekt/projekt3.pdf",
+  4: "/projekt/Förslagshandling.pdf",
+  5: "/projekt/Segepark_grupp6_BY208B.pdf",
+  6: "/projekt/presentation.pdf",
+  7: "/projekt/Projektrapport1702, gunnar lindman.pdf",
+  8: "/projekt/Team6grupparbete .pdf",
+  9: "/projekt/MasterExamen.pdf",
+  10: "/projekt/BY158D_poster_grupp13.pdf",
 };
 
 const projekt = projektData.map((p) => ({

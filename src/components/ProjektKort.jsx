@@ -58,8 +58,17 @@ function ProjektKort({
     oversattningar[sprak] || oversattningar.sv;
 
   return (
-    <article className="projekt-kort">
-
+    <article
+  className={`projekt-kort ${
+    [4, 5, 7, 8].includes(id)
+      ? "projekt-kort-justera-lasmer"
+      : ""
+        } ${
+    [4, 7].includes(id)
+      ? "projekt-kort-justera-teknik-mer"
+      : ""
+  }`}
+>
       {/* =====================================
           PROJEKTBILD
       ===================================== */}

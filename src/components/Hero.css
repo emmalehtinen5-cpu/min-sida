@@ -444,7 +444,6 @@ flex-shrink: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 30px;
   font-weight: 400;
-  font-style: none;
 
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -455,7 +454,7 @@ flex-shrink: 0;
 
   color: #000000;
 
-  transform: translate(-420px, -41.7px);
+  transform: translate(-430px, -41.7px);
 }
 
 /* =========================================
@@ -629,7 +628,6 @@ flex-shrink: 0;
 .hero .nolli-titel span {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 33px;
-  font-style: none;
   font-weight: 400;
 
   color: #000000;
@@ -750,10 +748,8 @@ max-width: calc(100% - 40px);
   outline: 1px solid #000000;
   outline-offset: -12.5px;
   
+  flex-direction: column;
 
-  display: justify;
-flex-direction: column;
-align-items: left;
 }
 /* EMMA LEHTINEN – EN RAD */
 
@@ -1300,7 +1296,7 @@ body.morkt-lage .hero .nolli-titel-linje {
   margin: 15px;
   padding: 290px 0 19px;
 
-  gap: -3px;
+
   height: auto;
 }
 
@@ -2790,6 +2786,7 @@ body.morkt-lage .hero
 }
 
 }
+
 
 /* IPAD MINI – MINSKA TOMRUMMET UNDER BOXARNA */
 

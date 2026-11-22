@@ -40,7 +40,42 @@ function ProjektDetalj() {
           <li key={namn}>{namn}</li>
         ))}
       </ul>
+      {projekt.dokument?.length > 0 && (
+        <div className="projekt-dokument">
+          <h2>Projektdokument</h2>
 
+          <ul>
+            {projekt.dokument.map((dokument) => (
+              <li key={dokument.fil}>
+                <a
+                  href={dokument.fil}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {dokument.titel} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+            {projekt.grupparbete && (
+        <div className="projekt-grupparbete">
+          <h2>GRUPPARBETE</h2>
+          <p>{projekt.grupparbete}</p>
+        </div>
+      )}
+
+      {projekt.video && (
+        <div className="projekt-video">
+          <h2>REKLAMFILM – TEATER I SEGE PARK</h2>
+
+          <video controls preload="metadata" width="100%">
+            <source src={projekt.video} type="video/mp4" />
+            Din webbläsare stöder inte videouppspelning.
+          </video>
+        </div>
+      )}
       <Link to="/projekt">
         Tillbaka till alla projekt
       </Link>

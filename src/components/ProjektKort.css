@@ -243,3 +243,27 @@
     margin-top: auto;
   }
 }
+/* =========================================
+   JUSTERA LÄS MER – ENDAST PROJEKT 4, 5, 7, 8
+========================================= */
+
+.projekt-lista .projekt-kort-justera-lasmer .projekt-detalj-lank {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+}
+
+.projekt-lista .projekt-kort-justera-lasmer .projekt-lank {
+  margin: 0;
+
+  
+}
+/* Flytta ned tekniktexten i utvalda projekt */
+
+.projekt-lista .projekt-kort-justera-lasmer .projekt-teknik {
+  margin-top: 2.5rem;
+}
+/* Extra förskjutning för projekt 4 och 7 */
+
+.projekt-lista .projekt-kort-justera-teknik-mer .projekt-teknik {
+  margin-top: 3.7rem;
+}

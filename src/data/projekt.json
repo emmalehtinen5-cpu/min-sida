@@ -39,6 +39,38 @@
       "Intervjuer",
       "Platsanalys"
     ],
+    "bilder": [
+  {
+    "titel": "ArchiART – röd logotyp",
+    "fil": "/projekt/archiartlogga.png"
+  },
+  {
+    "titel": "ArchiART – gul logotyp",
+    "fil": "/projekt/Kopia av ARCHIARTS gul.png"
+  }
+],
+    "dokument": [
+  {
+    "titel": "Flyer – Varda",
+    "fil": "/projekt/Kopia av Flyer Varda.pdf"
+  },
+  {
+    "titel": "Illustrationer – Rosengård",
+    "fil": "/projekt/Namnlöst-34.pdf"
+  },
+  {
+    "titel": "Enkätformulär – Rosengård",
+    "fil": "/projekt/enkät .pdf"
+  },
+  {
+    "titel": "Resultat av enkät",
+    "fil": "/projekt/RESLULTAT AV ENKÄT.pdf"
+  },
+  {
+    "titel": "Resultat av bildspel",
+    "fil": "/projekt/RESULTAT AV BILDSPEL.pdf"
+  }
+],
     "oversattningar": {
       "en": {
         "titel": "Method Book – Rosengård",
@@ -86,5 +118,355 @@
         ]
       }
     }
+  },
+  {
+  "id": 4,
+  "titel": "Game Street Klostergården",
+  "text": "Omgestaltning av Södra verket i Lund till ett tillgängligt sport- och aktivitetscenter med fokus på gemenskap, rörelse och hållbar utveckling.",
+  "teknik": [
+    "Arkitektur",
+    "3D-visualisering",
+    "Gestaltning"
+  ],
+  "dokument": [
+    {
+      "titel": "Förslagshandling",
+      "fil": "/projekt/Förslagshandling.pdf"
+    },
+    {
+      "titel": "Poster",
+      "fil": "/projekt/Poster.pdf"
+    },
+  {
+    "titel": "Programhandling – Klostergårdens Mötescenter (grupparbete)",
+    "fil": "/projekt/Programhandling.Grupp.pdf"
   }
+  ],
+  "oversattningar": {
+    "en": {
+      "titel": "Game Street Klostergården",
+      "text": "Redesign of Södra verket in Lund into an accessible sports and activity centre, focusing on community, physical activity and sustainable development.",
+      "teknik": [
+        "Architecture",
+        "3D visualization",
+        "Spatial design"
+      ]
+    },
+    "fi": {
+      "titel": "Game Street Klostergården",
+      "text": "Lundissa sijaitsevan Södra verket -rakennuksen uudistaminen esteettömäksi liikunta- ja toimintakeskukseksi, jossa korostuvat yhteisöllisyys, liikkuminen ja kestävä kehitys.",
+      "teknik": [
+        "Arkkitehtuuri",
+        "3D-visualisointi",
+        "Tilasuunnittelu"
+      ]
+    }
+  }
+},
+{
+  "id": 5,
+  "titel": "Teater i Sege park – Grupparbete",
+  "text": "Grupparbete från Malmö universitet (2019). Konceptutveckling av en teaterskola och permanent scen i Sege park med fokus på social hållbarhet, gemenskap och stadsutveckling.",
+  "teknik": [
+    "Platsanalys",
+    "Gestaltning",
+    "Strategisk kommunikation"
+  ],
+  "dokument": [
+    {
+      "titel": "Slutrapport – Grupparbete",
+      "fil": "/projekt/Segepark_grupp6_BY208B.pdf"
+    },
+    {
+      "titel": "Rapporttext – Grupparbete",
+      "fil": "/projekt/Rapport_text.pdf"
+    }
+  ],
+  "video": "/projekt/Segepark-reklam.mp4",
+  "grupparbete": "Johanna Frennesson, Emma Lehtinen och Isabella Sonesson",
+  "oversattningar": {
+    "en": {
+      "titel": "Theatre in Sege Park – Group Project",
+      "text": "A group project at Malmö University (2019), developing a theatre school and permanent stage in Sege Park, focusing on social sustainability, community and urban development.",
+      "teknik": [
+        "Site analysis",
+        "Spatial design",
+        "Strategic communication"
+      ]
+    },
+    "fi": {
+      "titel": "Teatteri Sege Parkissa – Ryhmätyö",
+      "text": "Malmön yliopistossa vuonna 2019 toteutettu ryhmätyö, jossa suunniteltiin teatterikoulu ja pysyvä esiintymislava Sege Parkiin. Painopisteinä olivat sosiaalinen kestävyys, yhteisöllisyys ja kaupunkikehitys.",
+      "teknik": [
+        "Paikka-analyysi",
+        "Tilasuunnittelu",
+        "Strateginen viestintä"
+      ]
+    }
+  }
+},
+
+{
+  "id": 6,
+  "titel": "Vardas Fotokollo – Rosengård",
+  "text": "Grupprojekt med fokus på social hållbarhet, kreativitet och gemenskap i Rosengård. Projektet omfattar konceptutveckling, rumslig gestaltning, planritningar och visualiseringar för ett fotokollo med fotolabb och aktivitetslokal.",
+  "teknik": [
+    "Arkitektur",
+    "Konceptutveckling",
+    "Rumslig gestaltning",
+    "3D-visualisering",
+    "Grafisk kommunikation"
+  ],
+  "dokument": [
+    {
+      "titel": "Projektpresentation – Vardas Fotokollo",
+      "fil": "/projekt/presentation.pdf"
+    },
+    {
+      "titel": "Informationsblad – Vardas Fotokollo",
+      "fil": "/projekt/VARDA, FOTOKOLLO11.pdf"
+    }
+  ],
+  "grupparbete": "Henny, Peaches, Malin, Emma, Elina och Annie",
+  "oversattningar": {
+    "en": {
+      "titel": "Varda Photography Camp – Rosengård",
+      "text": "A group project focusing on social sustainability, creativity and community in Rosengård, including concept development, spatial design, floor plans and architectural visualisations.",
+      "teknik": [
+        "Architecture",
+        "Concept development",
+        "Spatial design",
+        "3D visualisation",
+        "Graphic communication"
+      ]
+    },
+    "fi": {
+      "titel": "Vardan valokuvausleiri – Rosengård",
+      "text": "Ryhmäprojekti, jossa keskityttiin sosiaaliseen kestävyyteen, luovuuteen ja yhteisöllisyyteen Rosengårdissa. Projekti sisälsi konseptisuunnittelua, tilasuunnittelua, pohjapiirroksia ja visualisointeja.",
+      "teknik": [
+        "Arkkitehtuuri",
+        "Konseptisuunnittelu",
+        "Tilasuunnittelu",
+        "3D-visualisointi",
+        "Graafinen viestintä"
+      ]
+    }
+  }
+},
+
+{
+  "id": 7,
+  "titel": "Varda Herrgården – Rumslig analys",
+  "text": "Grupparbete med fokus på rumslig analys, tillgänglighet och dokumentation av Vardas lokaler i Herrgården, Rosengård. Projektet omfattar platsstudier, kartläggning av tillgänglighet, planritningar, 3D-modellering och analys av byggnadens rumsliga förutsättningar.",
+  "teknik": [
+    "Rumslig analys",
+    "Tillgänglighetsanalys",
+    "Platsanalys",
+    "3D-modellering",
+    "Planritningar",
+    "Fotodokumentation"
+  ],
+  "dokument": [
+    {
+      "titel": "Projektrapport – Varda Herrgården",
+      "fil": "/projekt/Projektrapport1702, gunnar lindman.pdf"
+    }
+  ],
+  "grupparbete": "Emelie Engkvist, Isabella Sonesson, Emma Lehtinen, Tove Skagerlind, Douglas Larsson och Marcus Kirchhoff",
+  "oversattningar": {
+    "en": {
+      "titel": "Varda Herrgården – Spatial Analysis",
+      "text": "A group project focusing on spatial analysis, accessibility and documentation of Varda's premises in Herrgården, Rosengård. The project includes site studies, accessibility mapping, floor plans, 3D modelling and analysis of the building's spatial conditions.",
+      "teknik": [
+        "Spatial analysis",
+        "Accessibility analysis",
+        "Site analysis",
+        "3D modelling",
+        "Floor plans",
+        "Photographic documentation"
+      ]
+    },
+    "fi": {
+      "titel": "Varda Herrgården – Tila-analyysi",
+      "text": "Ryhmäprojekti, jossa tarkasteltiin Vardan toimitilojen tilallisia ominaisuuksia ja esteettömyyttä Herrgårdenissa, Rosengårdissa. Projekti sisälsi paikkatutkimuksia, esteettömyyskartoitusta, pohjapiirroksia, 3D-mallinnusta ja rakennuksen tilallisten ominaisuuksien analysointia.",
+      "teknik": [
+        "Tila-analyysi",
+        "Esteettömyysanalyysi",
+        "Paikka-analyysi",
+        "3D-mallinnus",
+        "Pohjapiirrokset",
+        "Valokuvadokumentointi"
+      ]
+    }
+  }
+},
+
+{
+  "id": 8,
+  "titel": "Plane Site – Paviljonggestaltning",
+  "text": "Grupparbete med fokus på arkitektonisk gestaltning av en paviljong och utställningsmiljö. Genom konceptskisser, fysiska modeller och rumsliga studier utvecklades ett förslag med cirkulära former, nivåskillnader och mötesplatser. Projektet omfattar situationsplaner, sektioner, visualiseringar och modellstudier.",
+  "teknik": [
+    "Arkitektur",
+    "Konceptutveckling",
+    "Paviljonggestaltning",
+    "Modellbygge",
+    "Rumslig analys",
+    "Visualisering"
+  ],
+  "dokument": [
+    {
+      "titel": "Plane Site – Grupparbete och projektprocess",
+      "fil": "/projekt/Team6grupparbete .pdf"
+    },
+    {
+      "titel": "Plane Site – Modellpresentation",
+      "fil": "/projekt/Team6.pdf"
+    }
+  ],
+  "grupparbete": "Emma Lehtinen, Mark Lorentzon, Elina Wikström och Tove Skagerlind",
+  "oversattningar": {
+    "en": {
+      "titel": "Plane Site – Pavilion Design",
+      "text": "A group project exploring architectural pavilion design and exhibition spaces. Through concept sketches, physical models and spatial studies, a design was developed using circular forms, varying levels and shared spaces. The project includes site plans, sections, visualisations and model studies.",
+      "teknik": [
+        "Architecture",
+        "Concept development",
+        "Pavilion design",
+        "Physical modelling",
+        "Spatial analysis",
+        "Visualisation"
+      ]
+    },
+    "fi": {
+      "titel": "Plane Site – Paviljonkisuunnittelu",
+      "text": "Ryhmäprojekti, jossa suunniteltiin paviljonki ja näyttelyympäristö. Konseptiluonnosten, pienoismallien ja tilallisten tutkimusten avulla kehitettiin suunnitelma, jossa korostuvat pyöreät muodot, korkeuserot ja yhteiset kohtaamispaikat. Projekti sisältää asemapiirroksia, leikkauksia, visualisointeja ja pienoismallitutkimuksia.",
+      "teknik": [
+        "Arkkitehtuuri",
+        "Konseptisuunnittelu",
+        "Paviljonkisuunnittelu",
+        "Pienoismallien rakentaminen",
+        "Tila-analyysi",
+        "Visualisointi"
+      ]
+    }
+  }
+},
+
+{
+  "id": 9,
+  "titel": "Akademiska arbeten & essäer",
+  "text": "En samling akademiska arbeten från Malmö universitet inom arkitektur, urbana studier och hållbar stadsutveckling. Arbetena behandlar ekologisk hållbarhet, social inkludering, tillgänglighet, segregation, stadsplanering och byggbranschens klimatpåverkan. Samlingen omfattar kandidat- och masterexamensarbeten, forskningsrapporter, essäer och ett grupparbete.",
+  "teknik": [
+    "Akademisk forskning",
+    "Urban Studies",
+    "Arkitekturteori",
+    "Stadsplanering",
+    "Hållbar utveckling",
+    "Kvalitativ analys",
+    "Tillgänglighetsanalys"
+  ],
+  "dokument": [
+    {
+      "titel": "Ekologisk hållbarhet – Kandidatarbete (2020)",
+      "fil": "/projekt/Examensarbete2020.pdf"
+    },
+    {
+      "titel": "Equal Opportunities – Masteruppsats (2023)",
+      "fil": "/projekt/MasterExamen.pdf"
+    },
+    {
+      "titel": "Right to the City – Forskningsrapport (2022)",
+      "fil": "/projekt/RightToTheCity.pdf"
+    },
+    {
+      "titel": "One Man's Trash Is Another Man's Treasure – Essä (2019)",
+      "fil": "/projekt/One.Man.Trash.pdf"
+    },
+    {
+      "titel": "Urban Planning and Segregation – Essä (2021)",
+      "fil": "/projekt/Planning issue, or project.pdf"
+    },
+    {
+      "titel": "Net Zero CO2 Emission – Grupparbete (2022)",
+      "fil": "/projekt/NET ZERO CO2 EMISSION.pdf"
+    }
+  ],
+  "oversattningar": {
+    "en": {
+      "titel": "Academic Research & Essays",
+      "text": "A collection of academic works from Malmö University exploring architecture, urban studies and sustainable urban development. The collection includes bachelor's and master's theses, research reports, essays and collaborative research on ecological sustainability, accessibility, segregation and climate-conscious construction.",
+      "teknik": [
+        "Academic research",
+        "Urban Studies",
+        "Architectural theory",
+        "Urban planning",
+        "Sustainable development",
+        "Qualitative analysis",
+        "Accessibility analysis"
+      ]
+    },
+    "fi": {
+      "titel": "Akateemiset tutkimukset ja esseet",
+      "text": "Malmön yliopistossa laadittujen akateemisten töiden kokoelma, joka käsittelee arkkitehtuuria, kaupunkitutkimusta ja kestävää kaupunkikehitystä. Kokoelmaan kuuluu kandidaatin- ja pro gradu -tutkielmia, tutkimusraportteja, esseitä ja ryhmätyö ekologisesta kestävyydestä, esteettömyydestä, segregaatiosta ja rakentamisen ilmastovaikutuksista.",
+      "teknik": [
+        "Akateeminen tutkimus",
+        "Kaupunkitutkimus",
+        "Arkkitehtuuriteoria",
+        "Kaupunkisuunnittelu",
+        "Kestävä kehitys",
+        "Laadullinen analyysi",
+        "Esteettömyysanalyysi"
+      ]
+    }
+  }
+},
+
+{
+  "id": 10,
+  "titel": "Drottningtorget, Malmö – Gestaltningsförslag",
+  "text": "Grupparbete inom arkitektur och urban form med fokus på omgestaltning av Drottningtorget i Malmö. Förslaget utgår från platsens historiska och kulturella identitet och utvecklar en föränderlig urban miljö. Projektet omfattar platsanalys, situationsplan, sektioner, 3D-visualiseringar och gestaltning av offentliga rum.",
+  "teknik": [
+    "Arkitektur",
+    "Urban gestaltning",
+    "Platsanalys",
+    "Situationsplan",
+    "Sektioner",
+    "3D-visualisering"
+  ],
+  "dokument": [
+    {
+      "titel": "Drottningtorget – Gestaltningsförslag (Grupp 13)",
+      "fil": "/projekt/BY158D_poster_grupp13.pdf"
+    }
+  ],
+  "grupparbete": "Alicia, Emma, Erik och Henny",
+  "oversattningar": {
+    "en": {
+      "titel": "Drottningtorget, Malmö – Urban Design Proposal",
+      "text": "A group project in architecture and urban design focusing on the redesign of Drottningtorget in Malmö. The proposal draws on the site's historical and cultural identity to create an adaptable urban environment. The project includes site analysis, site plans, sections, 3D visualisations and public space design.",
+      "teknik": [
+        "Architecture",
+        "Urban design",
+        "Site analysis",
+        "Site plans",
+        "Sections",
+        "3D visualisation"
+      ]
+    },
+    "fi": {
+      "titel": "Drottningtorget, Malmö – Kaupunkitilan suunnitelma",
+      "text": "Arkkitehtuurin ja kaupunkisuunnittelun ryhmäprojekti, jossa suunniteltiin Malmön Drottningtorgetin uudistamista. Suunnitelma perustuu alueen historialliseen ja kulttuuriseen identiteettiin ja kehittää muunneltavaa kaupunkiympäristöä. Projekti sisältää paikka-analyysin, asemapiirroksen, leikkauksia, 3D-visualisointeja ja julkisen tilan suunnittelua.",
+      "teknik": [
+        "Arkkitehtuuri",
+        "Kaupunkitilan suunnittelu",
+        "Paikka-analyysi",
+        "Asemapiirros",
+        "Leikkaukset",
+        "3D-visualisointi"
+      ]
+    }
+  }
+}
+
+
 ]
